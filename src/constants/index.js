@@ -56,6 +56,7 @@ export const PROJECTS = [
     description:
       "A personal portfolio website showcasing projects, skills, and contact information.",
     technologies: ["HTML", "CSS", "React", "Bootstrap", "Vite"],
+    link: "https://portfolio-cyan-nu-45.vercel.app/",
   },
   // {
   //   title: "Blogging Platform",
