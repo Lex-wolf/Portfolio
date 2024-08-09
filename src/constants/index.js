@@ -70,5 +70,5 @@ export const PROJECTS = [
 export const CONTACT = {
   address: "World Wide Remote",
   phoneNo: "+1 619 - 793-8464 ",
-  email: "alkuriel@gmail.com",
+  email: "alexcuriel.com",
 };
