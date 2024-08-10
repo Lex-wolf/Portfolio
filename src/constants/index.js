@@ -58,13 +58,14 @@ export const PROJECTS = [
     technologies: ["HTML", "CSS", "React", "Bootstrap", "Vite"],
     link: "https://portfolio-cyan-nu-45.vercel.app/",
   },
-  // {
-  //   title: "Blogging Platform",
-  //   image: project4,
-  //   description:
-  //     "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
-  //   technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
-  // },
+  {
+    title: "Non-Profit ",
+    image: project4,
+    description:
+      "FTPP is a non-profit organization based in San Diego, Ca. We dedicate our cause to planting fruit trees around our community. Our aim is to teach members of the community the value of contributing to the environment in proactive ways.",
+    technologies: ["HTML", "CSS", "React"],
+    Link: "https://ftpp.support/ ",
+  },
 ];
 
 export const CONTACT = {
