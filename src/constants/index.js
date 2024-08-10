@@ -1,7 +1,7 @@
 import project1 from "../assets/weather.jpeg";
 import project2 from "../assets/todo.png";
-import project3 from "../assets/project-3.jpg";
-import project4 from "../assets/project-4.jpg";
+import project3 from "../assets/profile2.png";
+import project4 from "../assets/fttp.png";
 
 export const HERO_CONTENT = `I am a passionate frontend developer with 8 years of experience in the tech industry, specializing in crafting robust and scalable web applications. With extensive experience in front-end technologies like React and Next.js, I focus on creating intuitive, high-performance user interfaces that drive business growth. My approach combines a deep understanding of modern web development practices with a commitment to delivering exceptional user experiences. I am dedicated to leveraging my expertise to solve complex challenges and bring innovative solutions to life. Let’s collaborate to transform your ideas into engaging and effective web applications.`;
 
@@ -39,7 +39,7 @@ export const PROJECTS = [
     image: project1,
     description:
       "A responsive weather app built using HTML, CSS, and JavaScript with React. The app provides real-time weather updates, allowing users to search for and view current weather conditions, forecasts, and temperatures in any location. Designed with a clean and intuitive interface, it ensures a smooth user experience across all devices.",
-    technologies: ["HTML", "CSS", "React", "Node.js"],
+    technologies: ["HTML", "CSS", "Node.js"],
     link: "https://weather-app-one-rho-19.vercel.app",
   },
   {
@@ -59,12 +59,12 @@ export const PROJECTS = [
     link: "https://portfolio-cyan-nu-45.vercel.app/",
   },
   {
-    title: "Non-Profit ",
+    title: "Nonprofit Tree Planting Community",
     image: project4,
     description:
       "FTPP is a non-profit organization based in San Diego, Ca. We dedicate our cause to planting fruit trees around our community. Our aim is to teach members of the community the value of contributing to the environment in proactive ways.",
     technologies: ["HTML", "CSS", "React"],
-    Link: "https://ftpp.support/ ",
+    link: "https://ftpp.support/",
   },
 ];
 
