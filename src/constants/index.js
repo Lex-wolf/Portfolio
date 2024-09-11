@@ -7,6 +7,8 @@ export const HERO_CONTENT = `I’ve worked as a Quality Assurance Engineer in th
 
 export const ABOUT_TEXT = `I am a dedicated and versatile frontend developer with a passion for creating efficient and user-friendly web applications. I have worked with technologies such as Vite, React, JavaScript, HTML5, CSS, Jira, and ClickUp, and I use Slack for communication and collaboration. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions.
 
+I believe in the importance of working in a positive environment that encourages growth and fosters creativity, where team members support one another and share a common goal of continuous improvement.
+
 Outside of coding, I have a deep appreciation for nature, enjoy cooking Italian food, and love traveling to explore new places. In my downtime, you’ll often find me with a good book, constantly feeding my curiosity and love for learning.
 
 `;
