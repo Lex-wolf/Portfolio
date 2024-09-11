@@ -5,7 +5,9 @@ import project4 from "../assets/fttp.png";
 
 export const HERO_CONTENT = `I’ve worked as a Quality Assurance Engineer in the web and mobile app development world for the last 8 years, and during that time, I’ve seen the good, the bad, the ugly, and the incredible. A year ago, I decided I wanted to sit on the opposite side of the screen and use all that experience to correct mistakes where others had failed, and to start coding myself. I developed an instant passion for coding, especially for frontend technologies like React and Next.js. I’m committed to delivering exceptional user experiences.`;
 
-export const ABOUT_TEXT = `I am a dedicated and versatile frontend developer with a passion for creating efficient and user-friendly web applications. I have worked with technologies such as Vite, React, JavaScript, HTML5, CSS, Jira, and ClickUp, and I use Slack for communication and collaboration. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.
+export const ABOUT_TEXT = `I am a dedicated and versatile frontend developer with a passion for creating efficient and user-friendly web applications. I have worked with technologies such as Vite, React, JavaScript, HTML5, CSS, Jira, and ClickUp, and I use Slack for communication and collaboration. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions.
+
+Outside of coding, I have a deep appreciation for nature, enjoy cooking Italian food, and love traveling to explore new places. In my downtime, you’ll often find me with a good book, constantly feeding my curiosity and love for learning.
 
 `;
 
