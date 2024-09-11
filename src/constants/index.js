@@ -3,7 +3,7 @@ import project2 from "../assets/todo.png";
 import project3 from "../assets/profile2.png";
 import project4 from "../assets/fttp.png";
 
-export const HERO_CONTENT = `I am a passionate frontend developer with 8 years of experience in the tech industry, specializing in crafting robust and scalable web applications. With extensive experience in front-end technologies like React and Next.js, I focus on creating intuitive, high-performance user interfaces that drive business growth. My approach combines a deep understanding of modern web development practices with a commitment to delivering exceptional user experiences. I am dedicated to leveraging my expertise to solve complex challenges and bring innovative solutions to life. Let’s collaborate to transform your ideas into engaging and effective web applications.`;
+export const HERO_CONTENT = `I am a passionate frontend developer specializing in crafting robust and scalable web applications. With extensive experience in front-end technologies like React and Next.js, I focus on creating intuitive, high-performance user interfaces that drive business growth. My approach combines a deep understanding of modern web development practices with a commitment to delivering exceptional user experiences. I am dedicated to leveraging my expertise to solve complex challenges and bring innovative solutions to life. Let's collaborate to transform your ideas into engaging and effective web applications.`;
 
 export const ABOUT_TEXT = `I am a dedicated and versatile frontend developer with a passion for creating efficient and user-friendly web applications. I have worked with technologies such as Vite, React, JavaScript, HTML5, CSS, Jira, and ClickUp, and I use Slack for communication and collaboration. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.
 
@@ -18,7 +18,7 @@ export const EXPERIENCES = [
     technologies: ["HTML", "CSS", "ReactJS", "Tailwind", "Vite"],
   },
   {
-    year: "2017- 2024",
+    year: "2017- Present",
     role: "Quality Assurance",
     company: "Analog Republic",
     description: `Experienced Quality Assurance professional with a strong background in conducting thorough manual testing across diverse platforms and devices, ensuring robust performance and compatibility. Developed and executed comprehensive test plans and test suites, covering all aspects of software functionality. Collaborated effectively with cross-functional teams to streamline project development and enhance communication and efficiency. Specialized in wireless functional, performance, co-existence, and stability assessments, with proficiency in using bug tracking systems like Jira, Trello, and ClickUp. Ensured that software requirements met acceptance criteria through meticulous functional testing.`,
