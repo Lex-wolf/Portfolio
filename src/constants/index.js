@@ -3,7 +3,7 @@ import project2 from "../assets/todo.png";
 import project3 from "../assets/profile2.png";
 import project4 from "../assets/fttp.png";
 
-export const HERO_CONTENT = `I’ve 
+export const HERO_CONTENT = `
 With over 8 years of experience as a Quality Assurance Engineer, I’ve had the privilege of working with talented teams on complex and high-profile projects, including the Pearl Jam website, Eric Church’s website and app, and Thomas Rhett’s website and app. These experiences have honed my ability to ensure quality and functionality across diverse platforms. Along the way, I discovered a passion for frontend development, where I now channel my technical expertise and creativity. Using tools like React and Next.js, I strive to deliver exceptional digital experiences that merge seamless functionality with user-friendly design.`;
 
 export const ABOUT_TEXT = `
