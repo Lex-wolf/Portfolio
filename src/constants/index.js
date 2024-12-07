@@ -13,7 +13,7 @@ I spent an incredible chapter of my life in South America, exploring vibrant cou
 
 I also had the privilege of working with remarkable artists, poets, and philosophers who deeply influenced my creativity and perspective. These experiences shape how I approach my work—combining technical expertise with collaboration, adaptability, and innovation.
 
-Outside of coding, I enjoy nature, cooking Italian recipes, and exploring new cultures. In quieter moments, you’ll find me with a good book, always feeding my curiosity. I bring this passion and perspective to my work, contributing to teams where creativity and meaningful connections lead to exceptional results.
+Outside of coding, I enjoy exploring nature, cooking Italian dishes, and immersing myself in new cultures. In quieter moments, I’m often with a good book, constantly fueling my curiosity. I bring this passion and perspective to my work, contributing to teams where creativity and meaningful collaboration thrive.
 
 `;
 
