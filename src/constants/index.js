@@ -7,13 +7,11 @@ export const HERO_CONTENT = `
 With over 8 years of experience as a Quality Assurance Engineer, I’ve had the privilege of working with talented teams on complex and high-profile projects, including the Pearl Jam website, Eric Church’s website and app, and Thomas Rhett’s website and app. These experiences have honed my ability to ensure quality and functionality across diverse platforms. Along the way, I discovered a passion for frontend development, where I now channel my technical expertise and creativity. Using tools like React and Next.js, I strive to deliver exceptional digital experiences that merge seamless functionality with user-friendly design.`;
 
 export const ABOUT_TEXT = `
-I am a passionate and flexible frontend developer dedicated to creating efficient and user-friendly web applications. I thrive in positive, collaborative environments that foster growth, creativity, and teamwork to solve challenges and deliver meaningful solutions.
+I am a passionate and adaptable frontend developer committed to building efficient, user-friendly web applications. I thrive in positive, collaborative environments that inspire growth, creativity, and innovation.
 
-I spent an incredible chapter of my life in South America, exploring vibrant countries like Chile, Argentina, and Brazil. In Chile, I lived a simple yet extraordinary life on a 300-acre property in the Andes, surrounded by breathtaking landscapes. This time taught me the value of slowing down, connecting with nature, and finding inspiration in the quiet beauty around me.
+An incredible chapter of my life took me to South America, where I explored vibrant countries like Chile, Argentina, and Brazil. Living simply on a 300-acre property in the Andes, I connected deeply with nature and found inspiration in its quiet beauty. Collaborating with artists, poets, and philosophers during this time shaped my creative and problem-solving approach.
 
-I also had the privilege of working with remarkable artists, poets, and philosophers who deeply influenced my creativity and perspective. These experiences shape how I approach my work—combining technical expertise with collaboration, adaptability, and innovation.
-
-Outside of coding, I enjoy exploring nature, cooking Italian dishes, and immersing myself in new cultures. In quieter moments, I’m often with a good book, constantly fueling my curiosity. I bring this passion and perspective to my work, contributing to teams where creativity and meaningful collaboration thrive.
+Outside of coding, I enjoy exploring nature, cooking Italian dishes, and immersing myself in different cultures. In quieter moments, you’ll find me with a good book, fueling my curiosity and broadening my perspective. I bring this passion and versatility to every project, contributing to teams where meaningful collaboration thrives. Let's connect and create something extraordinary!
 
 `;
 
