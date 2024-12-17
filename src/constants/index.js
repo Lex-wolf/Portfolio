@@ -41,6 +41,22 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
   {
+    title: "Nonprofit Tree Planting Community",
+    image: project4,
+    description:
+      "FTPP is a non-profit organization based in San Diego, Ca. We dedicate our cause to planting fruit trees around our community. Our aim is to teach members of the community the value of contributing to the environment in proactive ways.",
+    technologies: ["HTML", "CSS", "React"],
+    link: "https://ftpp.support/",
+  },
+  {
+    title: "Portfolio Website",
+    image: project3,
+    description:
+      "A personal portfolio website showcasing projects, skills, and contact information.",
+    technologies: ["HTML", "CSS", "React", "Bootstrap", "Vite"],
+    link: "https://portfolio-cyan-nu-45.vercel.app/",
+  },
+  {
     title: "Weather App",
     image: project1,
     description:
@@ -64,14 +80,7 @@ export const PROJECTS = [
     technologies: ["HTML", "CSS", "React", "Bootstrap", "Vite"],
     link: "https://portfolio-cyan-nu-45.vercel.app/",
   },
-  {
-    title: "Nonprofit Tree Planting Community",
-    image: project4,
-    description:
-      "FTPP is a non-profit organization based in San Diego, Ca. We dedicate our cause to planting fruit trees around our community. Our aim is to teach members of the community the value of contributing to the environment in proactive ways.",
-    technologies: ["HTML", "CSS", "React"],
-    link: "https://ftpp.support/",
-  },
+ 
 ];
 
 export const CONTACT = {

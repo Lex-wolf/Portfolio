@@ -32,7 +32,3 @@ const App = () => {
 };
 
 export default App;
-
-//https://www.youtube.com/watch?v=_63mEm3AMSY&list=PLht1XLyOVKfeJ6RlbF70gfcWG23Z1dWqk&index=10
-//me quede en about section
-//time 51:12

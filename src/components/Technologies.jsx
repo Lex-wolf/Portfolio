@@ -114,5 +114,4 @@ const Technologies = () => {
 
 export default Technologies;
 
-//https://www.youtube.com/watch?v=_63mEm3AMSY&list=PLht1XLyOVKfeJ6RlbF70gfcWG23Z1dWqk&index=12
-//52:54
+
