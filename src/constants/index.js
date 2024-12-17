@@ -2,6 +2,7 @@ import project1 from "../assets/weather.jpeg";
 import project2 from "../assets/todo.png";
 import project3 from "../assets/profile2.png";
 import project4 from "../assets/fttp.png";
+import project5 from "../assets/hummingbird.png";
 
 export const HERO_CONTENT = `
 With over 8 years of experience as a Quality Assurance Engineer, I’ve had the privilege of working with talented teams on complex and high-profile projects, including the Pearl Jam website, Eric Church’s website and app, and Thomas Rhett’s website and app. These experiences have honed my ability to ensure quality and functionality across diverse platforms. Along the way, I discovered a passion for frontend development, where I now channel my technical expertise and creativity. Using tools like React and Next.js, I strive to deliver exceptional digital experiences that merge seamless functionality with user-friendly design.`;
@@ -49,6 +50,14 @@ export const PROJECTS = [
     link: "https://ftpp.support/",
   },
   {
+    title: "Local Artist Website",
+    image: project5,
+    description:
+      "A vibrant portfolio showcasing Chicana-inspired art, hummingbird motifs, and cultural stories woven into nature's beauty.",
+    technologies: ["HTML", "CSS", "React", "Bootstrap", "Vite"],
+    link: "https://portfolio-cyan-nu-45.vercel.app/",
+  },
+  {
     title: "Portfolio Website",
     image: project3,
     description:
@@ -71,14 +80,6 @@ export const PROJECTS = [
       "A simple and efficient to-do app that helps users organize tasks and manage their time effectively. Built with a clean interface, it allows users to add, edit, and delete tasks, set priorities, and track progress easily. The app ensures a smooth user experience with intuitive navigation and responsive design.",
     technologies: ["HTML", "CSS", "jS", "React"],
     link: "https://todo-rho-ruby.vercel.app",
-  },
-  {
-    title: "Portfolio Website",
-    image: project3,
-    description:
-      "A personal portfolio website showcasing projects, skills, and contact information.",
-    technologies: ["HTML", "CSS", "React", "Bootstrap", "Vite"],
-    link: "https://portfolio-cyan-nu-45.vercel.app/",
   },
  
 ];
