@@ -55,7 +55,7 @@ export const PROJECTS = [
     description:
       "A vibrant portfolio showcasing Chicana-inspired art, hummingbird motifs, and cultural stories woven into nature's beauty.",
     technologies: ["HTML", "CSS", "React", "Bootstrap", "Vite"],
-    link: "https://portfolio-cyan-nu-45.vercel.app/",
+    link: "https://chicanahummingbird.com/",
   },
   {
     title: "Portfolio Website",
@@ -63,7 +63,7 @@ export const PROJECTS = [
     description:
       "A personal portfolio website showcasing projects, skills, and contact information.",
     technologies: ["HTML", "CSS", "React", "Bootstrap", "Vite"],
-    link: "https://portfolio-cyan-nu-45.vercel.app/",
+    link: "https://alexcuriel.com/",
   },
   {
     title: "Weather App",
