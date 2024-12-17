@@ -46,7 +46,7 @@ export const PROJECTS = [
     image: project4,
     description:
       "FTPP is a non-profit organization based in San Diego, Ca. We dedicate our cause to planting fruit trees around our community. Our aim is to teach members of the community the value of contributing to the environment in proactive ways.",
-    technologies: ["HTML", "CSS", "React"],
+    technologies: ["HTML", "CSS", "React.js", "JavaScript"],
     link: "https://ftpp.support/",
   },
   {
@@ -54,7 +54,14 @@ export const PROJECTS = [
     image: project5,
     description:
       "A vibrant portfolio showcasing Chicana-inspired art, hummingbird motifs, and cultural stories woven into nature's beauty.",
-    technologies: ["HTML", "CSS", "React", "Bootstrap", "Vite"],
+    technologies: [
+      "HTML",
+      "Tailwind CSS",
+      "React.js",
+      "JavaScript",
+      "Vite",
+      "Node.js",
+    ],
     link: "https://chicanahummingbird.com/",
   },
   {
@@ -62,7 +69,7 @@ export const PROJECTS = [
     image: project3,
     description:
       "A personal portfolio website showcasing projects, skills, and contact information.",
-    technologies: ["HTML", "CSS", "React", "Bootstrap", "Vite"],
+    technologies: ["HTML", "CSS", "React.js", "Bootstrap", "Vite"],
     link: "https://alexcuriel.com/",
   },
   {
@@ -78,10 +85,9 @@ export const PROJECTS = [
     image: project2,
     description:
       "A simple and efficient to-do app that helps users organize tasks and manage their time effectively. Built with a clean interface, it allows users to add, edit, and delete tasks, set priorities, and track progress easily. The app ensures a smooth user experience with intuitive navigation and responsive design.",
-    technologies: ["HTML", "CSS", "jS", "React"],
+    technologies: ["HTML", "CSS", "JavaScript", "React"],
     link: "https://todo-rho-ruby.vercel.app",
   },
- 
 ];
 
 export const CONTACT = {
