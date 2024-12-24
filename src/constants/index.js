@@ -5,7 +5,12 @@ import project4 from "../assets/fttp.png";
 import project5 from "../assets/hummingbird.png";
 
 export const HERO_CONTENT = `
-With over 8 years of experience as a Quality Assurance Engineer, I’ve had the privilege of working with talented teams on complex and high-profile projects, including the Pearl Jam website, Eric Church’s website and app, and Thomas Rhett’s website and app. These experiences have honed my ability to ensure quality and functionality across diverse platforms. Along the way, I discovered a passion for frontend development, where I now channel my technical expertise and creativity. Using tools like React and Next.js, I strive to deliver exceptional digital experiences that merge seamless functionality with user-friendly design.`;
+With over 8 years of experience as a Quality Assurance Engineer, I’ve had the privilege of working with talented teams on complex and high-profile projects, 
+including the Pearl Jam website, Eric Church’s website and app, and Thomas Rhett’s website and app. These experiences have honed my ability 
+to ensure quality and functionality across diverse platforms. Along the way, 
+I discovered a passion for frontend development, where I now channel my technical expertise and creativity. 
+Using tools like React and Next.js, I strive to deliver exceptional digital experiences
+ that merge seamless functionality with user-friendly design.`;
 
 export const ABOUT_TEXT = `
 I am a passionate and adaptable frontend developer committed to building efficient, user-friendly web applications. I thrive in positive, collaborative environments that inspire growth, creativity, and innovation.
@@ -39,6 +44,42 @@ export const EXPERIENCES = [
     technologies: ["Jira", "Trello", "Scrum"],
   },
 ];
+
+export const HIGHLIGHTS = [
+  {
+    title: "Quality Assurance",
+    description: [
+      "Ensured quality and functionality for high-profile websites and apps, including Pearl Jam, Eric Church, and Thomas Rhett.",
+      "Conducted functional, regression, cross-browser, and multi-device testing to ensure compatibility and stability.",
+      "Validated performance on smartphones, tablets, desktops, and smart TVs, ensuring seamless user experiences.",
+      "Optimized UI/UX designs for design consistency, responsiveness, and intuitive navigation.",
+    ],
+  },
+  {
+    title: "Frontend Development",
+    description: [
+      "Developed user-friendly, scalable websites for clients, including a nonprofit organization and a local artist portfolio, showcasing diverse design requirements and functionality.",
+      "Leveraged tools like React, Tailwind CSS, and Vite to create responsive, visually appealing interfaces.",
+      "Integrated QA expertise into frontend work, ensuring smooth functionality across devices and browsers.",
+      "Received industry recognition for combining technical skills with a quality-first mindset.",
+    ],
+  },
+  
+ 
+  {
+    title: "Collaboration",
+    description: [
+      "Worked with cross-functional teams using Agile methodologies.",
+      "Managed workflows using tools like Jira, Trello, and ClickUp.",
+      "Delivered exceptional results through teamwork and effective communication.",
+      "Collaborated with developers, designers, and stakeholders to deliver high-quality results on tight deadlines.",
+    ],
+  },
+];
+
+
+
+  
 
 export const PROJECTS = [
   {

@@ -4,9 +4,10 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Technologies from "./components/Technologies";
 import Experience from "./components/Experience";
-import { ImOpera } from "react-icons/im";
+import Highlights from "./components/Highlights";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import { ImOpera } from "react-icons/im";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <About />
           <Technologies />
           <Experience />
+          <Highlights />
           <Projects />
           <Contact />
         </div>
