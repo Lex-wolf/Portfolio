@@ -3,6 +3,7 @@ import project2 from "../assets/todo.png";
 import project3 from "../assets/profile2.png";
 import project4 from "../assets/fttp.png";
 import project5 from "../assets/hummingbird.png";
+import project6 from "../assets/geobrasil.png"
 
 export const HERO_CONTENT = `
 With over 8 years of experience as a Quality Assurance Engineer, I’ve had the privilege of working with talented teams on complex and high-profile projects, 
@@ -89,6 +90,21 @@ export const PROJECTS = [
       "FTPP is a non-profit organization based in San Diego, Ca. We dedicate our cause to planting fruit trees around our community. Our aim is to teach members of the community the value of contributing to the environment in proactive ways.",
     technologies: ["HTML", "CSS", "React.js", "JavaScript"],
     link: "https://ftpp.support/",
+  },
+  {
+    title: "Geodesic Brasil Website",
+    image: project6,
+    description: "A modern platform showcasing innovative geodesic structures, sustainable design, and architectural solutions tailored for Brazilian landscapes.",
+    technologies: [
+      "HTML",
+      "CSS",
+      "React.js",
+      "JavaScript",
+      "Vite",
+      "Node.js",
+      "TypeScript"
+    ],
+    link: "https://www.geodesicbrasil.com/"
   },
   {
     title: "Local Artist Website",
