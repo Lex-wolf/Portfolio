@@ -28,21 +28,21 @@ export const EXPERIENCES = [
     role: "Frontend Developer",
     company: "Freelance",
     description: `A dedicated Frontend Developer with strong expertise in HTML, CSS, and JavaScript, specializing in ReactJS for building dynamic and interactive user interfaces. Experienced in leveraging Tailwind CSS to create responsive, aesthetically pleasing designs that enhance user experience. Proficient in using Vite to optimize development workflows, ensuring fast builds and efficient project management. With a focus on clean, maintainable code, they are committed to delivering high-quality, performant web applications that meet client and user needs.`,
-    technologies: ["HTML", "CSS", "ReactJS", "Tailwind", "Vite"],
+    technologies: ["HTML", "CSS", "ReactJS", "WordPress", "Tailwind", "Vite"],
   },
   {
     year: "2017- 2024",
     role: "Quality Assurance",
     company: "Analog Republic",
     description: `Experienced Quality Assurance professional with a strong background in conducting thorough manual testing across diverse platforms and devices, ensuring robust performance and compatibility. Developed and executed comprehensive test plans and test suites, covering all aspects of software functionality. Collaborated effectively with cross-functional teams to streamline project development and enhance communication and efficiency. Specialized in wireless functional, performance, co-existence, and stability assessments, with proficiency in using bug tracking systems like Jira, Trello, and ClickUp. Ensured that software requirements met acceptance criteria through meticulous functional testing.`,
-    technologies: ["Scrum", "Slack", "ClickUp"],
+    technologies: ["Jira", "Scrum", "ClickUp", "Slack",],
   },
   {
     year: "2016 - 2017",
     role: "Project Manager",
     company: "Analog Republic",
     description: `A dynamic Project Manager with a proven track record of spearheading end-to-end management of complex projects, consistently exceeding client expectations through seamless execution and delivery. Successfully navigated high-profile partnerships in the music industry, translating unique client needs into actionable project plans that drove success."`,
-    technologies: ["Jira", "Trello", "Scrum"],
+    technologies: ["Jira","Scrum", "Trello","Slack",],
   },
 ];
 
