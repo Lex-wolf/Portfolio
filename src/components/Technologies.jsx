@@ -7,6 +7,7 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import { SiClickup } from "react-icons/si";
 import { FaSlack } from "react-icons/fa";
 import { FaJira } from "react-icons/fa";
+import { FaWordpress } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const iconVariants = (duration) => ({
@@ -81,14 +82,14 @@ const Technologies = () => {
           <RiTailwindCssFill className="text-7xl text-violet-800" />
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           variants={iconVariants(2.3)}
           initial="inital"
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
           <SiClickup className="text-7xl text-sky-400" />
-        </motion.div>
+        </motion.div> */}
 
         <motion.div
           variants={iconVariants(3)}
@@ -106,6 +107,14 @@ const Technologies = () => {
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
           <FaJira className="text-7xl text-violet-800" />
+        </motion.div>
+        <motion.div
+          variants={iconVariants(2.5)}
+          initial="inital"
+          animate="animate"
+          className="rounded-2xl border-4 border-neutral-800 p-4"
+        >
+          <FaWordpress className="text-7xl text-blue-500" />
         </motion.div>
       </div>
     </div>
