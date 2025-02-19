@@ -1,11 +1,12 @@
 import { TiHtml5 } from "react-icons/ti";
 import { SiJavascript } from "react-icons/si";
-import { TbBrandReactNative } from "react-icons/tb";
+import { RiReactjsFill } from "react-icons/ri";
 import { IoLogoCss3 } from "react-icons/io5";
 import { SiVite } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiClickup } from "react-icons/si";
-import { FaSlack } from "react-icons/fa";
+// import { FaSlack } from "react-icons/fa";
+import { FaFileExcel } from "react-icons/fa";
 import { FaJira } from "react-icons/fa";
 import { FaWordpress } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -43,7 +44,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <TbBrandReactNative className="text-7xl text-blue-500" />
+          <RiReactjsFill className="text-7xl text-blue-500" />
         </motion.div>
 
         <motion.div
@@ -97,7 +98,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <FaSlack className="text-7xl text-blue-500" />
+          <FaFileExcel className="text-7xl text-blue-500" />
         </motion.div>
 
         <motion.div
