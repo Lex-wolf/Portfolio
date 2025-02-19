@@ -44,7 +44,7 @@ export const EXPERIENCES = [
   },
   {
     year: "2019 - 2022",
-    role: "Data Entry Specialist",
+    role: "Data Management Specialist",
     company: "Freelance",
     description: `
       Provided data entry services for private clients, ensuring accuracy and organization in 
