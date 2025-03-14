@@ -147,7 +147,7 @@ export const HIGHLIGHTS = [
 
 export const PROJECTS = [
   {
-    title: "Jimmy's Pizza Bar",
+    title: "Axe Thro Co's Pizza Bar",
     image: PizzaBar,
     description:
       "A stylish and modern landing page for Axe Thro Co's Pizza Bar, designed to showcase the restaurant’s menu, atmosphere, and unique offerings. The site features a responsive layout, high-quality visuals, and smooth navigation for an engaging user experience.",
