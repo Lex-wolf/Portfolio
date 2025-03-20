@@ -15,12 +15,11 @@ Using tools like React and Next.js, I strive to deliver exceptional digital expe
  that merge seamless functionality with user-friendly design.`;
 
 export const ABOUT_TEXT = `
-I am a passionate and adaptable frontend developer committed to building efficient, user-friendly web applications. I thrive in positive, collaborative environments that inspire growth, creativity, and innovation.
+I am a passionate and adaptable frontend developer dedicated to crafting efficient, user-friendly web applications. I thrive in collaborative environments that inspire growth, creativity, and innovation.
 
-An incredible chapter of my life took me to South America, where I explored vibrant countries like Chile, Argentina, and Brazil. Living simply on a 300-acre property in the Andes, I connected deeply with nature and found inspiration in its quiet beauty. Collaborating with artists, poets, and philosophers during this time shaped my creative and problem-solving approach.
+A transformative chapter of my life led me to South America, where I explored vibrant cultures in Chile, Argentina, and Brazil. Living simply in the Andes deepened my connection with nature and creativity, shaping my problem-solving mindset. Collaborating with artists, poets, and philosophers refined my perspective, blending logic with artistry.
 
-Outside of coding, I enjoy exploring nature, cooking Italian dishes, and immersing myself in different cultures. In quieter moments, you’ll find me with a good book, fueling my curiosity and broadening my perspective. I bring this passion and versatility to every project, contributing to teams where meaningful collaboration thrives. Let's connect and create something extraordinary!
-
+Beyond coding, I find joy in exploring nature, cooking Italian dishes, and immersing myself in different cultures. Whether building web experiences or diving into a great book, I bring curiosity and versatility to everything I do. Let’s connect and create something extraordinary!
 `;
 
 export const EXPERIENCES = [
