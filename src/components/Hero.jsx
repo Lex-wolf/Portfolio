@@ -41,6 +41,16 @@ const Hero = () => {
             >
               {HERO_CONTENT}
             </motion.p>
+            <motion.a
+              variants={container(1.5)}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.1 }}
+              href="mailto:info@alexcuriel.com"
+              className="mt-4 px-6 py-3 text-lg font-medium bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent border border-white rounded-lg self-center mb-6 md:mb-10"
+            >
+              Let's Work Together
+            </motion.a>
           </div>
         </div>
         <div className="w-full lg:w-1/2 lg:p-8">
@@ -48,7 +58,7 @@ const Hero = () => {
             <motion.img
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1, dekay: 1.2 }}
+              transition={{ duration: 1, delay: 1.2 }}
               className="rounded-2xl"
               src={profilePic}
               alt="Alejandro Curiel"
@@ -59,9 +69,5 @@ const Hero = () => {
     </div>
   );
 };
-export default Hero;
 
-// whileHover={{ scale: 1.2 }}
-//               whileTap={{ scale: 1.2 }}
-//               drag="x"
-//               dragConstraints={{ left: -100, right: 100 }}
+export default Hero;
