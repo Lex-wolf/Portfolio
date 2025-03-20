@@ -3,7 +3,8 @@ import project2 from "../assets/todo.png";
 import project3 from "../assets/profile2.png";
 import project4 from "../assets/fttp.png";
 import project5 from "../assets/hummingbird.png";
-import project6 from "../assets/geobrasil.png"
+import project6 from "../assets/geobrasil.png";
+import PizzaBar from "../assets/Pizzabar.png";
 
 export const HERO_CONTENT = `
 With over 8 years of experience as a Quality Assurance Engineer, I’ve had the privilege of working with talented teams on complex and high-profile projects, 
@@ -40,7 +41,16 @@ export const EXPERIENCES = [
       Developed interactive and dynamic user interfaces, while also handling data management 
       tasks such as data entry, spreadsheet automation, and reporting for various clients.
     `,
-    technologies: ["HTML", "CSS", "ReactJS", "WordPress", "Tailwind", "Excel", "Vite", "Data Entry"],
+    technologies: [
+      "HTML",
+      "CSS",
+      "ReactJS",
+      "WordPress",
+      "Tailwind",
+      "Excel",
+      "Vite",
+      "Data Entry",
+    ],
   },
   {
     year: "2019 - 2022",
@@ -58,7 +68,12 @@ export const EXPERIENCES = [
       workflow efficiency. Ensured data integrity through quality control checks and systematic 
       organization of large datasets.
     `,
-    technologies: ["Excel", "Google Sheets", "Data Entry", "Spreadsheet Automation"],
+    technologies: [
+      "Excel",
+      "Google Sheets",
+      "Data Entry",
+      "Spreadsheet Automation",
+    ],
   },
   {
     year: "2017 - 2024",
@@ -98,7 +113,6 @@ export const EXPERIENCES = [
   },
 ];
 
-
 export const HIGHLIGHTS = [
   {
     title: "Quality Assurance",
@@ -118,8 +132,7 @@ export const HIGHLIGHTS = [
       "Received industry recognition for combining technical skills with a quality-first mindset.",
     ],
   },
-  
- 
+
   {
     title: "Collaboration",
     description: [
@@ -129,16 +142,18 @@ export const HIGHLIGHTS = [
       "Delivered exceptional results through teamwork and effective communication.",
       "Collaborated with developers, designers, and stakeholders to deliver high-quality results on tight deadlines.",
     ],
-    
-    
   },
 ];
 
-
-
-  
-
 export const PROJECTS = [
+  {
+    title: "Axe Thro Co's Pizza Bar",
+    image: PizzaBar,
+    description:
+      "A stylish and modern landing page for Axe Thro Co's Pizza Bar, designed to showcase the restaurant’s menu, atmosphere, and unique offerings. The site features a responsive layout, high-quality visuals, and smooth navigation for an engaging user experience.",
+    technologies: ["HTML", "CSS", "JavaScript", "WordPress", "Elementor"],
+    link: "https://axethroco.com/pizza-bar/",
+  },
   {
     title: "Nonprofit Tree Planting Community",
     image: project4,
@@ -150,7 +165,8 @@ export const PROJECTS = [
   {
     title: "Geodesic Brasil Website",
     image: project6,
-    description: "A modern platform showcasing innovative geodesic structures, sustainable design, and architectural solutions tailored for Brazilian landscapes.",
+    description:
+      "A modern platform showcasing innovative geodesic structures, sustainable design, and architectural solutions tailored for Brazilian landscapes.",
     technologies: [
       "HTML",
       "CSS",
@@ -158,9 +174,9 @@ export const PROJECTS = [
       "JavaScript",
       "Vite",
       "Node.js",
-      "TypeScript"
+      "TypeScript",
     ],
-    link: "https://www.geodesicbrasil.com/"
+    link: "https://www.geodesicbrasil.com/",
   },
   {
     title: "Local Artist Website",
