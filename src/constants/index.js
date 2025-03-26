@@ -16,12 +16,13 @@ My goal? Digital experiences that look good, work great, and don’t make people
 
 
 export const ABOUT_TEXT = `
-I am a passionate and adaptable frontend developer dedicated to crafting efficient, user-friendly web applications. I thrive in collaborative environments that inspire growth, creativity, and innovation.
-
-A transformative chapter of my life led me to South America, where I explored vibrant cultures in Chile, Argentina, and Brazil. Living simply in the Andes deepened my connection with nature and creativity, shaping my problem-solving mindset. Collaborating with artists, poets, and philosophers refined my perspective, blending logic with artistry.
-
-Beyond coding, I find joy in exploring nature, cooking Italian dishes, and immersing myself in different cultures. Whether building web experiences or diving into a great book, I bring curiosity and versatility to everything I do. Let’s connect and create something extraordinary!
+I’m a frontend developer who loves crafting clean, user-friendly web experiences—and I’m all about keeping things efficient without losing the fun. 
+I thrive in creative, collaborative spaces where ideas flow freely. Before getting into tech, I traveled through South America, soaking in the cultures of Chile, Argentina, and Brazil. 
+Living simply in the Andes reshaped how I think and solve problems. I spent time with artists, poets, and philosophers, which taught me to mix logic with a touch of artistry in everything I build. 
+Outside of coding, you’ll usually find me hiking, cooking Italian food, baking sourdough bread, or lost in a good book. 
+I bring curiosity and creativity to everything I do—whether it’s building interfaces or exploring new ideas. Let’s connect and create something great!
 `;
+
 
 export const EXPERIENCES = [
   {
