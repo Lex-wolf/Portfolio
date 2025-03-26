@@ -30,17 +30,10 @@ export const EXPERIENCES = [
     role: "Frontend Developer",
     company: "Freelance",
     description: `
-      A dedicated Frontend Developer with strong expertise in HTML, CSS, and JavaScript, 
-      specializing in ReactJS for building dynamic and interactive user interfaces. 
-      Experienced in leveraging Tailwind CSS to create responsive, aesthetically pleasing designs 
-      that enhance user experience. 
-
-      Proficient in using Vite to optimize development workflows, ensuring fast builds and 
-      efficient project management. With a focus on clean, maintainable code, they are committed 
-      to delivering high-quality, performant web applications that meet client and user needs. 
-
-      Developed interactive and dynamic user interfaces, while also handling data management 
-      tasks such as data entry, spreadsheet automation, and reporting for various clients.
+    I help clients bring their ideas to life online by building clean, responsive, and user-friendly interfaces with HTML, CSS, and JavaScript—mostly living in the React, Tailwind, and WordPress world. 
+    Whether it’s a slick landing page, a custom WordPress site, or a full-blown web app, I focus on performance, clean code, and good vibes. 
+    I use tools like Vite for smooth dev workflows and tap into WordPress when clients need content management baked in. 
+    Alongside frontend work, I’ve handled data tasks like spreadsheet automation and reporting—because hey, even beautiful apps need solid backend logic.
     `,
     technologies: [
       "HTML",
@@ -58,16 +51,7 @@ export const EXPERIENCES = [
     role: "Data Management Specialist",
     company: "Freelance",
     description: `
-      Provided data entry services for private clients, ensuring accuracy and organization in 
-      maintaining and updating records. 
-
-      Managed structured data using Excel, Google Sheets, and various database tools. Assisted 
-      businesses in digitizing, validating, and structuring their data for better accessibility 
-      and reporting. 
-
-      Leveraged spreadsheet automation techniques, including formulas and macros, to improve 
-      workflow efficiency. Ensured data integrity through quality control checks and systematic 
-      organization of large datasets.
+      Before diving into code, I worked with private clients to help make sense of messy spreadsheets and scattered data. I used tools like Excel and Google Sheets to organize, clean, and automate large datasets—adding formulas, macros, and a bit of magic to simplify workflows. I helped businesses go from chaos to clarity, making their data easier to access, understand, and use. It wasn’t glamorous, but it taught me structure, logic, and the value of clean systems—all things I now bring to my development work.
     `,
     technologies: [
       "Excel",
@@ -81,20 +65,7 @@ export const EXPERIENCES = [
     role: "Quality Assurance",
     company: "Analog Republic",
     description: `
-      Experienced Quality Assurance professional with a strong background in conducting thorough 
-      manual testing across diverse platforms and devices, ensuring robust performance and 
-      compatibility. 
-
-      Developed and executed comprehensive test plans and test suites, covering all aspects 
-      of software functionality. 
-
-      Collaborated effectively with cross-functional teams to streamline project development 
-      and enhance communication and efficiency. Specialized in wireless functional, performance, 
-      co-existence, and stability assessments, with proficiency in using bug tracking systems 
-      like Jira, Trello, and ClickUp. 
-
-      Ensured that software requirements met acceptance criteria through meticulous functional 
-      testing.
+      Spent several years diving deep into manual testing across all kinds of platforms and devices, making sure everything worked smoothly, reliably, and as expected. I created detailed test plans and ran through endless test cases to catch bugs before users ever saw them. Worked closely with cross-functional teams to keep communication flowing and projects on track. Specialized in performance, wireless, and stability testing, and used tools like Jira, Trello, and ClickUp to keep things organized. Basically, if there was a bug—I found it (and logged it like a pro).
     `,
     technologies: ["Jira", "Scrum", "ClickUp", "Slack"],
   },
@@ -103,12 +74,7 @@ export const EXPERIENCES = [
     role: "Project Manager",
     company: "Analog Republic",
     description: `
-      A dynamic Project Manager with a proven track record of spearheading end-to-end management 
-      of complex projects, consistently exceeding client expectations through seamless execution 
-      and delivery. 
-
-      Successfully navigated high-profile partnerships in the music industry, translating unique 
-      client needs into actionable project plans that drove success.
+     Wore the project manager hat for a bit, turning chaos into clarity for complex projects—especially in the fast-paced world of music industry partnerships. I kept everything moving smoothly from kickoff to delivery, making sure client goals turned into real, actionable plans. Loved collaborating with teams, problem-solving on the fly, and delivering results that made clients smile.
     `,
     technologies: ["Jira", "Scrum", "Trello", "Slack"],
   },
@@ -151,7 +117,7 @@ export const PROJECTS = [
     title: "Axe Thro Co's Pizza Bar",
     image: PizzaBar,
     description:
-      "A stylish and modern landing page for Axe Thro Co's Pizza Bar, designed to showcase the restaurant’s menu, atmosphere, and unique offerings. The site features a responsive layout, high-quality visuals, and smooth navigation for an engaging user experience.",
+      "Built a bold and modern landing page for Axe Thro Co’s Pizza Bar to capture the vibe of their wood-fired pizzas and laid-back atmosphere. Using WordPress and Elementor, I made it easy for the team to update content while keeping things fast, responsive, and visually sharp across devices. Smooth navigation and high-impact visuals make it as tasty online as their pies in person.",
     technologies: ["HTML", "CSS", "JavaScript", "WordPress", "Elementor"],
     link: "https://axethroco.com/pizza-bar/",
   },
@@ -159,7 +125,7 @@ export const PROJECTS = [
     title: "Nonprofit Tree Planting Community",
     image: project4,
     description:
-      "FTPP is a non-profit organization based in San Diego, Ca. We dedicate our cause to planting fruit trees around our community. Our aim is to teach members of the community the value of contributing to the environment in proactive ways.",
+      "This project let me combine my dev skills with a cause I care about. FTPP is all about planting fruit trees and building stronger communities in San Diego. I designed and built a clean, accessible site using React to help spread the word and invite people to get involved. It’s simple, clear, and made to grow alongside their mission.",
     technologies: ["HTML", "CSS", "React.js", "JavaScript"],
     link: "https://ftpp.support/",
   },
@@ -167,7 +133,7 @@ export const PROJECTS = [
     title: "Geodesic Brasil Website",
     image: project6,
     description:
-      "A modern platform showcasing innovative geodesic structures, sustainable design, and architectural solutions tailored for Brazilian landscapes.",
+      "Inspired by the beauty of geodesic architecture, this platform showcases sustainable design tailored for Brazilian landscapes. I focused on balancing visuals with performance, using React, Vite, and Node.js to build a fast, flexible site with structure as unique as the subject matter. TypeScript kept everything tidy under the hood.",
     technologies: [
       "HTML",
       "CSS",
@@ -183,7 +149,7 @@ export const PROJECTS = [
     title: "Local Artist Website",
     image: project5,
     description:
-      "A vibrant portfolio showcasing Chicana-inspired art, hummingbird motifs, and cultural stories woven into nature's beauty.",
+      " Collaborated with a local artist to bring her Chicana-inspired work to life online. The site blends earthy visuals, cultural storytelling, and a nature-forward aesthetic. I used React, Tailwind, and Node.js to build a fast, flexible platform that showcases her portfolio while staying true to her creative voice.",
     technologies: [
       "HTML",
       "Tailwind CSS",
@@ -198,7 +164,7 @@ export const PROJECTS = [
     title: "Portfolio Website",
     image: project3,
     description:
-      "A personal portfolio website showcasing projects, skills, and contact information.",
+      "Built my own portfolio from scratch to showcase projects, skills, and a bit of personality. Designed to be clean, simple, and easy to navigate—because first impressions matter. Powered by React, styled with Bootstrap, and optimized with Vite for a snappy dev experience.",
     technologies: ["HTML", "CSS", "React.js", "Bootstrap", "Vite"],
     link: "https://alexcuriel.com/",
   },
@@ -206,7 +172,7 @@ export const PROJECTS = [
     title: "Weather App",
     image: project1,
     description:
-      "A responsive weather app built using HTML, CSS, and JavaScript with React. The app provides real-time weather updates, allowing users to search for and view current weather conditions, forecasts, and temperatures in any location. Designed with a clean and intuitive interface, it ensures a smooth user experience across all devices.",
+      "Created a responsive weather app with real-time updates using React and Node.js. Users can check current conditions, forecasts, and temperatures anywhere in the world. Clean design, intuitive UX, and a touch of JavaScript magic to keep it all running smoothly.",
     technologies: ["HTML", "CSS", "Node.js"],
     link: "https://weather-app-one-rho-19.vercel.app",
   },
@@ -214,7 +180,7 @@ export const PROJECTS = [
     title: "To Do App",
     image: project2,
     description:
-      "A simple and efficient to-do app that helps users organize tasks and manage their time effectively. Built with a clean interface, it allows users to add, edit, and delete tasks, set priorities, and track progress easily. The app ensures a smooth user experience with intuitive navigation and responsive design.",
+      "A simple but powerful productivity app to help users stay on top of their tasks. You can add, edit, delete, and prioritize to-dos with ease. Designed with a clean UI and smooth functionality that works well across devices—because getting things done shouldn't feel like a chore.",
     technologies: ["HTML", "CSS", "JavaScript", "React"],
     link: "https://todo-rho-ruby.vercel.app",
   },
