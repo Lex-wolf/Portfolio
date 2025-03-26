@@ -84,30 +84,29 @@ export const HIGHLIGHTS = [
   {
     title: "Quality Assurance",
     description: [
-      "Ensured quality and functionality for high-profile websites and apps, including Pearl Jam, Eric Church, and Thomas Rhett.",
-      "Conducted functional, regression, cross-browser, and multi-device testing to ensure compatibility and stability.",
-      "Validated performance on smartphones, tablets, desktops, and smart TVs, ensuring seamless user experiences.",
-      "Optimized UI/UX designs for design consistency, responsiveness, and intuitive navigation.",
+      "Tested and fine-tuned high-profile websites and apps for clients like Pearl Jam, Eric Church, and Thomas Rhett—making sure everything worked perfectly, everywhere.",
+      "Ran functional, regression, cross-browser, and multi-device testing to catch bugs before users ever saw them.",
+      "Checked performance across smartphones, tablets, desktops, and even smart TVs to ensure a seamless experience.",
+      "Worked closely with design teams to optimize UI/UX for consistency, responsiveness, and intuitive navigation.",
     ],
   },
   {
     title: "Frontend Development",
     description: [
-      "Developed user-friendly, scalable websites for clients, including a nonprofit organization and a local artist portfolio, showcasing diverse design requirements and functionality.",
-      "Leveraged tools like React, Tailwind CSS, and Vite to create responsive, visually appealing interfaces.",
-      "Integrated QA expertise into frontend work, ensuring smooth functionality across devices and browsers.",
-      "Received industry recognition for combining technical skills with a quality-first mindset.",
+      "Built clean, scalable websites for a range of clients—including a nonprofit and a local artist—with unique needs and visual styles.",
+      "Used React, Tailwind CSS, and Vite to create responsive, fast-loading interfaces that look great on any screen.",
+      "Blended my QA background into dev work to make sure sites didn’t just look good—they ran smoothly too.",
+      "Earned recognition for merging solid technical chops with a quality-first mindset.",
     ],
   },
-
   {
     title: "Collaboration",
     description: [
-      "Worked with cross-functional teams using Agile methodologies.",
-      "Managed workflows using tools like Jira, Trello, and ClickUp.",
-      "Performed data entry for clients, organizing and maintaining structured data in Excel files with accuracy and efficiency.",
-      "Delivered exceptional results through teamwork and effective communication.",
-      "Collaborated with developers, designers, and stakeholders to deliver high-quality results on tight deadlines.",
+      "Teamed up with cross-functional crews using Agile workflows to keep projects moving and ideas flowing.",
+      "Kept everything on track with tools like Jira, Trello, and ClickUp—no chaos, just clarity.",
+      "Helped clients stay organized with clean data entry and spreadsheet management using Excel and Google Sheets.",
+      "Brought strong communication to the table, making teamwork feel easy (even under pressure).",
+      "Worked side-by-side with devs, designers, and stakeholders to ship polished projects on tight timelines.",
     ],
   },
 ];
