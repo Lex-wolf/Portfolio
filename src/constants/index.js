@@ -7,12 +7,13 @@ import project6 from "../assets/geobrasil.png";
 import PizzaBar from "../assets/Pizzabar.png";
 
 export const HERO_CONTENT = `
-With over 8 years of experience as a Quality Assurance Engineer, I’ve had the privilege of working with talented teams on complex and high-profile projects, 
-including the Pearl Jam website, Eric Church’s website and app, and Thomas Rhett’s website and app. These experiences have honed my ability 
-to ensure quality and functionality across diverse platforms. Along the way, 
-I discovered a passion for frontend development, where I now channel my technical expertise and creativity. 
-Using tools like React and Next.js, I strive to deliver exceptional digital experiences
- that merge seamless functionality with user-friendly design.`;
+I’ve spent over 8 years in the world of Quality Assurance, making sure websites and apps don’t go off the rails—think Pearl Jam, Eric Church, and Thomas Rhett. 
+I've had the chance to work with some seriously talented folks on high-profile projects that kept me on my toes (and occasionally dreaming in bug reports). 
+Somewhere along the way, I fell for frontend development—yep, it was love at first \`div\`. 
+Now I split my time between squashing bugs and building sleek, user-friendly interfaces with React and Next.js. 
+My goal? Digital experiences that look good, work great, and don’t make people want to throw their laptops out the window.
+`;
+
 
 export const ABOUT_TEXT = `
 I am a passionate and adaptable frontend developer dedicated to crafting efficient, user-friendly web applications. I thrive in collaborative environments that inspire growth, creativity, and innovation.
