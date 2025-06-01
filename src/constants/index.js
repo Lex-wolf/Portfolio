@@ -5,6 +5,7 @@ import project4 from "../assets/fttp.png";
 import project5 from "../assets/hummingbird.png";
 import project6 from "../assets/geobrasil.png";
 import PizzaBar from "../assets/Pizzabar.png";
+import RoseAuto from"../assets/roseauto.png";
 
 export const HERO_CONTENT = `
 I’ve spent over 8 years in the world of Quality Assurance, making sure websites and apps don’t go off the rails—think Pearl Jam, Eric Church, and Thomas Rhett. 
@@ -112,6 +113,15 @@ export const HIGHLIGHTS = [
 ];
 
 export const PROJECTS = [
+  {
+    title: "Rose Auto Service",
+    image: RoseAuto, // make sure to import this image above
+    description:
+      "Designed and developed a sleek, responsive website for Rose Auto Service, a BMW, Audi, Mercedes, and Volkswagen specialist in Philadelphia. Built using React and Tailwind CSS to showcase services, testimonials, and location with modern UI and mobile-first design.",
+    technologies: ["React", "Tailwind CSS", "Vite", "JavaScript", "SEO", "GoDaddy", "Vercel"],
+    link: "https://www.roseautoservice.com",
+  }
+  ,
   {
     title: "Axe Thro Co's Pizza Bar",
     image: PizzaBar,
