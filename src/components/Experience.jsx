@@ -6,12 +6,17 @@ const Experience = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   return (
-    <div className="border-b border-neutral-900 pb-4">
+    <motion.div
+      className="border-b border-neutral-900 pb-4"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      onViewportEnter={() => setHasAnimated(true)}
+    >
       <motion.h2
-        whileInView={!hasAnimated ? { opacity: 1, y: 0 } : {}}
         initial={{ opacity: 0, y: -100 }}
+        animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.5 }}
-        onViewportEnter={() => setHasAnimated(true)}
         className="my-20 text-center text-4xl"
       >
         Experience
@@ -41,9 +46,9 @@ const Experience = () => {
               </h6>
               <p className="mb-4 text-neutral-400">{experience.description}</p>
               <div className="mt-4 flex flex-wrap gap-2">
-                {experience.technologies.map((tech, index) => (
+                {experience.technologies.map((tech, idx) => (
                   <span
-                    key={index}
+                    key={idx}
                     className="rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-500"
                   >
                     {tech}
@@ -54,7 +59,7 @@ const Experience = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
