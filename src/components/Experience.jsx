@@ -2,61 +2,83 @@ import { EXPERIENCES } from "../constants";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+// Animation variant used to fade content in from below
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
+// Animation for staggered child components
+const containerStagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
 const Experience = () => {
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false); // Tracks if animation has already triggered
 
   return (
     <motion.div
-      className="border-b border-neutral-900 pb-4"
+      className="mx-auto max-w-4xl px-4 pb-24 border-b border-neutral-900"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
       onViewportEnter={() => setHasAnimated(true)}
+      variants={containerStagger} // hidden explanation: wraps all child animations in staggered order
     >
       <motion.h2
-        initial={{ opacity: 0, y: -100 }}
-        animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5 }}
-        className="my-20 text-center text-4xl"
+        variants={fadeInUp}
+        className="my-20 text-center text-4xl font-semibold text-white"
       >
         Experience
       </motion.h2>
-      <div>
+
+      <div className="space-y-16">
         {EXPERIENCES.map((experience, index) => (
-          <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
-            <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={hasAnimated ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 1 }}
-              className="w-full lg:w-1/4"
-            >
-              <p className="mb-2 text-sm text-neutral-400">{experience.year}</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              animate={hasAnimated ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 1 }}
-              className="w-full max-w-xl lg:w-3/4"
-            >
-              <h6 className="mb-2 font-semibold">
-                {experience.role} -{" "}
-                <span className="text-sm text-purple-100">
-                  {experience.company}
+          <motion.div
+            key={index}
+            variants={fadeInUp}
+            className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-6"
+          >
+            <div className="sm:w-1/4">
+              <p className="text-sm text-neutral-500 whitespace-nowrap">
+                {experience.year}
+              </p>
+            </div>
+
+            <div className="sm:w-3/4">
+              <h6 className="mb-1 text-lg font-medium text-neutral-200">
+                {experience.role}
+                <span className="ml-2 text-sm text-purple-300 font-normal">
+                  @ {experience.company}
                 </span>
               </h6>
-              <p className="mb-4 text-neutral-400">{experience.description}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
+
+              <p className="text-neutral-400 leading-relaxed">
+                {experience.description}
+              </p>
+
+              <motion.div
+                className="mt-3 flex flex-wrap gap-2"
+                variants={containerStagger} // hidden explanation: optional staggered entry for tech tags
+              >
                 {experience.technologies.map((tech, idx) => (
-                  <span
+                  <motion.span
                     key={idx}
-                    className="rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-500"
+                    variants={fadeInUp}
+                    className="rounded bg-neutral-800 px-3 py-1 text-xs text-purple-400 border border-purple-700"
+                    aria-label={`Technology: ${tech}`}
                   >
                     {tech}
-                  </span>
+                  </motion.span>
                 ))}
-              </div>
-            </motion.div>
-          </div>
+              </motion.div>
+            </div>
+          </motion.div>
         ))}
       </div>
     </motion.div>

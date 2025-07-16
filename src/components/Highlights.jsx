@@ -1,34 +1,40 @@
 import { HIGHLIGHTS } from "../constants";
 import { motion } from "framer-motion";
 
+// hidden explanation: Animation variant for card entry
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const Highlights = () => {
   return (
-    <div className="p-6 border-b border-neutral-900 pb-24">
+    <section className="px-4 pb-24 mx-auto max-w-5xl border-b border-neutral-900">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -50 }}
+        initial={{ opacity: 0, y: -40 }}
         transition={{ duration: 0.5 }}
-        className="my-12 text-center text-4xl"
+        className="my-16 text-center text-4xl font-semibold text-white"
       >
         Highlights
       </motion.h2>
 
       <motion.div
-        className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-        whileInView={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
-        transition={{ staggerChildren: 0.2 }}
+        className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        whileInView="visible"
+        initial="hidden"
+        variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
       >
         {HIGHLIGHTS.map((highlight, index) => (
           <motion.div
             key={index}
-            whileInView={{ opacity: 1, x: 0 }}
-            initial={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="text-white p-6 rounded-lg"
+            variants={fadeIn} // hidden explanation: Fade each card in with a slight rise
+            className="bg-neutral-900 p-6 rounded-xl shadow-md border border-neutral-800"
           >
-            <h3 className="text-xl font-semibold mb-4">{highlight.title}</h3>
-            <ul className="list-disc list-inside" style={{ color: "#A3A3A3" }}>
+            <h3 className="text-lg font-medium text-white mb-3">
+              {highlight.title}
+            </h3>
+            <ul className="list-disc list-inside text-neutral-400 text-sm space-y-2">
               {highlight.description.map((item, i) => (
                 <li key={i}>{item}</li>
               ))}
@@ -36,7 +42,7 @@ const Highlights = () => {
           </motion.div>
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 };
 

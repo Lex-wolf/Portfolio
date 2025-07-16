@@ -6,7 +6,9 @@ import { useEffect, useState } from "react";
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
   visible: {
-    x: 0, opacity: 1, transition: { duration: 0.5, delay: delay }
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.5, delay: delay },
   },
 });
 
@@ -32,14 +34,21 @@ const Hero = () => {
             >
               Alejandro Curiel
             </motion.h1>
-            <motion.span
+
+            <motion.div
               variants={container(0.5)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent"
+              className="text-center leading-snug"
             >
-              Frontend Developer
-            </motion.span>
+              <p className="text-3xl font-semibold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent">
+                Frontend Developer & QA Specialist
+              </p>
+              <p className="text-2xl font-medium text-neutral-300 mt-2">
+                Accessibility • Automation • UX Testing
+              </p>
+            </motion.div>
+
             <motion.p
               variants={container(1)}
               initial={!hasAnimated ? "hidden" : "visible"}
@@ -48,6 +57,7 @@ const Hero = () => {
             >
               {HERO_CONTENT}
             </motion.p>
+
             <motion.a
               variants={container(1.5)}
               initial={!hasAnimated ? "hidden" : "visible"}
@@ -60,6 +70,7 @@ const Hero = () => {
             </motion.a>
           </div>
         </div>
+
         <div className="w-full lg:w-1/2 lg:p-8">
           <div className="flex justify-center">
             <motion.img

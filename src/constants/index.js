@@ -12,7 +12,9 @@ I’ve spent over 8 years in the world of Quality Assurance, making sure website
 I've had the chance to work with some seriously talented folks on high-profile projects that kept me on my toes (and occasionally dreaming in bug reports). 
 Somewhere along the way, I fell for frontend development—yep, it was love at first \`div\`. 
 Now I split my time between squashing bugs and building sleek, user-friendly interfaces with React and Next.js. 
-My goal? Digital experiences that look good, work great, and don’t make people want to throw their laptops out the window.
+My goal? Digital experiences that look good, work great, and don’t make people want to throw their laptops out the window. agraph with:
+
+Let’s build something people can actually use — and enjoy using.
 `;
 
 
@@ -27,40 +29,46 @@ I bring curiosity and creativity to everything I do—whether it’s building in
 
 export const EXPERIENCES = [
   {
-    year: "2024 - Present",
-    role: "Frontend Developer",
+    year: "2024 – Present",
+    role: "Frontend Developer + QA (Accessibility & Automation)",
     company: "Freelance",
     description: `
-    I help clients bring their ideas to life online by building clean, responsive, and user-friendly interfaces with HTML, CSS, and JavaScript—mostly living in the React, Tailwind, and WordPress world. 
-    Whether it’s a slick landing page, a custom WordPress site, or a full-blown web app, I focus on performance, clean code, and good vibes. 
-    I use tools like Vite for smooth dev workflows and tap into WordPress when clients need content management baked in. 
-    Alongside frontend work, I’ve handled data tasks like spreadsheet automation and reporting—because hey, even beautiful apps need solid backend logic.
+      I help clients build clean, responsive, and accessible web interfaces—primarily using React, Tailwind, and WordPress.
+      My work focuses on performance, semantic structure, and delivering inclusive experiences that meet WCAG standards.
+      
+      I also lead quality assurance using tools like Cypress, Playwright, axe-core, and Lighthouse to ensure every project is stable, accessible, and ready for production.
+      From landing pages to complex web apps, I bring both frontend development and QA insight into every build.
     `,
     technologies: [
       "HTML",
       "CSS",
+      "JavaScript",
       "ReactJS",
-      "WordPress",
       "Tailwind",
-      "Excel",
+      "WordPress",
       "Vite",
-      "Data Entry",
+      "Cypress",
+      "Playwright",
+      "Lighthouse",
+      "axe-core",
+      "Accessibility Testing"
     ],
   },
-  {
-    year: "2019 - 2022",
-    role: "Data Management Specialist",
-    company: "Freelance",
-    description: `
-      Before diving into code, I worked with private clients to help make sense of messy spreadsheets and scattered data. I used tools like Excel and Google Sheets to organize, clean, and automate large datasets—adding formulas, macros, and a bit of magic to simplify workflows. I helped businesses go from chaos to clarity, making their data easier to access, understand, and use. It wasn’t glamorous, but it taught me structure, logic, and the value of clean systems—all things I now bring to my development work.
-    `,
-    technologies: [
-      "Excel",
-      "Google Sheets",
-      "Data Entry",
-      "Spreadsheet Automation",
-    ],
-  },
+  
+  // {
+  //   year: "2019 - 2022",
+  //   role: "Data Management Specialist",
+  //   company: "Freelance",
+  //   description: `
+  //     Before diving into code, I worked with private clients to help make sense of messy spreadsheets and scattered data. I used tools like Excel and Google Sheets to organize, clean, and automate large datasets—adding formulas, macros, and a bit of magic to simplify workflows. I helped businesses go from chaos to clarity, making their data easier to access, understand, and use. It wasn’t glamorous, but it taught me structure, logic, and the value of clean systems—all things I now bring to my development work.
+  //   `,
+  //   technologies: [
+  //     "Excel",
+  //     "Google Sheets",
+  //     "Data Entry",
+  //     "Spreadsheet Automation",
+  //   ],
+  // },
   {
     year: "2017 - 2024",
     role: "Quality Assurance",
