@@ -23,7 +23,7 @@ const QAProjects = () => {
         transition={{ duration: 0.5 }}
         className="my-20 text-center text-4xl"
       >
-        QA <span className="text-neutral-500">Projects</span>
+        <span className="text-neutral-500 text-white"> QA Projects</span>
       </motion.h2>
 
       <div>
