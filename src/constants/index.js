@@ -4,8 +4,22 @@ import project3 from "../assets/profile2.png";
 import project4 from "../assets/fttp.png";
 import project5 from "../assets/hummingbird.png";
 import project6 from "../assets/geobrasil.png";
-import PizzaBar from "../assets/Pizzabar.png";
-import RoseAuto from"../assets/roseauto.png";
+import PizzaBar from "../assets/pizzabar.png";
+import RoseAuto from "../assets/roseauto.png";
+import ecWebsite from "../assets/ec-website.png";
+import ecApp from "../assets/ec-app.png";
+import thomasRApp from "../assets/thomasr-app.png";
+import brandiWebsite from "../assets/brandi-c-website.png";
+import aceParkingApp from "../assets/aceparking-app.png";
+import prideStudy from "../assets/pridestudy.png";
+import ecForums from "../assets/ec-forums.png";
+import pjWebsite from "../assets/pj-website.jpg";
+import thomasRWebsite from "../assets/thomasr-website.png";
+import toTheStars from "../assets/to-the-stars-website.png";
+
+
+
+
 
 export const HERO_CONTENT = `
 I’ve spent over 8 years in the world of Quality Assurance, making sure websites and apps don’t go off the rails—think Pearl Jam, Eric Church, and Thomas Rhett. 
@@ -208,3 +222,87 @@ export const CONTACT = {
   phoneNo: "+1 619 - 786 0658 ",
   email: "info@alexcuriel.com",
 };
+
+export const QA_PROJECTS = [
+  {
+    title: "Pearl Jam Official Website",
+    image: pjWebsite,
+    type: "website",
+    description: "Performed extensive QA testing for Pearl Jam's official website, ensuring smooth performance and cross-browser compatibility.",
+    technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing"],
+    link: "https://pearljam.com/",
+  },
+  {
+    title: "Eric Church Website",
+    image: ecWebsite,
+    type: "website",
+    description: "QA testing for Eric Church's website, focusing on UI/UX consistency and multi-device functionality.",
+    technologies: ["Manual Testing", "Cross-device Testing", "Jira"],
+    link: "https://www.ericchurch.com/",
+  },
+  {
+    title: "Eric Church Official App",
+    image: ecApp,
+    type: "app",
+    description: "Tested the Eric Church official app across iOS and Android devices, ensuring a seamless experience.",
+    technologies: ["iOS", "Android", "Functional Testing"],
+    link: "https://apps.apple.com/us/app/eric-church-official/id1436492159",
+  },
+  {
+    title: "Thomas Rhett Website",
+    image: thomasRWebsite,
+    type: "website",
+    description: "Executed QA testing on Thomas Rhett's website, including responsive design and performance checks.",
+    technologies: ["Cross-browser Testing", "Responsive Testing"],
+    link: "https://www.thomasrhett.com/#/",
+  },
+  {
+    title: "Thomas Rhett Home Team App",
+    image: thomasRApp,
+    type: "app",
+    description: "Performed mobile QA for Thomas Rhett's Home Team app, ensuring flawless cross-platform performance.",
+    technologies: ["iOS", "Android", "Regression Testing"],
+    link: "https://apps.apple.com/us/app/thomas-rhetts-home-team-app/id1275224693",
+  },
+  {
+    title: "Brandi Carlile Website",
+    image: brandiWebsite,
+    type: "website",
+    description: "QA-tested Brandi Carlile's official website, focusing on bug fixes and cross-device optimizations.",
+    technologies: ["Manual Testing", "Cross-browser Testing"],
+    link: "https://www.brandicarlile.com/",
+  },
+  {
+    title: "ACE Parking App",
+    image: aceParkingApp,
+    type: "app",
+    description: "Performed QA on ACE Parking app with a focus on transaction reliability and UI accuracy.",
+    technologies: ["iOS", "Android", "Functional Testing"],
+    link: "https://www.aceparking.com/",
+  },
+  {
+    title: "Pride Study Website",
+    image: prideStudy,
+    type: "website",
+    description: "Tested the Pride Study platform, ensuring accessibility and data accuracy.",
+    technologies: ["Accessibility Testing", "Manual Testing"],
+    link: "https://play.google.com/store/apps/details?id=com.cliniv.perampanel&hl=en_US",
+  },
+  {
+    title: "Eric Church Forums",
+    image: ecForums,
+    type: "website",
+    description: "QA-tested the Eric Church forums for functionality, load times, and user experience.",
+    technologies: ["Functional Testing", "Performance Testing"],
+    link: "https://ericchurch.topfan.com/forums",
+  },
+  {
+    title: "To The Stars Website",
+    image: toTheStars,
+    type: "website",
+    description: "Tested the To The Stars website, ensuring smooth navigation and responsive layout.",
+    technologies: ["Cross-browser Testing", "UI Testing"],
+    link: "https://tothestars.media/",
+  },
+];
+
