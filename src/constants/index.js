@@ -4,7 +4,7 @@ import project3 from "../assets/profile2.png";
 import project4 from "../assets/fttp.png";
 import project5 from "../assets/hummingbird.png";
 import project6 from "../assets/geobrasil.png";
-import PizzaBar from "../assets/PizzaBar.png";
+import PizzaBar from "../assets/pizzabar_new.png";
 import RoseAuto from "../assets/roseauto.png";
 import ecWebsite from "../assets/ec-website.png";
 import ecApp from "../assets/ec-app.png";
