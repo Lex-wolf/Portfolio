@@ -41,11 +41,11 @@ const Hero = () => {
               animate="visible"
               className="text-center leading-snug"
             >
-              <p className="text-3xl font-semibold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent">
-                Frontend Developer & QA Specialist
+              <p className="text-2xl font-semibold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent">
+              Senior QA Engineer & Frontend Developer
               </p>
-              <p className="text-2xl font-medium text-neutral-300 mt-2">
-                Accessibility • Automation • UX Testing
+              <p className="text-base font-medium text-neutral-300 mt-2">
+              Manual & Automated QA | Playwright | API & Accessibility | React & Tailwind
               </p>
             </motion.div>
 

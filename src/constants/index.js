@@ -4,7 +4,7 @@ import project3 from "../assets/profile2.png";
 import project4 from "../assets/fttp.png";
 import project5 from "../assets/hummingbird.png";
 import project6 from "../assets/geobrasil.png";
-import PizzaBar from "../assets/pizzabar_new.png";
+import PizzaBar from "../assets/PizzaBar.png";
 import RoseAuto from "../assets/roseauto.png";
 import ecWebsite from "../assets/ec-website.png";
 import ecApp from "../assets/ec-app.png";
@@ -22,13 +22,13 @@ import toTheStars from "../assets/to-the-stars-website.png";
 
 
 export const HERO_CONTENT = `
-I’ve spent over 8 years in the world of Quality Assurance, making sure websites and apps don’t go off the rails—think Pearl Jam, Eric Church, and Thomas Rhett. 
+I’ve spent over 8 years in the world of Quality Assurance, making sure websites and apps don’t go off the rails, think Pearl Jam, Eric Church, and Thomas Rhett. 
 I've had the chance to work with some seriously talented folks on high-profile projects that kept me on my toes (and occasionally dreaming in bug reports). 
-Somewhere along the way, I fell for frontend development—yep, it was love at first \`div\`. 
+Somewhere along the way, I fell for frontend development yep, it was love at first \`div\`. 
 Now I split my time between squashing bugs and building sleek, user-friendly interfaces with React and Next.js. 
 My goal? Digital experiences that look good, work great, and don’t make people want to throw their laptops out the window. agraph with:
 
-Let’s build something people can actually use — and enjoy using.
+Let’s build something people can actually use, and enjoy using.
 `;
 
 
@@ -54,18 +54,18 @@ export const EXPERIENCES = [
       From landing pages to complex web apps, I bring both frontend development and QA insight into every build.
     `,
     technologies: [
-      "HTML",
-      "CSS",
-      "JavaScript",
+      "Manual QA",
+      "Playwright",
+      "Postman",
+      "A11y",
+      "axe-core",
+      "Lighthouse",
+      "Jenkins",
+      "GitHubActions",
       "ReactJS",
       "Tailwind",
       "WordPress",
       "Vite",
-      "Cypress",
-      "Playwright",
-      "Lighthouse",
-      "axe-core",
-      "Accessibility Testing"
     ],
   },
   
@@ -90,7 +90,7 @@ export const EXPERIENCES = [
     description: `
       Spent several years diving deep into manual testing across all kinds of platforms and devices, making sure everything worked smoothly, reliably, and as expected. I created detailed test plans and ran through endless test cases to catch bugs before users ever saw them. Worked closely with cross-functional teams to keep communication flowing and projects on track. Specialized in performance, wireless, and stability testing, and used tools like Jira, Trello, and ClickUp to keep things organized. Basically, if there was a bug—I found it (and logged it like a pro).
     `,
-    technologies: ["Jira", "Scrum", "ClickUp", "Slack"],
+    technologies: ["Jira", "Scrum", "TestRail", "PostMan", "Manual QA", "Regression & Smoke Testing",],
   },
   {
     year: "2016 - 2017",
