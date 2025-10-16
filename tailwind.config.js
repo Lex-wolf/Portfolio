@@ -17,6 +17,7 @@ export default {
       animation: {
         'gradient-move': 'moveGradient 20s ease infinite',
         'gradient-move-text': 'gradientMove 8s ease infinite',
+        'gradient-shift': 'gradientShift 10s ease-in-out infinite',
       },
       keyframes: {
         moveGradient: {
@@ -25,6 +26,11 @@ export default {
           '100%': { 'background-position': '0% 50%' },
         },
         gradientMove: {
+          '0%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+          '100%': { 'background-position': '0% 50%' },
+        },
+        gradientShift: {
           '0%': { 'background-position': '0% 50%' },
           '50%': { 'background-position': '100% 50%' },
           '100%': { 'background-position': '0% 50%' },

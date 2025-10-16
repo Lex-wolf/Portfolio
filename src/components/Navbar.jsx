@@ -9,10 +9,12 @@ const Navbar = () => {
     <nav className="mb-20 flex item-center justify-between py-6">
       <div className="flex flex-shrink-0 items-center">
         <a
-          href={"https://alexcuriel.com/"}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block transition-all duration-300 ease-in-out hover:scale-110 hover:drop-shadow-lg hover:drop-shadow-accent-cyan/30 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark rounded-lg p-1"
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="block transition-all duration-300 ease-in-out hover:scale-110 focus:outline-none rounded-lg p-1"
         >
           <img className="mx-s w-10" src={logo} alt="logo" />
         </a>

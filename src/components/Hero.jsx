@@ -21,6 +21,91 @@ const Hero = () => {
     }
   }, [hasAnimated]);
 
+  // Custom cursor effect
+  useEffect(() => {
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    cursor.style.cssText = `
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 2px solid rgba(102, 252, 241, 0.35);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+      background: transparent;
+    `;
+    document.body.appendChild(cursor);
+
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    dot.style.cssText = `
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background: rgba(102, 252, 241, 0.6);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.1s ease;
+    `;
+    cursor.appendChild(dot);
+
+    let x = 0, y = 0;
+    let targetX = 0, targetY = 0;
+
+    const animate = () => {
+      x += (targetX - x) * 0.15;
+      y += (targetY - y) * 0.15;
+      cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      requestAnimationFrame(animate);
+    };
+
+    const handleMouseMove = (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      cursor.style.opacity = '1';
+    };
+
+    const handleMouseLeave = () => {
+      cursor.style.opacity = '0';
+    };
+
+    const handleMouseEnter = () => {
+      cursor.style.opacity = '1';
+    };
+
+    // Hide default cursor on interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, input, textarea, [role="button"]');
+    interactiveElements.forEach(el => {
+      el.style.cursor = 'none';
+    });
+
+    // Show custom cursor
+    document.body.style.cursor = 'none';
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseenter', handleMouseEnter);
+    
+    animate();
+    
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener('mouseenter', handleMouseEnter);
+      document.body.style.cursor = 'auto';
+      interactiveElements.forEach(el => {
+        el.style.cursor = 'auto';
+      });
+      if (cursor.parentNode) {
+        cursor.parentNode.removeChild(cursor);
+      }
+    };
+  }, []);
+
   return (
     <div className="border-b border-base-darker pb-4 lg:mb-35">
       <div className="flex flex-wrap">
@@ -30,10 +115,14 @@ const Hero = () => {
               variants={container(0)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="pb-16 text-6xl font-thin tracking-tight lg-mt-16 lg:text-8xl bg-gradient-to-r from-accent-teal via-accent-cyan to-accent-teal bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-move"
+              className="pb-16 text-6xl font-thin tracking-tight lg-mt-16 lg:text-8xl bg-gradient-to-r from-accent-teal to-accent-cyan bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-shift"
               style={{
-                animation: 'gradientMove 8s ease infinite',
-                willChange: 'transform, opacity'
+                willChange: 'background-position',
+                background: 'linear-gradient(90deg, #45A29E 0%, #66FCF1 100%)',
+                backgroundSize: '200% 200%',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                animation: 'gradientShift 10s ease-in-out infinite'
               }}
             >
               Alejandro Curiel
