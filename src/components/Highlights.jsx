@@ -10,57 +10,67 @@ const fadeIn = {
 const Highlights = () => {
 
   return (
-    <section className="px-4 pb-24 mx-auto max-w-6xl border-b border-neutral-900">
+    <section className="px-4 pb-24 mx-auto max-w-6xl border-b border-base-darker">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -40 }}
         transition={{ duration: 0.5 }}
-        className="my-16 text-center text-4xl font-semibold text-white"
+        className="my-16 text-center text-4xl font-semibold text-accent-cyan"
       >
         Highlights
       </motion.h2>
 
       <motion.div
-        className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         whileInView="visible"
         initial="hidden"
         variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
+        style={{ 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          alignItems: 'stretch'
+        }}
       >
         {HIGHLIGHTS.map((highlight, index) => (
           <motion.div
             key={index}
             variants={fadeIn}
             whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
+              scale: 1.03,
+              y: -4,
+              boxShadow: "0 6px 14px rgba(102, 252, 241, 0.12)"
             }}
-            className="group relative"
+            whileTap={{ scale: 0.98 }}
+            className="group relative cursor-pointer highlight-card flex flex-col h-full"
+            style={{ willChange: 'transform, opacity' }}
           >
             {/* Gradient border */}
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-teal-400 to-purple-500 rounded-xl p-[1px]">
-              <div className="bg-neutral-900 rounded-xl h-full w-full"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-accent-cyan via-accent-teal to-accent-cyan rounded-xl p-[1px]">
+              <div className="bg-base-dark rounded-xl h-full w-full"></div>
             </div>
             
             {/* Card content */}
-            <div className="relative bg-neutral-900/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-neutral-800 group-hover:border-teal-400/50 transition-all duration-300">
+            <div className="relative bg-base-darker/80 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-base-darker group-hover:border-accent-cyan transition-all duration-300 ease-in-out group-focus:outline-none group-focus:ring-2 group-focus:ring-accent-cyan group-focus:ring-offset-2 group-focus:ring-offset-base-dark flex flex-col justify-between h-full">
               {/* Title */}
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-base-light">
                   {highlight.title}
                 </h3>
               </div>
               
-              <ul className="space-y-3">
-                {highlight.description.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-neutral-300 text-sm leading-relaxed">
-                    <span className="text-teal-400 mt-1 flex-shrink-0">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Content area that grows to fill space */}
+              <div className="flex-1 flex flex-col justify-start">
+                <ul className="space-y-3 mb-0">
+                  {highlight.description.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-base-light text-sm leading-relaxed">
+                      <span className="text-accent-cyan mt-1 flex-shrink-0">•</span>
+                      <span className="flex-1">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               
               {/* Hover glow effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/10 via-teal-400/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-accent-cyan/10 via-accent-teal/10 to-accent-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             </div>
           </motion.div>
         ))}

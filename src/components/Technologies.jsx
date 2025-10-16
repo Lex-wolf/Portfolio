@@ -69,13 +69,13 @@ const Technologies = () => {
         variants={staggerContainer}
         className="max-w-6xl mx-auto px-4"
       >
-        <motion.h2 variants={fadeInUp} className="my-20 text-center text-4xl text-white">
+        <motion.h2 variants={fadeInUp} className="my-20 text-center text-4xl text-accent-cyan">
           Technologies
         </motion.h2>
         
         <motion.p 
           variants={fadeInUp}
-          className="text-center text-neutral-400 text-lg mb-12 max-w-2xl mx-auto"
+          className="text-center text-base-light text-lg mb-12 max-w-2xl mx-auto"
         >
           Here's the stack I build and test with — from modern frameworks to QA automation tools.
         </motion.p>
@@ -83,29 +83,31 @@ const Technologies = () => {
         <div className="space-y-12">
           {technologyCategories.map((category, categoryIndex) => (
             <motion.div key={category.title} variants={fadeInUp} className="text-center">
-              <h3 className="text-xl font-semibold text-teal-400 mb-6">{category.title}</h3>
-              <div className="flex flex-wrap items-center justify-center gap-4">
+              <h3 className="text-xl font-semibold text-accent-teal mb-6">{category.title}</h3>
+              <div className="flex flex-wrap items-center justify-center gap-4 pb-8">
                 {category.technologies.map((tech, techIndex) => (
                   <motion.div
                     key={tech.name}
                     variants={fadeInUp}
                     whileHover={{ 
                       scale: 1.05,
-                      boxShadow: "0 10px 30px rgba(20, 184, 166, 0.3)"
+                      y: -4,
+                      boxShadow: "0 8px 25px rgba(102, 252, 241, 0.4)"
                     }}
-                    className="group relative"
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative cursor-pointer flex flex-col items-center"
                   >
-                    <div className="rounded-xl border-2 border-neutral-700 p-4 bg-neutral-900/50 backdrop-blur-sm transition-all duration-300 group-hover:border-teal-400 group-hover:bg-neutral-800/80">
+                    <div className="rounded-xl border-2 border-base-darker p-4 bg-base-dark/50 backdrop-blur-sm transition-all duration-300 ease-in-out group-hover:border-accent-cyan group-hover:bg-base-darker/80 group-focus:outline-none group-focus:ring-2 group-focus:ring-accent-cyan group-focus:ring-offset-2 group-focus:ring-offset-base-dark">
                       <tech.icon 
-                        className={`text-4xl ${tech.color} transition-colors duration-300`}
+                        className={`text-4xl ${tech.color} transition-colors duration-300 group-hover:drop-shadow-[0_0_6px_#45A29E]`}
                         title={tech.name}
                         aria-label={tech.name}
+                        style={{ willChange: 'transform, opacity' }}
                       />
                     </div>
-                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="text-xs text-teal-400 font-medium bg-neutral-900 px-2 py-1 rounded">
-                        {tech.name}
-                      </span>
+                    {/* Tooltip positioned below with proper spacing */}
+                    <div className="absolute top-full mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-base-dark/90 backdrop-blur-sm text-accent-cyan text-xs font-medium px-3 py-2 rounded-lg whitespace-nowrap shadow-lg z-20 border border-accent-cyan/30">
+                      {tech.name}
                     </div>
                   </motion.div>
                 ))}

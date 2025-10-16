@@ -8,8 +8,9 @@ const Contact = () => {
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 0.5 }}
-        className="my-10 text-center text-4xl text-white"
+        transition={{ duration: 0.6 }}
+        className="my-10 text-center text-4xl text-accent-cyan"
+        style={{ willChange: 'transform, opacity' }}
       >
         Have a project in mind?
       </motion.h2>
@@ -18,7 +19,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: -100 }}
           transition={{ duration: 1 }}
-          className="my-4 text-[25px] bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent"
+          className="my-4 text-[25px] bg-gradient-to-r from-accent-cyan to-accent-teal bg-clip-text text-transparent"
         >
           {CONTACT.address}
         </motion.p>
@@ -32,7 +33,7 @@ const Contact = () => {
         </motion.p>
         <a 
           href={"mailto:" + CONTACT.email} 
-          className="border-b text-white text-[30px] tracking-tight font-bold hover:text-purple-500"
+          className="border-b border-accent-cyan/30 text-base-light text-[30px] tracking-tight font-bold hover:text-accent-cyan hover:border-accent-cyan transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-accent-cyan/20 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark rounded-sm px-2 py-1"
         >
           {CONTACT.email}
         </a>

@@ -22,9 +22,9 @@ const ContactForm = () => {
         transition={{ duration: 0.5 }}
         className="text-center py-12"
       >
-        <CheckCircle className="w-16 h-16 text-teal-400 mx-auto mb-4" />
-        <h3 className="text-2xl font-semibold text-white mb-2">Thanks for reaching out!</h3>
-        <p className="text-neutral-400">
+        <CheckCircle className="w-16 h-16 text-accent-teal mx-auto mb-4" />
+        <h3 className="text-2xl font-semibold text-accent-teal mb-2">Thanks for reaching out!</h3>
+        <p className="text-base-light/70">
           I'll get back to you as soon as possible.
         </p>
       </motion.div>
@@ -51,21 +51,21 @@ const ContactForm = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* Name Field */}
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-neutral-300 mb-2">
+          <label htmlFor="name" className="block text-sm font-medium text-base-light mb-2">
             Name
           </label>
           <input
             type="text"
             id="name"
             name="name"
-            className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-200"
+            className="w-full px-4 py-3 bg-base-darker border border-base-darker rounded-lg text-base-light placeholder-base-light/50 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-200"
             placeholder="Your name"
           />
         </div>
 
         {/* Email Field */}
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-neutral-300 mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-base-light mb-2">
             Email <span className="text-red-400">*</span>
           </label>
           <input
@@ -73,7 +73,7 @@ const ContactForm = () => {
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-200"
+            className="w-full px-4 py-3 bg-base-darker border border-base-darker rounded-lg text-base-light placeholder-base-light/50 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-200"
             placeholder="your.email@example.com"
           />
           <ValidationError 
@@ -87,7 +87,7 @@ const ContactForm = () => {
 
       {/* Message Field */}
       <div className="mb-6">
-        <label htmlFor="message" className="block text-sm font-medium text-neutral-300 mb-2">
+        <label htmlFor="message" className="block text-sm font-medium text-base-light mb-2">
           Message <span className="text-red-400">*</span>
         </label>
         <textarea
@@ -95,7 +95,7 @@ const ContactForm = () => {
           name="message"
           required
           rows={6}
-          className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent transition-all duration-200 resize-none"
+          className="w-full px-4 py-3 bg-base-darker border border-base-darker rounded-lg text-base-light placeholder-base-light/50 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-200 resize-none"
           placeholder="Tell me about your project or just say hello..."
         />
         <ValidationError 
@@ -115,15 +115,15 @@ const ContactForm = () => {
           boxShadow: state.submitting ? "0 4px 12px rgba(0,0,0,0.3)" : "0 8px 25px rgba(20, 184, 166, 0.3)"
         }}
         whileTap={{ scale: state.submitting ? 1 : 0.98 }}
-        className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-semibold transition-all duration-200 ${
+        className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-semibold transition-all duration-300 ease-in-out ${
           state.submitting
-            ? 'bg-neutral-700 text-neutral-400 cursor-not-allowed'
-            : 'bg-teal-400 text-neutral-900 hover:bg-teal-300 cursor-pointer'
+            ? 'bg-base-darker text-base-light/50 cursor-not-allowed'
+            : 'bg-gradient-to-r from-accent-teal to-accent-cyan text-base-dark hover:shadow-[0_0_10px_#66FCF1] hover:-translate-y-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark'
         }`}
       >
         {state.submitting ? (
           <>
-            <div className="w-5 h-5 border-2 border-neutral-400 border-t-transparent rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-base-light/50 border-t-transparent rounded-full animate-spin" />
             Sending...
           </>
         ) : (

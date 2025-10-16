@@ -41,14 +41,22 @@ const Experience = () => {
     >
       <motion.h2
         variants={fadeInUp}
-        className="my-20 text-center text-4xl font-semibold text-white"
+        className="my-20 text-center text-4xl font-semibold text-accent-cyan"
       >
         Experience & Impact
       </motion.h2>
 
       <div className="relative">
         {/* Timeline line */}
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-400 via-purple-400 to-teal-400"></div>
+        <div 
+          className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-cyan via-accent-teal to-accent-cyan"
+          style={{
+            background: 'linear-gradient(180deg, #45A29E 0%, #66FCF1 50%, #45A29E 100%)',
+            backgroundSize: '100% 200%',
+            animation: 'gradientMove 8s ease infinite',
+            willChange: 'background-position'
+          }}
+        ></div>
         
         <div className="space-y-16">
           {EXPERIENCES && EXPERIENCES.length > 0 ? EXPERIENCES.map((experience, index) => (
@@ -58,38 +66,38 @@ const Experience = () => {
               className="relative flex items-start gap-6"
             >
               {/* Timeline dot */}
-              <div className="relative z-10 flex-shrink-0 w-16 h-16 bg-gradient-to-r from-teal-400 to-purple-400 rounded-full flex items-center justify-center">
-                <div className="w-12 h-12 bg-neutral-900 rounded-full flex items-center justify-center">
-                  <div className="w-6 h-6 bg-gradient-to-r from-teal-400 to-purple-400 rounded-full"></div>
+              <div className="relative z-10 flex-shrink-0 w-16 h-16 bg-gradient-to-r from-accent-cyan to-accent-teal rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-base-dark rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-gradient-to-r from-accent-cyan to-accent-teal rounded-full"></div>
                 </div>
               </div>
 
-              <div className="flex-1 bg-neutral-900/50 backdrop-blur-sm rounded-xl p-6 border border-neutral-800 hover:border-teal-400/50 transition-all duration-300">
+              <div className="flex-1 bg-base-darker/50 backdrop-blur-sm rounded-xl p-6 border border-base-darker hover:border-accent-cyan/50 hover:shadow-lg hover:shadow-accent-cyan/10 transition-all duration-300 ease-in-out hover:-translate-y-1 focus-within:outline-none focus-within:ring-2 focus-within:ring-accent-cyan focus-within:ring-offset-2 focus-within:ring-offset-base-dark">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                   <div>
-                    <h6 className="text-xl font-semibold text-white mb-1">
+                    <h6 className="text-xl font-semibold text-base-light mb-1">
                       {experience.role}
                     </h6>
-                    <p className="text-teal-400 font-medium">
+                    <p className="text-accent-teal font-medium">
                       @ {experience.company}
                     </p>
                   </div>
-                  <span className="text-sm text-neutral-500 mt-2 sm:mt-0">
+                  <span className="text-sm text-base-light/70 mt-2 sm:mt-0">
                     {experience.year}
                   </span>
                 </div>
 
                 <ul className="space-y-2 mb-4">
                   {formatDescription(experience.description).map((bullet, bulletIndex) => (
-                    <li key={bulletIndex} className="flex items-start gap-2 text-neutral-300">
-                      <span className="text-teal-400 mt-1">•</span>
+                    <li key={bulletIndex} className="flex items-start gap-2 text-base-light">
+                      <span className="text-accent-cyan mt-1">•</span>
                       <span className="text-sm leading-relaxed">
                         {bullet}
                         {bulletIndex === 0 && index === 0 && (
-                          <span className="text-teal-400 font-semibold"> +30% performance improvement</span>
+                          <span className="text-accent-cyan font-semibold"> +30% performance improvement</span>
                         )}
                         {bulletIndex === 1 && index === 0 && (
-                          <span className="text-purple-400 font-semibold"> 100+ projects delivered</span>
+                          <span className="text-accent-teal font-semibold"> 100+ projects delivered</span>
                         )}
                       </span>
                     </li>
@@ -104,7 +112,7 @@ const Experience = () => {
                     <motion.span
                       key={idx}
                       variants={fadeInUp}
-                      className="rounded-full bg-gradient-to-r from-teal-400/20 to-purple-400/20 px-3 py-1 text-xs text-teal-300 border border-teal-400/30"
+                      className="rounded-full bg-gradient-to-r from-accent-cyan/20 to-accent-teal/20 px-3 py-1 text-xs text-accent-cyan border border-accent-cyan/30"
                       aria-label={`Technology: ${tech}`}
                     >
                       {tech}

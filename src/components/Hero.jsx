@@ -22,7 +22,7 @@ const Hero = () => {
   }, [hasAnimated]);
 
   return (
-    <div className="border-b border-neutral-900 pb-4 lg:mb-35">
+    <div className="border-b border-base-darker pb-4 lg:mb-35">
       <div className="flex flex-wrap">
         <div className="w-full lg:w-1/2">
           <div className="flex flex-col items-center lg:items-start">
@@ -30,7 +30,11 @@ const Hero = () => {
               variants={container(0)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="pb-16 text-6xl font-thin tracking-tight lg-mt-16 lg:text-8xl"
+              className="pb-16 text-6xl font-thin tracking-tight lg-mt-16 lg:text-8xl bg-gradient-to-r from-accent-teal via-accent-cyan to-accent-teal bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-move"
+              style={{
+                animation: 'gradientMove 8s ease infinite',
+                willChange: 'transform, opacity'
+              }}
             >
               Alejandro Curiel
             </motion.h1>
@@ -40,13 +44,24 @@ const Hero = () => {
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
               className="text-center leading-snug"
+              style={{ willChange: 'transform, opacity' }}
             >
-              <p className="text-2xl font-semibold bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent">
-              Senior QA Engineer & Frontend Developer
-              </p>
-              <p className="text-base font-medium text-neutral-300 mt-2">
-              Manual & Automated QA | Playwright | API & Accessibility | React & Tailwind
-              </p>
+              <motion.p 
+                className="text-2xl font-semibold bg-gradient-to-r from-accent-cyan to-accent-teal bg-clip-text text-transparent"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                Senior QA Engineer & Frontend Developer
+              </motion.p>
+              <motion.p 
+                className="text-base font-medium text-base-light mt-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                Manual & Automated QA | Playwright | API & Accessibility | React & Tailwind
+              </motion.p>
             </motion.div>
 
             <motion.p
@@ -62,9 +77,14 @@ const Hero = () => {
               variants={container(1.5)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ 
+                scale: 1.05,
+                y: -2,
+                boxShadow: "0 0 12px #66FCF1"
+              }}
+              whileTap={{ scale: 0.98 }}
               href="mailto:info@alexcuriel.com"
-              className="mt-4 px-6 py-3 text-lg font-medium bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-transparent border border-white rounded-lg self-center mb-6 md:mb-10"
+              className="mt-4 px-6 py-3 text-lg font-medium bg-gradient-to-r from-accent-teal to-accent-cyan text-base-dark rounded-lg self-center mb-6 md:mb-10 transition-all duration-300 ease-in-out hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark"
             >
               Let's Work Together
             </motion.a>
