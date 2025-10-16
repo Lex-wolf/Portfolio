@@ -1,5 +1,6 @@
 import { CONTACT } from "../constants";
 import { motion } from "framer-motion";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
@@ -36,6 +37,19 @@ const Contact = () => {
           {CONTACT.email}
         </a>
       </div>
+
+      {/* Contact Form */}
+      <motion.div
+        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="mt-16"
+      >
+        <h3 className="text-2xl font-semibold text-center text-white mb-8">
+          Or send me a message
+        </h3>
+        <ContactForm />
+      </motion.div>
     </div>
   );
 };

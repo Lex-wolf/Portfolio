@@ -1,85 +1,119 @@
 import { TiHtml5 } from "react-icons/ti";
-import { SiJavascript, SiCypress, SiPlaywright } from "react-icons/si";
+import { SiJavascript, SiCypress, SiPlaywright, SiVite, SiNodedotjs } from "react-icons/si";
 import { RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { IoLogoCss3 } from "react-icons/io5";
-import { SiVite } from "react-icons/si";
-import { FaFileExcel, FaJira, FaWordpress, FaLowVision, FaBlind, FaUniversalAccess } from "react-icons/fa";
+import { FaFileExcel, FaJira, FaWordpress, FaLowVision, FaBlind, FaUniversalAccess, FaGitAlt, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const iconVariants = (duration) => ({
-  initial: { y: -10 },
-  animate: {
-    y: [10, -10],
-    transition: {
-      duration: duration,
-      ease: "linear",
-      repeat: Infinity,
-      repeatType: "reverse",
-    },
-  },
-});
-
 const Technologies = () => {
+  const technologyCategories = [
+    {
+      title: "Frontend",
+      technologies: [
+        { name: "React", icon: RiReactjsFill, color: "text-blue-500" },
+        { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
+        { name: "HTML5", icon: TiHtml5, color: "text-orange-500" },
+        { name: "CSS3", icon: IoLogoCss3, color: "text-blue-400" },
+        { name: "Tailwind CSS", icon: RiTailwindCssFill, color: "text-cyan-400" },
+        { name: "Vite", icon: SiVite, color: "text-purple-400" },
+        { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
+      ]
+    },
+    {
+      title: "QA & Testing",
+      technologies: [
+        { name: "Playwright", icon: SiPlaywright, color: "text-green-400" },
+        { name: "Cypress", icon: SiCypress, color: "text-emerald-400" },
+        { name: "Jira", icon: FaJira, color: "text-blue-400" },
+        { name: "Excel", icon: FaFileExcel, color: "text-green-600" },
+      ]
+    },
+    {
+      title: "Accessibility",
+      technologies: [
+        { name: "Universal Access", icon: FaUniversalAccess, color: "text-teal-400" },
+        { name: "Low Vision Support", icon: FaLowVision, color: "text-purple-400" },
+        { name: "Screen Reader Support", icon: FaBlind, color: "text-indigo-400" },
+      ]
+    },
+    {
+      title: "Tools",
+      technologies: [
+        { name: "WordPress", icon: FaWordpress, color: "text-blue-500" },
+        { name: "Git", icon: FaGitAlt, color: "text-orange-500" },
+        { name: "GitHub", icon: FaGithub, color: "text-gray-400" },
+      ]
+    }
+  ];
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  const staggerContainer = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
   return (
     <div className="border-b border-neutral-800 pb-24">
-      <h2 className="my-20 text-center text-4xl">Technologies</h2>
-      <div className="flex flex-wrap items-center justify-center gap-4">
-        <motion.div variants={iconVariants(2.4)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <SiJavascript className="text-7xl text-sky-400" aria-label="JavaScript" />
-        </motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="max-w-6xl mx-auto px-4"
+      >
+        <motion.h2 variants={fadeInUp} className="my-20 text-center text-4xl text-white">
+          Technologies
+        </motion.h2>
+        
+        <motion.p 
+          variants={fadeInUp}
+          className="text-center text-neutral-400 text-lg mb-12 max-w-2xl mx-auto"
+        >
+          Here's the stack I build and test with — from modern frameworks to QA automation tools.
+        </motion.p>
 
-        <motion.div variants={iconVariants(3)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <RiReactjsFill className="text-7xl text-blue-500" aria-label="React" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(1.9)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <IoLogoCss3 className="text-7xl text-violet-800" aria-label="CSS3" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(2.3)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <TiHtml5 className="text-7xl text-sky-400" aria-label="HTML5" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(2.3)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <SiVite className="text-7xl text-blue-500" aria-label="Vite" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(2.3)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <RiTailwindCssFill className="text-7xl text-violet-800" aria-label="Tailwind CSS" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(3)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <FaFileExcel className="text-7xl text-blue-500" aria-label="Excel" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(2.5)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <FaJira className="text-7xl text-violet-800" aria-label="Jira" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(2.5)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <FaWordpress className="text-7xl text-blue-500" aria-label="WordPress" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(2.2)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <SiCypress className="text-7xl text-green-400" aria-label="Cypress" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(2.1)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <SiPlaywright className="text-7xl text-purple-400" aria-label="Playwright" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(2.4)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <FaUniversalAccess className="text-7xl text-sky-400" aria-label="Accessibility" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(2.4)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <FaLowVision className="text-7xl text-violet-500" aria-label="Low Vision Support" />
-        </motion.div>
-
-        <motion.div variants={iconVariants(2.4)} initial="initial" animate="animate" className="rounded-2xl border-4 border-neutral-800 p-4">
-          <FaBlind className="text-7xl text-purple-500" aria-label="Screen Reader Support" />
-        </motion.div>
-      </div>
+        <div className="space-y-12">
+          {technologyCategories.map((category, categoryIndex) => (
+            <motion.div key={category.title} variants={fadeInUp} className="text-center">
+              <h3 className="text-xl font-semibold text-teal-400 mb-6">{category.title}</h3>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                {category.technologies.map((tech, techIndex) => (
+                  <motion.div
+                    key={tech.name}
+                    variants={fadeInUp}
+                    whileHover={{ 
+                      scale: 1.05,
+                      boxShadow: "0 10px 30px rgba(20, 184, 166, 0.3)"
+                    }}
+                    className="group relative"
+                  >
+                    <div className="rounded-xl border-2 border-neutral-700 p-4 bg-neutral-900/50 backdrop-blur-sm transition-all duration-300 group-hover:border-teal-400 group-hover:bg-neutral-800/80">
+                      <tech.icon 
+                        className={`text-4xl ${tech.color} transition-colors duration-300`}
+                        title={tech.name}
+                        aria-label={tech.name}
+                      />
+                    </div>
+                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-xs text-teal-400 font-medium bg-neutral-900 px-2 py-1 rounded">
+                        {tech.name}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 };

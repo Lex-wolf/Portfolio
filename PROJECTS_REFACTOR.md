@@ -6,6 +6,7 @@ The Projects section has been completely refactored with a modern tab-based layo
 ## New Features
 
 ### 1. Tab-Based Navigation
+- **All Tab**: Shows all projects from both categories (default)
 - **Frontend Projects Tab**: Shows all frontend development projects
 - **QA Projects Tab**: Shows all quality assurance projects
 - Active tab highlighted with teal accent color
@@ -13,10 +14,12 @@ The Projects section has been completely refactored with a modern tab-based layo
 
 ### 2. Project Cards
 - Responsive grid layout (1-4 columns based on screen size)
-- Hover effects with scale and glow
+- **3D Hover Effects**: Interactive mouse-follow 3D tilt (desktop only)
+- **Mobile Optimization**: Simple scale effect on touch devices
 - Project image with overlay on hover
 - Truncated description (2 lines max)
 - Click to open detailed drawer
+- Smooth spring animations with natural feel
 
 ### 3. Side Drawer
 - Slides in from the right
@@ -81,9 +84,23 @@ The component is now integrated into the main App.jsx and will automatically dis
 - Smooth animations using Framer Motion
 - Consistent with existing design system
 
+## New Features Added
+
+### 3D Interactive Effects
+- **Mouse-follow 3D tilt**: Cards respond to mouse movement with subtle rotation
+- **Spring animations**: Natural, smooth transitions using Framer Motion
+- **Mobile detection**: Automatically disables 3D effects on touch devices
+- **Performance optimized**: Lightweight calculations for smooth performance
+
+### Enhanced Tab System
+- **"All" tab**: Default view showing all projects
+- **Dynamic filtering**: Smooth transitions between categories
+- **Responsive design**: Tabs adapt to screen size
+
 ## Future Enhancements
 - Add search/filter functionality
 - Add project categories beyond Frontend/QA
 - Add project status indicators (Live, In Progress, etc.)
 - Add GitHub links where applicable
 - Add project screenshots gallery
+- Add keyboard navigation for accessibility

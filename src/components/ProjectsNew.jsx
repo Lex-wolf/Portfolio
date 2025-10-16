@@ -1,16 +1,40 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { projects } from '../data/projectsData';
 import { X } from 'lucide-react';
 
 const ProjectsNew = () => {
-  const [activeTab, setActiveTab] = useState('Frontend');
+  const [activeTab, setActiveTab] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const frontendProjects = projects.filter(project => project.category === 'Frontend');
   const qaProjects = projects.filter(project => project.category === 'QA');
+  const allProjects = projects;
 
-  const currentProjects = activeTab === 'Frontend' ? frontendProjects : qaProjects;
+  const getCurrentProjects = () => {
+    switch (activeTab) {
+      case 'Frontend':
+        return frontendProjects;
+      case 'QA':
+        return qaProjects;
+      default:
+        return allProjects;
+    }
+  };
+
+  const currentProjects = getCurrentProjects();
 
   const openDrawer = (project) => {
     setSelectedProject(project);
@@ -18,6 +42,82 @@ const ProjectsNew = () => {
 
   const closeDrawer = () => {
     setSelectedProject(null);
+  };
+
+  // 3D Card Component
+  const ProjectCard = ({ project, index }) => {
+    const cardRef = useRef(null);
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+    
+    const mouseXSpring = useSpring(x, { stiffness: 150, damping: 10 });
+    const mouseYSpring = useSpring(y, { stiffness: 150, damping: 10 });
+    
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+
+    const handleMouseMove = (e) => {
+      if (!cardRef.current || isMobile) return;
+      
+      const rect = cardRef.current.getBoundingClientRect();
+      const width = rect.width;
+      const height = rect.height;
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      const xPct = mouseX / width - 0.5;
+      const yPct = mouseY / height - 0.5;
+      
+      x.set(xPct);
+      y.set(yPct);
+    };
+
+    const handleMouseLeave = () => {
+      if (!isMobile) {
+        x.set(0);
+        y.set(0);
+      }
+    };
+
+    return (
+      <motion.div
+        ref={cardRef}
+        layout
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.3, delay: index * 0.1 }}
+        whileHover={{ 
+          scale: isMobile ? 1.03 : 1.03,
+          boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
+        }}
+        style={!isMobile ? {
+          rotateY: rotateY,
+          rotateX: rotateX,
+          transformStyle: "preserve-3d",
+        } : {}}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="bg-neutral-900 rounded-lg overflow-hidden cursor-pointer group relative"
+        onClick={() => openDrawer(project)}
+      >
+        <div className="aspect-video overflow-hidden relative">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+        <div className="p-4">
+          <h3 className="font-semibold text-lg mb-2 group-hover:text-teal-400 transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-neutral-400 text-sm overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+            {project.description}
+          </p>
+        </div>
+      </motion.div>
+    );
   };
 
   return (
@@ -42,24 +142,34 @@ const ProjectsNew = () => {
       >
         <div className="flex bg-neutral-900 rounded-lg p-1">
           <button
+            onClick={() => setActiveTab('All')}
+            className={`px-4 sm:px-6 py-3 rounded-md transition-all duration-300 ${
+              activeTab === 'All'
+                ? 'bg-teal-400 text-neutral-900 font-semibold'
+                : 'text-neutral-400 hover:text-white'
+            }`}
+          >
+            All
+          </button>
+          <button
             onClick={() => setActiveTab('Frontend')}
-            className={`px-6 py-3 rounded-md transition-all duration-300 ${
+            className={`px-4 sm:px-6 py-3 rounded-md transition-all duration-300 ${
               activeTab === 'Frontend'
                 ? 'bg-teal-400 text-neutral-900 font-semibold'
                 : 'text-neutral-400 hover:text-white'
             }`}
           >
-            Frontend Projects
+            Frontend
           </button>
           <button
             onClick={() => setActiveTab('QA')}
-            className={`px-6 py-3 rounded-md transition-all duration-300 ${
+            className={`px-4 sm:px-6 py-3 rounded-md transition-all duration-300 ${
               activeTab === 'QA'
                 ? 'bg-teal-400 text-neutral-900 font-semibold'
                 : 'text-neutral-400 hover:text-white'
             }`}
           >
-            QA Projects
+            QA
           </button>
         </div>
       </motion.div>
@@ -69,39 +179,13 @@ const ProjectsNew = () => {
         layout
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-20"
       >
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           {currentProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.3)"
-              }}
-              className="bg-neutral-900 rounded-lg overflow-hidden cursor-pointer group"
-              onClick={() => openDrawer(project)}
-            >
-              <div className="aspect-video overflow-hidden relative">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <div className="p-4">
-                <h3 className="font-semibold text-lg mb-2 group-hover:text-teal-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-neutral-400 text-sm overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
-                  {project.description}
-                </p>
-              </div>
-            </motion.div>
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              index={index} 
+            />
           ))}
         </AnimatePresence>
       </motion.div>
@@ -125,48 +209,48 @@ const ProjectsNew = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 h-full w-full max-w-2xl bg-neutral-900 z-50 overflow-y-auto"
+              className="fixed right-0 top-0 h-full w-full sm:max-w-2xl bg-neutral-900 z-50 overflow-y-auto"
             >
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 {/* Header */}
                 <div className="flex justify-between items-start mb-6">
-                  <div>
-                    <h2 className="text-3xl font-bold mb-2">{selectedProject.title}</h2>
-                    <p className="text-teal-400 text-lg">{selectedProject.description}</p>
+                  <div className="flex-1 pr-4">
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-2">{selectedProject.title}</h2>
+                    <p className="text-teal-400 text-base sm:text-lg">{selectedProject.description}</p>
                   </div>
                   <button
                     onClick={closeDrawer}
-                    className="p-2 hover:bg-neutral-800 rounded-full transition-colors"
+                    className="p-2 hover:bg-neutral-800 rounded-full transition-colors flex-shrink-0"
                   >
                     <X size={24} className="text-neutral-400" />
                   </button>
                 </div>
 
                 {/* Project Image */}
-                <div className="mb-6">
+                <div className="mb-6 flex justify-center">
                   <img
                     src={selectedProject.image}
                     alt={selectedProject.title}
-                    className="w-full h-64 object-cover rounded-lg"
+                    className="w-full max-w-[90%] mx-auto rounded-xl shadow-lg object-contain aspect-video transition-all duration-300 hover:shadow-xl"
                   />
                 </div>
 
                 {/* About Section */}
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold mb-3">About</h3>
-                  <p className="text-neutral-300 leading-relaxed">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3">About</h3>
+                  <p className="text-neutral-300 leading-relaxed text-sm sm:text-base">
                     {selectedProject.about}
                   </p>
                 </div>
 
                 {/* Technologies */}
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold mb-3">Technologies Used</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3">Technologies Used</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-neutral-800 text-teal-400 rounded-full text-sm font-medium"
+                        className="px-3 py-1 bg-neutral-800 text-teal-400 rounded-full text-xs sm:text-sm font-medium"
                       >
                         {tech}
                       </span>
@@ -176,12 +260,12 @@ const ProjectsNew = () => {
 
                 {/* Links */}
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold mb-3">Links</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3">Links</h3>
                   <a
                     href={selectedProject.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-teal-400 text-neutral-900 font-semibold rounded-lg hover:bg-teal-300 transition-colors"
+                    className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-teal-400 text-neutral-900 font-semibold rounded-lg hover:bg-teal-300 transition-colors text-sm sm:text-base"
                   >
                     Open Project
                   </a>
