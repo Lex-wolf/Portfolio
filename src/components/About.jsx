@@ -13,17 +13,27 @@ const About = () => {
         <span className="text-base-light"> Me</span>
       </h2>
       <div className="flex flex-wrap">
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={hasAnimated ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.9 }}
-          onViewportEnter={() => setHasAnimated(true)}
-          className="w-full lg:w-1/2 lg:p-8"
-        >
-          <div className="flex items-center justify-center">
-            <img className="rounded-2xl" src={aboutImg} alt="about" />
-          </div>
-        </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              animate={hasAnimated ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.9 }}
+              onViewportEnter={() => setHasAnimated(true)}
+              className="w-full lg:w-1/2 lg:p-8"
+            >
+              <div className="flex items-center justify-center">
+                <motion.img 
+                  className="rounded-2xl w-full max-w-md" 
+                  src={aboutImg} 
+                  alt="about"
+                  whileHover={{ 
+                    scale: 1.02,
+                    boxShadow: "0 15px 30px rgba(102, 252, 241, 0.08)"
+                  }}
+                  transition={{ duration: 0.3 }}
+                  style={{ willChange: 'transform' }}
+                />
+              </div>
+            </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           animate={hasAnimated ? { opacity: 1, x: 0 } : {}}

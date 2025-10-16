@@ -78,14 +78,8 @@ const Hero = () => {
       cursor.style.opacity = '1';
     };
 
-    // Hide default cursor on interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, input, textarea, [role="button"]');
-    interactiveElements.forEach(el => {
-      el.style.cursor = 'none';
-    });
-
-    // Show custom cursor
-    document.body.style.cursor = 'none';
+    // Keep default cursor visible
+    document.body.style.cursor = 'auto';
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseleave', handleMouseLeave);
     document.addEventListener('mouseenter', handleMouseEnter);
@@ -97,9 +91,6 @@ const Hero = () => {
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseenter', handleMouseEnter);
       document.body.style.cursor = 'auto';
-      interactiveElements.forEach(el => {
-        el.style.cursor = 'auto';
-      });
       if (cursor.parentNode) {
         cursor.parentNode.removeChild(cursor);
       }
@@ -186,9 +177,14 @@ const Hero = () => {
               initial={!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1.2 }}
-              className="rounded-2xl"
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 20px 40px rgba(102, 252, 241, 0.1)"
+              }}
+              className="rounded-2xl w-full max-w-lg animate-float"
               src={profilePic}
               alt="Alejandro Curiel"
+              style={{ willChange: 'transform, opacity' }}
             />
           </div>
         </div>

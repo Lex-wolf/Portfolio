@@ -31,12 +31,17 @@ const Contact = () => {
         >
           {/* {CONTACT.phoneNo}{" "} */}
         </motion.p>
-        <a 
-          href={"mailto:" + CONTACT.email} 
-          className="border-b border-accent-cyan/30 text-base-light text-[30px] tracking-tight font-bold hover:text-accent-cyan hover:border-accent-cyan transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-accent-cyan/20 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark rounded-sm px-2 py-1"
-        >
-          {CONTACT.email}
-        </a>
+            <motion.a
+              href={"mailto:" + CONTACT.email}
+              className="border-b border-accent-cyan/30 text-base-light text-[30px] tracking-tight font-bold hover:text-accent-cyan hover:border-accent-cyan transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-accent-cyan/20 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark rounded-sm px-2 py-1"
+              whileHover={{ 
+                scale: 1.02,
+                textShadow: "0 0 8px rgba(102, 252, 241, 0.3)"
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              {CONTACT.email}
+            </motion.a>
       </div>
 
       {/* Contact Form */}

@@ -31,18 +31,21 @@ const Highlights = () => {
         }}
       >
         {HIGHLIGHTS.map((highlight, index) => (
-          <motion.div
-            key={index}
-            variants={fadeIn}
-            whileHover={{ 
-              scale: 1.03,
-              y: -4,
-              boxShadow: "0 6px 14px rgba(102, 252, 241, 0.12)"
-            }}
-            whileTap={{ scale: 0.98 }}
-            className="group relative cursor-pointer highlight-card flex flex-col h-full"
-            style={{ willChange: 'transform, opacity' }}
-          >
+              <motion.div
+                key={index}
+                variants={fadeIn}
+                whileHover={{
+                  scale: 1.03,
+                  y: -4,
+                  boxShadow: "0 6px 14px rgba(102, 252, 241, 0.12)"
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="group relative cursor-pointer highlight-card flex flex-col h-full animate-float"
+                style={{ 
+                  willChange: 'transform, opacity',
+                  animationDelay: `${index * 0.2}s`
+                }}
+              >
             {/* Gradient border */}
             <div className="absolute inset-0 bg-gradient-to-r from-accent-cyan via-accent-teal to-accent-cyan rounded-xl p-[1px]">
               <div className="bg-base-dark rounded-xl h-full w-full"></div>

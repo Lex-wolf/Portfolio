@@ -118,8 +118,12 @@ const App = () => {
       <div className="overflow-x-hidden text-base-light antialiased selection:bg-accent-cyan selection:text-base-dark">
         {/* Animated gradient background */}
         <div 
-          className="fixed top-0 -z-10 h-full w-full bg-gradient-to-r from-base-dark via-base-darker to-base-dark bg-[length:200%_200%] animate-gradient-move"
-          style={{ willChange: 'background-position' }}
+          className="fixed top-0 -z-10 h-full w-full"
+          style={{ 
+            background: 'radial-gradient(circle at top left, #0b0c10 0%, #1f2833 100%)',
+            animation: 'gradientShift 12s ease infinite alternate',
+            willChange: 'background-position'
+          }}
         ></div>
 
         <div className="container mx-auto px-8">

@@ -129,8 +129,8 @@ const ProjectsNew = () => {
         transition={{ duration: 0.5 }}
         className="my-20 text-center"
       >
-        <h2 className="text-4xl mb-4">Projects.</h2>
-        <p className="text-neutral-400 text-lg">Explore my recent work in development and QA.</p>
+            <h2 className="text-4xl mb-4 text-accent-cyan">Projects.</h2>
+            <p className="text-neutral-400 text-lg">Explore my recent work in development and QA.</p>
       </motion.div>
 
       {/* Tabs */}
