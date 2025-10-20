@@ -14,6 +14,7 @@ import NotionIcon from "../assets/icons/notion.png";
 import ClickupIcon from "../assets/icons/Clickup-logo.png";
 import VsCodeIcon from "../assets/icons/app-icon.png";
 import AxeIcon from "../assets/icons/AXECORE.png";
+import RadixIcon from "../assets/icons/RADIX UI.png";
 
 const Technologies = () => {
   const technologyCategories = [
@@ -25,6 +26,7 @@ const Technologies = () => {
         { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
         { name: "Tailwind CSS", icon: RiTailwindCssFill, color: "text-cyan-400" },
         { name: "Vite", icon: SiVite, color: "text-purple-400" },
+        { name: "Radix UI", icon: RadixIcon, color: "text-purple-400", isImage: true },
         { name: "HTML5", icon: TiHtml5, color: "text-orange-500" },
         { name: "CSS3", icon: IoLogoCss3, color: "text-blue-400" },
         { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
