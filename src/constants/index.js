@@ -2,7 +2,7 @@ import project1 from "../assets/weather.jpeg";
 import project2 from "../assets/todo.png";
 import project3 from "../assets/profile2.png";
 import project4 from "../assets/fttp.png";
-import project5 from "../assets/hummingbird.png";
+import chicanaImage from "../assets/chicana2.png";
 import project6 from "../assets/geobrasil.png";
 import PizzaBar from "../assets/PizzaBar.png";
 import RoseAuto from "../assets/roseauto.png";
@@ -178,7 +178,7 @@ export const PROJECTS = [
   },
   {
     title: "Local Artist Website",
-    image: project5,
+    image: chicanaImage,
     description:
       " Collaborated with a local artist to bring her Chicana-inspired work to life online. The site blends earthy visuals, cultural storytelling, and a nature-forward aesthetic. I used React, Tailwind, and Node.js to build a fast, flexible platform that showcases her portfolio while staying true to her creative voice.",
     technologies: [

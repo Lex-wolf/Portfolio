@@ -2,7 +2,6 @@ import project1 from "../assets/weather.jpeg";
 import project2 from "../assets/todo.png";
 import project3 from "../assets/profile2.png";
 import project4 from "../assets/fttp.png";
-import project5 from "../assets/hummingbird.png";
 import project6 from "../assets/geobrasil.png";
 import PizzaBar from "../assets/PizzaBar.png";
 import RoseAuto from "../assets/roseauto.png";
@@ -16,9 +15,22 @@ import ecForums from "../assets/ec-forums.png";
 import pjWebsite from "../assets/pj-website.jpg";
 import thomasRWebsite from "../assets/thomasr-website.png";
 import toTheStars from "../assets/to-the-stars-website.png";
+import astroReminder from "../assets/astro.png";
+import chicanaImage from "../assets/chicana2.png";
 
+// Updated: Local Artist Website now uses chicana2.png
 export const projects = [
   // Frontend Projects
+  {
+    id: 19,
+    title: "Astro Reminder Website",
+    category: "Frontend",
+    description: "Astrology & Coaching Platform",
+    about: "This project focused on building a calm, intentional digital experience for an astrology and coaching practice. The goal was to clearly present services, philosophy, and consultation offerings while maintaining a sense of clarity, trust, and flow. I built the site using React and Tailwind CSS with a strong emphasis on accessibility, responsive layouts, and smooth motion. Framer Motion was used to subtly guide user attention, creating an experience that feels modern, grounded, and easy to navigate across all devices.",
+    technologies: ["React.js", "JavaScript", "Tailwind CSS", "Framer Motion", "HTML", "CSS"],
+    image: astroReminder,
+    website: "https://astroreminder.com/",
+  },
   {
     id: 1,
     title: "Rose Auto Service",
@@ -66,7 +78,7 @@ export const projects = [
     description: "Chicana-inspired artist portfolio and cultural storytelling",
     about: "Collaborated with a local artist to bring her Chicana-inspired work to life online. The site blends earthy visuals, cultural storytelling, and a nature-forward aesthetic. I used React, Tailwind, and Node.js to build a fast, flexible platform that showcases her portfolio while staying true to her creative voice.",
     technologies: ["HTML", "Tailwind CSS", "React.js", "JavaScript", "Vite", "Node.js"],
-    image: project5,
+    image: chicanaImage,
     website: "https://chicanahummingbird.com/",
   },
   {
