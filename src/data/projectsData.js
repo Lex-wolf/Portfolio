@@ -1,7 +1,7 @@
 import project1 from "../assets/weather.jpeg";
 import project2 from "../assets/todo.png";
 import project3 from "../assets/profile2.png";
-import project4 from "../assets/fttp.png";
+import ftp2Image from "../assets/FTP2.png";
 import project6 from "../assets/geobrasil.png";
 import PizzaBar from "../assets/PizzaBar.png";
 import RoseAuto from "../assets/roseauto.png";
@@ -58,7 +58,7 @@ export const projects = [
     description: "Community platform for fruit tree planting in San Diego",
     about: "This project let me combine my dev skills with a cause I care about. FTPP is all about planting fruit trees and building stronger communities in San Diego. I designed and built a clean, accessible site using React to help spread the word and invite people to get involved.",
     technologies: ["HTML", "CSS", "React.js", "JavaScript"],
-    image: project4,
+    image: ftp2Image,
     website: "https://ftpp.support/",
   },
   {
