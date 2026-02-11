@@ -16,28 +16,31 @@ import ecForums from "../assets/ec-forums.png";
 import pjWebsite from "../assets/pj-website.jpg";
 import thomasRWebsite from "../assets/thomasr-website.png";
 import toTheStars from "../assets/to-the-stars-website.png";
+import tacoGarage from "../assets/taco-garage.png";
 
 
 
 
 
 export const HERO_CONTENT = `
-I’ve spent over 8 years in the world of Quality Assurance, making sure websites and apps don’t go off the rails, think Pearl Jam, Eric Church, and Thomas Rhett. 
-I've had the chance to work with some seriously talented folks on high-profile projects that kept me on my toes (and occasionally dreaming in bug reports). 
-Somewhere along the way, I fell for frontend development yep, it was love at first \`div\`. 
-Now I split my time between squashing bugs and building sleek, user-friendly interfaces with React and Next.js. 
-My goal? Digital experiences that look good, work great, and don’t make people want to throw their laptops out the window. agraph with:
+The last 10 years have been spent in QA, professionally breaking websites so real people don’t have to. That work included large platforms for artists like Pearl Jam, Eric Church, and Thomas Rhett, alongside incredibly sharp teams that kept standards high and thinking sharp.
 
-Let’s build something people can actually use, and enjoy using.
+Over time, the focus shifted from just finding problems to building the solution. That shift led into frontend development and, more recently, deeper backend work to understand how everything connects behind the scenes.
+
+Today, the work extends beyond large platforms to small businesses, helping them launch and improve their websites, clean up booking flows, tighten performance, and actually grow. There’s something different about seeing a real business gain traction because something was built well. It makes tech feel human.
+
+Quality is still the foundation. Things get tested. Things get built. And the goal stays the same: solid systems that hold up under pressure and feel simple for the people using them.
 `;
 
 
 export const ABOUT_TEXT = `
-I’m a frontend developer who loves crafting clean, user-friendly web experiences—and I’m all about keeping things efficient without losing the fun. 
-I thrive in creative, collaborative spaces where ideas flow freely. Before getting into tech, I traveled through South America, soaking in the cultures of Chile, Argentina, and Brazil. 
-Living simply in the Andes reshaped how I think and solve problems. I spent time with artists, poets, and philosophers, which taught me to mix logic with a touch of artistry in everything I build. 
-Outside of coding, you’ll usually find me hiking, cooking Italian food, baking sourdough bread, or lost in a good book. 
-I bring curiosity and creativity to everything I do—whether it’s building interfaces or exploring new ideas. Let’s connect and create something great!
+Work sits at the intersection of quality and development. Years of testing high traffic platforms built a habit of thinking in systems, edge cases, and real world pressure. That mindset naturally expanded into building, first on the frontend and now moving deeper into backend work to understand how everything connects beneath the surface.
+
+Experience ranges from large scale platforms to small businesses that depend on their websites to survive and grow. Both environments require the same thing: clarity, stability, and attention to detail.
+
+There is something especially meaningful about helping a business improve its booking flow or performance and seeing the direct impact it has. Tech stops being abstract and becomes practical.
+
+Curiosity drives the work. Systems thinking shapes it. Quality remains the foundation.
 `;
 
 
@@ -65,6 +68,7 @@ export const EXPERIENCES = [
       "ReactJS",
       "Tailwind",
       "WordPress",
+      "Shopify",
       "Vite",
     ],
   },
@@ -135,6 +139,21 @@ export const HIGHLIGHTS = [
 ];
 
 export const PROJECTS = [
+  {
+    title: "The Taco Garage",
+    image: tacoGarage,
+    description:
+      "Designed a modern headless e-commerce experience for The Taco Garage with a custom React frontend on top of Shopify. The build delivers full design flexibility, variant-aware carts, and fast, SEO-ready performance while keeping Shopify’s reliable checkout.",
+    technologies: [
+      "React",
+      "JavaScript",
+      "Shopify Storefront API",
+      "Vercel",
+      "Tailwind CSS",
+      "Node.js",
+    ],
+    link: "https://www.thetacogarage.com",
+  },
   {
     title: "Rose Auto Service",
     image: RoseAuto, // make sure to import this image above

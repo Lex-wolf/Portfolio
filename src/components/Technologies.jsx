@@ -2,7 +2,7 @@ import { TiHtml5 } from "react-icons/ti";
 import { SiJavascript, SiPlaywright, SiVite, SiNodedotjs, SiNextdotjs, SiPostman, SiGithub, SiFigma } from "react-icons/si";
 import { RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { IoLogoCss3 } from "react-icons/io5";
-import { FaFileExcel, FaJira, FaWordpress, FaLowVision, FaBlind, FaUniversalAccess, FaGitAlt, FaGithub, FaFigma, FaStickyNote, FaLightbulb, FaWaveSquare, FaEye, FaMicrophone } from "react-icons/fa";
+import { FaFileExcel, FaJira, FaWordpress, FaLowVision, FaBlind, FaUniversalAccess, FaGitAlt, FaGithub, FaFigma, FaStickyNote, FaLightbulb, FaWaveSquare, FaEye, FaMicrophone, FaShopify } from "react-icons/fa";
 import { BiTestTube, BiCodeAlt, BiAccessibility, BiCog } from "react-icons/bi";
 import { motion } from "framer-motion";
 
@@ -27,6 +27,7 @@ const Technologies = () => {
         { name: "Tailwind CSS", icon: RiTailwindCssFill, color: "text-cyan-400" },
         { name: "Vite", icon: SiVite, color: "text-purple-400" },
         { name: "Radix UI", icon: RadixIcon, color: "text-purple-400", isImage: true },
+        { name: "Shopify", icon: FaShopify, color: "text-emerald-400" },
         { name: "HTML5", icon: TiHtml5, color: "text-orange-500" },
         { name: "CSS3", icon: IoLogoCss3, color: "text-blue-400" },
         { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },

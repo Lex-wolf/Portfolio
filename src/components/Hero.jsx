@@ -132,7 +132,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                Senior QA Engineer & Frontend Developer
+                Senior QA Engineer | Automation & Web Systems
               </motion.p>
               <motion.p 
                 className="text-base font-medium text-base-light mt-2"
@@ -140,7 +140,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                Manual & Automated QA | Playwright | API & Accessibility | React & Tailwind
+                Manual & Automated QA | Playwright | API Testing | Accessibility | React
               </motion.p>
             </motion.div>
 

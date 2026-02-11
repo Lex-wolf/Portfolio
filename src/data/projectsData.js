@@ -17,10 +17,21 @@ import thomasRWebsite from "../assets/thomasr-website.png";
 import toTheStars from "../assets/to-the-stars-website.png";
 import astroReminder from "../assets/astro.png";
 import chicanaImage from "../assets/chicana2.png";
+import tacoGarage from "../assets/taco-garage.png";
 
 // Updated: Local Artist Website now uses chicana2.png
 export const projects = [
   // Frontend Projects
+  {
+    id: 20,
+    title: "The Taco Garage",
+    category: "Frontend",
+    description: "Custom headless e-commerce built with React + Shopify",
+    about: "Built a modern and scalable e-commerce platform for The Taco Garage using a custom React frontend integrated with Shopify. Moving beyond a template-based store let us keep Shopify’s battle-tested checkout while gaining full design control across the storefront. The build focuses on performance, scalability, and long-term growth so the team can manage products easily and deliver a smooth buying experience across devices. Key highlights include headless React + Shopify integration, dynamic product routing, variant-aware cart flows, performance-optimized deployment, and SEO-ready architecture.",
+    technologies: ["React", "JavaScript", "Shopify Storefront API", "Vercel", "Tailwind CSS", "Node.js"],
+    image: tacoGarage,
+    website: "https://www.thetacogarage.com",
+  },
   {
     id: 19,
     title: "Astro Reminder Website",
