@@ -42,7 +42,12 @@ const About = () => {
           className="w-full lg:w-1/2"
         >
           <div className="flex justify-center lg:justify-start">
-            <p className="my-2 max-w-xl py-6 text-base-light">{ABOUT_TEXT}</p>
+            <p
+              className="my-2 max-w-2xl py-6 text-base-light text-base md:text-lg"
+              style={{ lineHeight: 1.7 }}
+            >
+              {ABOUT_TEXT}
+            </p>
           </div>
         </motion.div>
       </div>

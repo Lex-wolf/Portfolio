@@ -23,38 +23,39 @@ import tacoGarage from "../assets/taco-garage.png";
 
 
 export const HERO_CONTENT = `
-The last 10 years have been spent in QA, professionally breaking websites so real people don’t have to. That work included large platforms for artists like Pearl Jam, Eric Church, and Thomas Rhett, alongside incredibly sharp teams that kept standards high and thinking sharp.
+I work at the intersection of quality and creation.
 
-Over time, the focus shifted from just finding problems to building the solution. That shift led into frontend development and, more recently, deeper backend work to understand how everything connects behind the scenes.
+With over 10 years in QA, I naturally approach development by asking one question: does this actually work for the people using it?
 
-Today, the work extends beyond large platforms to small businesses, helping them launch and improve their websites, clean up booking flows, tighten performance, and actually grow. There’s something different about seeing a real business gain traction because something was built well. It makes tech feel human.
+I test systems, refine experiences, and build interfaces that feel stable, thoughtful, and easy to use. My background in QA shaped how I develop today. I look for edge cases, question assumptions, and help turn complex ideas into reliable products.
 
-Quality is still the foundation. Things get tested. Things get built. And the goal stays the same: solid systems that hold up under pressure and feel simple for the people using them.
+Most of my work lives between testing and building. I collaborate with teams, support growing platforms, and create web experiences that are both functional and human.
+
+Feel free to scroll down and explore the projects I’m currently working on, or tap the button below if you’d like to connect and create something new together.
 `;
 
 
 export const ABOUT_TEXT = `
-Work sits at the intersection of quality and development. Years of testing high traffic platforms built a habit of thinking in systems, edge cases, and real world pressure. That mindset naturally expanded into building, first on the frontend and now moving deeper into backend work to understand how everything connects beneath the surface.
+Outside of work, I’m a pretty simple person.
 
-Experience ranges from large scale platforms to small businesses that depend on their websites to survive and grow. Both environments require the same thing: clarity, stability, and attention to detail.
+I like making bread. Cooking pasta. Playing guitar when I need to reset my head a bit. Music has always been part of how I think and how I slow down. Traveling helps me see things differently, which somehow always comes back into the way I approach projects and problem solving.
 
-There is something especially meaningful about helping a business improve its booking flow or performance and seeing the direct impact it has. Tech stops being abstract and becomes practical.
+I enjoy working with people who care about what they’re building. Good collaboration, honest conversations, and a bit of curiosity usually lead to the best results.
 
-Curiosity drives the work. Systems thinking shapes it. Quality remains the foundation.
+At the end of the day, I’m just someone who likes understanding how things work, whether it’s a system, a website, or a good recipe.
 `;
 
 
 export const EXPERIENCES = [
   {
     year: "2024 – Present",
-    role: "Frontend Developer + QA (Accessibility & Automation)",
-    company: "Freelance",
+    role: "Software Engineering Consultant",
+    company: "Bison Digital · Freelance",
     description: `
-      I help clients build clean, responsive, and accessible web interfaces—primarily using React, Tailwind, and WordPress.
-      My work focuses on performance, semantic structure, and delivering inclusive experiences that meet WCAG standards.
-      
-      I also lead quality assurance using tools like Cypress, Playwright, axe-core, and Lighthouse to ensure every project is stable, accessible, and ready for production.
-      From landing pages to complex web apps, I bring both frontend development and QA insight into every build.
+      Provide consulting support on web applications, improving system stability, performance, and long-term maintainability.
+      Contribute to React-based platforms while reviewing architecture decisions and resolving production-level issues.
+      Lead manual and automated testing efforts using Playwright, Postman, axe-core, and Lighthouse to ensure reliability and accessibility.
+      Bring QA insight into every build, identifying edge cases early and supporting scalable, production-ready releases.
     `,
     technologies: [
       "Manual QA",
