@@ -127,7 +127,7 @@ const Hero = () => {
               style={{ willChange: 'transform, opacity' }}
             >
               <motion.p 
-                className="text-3xl font-semibold bg-gradient-to-r from-accent-cyan to-accent-teal bg-clip-text text-transparent"
+                className="text-xl md:text-2xl font-semibold mt-2 bg-gradient-to-r from-accent-cyan to-accent-teal bg-clip-text text-transparent"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -135,7 +135,7 @@ const Hero = () => {
                 Senior QA Engineer | Web Systems
               </motion.p>
               <motion.p 
-                className="text-base font-medium text-base-light mt-2"
+                className="text-base md:text-lg text-gray-300 mt-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
@@ -148,8 +148,7 @@ const Hero = () => {
               variants={container(1)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="my-2 max-w-2xl py-6 font-light tracking-tighter text-base-light text-base md:text-lg"
-              style={{ lineHeight: 1.7 }}
+              className="text-lg leading-relaxed text-gray-300 max-w-xl mt-5"
             >
               {HERO_CONTENT}
             </motion.p>
