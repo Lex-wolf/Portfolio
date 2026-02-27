@@ -19,14 +19,14 @@ const ProjectsNew = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const frontendProjects = projects.filter(project => project.category === 'Frontend');
-  const qaProjects = projects.filter(project => project.category === 'QA');
+  const builtProjects = projects.filter(project => project.category === 'built');
+  const qaProjects = projects.filter(project => project.category === 'qa');
   const allProjects = projects;
 
   const getCurrentProjects = () => {
     switch (activeTab) {
-      case 'Frontend':
-        return frontendProjects;
+      case 'Built':
+        return builtProjects;
       case 'QA':
         return qaProjects;
       default:
@@ -152,14 +152,14 @@ const ProjectsNew = () => {
             All
           </button>
           <button
-            onClick={() => setActiveTab('Frontend')}
+            onClick={() => setActiveTab('Built')}
             className={`px-4 sm:px-6 py-3 rounded-md transition-all duration-300 ${
-              activeTab === 'Frontend'
+              activeTab === 'Built'
                 ? 'bg-teal-400 text-neutral-900 font-semibold'
                 : 'text-neutral-400 hover:text-white'
             }`}
           >
-            Frontend
+            Built
           </button>
           <button
             onClick={() => setActiveTab('QA')}
@@ -226,13 +226,32 @@ const ProjectsNew = () => {
                   </button>
                 </div>
 
-                {/* Project Image */}
-                <div className="mb-6 flex justify-center">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    className="w-full max-w-[90%] mx-auto rounded-xl shadow-lg object-contain aspect-video transition-all duration-300 hover:shadow-xl"
-                  />
+                {/* Gallery or Single Image */}
+                <div className="mb-6">
+                  {selectedProject.gallery && selectedProject.gallery.length > 0 ? (
+                    <div className="flex gap-3 overflow-x-auto pb-2 -mx-2 px-2">
+                      {selectedProject.gallery.map((imgSrc, index) => (
+                        <div
+                          key={index}
+                          className="flex-shrink-0 w-40 sm:w-48 rounded-xl overflow-hidden bg-neutral-800 hover:bg-neutral-700 transition-colors"
+                        >
+                          <img
+                            src={imgSrc}
+                            alt={`${selectedProject.title} screenshot ${index + 1}`}
+                            className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="flex justify-center">
+                      <img
+                        src={selectedProject.image}
+                        alt={selectedProject.title}
+                        className="w-full max-w-[90%] mx-auto rounded-xl shadow-lg object-contain aspect-video transition-all duration-300 hover:shadow-xl"
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* About Section */}
@@ -242,6 +261,40 @@ const ProjectsNew = () => {
                     {selectedProject.about}
                   </p>
                 </div>
+
+                {/* Testing Focus (QA-specific, optional) */}
+                {selectedProject.testingFocus && selectedProject.testingFocus.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-3">Testing Focus</h3>
+                    <ul className="list-disc list-inside space-y-1 text-neutral-300 text-sm sm:text-base">
+                      {selectedProject.testingFocus.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Platforms & Devices (optional) */}
+                {(selectedProject.platforms || selectedProject.devices) && (
+                  <div className="mb-6 grid gap-4 sm:grid-cols-2">
+                    {selectedProject.platforms && (
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-semibold mb-2">Platforms</h3>
+                        <p className="text-neutral-300 text-sm sm:text-base">
+                          {selectedProject.platforms}
+                        </p>
+                      </div>
+                    )}
+                    {selectedProject.devices && (
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-semibold mb-2">Devices</h3>
+                        <p className="text-neutral-300 text-sm sm:text-base">
+                          {selectedProject.devices}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                )}
 
                 {/* Technologies */}
                 <div className="mb-6">
@@ -261,14 +314,34 @@ const ProjectsNew = () => {
                 {/* Links */}
                 <div className="mb-6">
                   <h3 className="text-lg sm:text-xl font-semibold mb-3">Links</h3>
-                  <a
-                    href={selectedProject.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-teal-400 text-neutral-900 font-semibold rounded-lg hover:bg-teal-300 transition-colors text-sm sm:text-base"
-                  >
-                    Open Project
-                  </a>
+                  {selectedProject.links && selectedProject.links.length > 0 ? (
+                    <div className="flex flex-wrap gap-3">
+                      {selectedProject.links.map((link, index) => (
+                        <a
+                          key={index}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-colors ${
+                            link.primary
+                              ? "bg-teal-400 text-neutral-900 hover:bg-teal-300"
+                              : "bg-neutral-800 text-teal-400 hover:bg-neutral-700"
+                          }`}
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <a
+                      href={selectedProject.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-teal-400 text-neutral-900 font-semibold rounded-lg hover:bg-teal-300 transition-colors text-sm sm:text-base"
+                    >
+                      Open Project
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

@@ -18,6 +18,17 @@ import toTheStars from "../assets/to-the-stars-website.png";
 import astroReminder from "../assets/astro.png";
 import chicanaImage from "../assets/chicana2.png";
 import tacoGarage from "../assets/taco-garage.png";
+import aspire1 from "../assets/aspire-1.png";
+import aspire2 from "../assets/aspire-2.png";
+import aspire3 from "../assets/aspire-3.png";
+import aspire4 from "../assets/aspire-4.png";
+import obagi1 from "../assets/obagi-1.png";
+import obagi2 from "../assets/obagi-2.png";
+import obagi3 from "../assets/obagi-3.png";
+import obagi4 from "../assets/obagi-4.png";
+import obagi5 from "../assets/obagi-5.png";
+import obagi6 from "../assets/obagi-6.png";
+import ourRescueWebsite from "../assets/ourrescue-website.png";
 
 // Updated: Local Artist Website now uses chicana2.png
 export const projects = [
@@ -25,7 +36,7 @@ export const projects = [
   {
     id: 20,
     title: "The Taco Garage",
-    category: "Frontend",
+    category: "built",
     description: "Custom headless e-commerce built with React + Shopify",
     about: "Built a modern and scalable e-commerce platform for The Taco Garage using a custom React frontend integrated with Shopify. Moving beyond a template-based store let us keep Shopify’s battle-tested checkout while gaining full design control across the storefront. The build focuses on performance, scalability, and long-term growth so the team can manage products easily and deliver a smooth buying experience across devices. Key highlights include headless React + Shopify integration, dynamic product routing, variant-aware cart flows, performance-optimized deployment, and SEO-ready architecture.",
     technologies: ["React", "JavaScript", "Shopify Storefront API", "Vercel", "Tailwind CSS", "Node.js"],
@@ -35,7 +46,7 @@ export const projects = [
   {
     id: 19,
     title: "Astro Reminder Website",
-    category: "Frontend",
+    category: "built",
     description: "Astrology & Coaching Platform",
     about: "This project focused on building a calm, intentional digital experience for an astrology and coaching practice. The goal was to clearly present services, philosophy, and consultation offerings while maintaining a sense of clarity, trust, and flow. I built the site using React and Tailwind CSS with a strong emphasis on accessibility, responsive layouts, and smooth motion. Framer Motion was used to subtly guide user attention, creating an experience that feels modern, grounded, and easy to navigate across all devices.",
     technologies: ["React.js", "JavaScript", "Tailwind CSS", "Framer Motion", "HTML", "CSS"],
@@ -45,7 +56,7 @@ export const projects = [
   {
     id: 1,
     title: "Rose Auto Service",
-    category: "Frontend",
+    category: "built",
     description: "BMW, Audi, Mercedes, and Volkswagen specialist website",
     about: "Designed and developed a sleek, responsive website for Rose Auto Service, a BMW, Audi, Mercedes, and Volkswagen specialist in Philadelphia. Built using React and Tailwind CSS to showcase services, testimonials, and location with modern UI and mobile-first design.",
     technologies: ["React", "Tailwind CSS", "Vite", "JavaScript", "SEO", "GoDaddy", "Vercel"],
@@ -55,7 +66,7 @@ export const projects = [
   {
     id: 2,
     title: "Axe Thro Co's Pizza Bar",
-    category: "Frontend",
+    category: "built",
     description: "Bold landing page for wood-fired pizzas and axe throwing",
     about: "Built a bold and modern landing page for Axe Thro Co's Pizza Bar to capture the vibe of their wood-fired pizzas and laid-back atmosphere. Using WordPress and Elementor, I made it easy for the team to update content while keeping things fast, responsive, and visually sharp across devices.",
     technologies: ["HTML", "CSS", "JavaScript", "WordPress", "Elementor"],
@@ -65,7 +76,7 @@ export const projects = [
   {
     id: 3,
     title: "Nonprofit Tree Planting Community",
-    category: "Frontend",
+    category: "built",
     description: "Community platform for fruit tree planting in San Diego",
     about: "This project let me combine my dev skills with a cause I care about. FTPP is all about planting fruit trees and building stronger communities in San Diego. I designed and built a clean, accessible site using React to help spread the word and invite people to get involved.",
     technologies: ["HTML", "CSS", "React.js", "JavaScript"],
@@ -75,7 +86,7 @@ export const projects = [
   {
     id: 4,
     title: "Geodesic Brasil Website",
-    category: "Frontend",
+    category: "built",
     description: "Sustainable geodesic architecture platform for Brazil",
     about: "Inspired by the beauty of geodesic architecture, this platform showcases sustainable design tailored for Brazilian landscapes. I focused on balancing visuals with performance, using React, Vite, and Node.js to build a fast, flexible site with structure as unique as the subject matter.",
     technologies: ["HTML", "CSS", "React.js", "JavaScript", "Vite", "Node.js", "TypeScript"],
@@ -85,7 +96,7 @@ export const projects = [
   {
     id: 5,
     title: "Local Artist Website",
-    category: "Frontend",
+    category: "built",
     description: "Chicana-inspired artist portfolio and cultural storytelling",
     about: "Collaborated with a local artist to bring her Chicana-inspired work to life online. The site blends earthy visuals, cultural storytelling, and a nature-forward aesthetic. I used React, Tailwind, and Node.js to build a fast, flexible platform that showcases her portfolio while staying true to her creative voice.",
     technologies: ["HTML", "Tailwind CSS", "React.js", "JavaScript", "Vite", "Node.js"],
@@ -95,7 +106,7 @@ export const projects = [
   {
     id: 6,
     title: "Portfolio Website",
-    category: "Frontend",
+    category: "built",
     description: "Personal portfolio showcasing projects and skills",
     about: "Built my own portfolio from scratch to showcase projects, skills, and a bit of personality. Designed to be clean, simple, and easy to navigate—because first impressions matter. Powered by React, styled with Bootstrap, and optimized with Vite for a snappy dev experience.",
     technologies: ["HTML", "CSS", "React.js", "Bootstrap", "Vite"],
@@ -105,7 +116,7 @@ export const projects = [
   {
     id: 7,
     title: "Weather App",
-    category: "Frontend",
+    category: "built",
     description: "Real-time weather updates with responsive design",
     about: "Created a responsive weather app with real-time updates using React and Node.js. Users can check current conditions, forecasts, and temperatures anywhere in the world. Clean design, intuitive UX, and a touch of JavaScript magic to keep it all running smoothly.",
     technologies: ["HTML", "CSS", "Node.js"],
@@ -115,7 +126,7 @@ export const projects = [
   {
     id: 8,
     title: "To Do App",
-    category: "Frontend",
+    category: "built",
     description: "Productivity app for task management",
     about: "A simple but powerful productivity app to help users stay on top of their tasks. You can add, edit, delete, and prioritize to-dos with ease. Designed with a clean UI and smooth functionality that works well across devices—because getting things done shouldn't feel like a chore.",
     technologies: ["HTML", "CSS", "JavaScript", "React"],
@@ -127,101 +138,486 @@ export const projects = [
   {
     id: 9,
     title: "Pearl Jam Official Website",
-    category: "QA",
-    description: "Extensive QA testing for Pearl Jam's official website",
-    about: "Performed extensive QA testing for Pearl Jam's official website, ensuring smooth performance and cross-browser compatibility. Focused on functional testing, regression testing, and cross-browser testing to maintain the high standards expected for such a high-profile artist's digital presence.",
-    technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing"],
+    category: "qa",
+    description: "Website QA across CMS, multi-device, and release cycles",
+    about:
+      "I worked on QA for Pearl Jam’s official site across multiple release cycles. That meant checking new features, content updates, and layout changes before they went live. I focused on functional and regression passes, cross-browser behavior, and making sure CMS changes rendered correctly on the front end, especially around tour updates and major announcements.",
+    technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "API Testing", "CMS Validation"],
     image: pjWebsite,
     website: "https://pearljam.com/",
+    tagline: "Website QA across CMS, multi-device, and release cycles",
+    testingFocus: [
+      "Functional and regression testing",
+      "Cross-browser coverage (Chrome, Safari, Firefox, Edge)",
+      "CMS publishing and content workflows",
+      "Media and gallery rendering",
+      "Tour dates and other dynamic content checks",
+      "Navigation and responsive layout behavior",
+      "Desktop and mobile breakpoint validation",
+      "API response and error handling",
+      "Front-end and back-end data consistency",
+      "Light performance checks around traffic spikes"
+    ],
+    platforms: "Web across desktop and mobile browsers.",
+    devices:
+      "Mac and Windows laptops plus iPhone and Android phones, covering common screen sizes and responsive breakpoints.",
   },
   {
     id: 10,
     title: "Eric Church Website",
-    category: "QA",
-    description: "UI/UX consistency and multi-device functionality testing",
-    about: "QA testing for Eric Church's website, focusing on UI/UX consistency and multi-device functionality. Ensured the site worked seamlessly across all devices and browsers while maintaining the artist's brand standards and user experience expectations.",
-    technologies: ["Manual Testing", "Cross-device Testing", "Jira"],
+    category: "qa",
+    description: "Cross-browser and multi-device website QA",
+    about:
+      "I supported QA for Eric Church’s official website across several content and feature releases. The work focused on UI consistency, responsive layouts, and cross-browser behavior while the team shipped new music pages, tour updates, and fan content. I validated CMS-driven changes, checked that navigation and media rendered correctly, and kept an eye on stability when traffic spiked.",
+    technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "Jira", "CMS Validation"],
     image: ecWebsite,
     website: "https://www.ericchurch.com/",
+    tagline: "Cross-browser and multi-device website QA",
+    testingFocus: [
+      "Functional and regression testing",
+      "Cross-browser checks across Chrome, Safari, Firefox, and Edge",
+      "Responsive layout validation at key breakpoints",
+      "CMS publishing and content accuracy",
+      "Tour dates and other dynamic sections",
+      "Navigation and menu interactions",
+      "Media and embedded content rendering",
+      "Login and account-related flows",
+      "Front-end and back-end data consistency",
+      "Light performance checks during busy traffic"
+    ],
+    browsers:
+      "Chrome, Safari, Firefox, and Edge on both desktop and mobile, focused on current versions in use during each release cycle.",
+    platforms: "Web on desktop and mobile browsers.",
+    devices:
+      "Mac and Windows laptops, plus iPhone Safari and Android Chrome across common screen sizes and breakpoints.",
   },
   {
     id: 11,
     title: "Eric Church Official App",
-    category: "QA",
+    category: "qa",
     description: "iOS and Android app testing for seamless experience",
     about: "Tested the Eric Church official app across iOS and Android devices, ensuring a seamless experience. Performed comprehensive functional testing, UI testing, and cross-platform compatibility checks to maintain consistent user experience across all mobile platforms.",
     technologies: ["iOS", "Android", "Functional Testing"],
     image: ecApp,
     website: "https://apps.apple.com/us/app/eric-church-official/id1436492159",
+    links: [
+      {
+        label: "View on App Store",
+        href: "https://apps.apple.com/us/app/eric-church-official/id1436492159",
+        primary: true
+      },
+      {
+        label: "View on Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.EricChurch.App&hl=en_US",
+        primary: false
+      }
+    ]
   },
   {
     id: 12,
     title: "Thomas Rhett Website",
-    category: "QA",
-    description: "Responsive design and performance testing",
-    about: "Executed QA testing on Thomas Rhett's website, including responsive design and performance checks. Focused on ensuring the site performed optimally across all devices while maintaining fast load times and smooth user interactions.",
-    technologies: ["Cross-browser Testing", "Responsive Testing"],
+    category: "qa",
+    description: "Responsive, performance, and cross-browser website QA",
+    about:
+      "I handled QA for Thomas Rhett’s website across multiple content updates and merch pushes. Most of the work centered on responsive layouts, store flows, and keeping pages fast while new releases went live. I validated CMS updates, checked product and tour pages, and made sure the experience held up across browsers and devices.",
+    technologies: [
+      "Manual Testing",
+      "Regression Testing",
+      "Cross-browser Testing",
+      "Responsive Testing",
+      "Performance Validation",
+      "Jira",
+      "CMS Validation"
+    ],
     image: thomasRWebsite,
     website: "https://www.thomasrhett.com/#/",
+    tagline: "Responsive, performance, and cross-browser website QA",
+    testingFocus: [
+      "Functional and regression testing",
+      "Cross-browser checks across Chrome, Safari, Firefox, and Edge",
+      "Responsive layout validation for key breakpoints",
+      "Performance and basic load time checks",
+      "E-commerce cart and checkout flows",
+      "Product and merch page rendering",
+      "Tour dates and other dynamic sections",
+      "CMS publishing and content accuracy",
+      "Media and embedded content behavior",
+      "Front-end and back-end data consistency"
+    ],
+    browsers:
+      "Chrome, Safari, Firefox, and Edge on desktop and mobile, focused on supported versions during each release.",
+    platforms: "Web on desktop and mobile browsers.",
+    devices:
+      "Mac and Windows laptops, plus iPhone Safari and Android Chrome across common screen sizes and responsive breakpoints.",
   },
   {
     id: 13,
     title: "Thomas Rhett Home Team App",
-    category: "QA",
-    description: "Mobile QA for cross-platform performance",
-    about: "Performed mobile QA for Thomas Rhett's Home Team app, ensuring flawless cross-platform performance. Tested across multiple devices and operating systems to guarantee consistent functionality and user experience for all fans.",
-    technologies: ["iOS", "Android", "Regression Testing"],
+    category: "qa",
+    description: "Mobile app QA across iOS and Android builds",
+    about:
+      "I handled QA for Thomas Rhett’s Home Team app across several release cycles. Feature work often lined up with new music, tour dates, and fan campaigns, so the app needed to stay stable while things changed quickly. I focused on builds, login, notifications, feeds, and making sure the same experience held up across iOS and Android devices.",
+    technologies: [
+      "Manual Testing",
+      "Regression Testing",
+      "Mobile Testing",
+      "API Validation",
+      "Jira"
+    ],
     image: thomasRApp,
     website: "https://apps.apple.com/us/app/thomas-rhetts-home-team-app/id1275224693",
+    tagline: "Mobile app QA across iOS and Android builds",
+    testingFocus: [
+      "Build validation and smoke checks",
+      "Regression passes between releases",
+      "Login and authentication flows",
+      "Push notification delivery and deep links",
+      "Fan engagement and community features",
+      "Content feed and dynamic modules",
+      "Media playback and in-app viewing",
+      "Navigation and tab behavior",
+      "API response and error handling",
+      "Store build and release verification",
+      "Basic performance checks on real devices"
+    ],
+    platforms: "Native mobile apps on iOS and Android.",
+    devices:
+      "Tested on multiple iPhone generations and popular Android devices like Samsung and Pixel, across common screen sizes and OS versions.",
+    links: [
+      {
+        label: "View on App Store",
+        href: "https://apps.apple.com/us/app/thomas-rhetts-home-team-app/id1275224693",
+        primary: true
+      },
+      {
+        label: "View on Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.cmafest.htfc&hl=en_US",
+        primary: false
+      }
+    ]
   },
   {
     id: 14,
     title: "Brandi Carlile Website",
-    category: "QA",
-    description: "Bug fixes and cross-device optimizations",
-    about: "QA-tested Brandi Carlile's official website, focusing on bug fixes and cross-device optimizations. Ensured the site worked perfectly across all devices while maintaining the artist's authentic voice and brand identity online.",
-    technologies: ["Manual Testing", "Cross-browser Testing"],
+    category: "qa",
+    description: "Cross-browser QA and multi-device optimization",
+    about:
+      "I worked on QA for Brandi Carlile’s official site through multiple updates and feature releases. The focus was on fixing bugs, keeping layouts consistent, and making sure CMS-driven content like tours, media, and shop updates rendered correctly. I watched performance during busy moments like album launches so the site stayed fast and usable on both desktop and mobile.",
+    technologies: [
+      "Manual Testing",
+      "Regression Testing",
+      "Cross-browser Testing",
+      "Responsive Testing",
+      "CMS Validation",
+      "Jira"
+    ],
     image: brandiWebsite,
     website: "https://www.brandicarlile.com/",
+    tagline: "Cross-browser QA and multi-device optimization",
+    testingFocus: [
+      "Functional and regression testing",
+      "Cross-browser checks across Chrome, Safari, Firefox, and Edge",
+      "Responsive layout validation on key breakpoints",
+      "CMS publishing and content workflows",
+      "Tour and event data verification",
+      "Media and embedded content rendering",
+      "E-commerce and shop flows",
+      "Navigation and menu behavior",
+      "Front-end and back-end data consistency",
+      "Performance and basic load time checks",
+      "Bug reproduction and validation of fixes"
+    ],
+    browsers:
+      "Chrome, Safari, Firefox, and Edge on desktop and mobile, focused on the supported versions in use during each release.",
+    platforms: "Web across desktop and mobile browsers.",
+    devices:
+      "Mac and Windows environments plus iPhone Safari and Android Chrome, covering common screen sizes and responsive breakpoints.",
   },
   {
     id: 15,
     title: "ACE Parking App",
-    category: "QA",
-    description: "Transaction reliability and UI accuracy testing",
-    about: "Performed QA on ACE Parking app with a focus on transaction reliability and UI accuracy. Tested payment flows, user interface consistency, and data accuracy to ensure users could rely on the app for their parking needs.",
-    technologies: ["iOS", "Android", "Functional Testing"],
+    category: "qa",
+    description: "Mobile QA focused on transaction reliability and UI accuracy",
+    about:
+      "I worked on QA for the ACE Parking app across several release cycles. The main focus was keeping reservations, payments, and map results reliable while people used the app in real time. I checked reservation flows end to end, validated prices and availability, and made sure the UI stayed clear and predictable on both iOS and Android devices.",
+    technologies: [
+      "Manual Testing",
+      "Regression Testing",
+      "Mobile Testing",
+      "Functional Testing",
+      "API Validation",
+      "Jira"
+    ],
     image: aceParkingApp,
     website: "https://www.aceparking.com/",
+    tagline: "Mobile QA focused on transaction reliability and UI accuracy",
+    testingFocus: [
+      "Build validation and smoke checks",
+      "Regression testing across release cycles",
+      "Reservation and booking flows",
+      "Payment processing and receipt validation",
+      "Map rendering and geolocation accuracy",
+      "Pricing and availability consistency",
+      "Login and account management flows",
+      "API response and error handling",
+      "UI alignment and layout consistency",
+      "Store build and release verification",
+      "Performance checks on real devices"
+    ],
+    platforms: "Native mobile apps on iOS and Android.",
+    devices:
+      "Covered multiple iPhone generations and common Android devices such as Samsung and Pixel, across different screen sizes and OS versions.",
+    links: [
+      {
+        label: "View on App Store",
+        href: "https://apps.apple.com/us/app/ace-parking/id1119274201",
+        primary: true
+      },
+      {
+        label: "View on Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.ace.aceparking",
+        primary: false
+      }
+    ]
   },
   {
     id: 16,
     title: "Pride Study Website",
-    category: "QA",
-    description: "Accessibility and data accuracy testing",
-    about: "Tested the Pride Study platform, ensuring accessibility and data accuracy. Focused on making sure the platform was accessible to all users while maintaining the integrity and accuracy of the research data being collected.",
-    technologies: ["Accessibility Testing", "Manual Testing"],
+    category: "qa",
+    description: "Accessibility, questionnaire logic, and data accuracy testing",
+    about:
+      "I worked on QA for the Pride Study website with a focus on accessibility and clean research data. Most of the effort went into multi-step questionnaires, branching logic, and making sure responses were stored and surfaced correctly in participant views. I balanced front-end usability checks with backend data validation so the study team could trust what they were seeing.",
+    technologies: [
+      "Manual Testing",
+      "Regression Testing",
+      "Accessibility Testing",
+      "Cross-browser Testing",
+      "CMS Validation",
+      "API Validation",
+      "Jira"
+    ],
     image: prideStudy,
     website: "https://play.google.com/store/apps/details?id=com.cliniv.perampanel&hl=en_US",
+    tagline: "Accessibility, questionnaire logic, and data accuracy testing",
+    testingFocus: [
+      "Functional and regression testing",
+      "Accessibility validation for key user flows",
+      "Multi-step questionnaire and survey logic",
+      "Conditional branching and skip logic checks",
+      "Profile and participant view accuracy",
+      "Form validation, errors, and edge cases",
+      "CMS content updates and copy changes",
+      "Backend data storage and record verification",
+      "Cross-browser behavior and rendering",
+      "Responsive layout checks across screen sizes",
+      "API response and error handling validation",
+      "Data consistency between UI and underlying data"
+    ],
+    browsers:
+      "Chrome, Safari, Firefox, and Edge on desktop and mobile, focused on the supported versions used during testing.",
+    platforms: "Web on both desktop and mobile browsers.",
+    devices:
+      "Mac and Windows environments plus iPhone Safari and Android Chrome across common screen sizes and breakpoints.",
+  },
+  {
+    id: 21,
+    title: "Obagi Events",
+    category: "qa",
+    description: "Enterprise event app QA across iOS and iPad builds",
+    about:
+      "I worked on Obagi Events for about 7–8 years as part of the QA team. Most builds shipped ahead of live events, so the app had to stay stable while people were on-site. I focused on schedules, speakers, login, navigation, alerts, and making sure each screen showed the right content at the right time.",
+    technologies: ["Manual QA", "Regression Testing", "Functional Testing", "API Testing", "iOS", "iPad"],
+    image: obagi2,
+    website: "https://apps.apple.com/us/app/obagi-events/id1613723546",
+    tagline: "Enterprise event app QA across iOS and iPad builds",
+    testingFocus: [
+      "Build validation before event launches",
+      "Regression passes between event cycles",
+      "Agenda and scheduling rules",
+      "Timezone handling and event start times",
+      "Speaker profiles and image rendering",
+      "Side navigation and deep links",
+      "Search and filter behavior",
+      "Maps and venue modules",
+      "Social and engagement features",
+      "Push notification delivery and routing",
+      "iPad layout and split view checks",
+      "API response and error handling",
+      "Store submission and review verification"
+    ],
+    platforms: "iOS on iPhone and iPad, tested across several major iOS versions over the years.",
+    devices:
+      "Covered multiple iPhone generations and iPad models with different screen sizes and orientations.",
+    links: [
+      {
+        label: "View on App Store",
+        href: "https://apps.apple.com/us/app/obagi-events/id1613723546",
+        primary: true
+      },
+      {
+        label: "View on Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.app.karetreat&pcampaignid=web_share",
+        primary: false
+      }
+    ],
+    gallery: [obagi2, obagi3, obagi4]
+  },
+  {
+    id: 19,
+    title: "ASPIRE Galderma Rewards",
+    category: "qa",
+    description: "Mobile QA across iOS and Android builds",
+    about:
+      "Long term QA support over 4–5 years for Galderma’s ASPIRE rewards app. Tested frequent builds, kept wallet balances and offers accurate, and made sure the UI stayed clean and predictable as features evolved.",
+    technologies: ["Manual QA", "Regression Testing", "Functional Testing", "API Testing", "iOS", "Android"],
+    image: aspire1,
+    website: "https://apps.apple.com/us/app/aspire-galderma-rewards/id1501759750",
+    tagline: "Mobile QA across iOS and Android builds",
+    testingFocus: [
+      "Build validation and smoke checks",
+      "Regression coverage for monthly releases",
+      "Payment, wallet, and rewards flows",
+      "Points earning and redemption logic",
+      "Provider search and location accuracy",
+      "Gallery upload and image handling",
+      "Gift certificate purchase and redemption",
+      "API response and error handling validation",
+      "UI alignment and layout checks",
+      "Store build and release verification"
+    ],
+    platforms: "iOS and Android, across multiple OS versions over 4+ years.",
+    devices:
+      "Tested on iPhone generations and popular Android devices (Samsung, Pixel) across different screen sizes and OS versions.",
+    links: [
+      {
+        label: "View on App Store",
+        href: "https://apps.apple.com/us/app/aspire-galderma-rewards/id1501759750",
+        primary: true
+      },
+      {
+        label: "View on Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.galderma.aspirerewards&hl=en_US",
+        primary: false
+      }
+    ],
+    gallery: [aspire1, aspire2, aspire3, aspire4]
   },
   {
     id: 17,
     title: "Eric Church Forums",
-    category: "QA",
-    description: "Functionality, load times, and user experience testing",
-    about: "QA-tested the Eric Church forums for functionality, load times, and user experience. Ensured the community platform worked smoothly for fans to connect and share their experiences while maintaining fast performance and reliable functionality.",
-    technologies: ["Functional Testing", "Performance Testing"],
+    category: "qa",
+    description: "Community platform QA across functionality, performance, and integration",
+    about:
+      "I handled QA for the Eric Church community forums through multiple updates and fan cycles. My work covered threads, posting, moderation tools, and search so fans could use the platform without friction. I also validated CMS-driven content, checked that integrations behaved as expected, and kept an eye on performance when tours or big announcements pushed traffic up.",
+    technologies: [
+      "Manual Testing",
+      "Functional Testing",
+      "Regression Testing",
+      "Performance Testing",
+      "Usability Testing",
+      "Compatibility Testing",
+      "CMS Validation",
+      "API Validation",
+      "Jira"
+    ],
     image: ecForums,
     website: "https://ericchurch.topfan.com/forums",
+    tagline: "Community platform QA across functionality, performance, and integration",
+    testingFocus: [
+      "Smoke checks before smaller releases",
+      "Deeper functional and regression passes for major updates",
+      "Thread creation, replies, and editing flows",
+      "Roles, permissions, and moderation tools",
+      "Search and filter accuracy for posts and topics",
+      "Pagination and lazy loading behavior",
+      "Performance and load time checks during busy periods",
+      "Cross-browser and cross-device behavior",
+      "CMS publishing and content verification",
+      "API response and error handling validation"
+    ],
+    testingMethodologies:
+      "Primarily black box testing for user-facing flows, with targeted white box and integration checks when backend behavior or service wiring needed validation, plus system-level validation before production releases.",
+    browsers:
+      "Chrome, Safari, Firefox, and Edge on desktop and mobile, focusing on the supported versions active during each release cycle.",
+    platforms: "Web on desktop and mobile browsers.",
+    devices:
+      "Mac and Windows environments plus iPhone Safari and Android Chrome, across common screen sizes and responsive breakpoints.",
   },
   {
     id: 18,
     title: "To The Stars Website",
-    category: "QA",
-    description: "Smooth navigation and responsive layout testing",
-    about: "Tested the To The Stars website, ensuring smooth navigation and responsive layout. Focused on user experience optimization and cross-device compatibility to provide visitors with an engaging and seamless browsing experience.",
-    technologies: ["Cross-browser Testing", "UI Testing"],
+    category: "qa",
+    description: "Navigation, responsive layout, and e-commerce QA",
+    about:
+      "I worked on QA for the To The Stars site across multiple releases, helping keep navigation smooth and layouts consistent while new products and content rolled out. Most of the focus was on menus, responsive behavior, and store flows, plus checking that CMS updates for drops, news, and project pages rendered correctly on the front end.",
+    technologies: [
+      "Manual Testing",
+      "Regression Testing",
+      "Cross-browser Testing",
+      "Responsive Testing",
+      "E-commerce Validation",
+      "CMS Validation",
+      "API Validation",
+      "Jira"
+    ],
     image: toTheStars,
     website: "https://tothestars.media/",
+    tagline: "Navigation, responsive layout, and e-commerce QA",
+    testingFocus: [
+      "Functional and regression testing",
+      "Cross-browser checks across Chrome, Safari, Firefox, and Edge",
+      "Responsive layout validation across key breakpoints",
+      "Navigation and menu flow checks",
+      "Cart and checkout e-commerce flows",
+      "Product and merch page rendering",
+      "CMS publishing and content verification",
+      "Front-end and backend data consistency",
+      "Performance and basic load time checks",
+      "Compatibility behavior across devices",
+      "API response and error handling validation"
+    ],
+    browsers:
+      "Chrome, Safari, Firefox, and Edge on desktop and mobile, focused on the supported versions in use during testing.",
+    platforms: "Web on both desktop and mobile browsers.",
+    devices:
+      "Mac and Windows environments plus iPhone Safari and Android Chrome across common screen sizes and responsive breakpoints.",
+  },
+  {
+    id: 22,
+    title: "Our Rescue Website",
+    category: "qa",
+    description: "Educational platform QA and questionnaire validation",
+    about:
+      "I worked on QA for the Our Rescue website between 2018 and 2020. The focus was on educational content flows and the multi-step questionnaires that sat on top of them. I checked dynamic content tied to awareness campaigns, validated form logic end to end, and made sure data was processed and surfaced consistently across the platform.",
+    technologies: [
+      "Manual Testing",
+      "Regression Testing",
+      "Accessibility Testing",
+      "Cross-browser Testing",
+      "Responsive Testing",
+      "CMS Validation",
+      "API Validation",
+      "Jira"
+    ],
+    image: ourRescueWebsite,
+    website: "https://ourrescue.org/",
+    tagline: "Educational platform QA and questionnaire validation",
+    testingFocus: [
+      "Functional and regression testing",
+      "Cross-browser checks across Chrome, Safari, Firefox, and Edge",
+      "Responsive layout validation on key breakpoints",
+      "Multi-step questionnaire and form flows",
+      "Conditional branching and error handling",
+      "CMS publishing and content verification",
+      "Backend data storage and record checks",
+      "API response and error handling validation",
+      "Data consistency between front-end views and stored records",
+      "Basic accessibility checks on core flows"
+    ],
+    browsers:
+      "Chrome, Safari, Firefox, and Edge on desktop and mobile, focused on the supported versions in use during the 2018–2020 testing period.",
+    platforms: "Web on both desktop and mobile browsers.",
+    devices:
+      "Mac and Windows environments plus iPhone Safari and Android Chrome across common screen sizes and responsive breakpoints.",
   },
 ];
