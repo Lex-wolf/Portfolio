@@ -6,7 +6,7 @@ import { FaInstagram } from "react-icons/fa";
 
 const Navbar = () => {
   return (
-    <nav className="mb-20 flex item-center justify-between py-6">
+    <nav className="mb-12 sm:mb-20 flex items-center justify-between py-4 sm:py-6 px-0">
       <div className="flex flex-shrink-0 items-center">
         <a
           href="#"
@@ -20,7 +20,7 @@ const Navbar = () => {
         </a>
       </div>
 
-      <div className="m-8 flex items-center justify-center gap-1 text-2xl">
+      <div className="m-4 sm:m-8 flex items-center justify-center gap-1 text-xl sm:text-2xl">
         <a
           href={"https://www.linkedin.com/in/alejandro-curiel-4a16554a/"}
           target="_blank"

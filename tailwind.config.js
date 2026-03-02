@@ -3,6 +3,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        "dm-sans": ["DM Sans", "sans-serif"],
+        "syne": ["Syne", "sans-serif"],
+        "jakarta": ["Plus Jakarta Sans", "sans-serif"],
+      },
       colors: {
         base: {
           dark: '#0B0C10',

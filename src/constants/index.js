@@ -54,8 +54,8 @@ export const EXPERIENCES = [
     description: `
       Provide consulting support on web applications, improving system stability, performance, and long-term maintainability.
       Contribute to React-based platforms while reviewing architecture decisions and resolving production-level issues.
-      Lead manual and automated testing efforts using Playwright, Postman, axe-core, and Lighthouse to ensure reliability and accessibility.
-      Bring QA insight into every build, identifying edge cases early and supporting scalable, production-ready releases.
+      Lead manual and automated QA efforts using Playwright, Postman, SQL data validation, and CI/CD integration via GitHub Actions and Jenkins to ensure reliable production releases.
+      Validate iOS builds using simulators and TestFlight, supporting mobile release readiness.
     `,
     technologies: [
       "Manual QA",
@@ -93,7 +93,7 @@ export const EXPERIENCES = [
     role: "Quality Assurance",
     company: "Analog Republic",
     description: `
-      Spent several years diving deep into manual testing across all kinds of platforms and devices, making sure everything worked smoothly, reliably, and as expected. I created detailed test plans and ran through endless test cases to catch bugs before users ever saw them. Worked closely with cross-functional teams to keep communication flowing and projects on track. Specialized in performance, wireless, and stability testing, and used tools like Jira, Trello, and ClickUp to keep things organized. Basically, if there was a bug—I found it (and logged it like a pro).
+      Led cross-platform QA across web, iOS, and Android platforms, ensuring stable releases for high-traffic consumer applications. I created detailed test plans and ran through endless test cases to catch bugs before users ever saw them. Worked closely with cross-functional teams to keep communication flowing and projects on track. Specialized in performance, wireless, and stability testing, and used tools like Jira, Trello, and ClickUp to keep things organized. Basically, if there was a bug—I found it (and logged it like a pro).
     `,
     technologies: ["Jira", "Scrum", "TestRail", "PostMan", "Manual QA", "Regression & Smoke Testing",],
   },

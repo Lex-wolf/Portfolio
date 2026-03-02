@@ -98,23 +98,19 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="border-b border-base-darker pb-4 lg:mb-35">
-      <div className="flex flex-wrap">
-        <div className="w-full lg:w-1/2">
+    <div className="border-b border-base-darker pb-4 lg:mb-35 lg:-ml-6 xl:-ml-10 2xl:-ml-16">
+      <div className="flex flex-wrap lg:gap-x-12 xl:gap-x-16">
+        <div className="w-full lg:flex-1 lg:min-w-0 lg:max-w-3xl">
           <div className="flex flex-col items-center lg:items-start">
             <motion.h1
               variants={container(0)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="pb-16 text-6xl font-thin tracking-tight lg-mt-16 lg:text-8xl bg-gradient-to-r from-accent-teal to-accent-cyan bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient-shift"
-              style={{
-                willChange: 'background-position',
-                background: 'linear-gradient(90deg, #45A29E 0%, #66FCF1 100%)',
-                backgroundSize: '200% 200%',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                animation: 'gradientShift 10s ease-in-out infinite'
+              whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.2 },
               }}
+              className="font-light leading-tight tracking-tight mb-6 text-center lg:text-left text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-accent-cyan cursor-pointer transition-shadow duration-200 hover:drop-shadow-[0_0_20px_rgba(102,252,241,0.4)]"
             >
               Alejandro Curiel
             </motion.h1>
@@ -126,21 +122,24 @@ const Hero = () => {
               className="text-center leading-snug"
               style={{ willChange: 'transform, opacity' }}
             >
-              <motion.p 
-                className="text-xl md:text-2xl font-semibold mt-2 bg-gradient-to-r from-accent-cyan to-accent-teal bg-clip-text text-transparent"
+              <motion.h2
+                className="text-2xl md:text-3xl font-semibold max-w-2xl mt-1 text-center lg:text-left bg-gradient-to-r from-accent-teal to-accent-cyan bg-clip-text text-transparent"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{
+                  textShadow: "0 0 12px rgba(102, 252, 241, 0.8)",
+                }}
               >
-                Senior QA Engineer | Web Systems
-              </motion.p>
+                Senior QA Engineer &amp; Web Systems
+              </motion.h2>
               <motion.p 
-                className="text-base md:text-lg text-gray-300 mt-2"
+                className="text-sm sm:text-base md:text-lg text-gray-300 mt-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                Manual & Automated Testing | API & Backend Validation | React | Accessibility
+                Manual &amp; Automated Testing | API &amp; SQL Validation | CI/CD | React | Accessibility
               </motion.p>
             </motion.div>
 
@@ -150,29 +149,42 @@ const Hero = () => {
               animate="visible"
               className="text-lg leading-relaxed text-gray-300 max-w-xl mt-5"
             >
-              {HERO_CONTENT}
+              I work at the intersection of quality and creation, bringing QA thinking into how systems are designed and shipped.
             </motion.p>
 
-            <motion.a
-              variants={container(1.5)}
+            <motion.p
+              variants={container(1.1)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              whileHover={{ 
-                scale: 1.05,
-                y: -2,
-                boxShadow: "0 0 12px #66FCF1"
-              }}
-              whileTap={{ scale: 0.98 }}
-              href="mailto:info@alexcuriel.com"
-              className="mt-4 px-6 py-3 text-lg font-medium bg-gradient-to-r from-accent-teal to-accent-cyan text-base-dark rounded-lg self-center mb-6 md:mb-10 transition-all duration-300 ease-in-out hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark"
+              className="text-lg leading-relaxed text-gray-300 max-w-xl mt-4"
             >
-              Let's Work Together
-            </motion.a>
+              Most of my work lives between testing and building—partnering with teams, supporting growing platforms, and keeping web experiences stable, accessible, and easy to use.
+            </motion.p>
+
+            <motion.div
+              variants={container(1.3)}
+              initial={!hasAnimated ? "hidden" : "visible"}
+              animate="visible"
+              className="flex flex-col sm:flex-row gap-4 mt-8 self-center lg:self-start"
+            >
+              <a
+                href="#projects"
+                className="px-6 py-3 rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan text-base-dark font-semibold shadow-lg transition-all duration-200 hover:shadow-[0_0_10px_#66FCF1] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark"
+              >
+                Explore My Work
+              </a>
+              <a
+                href="#contact"
+                className="px-6 py-3 rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan text-base-dark font-semibold shadow-lg transition-all duration-200 hover:shadow-[0_0_10px_#66FCF1] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark"
+              >
+                Contact Me
+              </a>
+            </motion.div>
           </div>
         </div>
 
-        <div className="w-full lg:w-1/2 lg:p-8">
-          <div className="flex justify-center">
+        <div className="w-full lg:w-auto lg:flex-shrink-0 lg:min-w-[280px]">
+          <div className="flex justify-center lg:justify-end">
             <motion.img
               initial={!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }}
               animate={{ x: 0, opacity: 1 }}
@@ -187,6 +199,23 @@ const Hero = () => {
               style={{ willChange: 'transform, opacity' }}
             />
           </div>
+        </div>
+      </div>
+      {/* Stats row */}
+      <div className="mt-16 flex flex-col sm:flex-row justify-center items-center gap-8 text-center text-base-light">
+        <div>
+          <p className="text-3xl md:text-4xl font-semibold tracking-tight">10+</p>
+          <p className="text-sm text-neutral-400 mt-1">Years Experience</p>
+        </div>
+        <div className="hidden sm:block h-10 w-px bg-neutral-800" />
+        <div>
+          <p className="text-3xl md:text-4xl font-semibold tracking-tight">100+</p>
+          <p className="text-sm text-neutral-400 mt-1">Releases Supported</p>
+        </div>
+        <div className="hidden sm:block h-10 w-px bg-neutral-800" />
+        <div>
+          <p className="text-3xl md:text-4xl font-semibold tracking-tight">QA + Dev</p>
+          <p className="text-sm text-neutral-400 mt-1">Hybrid Expertise</p>
         </div>
       </div>
     </div>

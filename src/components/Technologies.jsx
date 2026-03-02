@@ -1,8 +1,8 @@
 import { TiHtml5 } from "react-icons/ti";
-import { SiJavascript, SiPlaywright, SiVite, SiNodedotjs, SiNextdotjs, SiPostman, SiGithub, SiFigma } from "react-icons/si";
+import { SiJavascript, SiPlaywright, SiVite, SiNodedotjs, SiNextdotjs, SiPostman, SiGithub, SiFigma, SiPostgresql } from "react-icons/si";
 import { RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { IoLogoCss3 } from "react-icons/io5";
-import { FaFileExcel, FaJira, FaWordpress, FaLowVision, FaBlind, FaUniversalAccess, FaGitAlt, FaGithub, FaFigma, FaStickyNote, FaLightbulb, FaWaveSquare, FaEye, FaMicrophone, FaShopify } from "react-icons/fa";
+import { IoLogoCss3, IoPhonePortraitOutline } from "react-icons/io5";
+import { FaFileExcel, FaJira, FaWordpress, FaLowVision, FaBlind, FaUniversalAccess, FaGitAlt, FaGithub, FaFigma, FaStickyNote, FaLightbulb, FaWaveSquare, FaEye, FaMicrophone, FaShopify, FaApple, FaMobileAlt } from "react-icons/fa";
 import { BiTestTube, BiCodeAlt, BiAccessibility, BiCog } from "react-icons/bi";
 import { motion } from "framer-motion";
 
@@ -42,6 +42,12 @@ const Technologies = () => {
         { name: "TestRail", icon: BiTestTube, color: "text-blue-400" },
         { name: "JIRA", icon: FaJira, color: "text-blue-500" },
         { name: "Excel", icon: FaFileExcel, color: "text-green-600" },
+        { name: "XCTest", icon: FaApple, color: "text-cyan-400" },
+        { name: "XCUITest", icon: IoPhonePortraitOutline, color: "text-cyan-400" },
+        { name: "SQL", icon: SiPostgresql, color: "text-blue-400" },
+        { name: "REST API Testing", icon: SiPostman, color: "text-orange-400" },
+        { name: "iOS Simulator", icon: FaMobileAlt, color: "text-gray-300" },
+        { name: "TestFlight", icon: FaApple, color: "text-gray-300" },
       ]
     },
     {
@@ -112,7 +118,7 @@ const Technologies = () => {
         whileInView="visible"
         viewport={{ once: true }}
         variants={staggerContainer}
-        className="max-w-6xl mx-auto px-4"
+        className="w-full max-w-7xl mx-auto px-4"
       >
         <motion.h2 variants={fadeInUp} className="my-20 text-center text-4xl text-accent-cyan">
           Technologies

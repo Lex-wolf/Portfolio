@@ -121,7 +121,7 @@ const ProjectsNew = () => {
   };
 
   return (
-    <div className="border-b border-neutral-900 pb-4">
+    <div id="projects" className="border-b border-neutral-900 pb-4">
       {/* Section Header */}
       <motion.div
         whileInView={{ opacity: 1, y: 0 }}
