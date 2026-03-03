@@ -34,6 +34,17 @@ import ourRescueWebsite from "../assets/ourrescue-website.png";
 export const projects = [
   // Frontend Projects
   {
+    id: 23,
+    title: "Neuroplasticity Lab",
+    category: "built",
+    description: "A one-day experimental build exploring neuroplasticity through interactive design and immersive UI.",
+    about: "A one-day experimental build exploring neuroplasticity through interactive design and immersive UI. The project focuses on clean typography, animated sections, and a modern dark interface inspired by scientific storytelling.",
+    build: "Built in a focused one-day sprint. Designed and developed from scratch to explore interactive storytelling and scientific concepts through modern frontend tools.",
+    technologies: ["HTML", "CSS", "JavaScript", "Canvas API", "Vercel"],
+    image: "https://placehold.co/800x450/111118/c8f0a0?text=Neuroplasticity+Lab",
+    website: "https://neuroplasticity.vercel.app/#types",
+  },
+  {
     id: 20,
     title: "The Taco Garage",
     category: "built",

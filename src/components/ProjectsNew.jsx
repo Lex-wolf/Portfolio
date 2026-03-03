@@ -262,6 +262,16 @@ const ProjectsNew = () => {
                   </p>
                 </div>
 
+                {/* Build / Impact Section (optional) */}
+                {selectedProject.build && (
+                  <div className="mb-6">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-3">Build</h3>
+                    <p className="text-neutral-300 leading-relaxed text-sm sm:text-base">
+                      {selectedProject.build}
+                    </p>
+                  </div>
+                )}
+
                 {/* Testing Focus (QA-specific, optional) */}
                 {selectedProject.testingFocus && selectedProject.testingFocus.length > 0 && (
                   <div className="mb-6">
