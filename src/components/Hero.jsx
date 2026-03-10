@@ -119,7 +119,7 @@ const Hero = () => {
               variants={container(0.5)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="text-center leading-snug"
+              className="text-center leading-snug lg:text-left"
               style={{ willChange: 'transform, opacity' }}
             >
               <motion.h2
@@ -134,7 +134,7 @@ const Hero = () => {
                 Senior QA Engineer &amp; Web Systems
               </motion.h2>
               <motion.p 
-                className="text-sm sm:text-base md:text-lg text-gray-300 mt-3"
+                className="mx-auto mt-3 max-w-2xl text-sm text-gray-300 sm:text-base md:text-lg lg:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
@@ -147,7 +147,7 @@ const Hero = () => {
               variants={container(1)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="text-lg leading-relaxed text-gray-300 max-w-xl mt-5"
+              className="mt-5 max-w-xl text-center text-base leading-relaxed text-gray-300 sm:text-lg lg:text-left"
             >
               I work at the intersection of quality and creation, bringing QA thinking into how systems are designed and shipped.
             </motion.p>
@@ -156,7 +156,7 @@ const Hero = () => {
               variants={container(1.1)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="text-lg leading-relaxed text-gray-300 max-w-xl mt-4"
+              className="mt-4 max-w-xl text-center text-base leading-relaxed text-gray-300 sm:text-lg lg:text-left"
             >
               Most of my work lives between testing and building—partnering with teams, supporting growing platforms, and keeping web experiences stable, accessible, and easy to use.
             </motion.p>
@@ -165,17 +165,17 @@ const Hero = () => {
               variants={container(1.3)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="flex flex-col sm:flex-row gap-4 mt-8 self-center lg:self-start"
+              className="mt-8 flex w-full max-w-sm flex-col gap-3 self-stretch sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 sm:self-center lg:justify-start lg:self-start"
             >
               <a
                 href="#projects"
-                className="px-6 py-3 rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan text-base-dark font-semibold shadow-lg transition-all duration-200 hover:shadow-[0_0_10px_#66FCF1] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark"
+                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan px-6 py-3 text-center font-semibold text-base-dark shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_10px_#66FCF1] focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:w-auto"
               >
                 Explore My Work
               </a>
               <a
                 href="#contact"
-                className="px-6 py-3 rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan text-base-dark font-semibold shadow-lg transition-all duration-200 hover:shadow-[0_0_10px_#66FCF1] hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark"
+                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan px-6 py-3 text-center font-semibold text-base-dark shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_10px_#66FCF1] focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:w-auto"
               >
                 Contact Me
               </a>
@@ -183,7 +183,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="w-full lg:w-auto lg:flex-shrink-0 lg:min-w-[280px]">
+        <div className="mt-12 w-full lg:mt-0 lg:w-auto lg:flex-shrink-0 lg:min-w-[280px]">
           <div className="flex justify-center lg:justify-end">
             <motion.img
               initial={!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }}
@@ -193,7 +193,7 @@ const Hero = () => {
                 scale: 1.02,
                 boxShadow: "0 20px 40px rgba(102, 252, 241, 0.1)"
               }}
-              className="rounded-2xl w-full max-w-lg animate-float"
+              className="w-full max-w-sm animate-float rounded-2xl sm:max-w-md lg:max-w-lg"
               src={profilePic}
               alt="Alejandro Curiel"
               style={{ willChange: 'transform, opacity' }}
