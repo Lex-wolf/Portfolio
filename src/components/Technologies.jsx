@@ -135,14 +135,11 @@ const Technologies = () => {
         }
         .skills-toggle {
           cursor: pointer;
-          font-size: 1.25rem;
-          font-weight: 500;
-          color: #a0a0b0;
-          transition: all 0.3s ease;
-        }
-        .skills-toggle:hover {
-          color: #ffffff;
-          text-shadow: 0 0 10px rgba(45, 212, 191, 0.9);
+          background: transparent;
+          border: none;
+          padding: 0;
+          appearance: none;
+          -webkit-appearance: none;
         }
       `}</style>
       <motion.div
@@ -241,18 +238,6 @@ const Technologies = () => {
             </motion.div>
           ))}
 
-          {!isExpanded && (
-            <motion.div variants={fadeInUp} className="text-center">
-              <button
-                type="button"
-                onClick={() => setIsExpanded((prev) => !prev)}
-                className="skills-toggle"
-              >
-                See more skills
-              </button>
-            </motion.div>
-          )}
-
           <div
             className="overflow-hidden"
             style={{
@@ -339,20 +324,43 @@ const Technologies = () => {
                   </div>
                 </motion.div>
               ))}
-
-              {isExpanded && (
-                <motion.div variants={fadeInUp} className="pt-2 text-center">
-                  <button
-                    type="button"
-                    onClick={() => setIsExpanded((prev) => !prev)}
-                    className="skills-toggle"
-                  >
-                    See less
-                  </button>
-                </motion.div>
-              )}
             </div>
           </div>
+        </div>
+        <div className="pt-6 text-center">
+          <button
+            type="button"
+            onClick={() => setIsExpanded((prev) => !prev)}
+            className="skills-toggle"
+            style={{
+              display: "block",
+              fontSize: "1.25rem",
+              fontWeight: 500,
+              color: "rgba(255, 255, 255, 0.7)",
+              WebkitTextFillColor: "rgba(255, 255, 255, 0.7)",
+              textAlign: "center",
+              margin: "2rem auto",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              background: "none",
+              border: "none",
+              padding: "0.5rem 1rem",
+            }}
+            onMouseEnter={(event) => {
+              event.currentTarget.style.color = "#FFFFFF";
+              event.currentTarget.style.WebkitTextFillColor = "#FFFFFF";
+              event.currentTarget.style.textShadow =
+                "0 0 10px rgba(45, 212, 191, 0.9)";
+            }}
+            onMouseLeave={(event) => {
+              event.currentTarget.style.color = "rgba(255, 255, 255, 0.7)";
+              event.currentTarget.style.WebkitTextFillColor =
+                "rgba(255, 255, 255, 0.7)";
+              event.currentTarget.style.textShadow = "none";
+            }}
+          >
+            {isExpanded ? "See less" : "See more skills"}
+          </button>
         </div>
       </motion.div>
     </div>
