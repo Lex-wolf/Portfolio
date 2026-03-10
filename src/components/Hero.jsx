@@ -161,11 +161,27 @@ const Hero = () => {
               Most of my work lives between testing and building—partnering with teams, supporting growing platforms, and keeping web experiences stable, accessible, and easy to use.
             </motion.p>
 
+            <div className="mt-10 flex w-full justify-center lg:hidden">
+              <motion.img
+                initial={!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 1.2 }}
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: "0 20px 40px rgba(102, 252, 241, 0.1)"
+                }}
+                className="w-full max-w-sm animate-float rounded-2xl sm:max-w-md"
+                src={profilePic}
+                alt="Alejandro Curiel"
+                style={{ willChange: 'transform, opacity' }}
+              />
+            </div>
+
             <motion.div
               variants={container(1.3)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="mt-8 flex w-full max-w-sm flex-col gap-3 self-stretch sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 sm:self-center lg:justify-start lg:self-start"
+              className="mt-8 flex w-full max-w-sm flex-col gap-3 self-center sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 lg:justify-start lg:self-start"
             >
               <a
                 href="#projects"
@@ -183,7 +199,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-12 w-full lg:mt-0 lg:w-auto lg:flex-shrink-0 lg:min-w-[280px]">
+        <div className="mt-12 hidden w-full lg:mt-0 lg:block lg:w-auto lg:flex-shrink-0 lg:min-w-[280px]">
           <div className="flex justify-center lg:justify-end">
             <motion.img
               initial={!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }}
