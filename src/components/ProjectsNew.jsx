@@ -112,7 +112,7 @@ const ProjectsNew = () => {
           <h3 className="font-semibold text-lg mb-2 group-hover:text-teal-400 transition-colors">
             {project.title}
           </h3>
-          <p className="text-neutral-400 text-sm overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+          <p className="body-text-tone overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
             {project.description}
           </p>
         </div>
@@ -121,16 +121,16 @@ const ProjectsNew = () => {
   };
 
   return (
-    <div id="projects" className="border-b border-neutral-900 pb-4">
+    <div id="projects" className="section-spacing border-b border-neutral-900">
       {/* Section Header */}
       <motion.div
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
-        className="my-20 text-center"
+        className="section-heading-spacing text-center"
       >
-            <h2 className="text-4xl mb-4 text-accent-cyan">Projects.</h2>
-            <p className="text-neutral-400 text-lg">Explore my recent work in development and QA.</p>
+            <h2 className="section-heading-tone mb-4">Projects.</h2>
+            <p className="body-text-tone">Explore my recent work in development and QA.</p>
       </motion.div>
 
       {/* Tabs */}
@@ -138,7 +138,7 @@ const ProjectsNew = () => {
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="flex justify-center mb-12"
+        className="mb-10 flex justify-center"
       >
         <div className="flex bg-neutral-900 rounded-lg p-1">
           <button
@@ -177,7 +177,7 @@ const ProjectsNew = () => {
       {/* Projects Grid */}
       <motion.div
         layout
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-20"
+        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         <AnimatePresence>
           {currentProjects.map((project, index) => (

@@ -13,6 +13,9 @@ export default {
           dark: '#0B0C10',
           darker: '#1F2833',
           light: '#C5C6C7',
+          soft: '#F0F0F0',
+          muted: '#D7DBE0',
+          subtle: '#8F98A3',
         },
         accent: {
           cyan: '#66FCF1',

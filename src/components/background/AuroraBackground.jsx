@@ -4,7 +4,10 @@ import { useEffect, useRef } from "react";
  * Full-screen aurora WebGL background layer. Does not affect layout or scroll.
  * Transparent over BaseGradient; z-index -20; pointer-events none.
  */
-export function AuroraBackground() {
+export function AuroraBackground({ opacity = 1 }) {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
   const containerRef = useRef(null);
   const sceneRef = useRef({
     camera: null,
@@ -15,6 +18,20 @@ export function AuroraBackground() {
     animationId: null,
     resizeHandler: null,
   });
+
+  if (prefersReducedMotion) {
+    return (
+      <div
+        className="fixed inset-0 -z-20 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          opacity,
+          background:
+            "radial-gradient(circle at 20% 20%, rgba(102, 252, 241, 0.14), transparent 45%), radial-gradient(circle at 80% 30%, rgba(69, 162, 158, 0.18), transparent 40%), radial-gradient(circle at 50% 80%, rgba(102, 252, 241, 0.08), transparent 45%)",
+        }}
+      />
+    );
+  }
 
   useEffect(() => {
     let script = null;
@@ -182,7 +199,11 @@ export function AuroraBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-20 pointer-events-none" aria-hidden="true">
+    <div
+      className="fixed inset-0 -z-20 pointer-events-none"
+      aria-hidden="true"
+      style={{ opacity }}
+    >
       <div ref={containerRef} className="w-full h-full absolute" />
     </div>
   );

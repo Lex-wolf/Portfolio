@@ -1,7 +1,7 @@
 import { BaseGradient } from "./BaseGradient";
 import { AuroraBackground } from "./AuroraBackground";
 import { ParticleOverlay } from "./ParticleOverlay";
-// import { WebGLEffects } from "./WebGLEffects";
+import { WebGLEffects } from "./WebGLEffects";
 
 /**
  * Renders background layers with fixed positioning and z-index hierarchy:
@@ -11,12 +11,15 @@ import { ParticleOverlay } from "./ParticleOverlay";
  * - WebGLEffects
  */
 export function BackgroundSystem() {
+  const isMobile = window.innerWidth < 768;
+  const shouldRenderWebGL = !isMobile && false;
+
   return (
     <>
       <BaseGradient />
-      <AuroraBackground />
-      <ParticleOverlay />
-      {/* <WebGLEffects /> */}
+      <AuroraBackground opacity={isMobile ? 0.4 : 1} />
+      <ParticleOverlay densityMultiplier={isMobile ? 0.3 : 1} />
+      {shouldRenderWebGL ? <WebGLEffects /> : null}
     </>
   );
 }

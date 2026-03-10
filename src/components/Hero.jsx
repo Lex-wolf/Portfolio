@@ -98,7 +98,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="border-b border-base-darker pb-4 lg:mb-35 lg:-ml-6 xl:-ml-10 2xl:-ml-16">
+    <div className="border-b border-base-darker pb-4 lg:-ml-6 xl:-ml-10 2xl:-ml-16">
       <div className="flex flex-wrap lg:gap-x-12 xl:gap-x-16">
         <div className="w-full lg:flex-1 lg:min-w-0 lg:max-w-3xl">
           <div className="flex flex-col items-center lg:items-start">
@@ -123,7 +123,7 @@ const Hero = () => {
               style={{ willChange: 'transform, opacity' }}
             >
               <motion.h2
-                className="text-2xl md:text-3xl font-semibold max-w-2xl mt-1 text-center lg:text-left bg-gradient-to-r from-accent-teal to-accent-cyan bg-clip-text text-transparent"
+                className="hero-title-line mt-1 max-w-2xl text-center text-2xl md:text-3xl lg:text-left"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -131,15 +131,15 @@ const Hero = () => {
                   textShadow: "0 0 12px rgba(102, 252, 241, 0.8)",
                 }}
               >
-                Senior QA Engineer &amp; Web Systems
+                Senior QA Engineer · Software Developer
               </motion.h2>
               <motion.p 
-                className="mx-auto mt-3 max-w-2xl text-sm text-gray-300 sm:text-base md:text-lg lg:mx-0"
+                className="hero-subheadline mx-auto mt-3 max-w-2xl lg:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                Manual &amp; Automated Testing | API &amp; SQL Validation | CI/CD | React | Accessibility
+                I build web products and make sure they work.
               </motion.p>
             </motion.div>
 
@@ -147,18 +147,18 @@ const Hero = () => {
               variants={container(1)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="mt-5 max-w-xl text-center text-base leading-relaxed text-gray-300 sm:text-lg lg:text-left"
+              className="body-text-tone mt-5 max-w-xl text-center lg:text-left"
             >
-              I work at the intersection of quality and creation, bringing QA thinking into how systems are designed and shipped.
+              10+ years of QA experience on platforms used by hundreds of thousands of people. Pearl Jam, Eric Church, Thomas Rhett.
             </motion.p>
 
             <motion.p
               variants={container(1.1)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="mt-4 max-w-xl text-center text-base leading-relaxed text-gray-300 sm:text-lg lg:text-left"
+              className="body-text-tone mt-4 max-w-xl text-center lg:text-left"
             >
-              Most of my work lives between testing and building—partnering with teams, supporting growing platforms, and keeping web experiences stable, accessible, and easy to use.
+              I also build client websites from scratch. Both sides of the work, depending on what you need.
             </motion.p>
 
             <div className="mt-10 flex w-full justify-center lg:hidden">
@@ -218,7 +218,7 @@ const Hero = () => {
         </div>
       </div>
       {/* Stats row */}
-      <div className="mt-16 flex flex-col sm:flex-row justify-center items-center gap-8 text-center text-base-light">
+      <div className="mt-12 flex flex-col items-center justify-center gap-8 text-center text-base-light sm:flex-row md:mt-14">
         <div>
           <p className="text-3xl md:text-4xl font-semibold tracking-tight">10+</p>
           <p className="text-sm text-neutral-400 mt-1">Years Experience</p>

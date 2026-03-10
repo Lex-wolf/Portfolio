@@ -49,7 +49,7 @@ export const projects = [
     title: "The Taco Garage",
     category: "built",
     description: "Custom headless e-commerce built with React + Shopify",
-    about: "Built a modern and scalable e-commerce platform for The Taco Garage using a custom React frontend integrated with Shopify. Moving beyond a template-based store let us keep Shopify’s battle-tested checkout while gaining full design control across the storefront. The build focuses on performance, scalability, and long-term growth so the team can manage products easily and deliver a smooth buying experience across devices. Key highlights include headless React + Shopify integration, dynamic product routing, variant-aware cart flows, performance-optimized deployment, and SEO-ready architecture.",
+    about: "The Taco Garage wanted a custom storefront without giving up Shopify's checkout reliability. I built a React frontend on top of the Shopify Storefront API so they got full design control and kept the backend they trusted. Built for speed, easy product management, and long term growth.",
     technologies: ["React", "JavaScript", "Shopify Storefront API", "Vercel", "Tailwind CSS", "Node.js"],
     image: tacoGarage,
     website: "https://www.thetacogarage.com",
@@ -59,7 +59,7 @@ export const projects = [
     title: "Astro Reminder Website",
     category: "built",
     description: "Astrology & Coaching Platform",
-    about: "This project focused on building a calm, intentional digital experience for an astrology and coaching practice. The goal was to clearly present services, philosophy, and consultation offerings while maintaining a sense of clarity, trust, and flow. I built the site using React and Tailwind CSS with a strong emphasis on accessibility, responsive layouts, and smooth motion. Framer Motion was used to subtly guide user attention, creating an experience that feels modern, grounded, and easy to navigate across all devices.",
+    about: "Carlos runs an astrology and coaching practice and needed a site that felt intentional, not generic. I built it in React with Framer Motion, keeping the layout clean and the animations subtle. Accessible, responsive, and easy to navigate across all devices.",
     technologies: ["React.js", "JavaScript", "Tailwind CSS", "Framer Motion", "HTML", "CSS"],
     image: astroReminder,
     website: "https://astroreminder.com/",
@@ -69,7 +69,7 @@ export const projects = [
     title: "Rose Auto Service",
     category: "built",
     description: "BMW, Audi, Mercedes, and Volkswagen specialist website",
-    about: "Designed and developed a sleek, responsive website for Rose Auto Service, a BMW, Audi, Mercedes, and Volkswagen specialist in Philadelphia. Built using React and Tailwind CSS to showcase services, testimonials, and location with modern UI and mobile-first design.",
+    about: "70 years in business with no real web presence. I built a responsive React site that showcases their services, testimonials and location clearly. Clean, professional, mobile first. Gives them a front door that matches the quality of their work.",
     technologies: ["React", "Tailwind CSS", "Vite", "JavaScript", "SEO", "GoDaddy", "Vercel"],
     image: RoseAuto,
     website: "https://www.roseautoservice.com",
@@ -79,7 +79,7 @@ export const projects = [
     title: "Axe Thro Co's Pizza Bar",
     category: "built",
     description: "Bold landing page for wood-fired pizzas and axe throwing",
-    about: "Built a bold and modern landing page for Axe Thro Co's Pizza Bar to capture the vibe of their wood-fired pizzas and laid-back atmosphere. Using WordPress and Elementor, I made it easy for the team to update content while keeping things fast, responsive, and visually sharp across devices.",
+    about: "Bold concept, needed a bold site. I built a fast landing page in WordPress and Elementor that captures the energy of the place. Their team can update content without touching code.",
     technologies: ["HTML", "CSS", "JavaScript", "WordPress", "Elementor"],
     image: PizzaBar,
     website: "https://axethroco.com/pizza-bar/",
@@ -89,7 +89,7 @@ export const projects = [
     title: "Nonprofit Tree Planting Community",
     category: "built",
     description: "Community platform for fruit tree planting in San Diego",
-    about: "This project let me combine my dev skills with a cause I care about. FTPP is all about planting fruit trees and building stronger communities in San Diego. I designed and built a clean, accessible site using React to help spread the word and invite people to get involved.",
+    about: "FTPP plants fruit trees to strengthen communities in San Diego. I built their React site to help spread the mission, bring in volunteers and drive donations. One of those projects where the work felt like it actually mattered.",
     technologies: ["HTML", "CSS", "React.js", "JavaScript"],
     image: ftp2Image,
     website: "https://ftpp.support/",
@@ -152,7 +152,7 @@ export const projects = [
     category: "qa",
     description: "Website QA across CMS, multi-device, and release cycles",
     about:
-      "I worked on QA for Pearl Jam’s official site across multiple release cycles. That meant checking new features, content updates, and layout changes before they went live. I focused on functional and regression passes, cross-browser behavior, and making sure CMS changes rendered correctly on the front end, especially around tour updates and major announcements.",
+      "Pearl Jam's site runs at serious scale. 750K+ users, multiple release cycles a year. I handled functional and regression testing, cross-browser coverage, CMS publishing workflows and Shopify payment validation. Every tour update and announcement had to go out clean.",
     technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "API Testing", "CMS Validation"],
     image: pjWebsite,
     website: "https://pearljam.com/",
@@ -179,7 +179,7 @@ export const projects = [
     category: "qa",
     description: "Cross-browser and multi-device website QA",
     about:
-      "I supported QA for Eric Church’s official website across several content and feature releases. The work focused on UI consistency, responsive layouts, and cross-browser behavior while the team shipped new music pages, tour updates, and fan content. I validated CMS-driven changes, checked that navigation and media rendered correctly, and kept an eye on stability when traffic spiked.",
+      "Frequent content releases across a lot of devices and browsers. I ran functional, regression and exploratory testing to keep the platform consistent for fans no matter how they were accessing it.",
     technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "Jira", "CMS Validation"],
     image: ecWebsite,
     website: "https://www.ericchurch.com/",
@@ -207,7 +207,7 @@ export const projects = [
     title: "Eric Church Official App",
     category: "qa",
     description: "iOS and Android app testing for seamless experience",
-    about: "Tested the Eric Church official app across iOS and Android devices, ensuring a seamless experience. Performed comprehensive functional testing, UI testing, and cross-platform compatibility checks to maintain consistent user experience across all mobile platforms.",
+    about: "iOS and Android QA for the official app. I automated login and UGC flow tests using Playwright which cut down QA cycle time and kept production releases stable.",
     technologies: ["iOS", "Android", "Functional Testing"],
     image: ecApp,
     website: "https://apps.apple.com/us/app/eric-church-official/id1436492159",
@@ -230,7 +230,7 @@ export const projects = [
     category: "qa",
     description: "Responsive, performance, and cross-browser website QA",
     about:
-      "I handled QA for Thomas Rhett’s website across multiple content updates and merch pushes. Most of the work centered on responsive layouts, store flows, and keeping pages fast while new releases went live. I validated CMS updates, checked product and tour pages, and made sure the experience held up across browsers and devices.",
+      "Tablet and mobile responsiveness were the main focus here, along with Laravel CMS validation. The QA work tied directly to a 26% usability improvement across the platform.",
     technologies: [
       "Manual Testing",
       "Regression Testing",
@@ -267,7 +267,7 @@ export const projects = [
     category: "qa",
     description: "Mobile app QA across iOS and Android builds",
     about:
-      "I handled QA for Thomas Rhett’s Home Team app across several release cycles. Feature work often lined up with new music, tour dates, and fan campaigns, so the app needed to stay stable while things changed quickly. I focused on builds, login, notifications, feeds, and making sure the same experience held up across iOS and Android devices.",
+      "Tablet and mobile responsiveness were the main focus here, along with Laravel CMS validation. The QA work tied directly to a 26% usability improvement across the platform.",
     technologies: [
       "Manual Testing",
       "Regression Testing",
@@ -313,7 +313,7 @@ export const projects = [
     category: "qa",
     description: "Cross-browser QA and multi-device optimization",
     about:
-      "I worked on QA for Brandi Carlile’s official site through multiple updates and feature releases. The focus was on fixing bugs, keeping layouts consistent, and making sure CMS-driven content like tours, media, and shop updates rendered correctly. I watched performance during busy moments like album launches so the site stayed fast and usable on both desktop and mobile.",
+      "Frontend and CMS testing across devices for a site doing 70K+ visits a month. Focused on accessibility and making sure the experience held up consistently across browsers and screen sizes.",
     technologies: [
       "Manual Testing",
       "Regression Testing",

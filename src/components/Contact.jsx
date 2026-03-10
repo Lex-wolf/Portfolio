@@ -4,36 +4,28 @@ import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
-    <div id="contact" className="border-b border-neutral-900 pb-20">
+    <div id="contact" className="section-spacing border-b border-neutral-900">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.6 }}
-        className="my-10 text-center text-4xl text-accent-cyan"
+        className="section-heading-spacing section-heading-tone text-center text-4xl"
         style={{ willChange: 'transform, opacity' }}
       >
         Have a project in mind?
       </motion.h2>
-      <div className="text-center tracking-tighter">
+      <div className="space-y-4 text-center tracking-tighter">
         <motion.p
           whileInView={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: -100 }}
           transition={{ duration: 1 }}
-          className="my-4 text-[25px] bg-gradient-to-r from-accent-cyan to-accent-teal bg-clip-text text-transparent"
+          className="text-[25px] text-base-soft"
         >
-          {CONTACT.address}
-        </motion.p>
-        <motion.p
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: 200 }}
-          transition={{ duration: 1 }}
-          className="my-4 text-[25px]"
-        >
-          {/* {CONTACT.phoneNo}{" "} */}
+          Available for freelance and full-time roles. Working worldwide, remotely.
         </motion.p>
             <motion.a
               href={"mailto:" + CONTACT.email}
-              className="border-b border-accent-cyan/30 text-base-light text-[30px] tracking-tight font-bold hover:text-accent-cyan hover:border-accent-cyan transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-accent-cyan/20 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark rounded-sm px-2 py-1"
+              className="body-link-tone rounded-sm border-b border-white/20 px-2 py-1 text-[30px] font-bold tracking-tight transition-all duration-300 ease-in-out hover:border-accent-cyan hover:text-accent-cyan hover:shadow-lg hover:shadow-accent-cyan/20 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark"
               whileHover={{ 
                 scale: 1.02,
                 textShadow: "0 0 8px rgba(102, 252, 241, 0.3)"
@@ -49,11 +41,8 @@ const Contact = () => {
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="mt-16"
+        className="mt-10 md:mt-12"
       >
-        <h3 className="text-2xl font-semibold text-center text-white mb-8">
-          Or send me a message
-        </h3>
         <ContactForm />
       </motion.div>
     </div>

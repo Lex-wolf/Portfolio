@@ -32,7 +32,7 @@ const Experience = () => {
 
   return (
     <motion.div
-      className="mx-auto max-w-5xl px-4 pb-24 border-b border-neutral-900"
+      className="section-spacing mx-auto max-w-5xl border-b border-neutral-900 px-4"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -41,7 +41,7 @@ const Experience = () => {
     >
       <motion.h2
         variants={fadeInUp}
-        className="my-20 text-center text-4xl font-semibold text-accent-cyan"
+        className="section-heading-spacing section-heading-tone text-center"
       >
         Experience & Impact
       </motion.h2>
@@ -49,16 +49,16 @@ const Experience = () => {
       <div className="relative">
         {/* Timeline line */}
         <div 
-          className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-cyan via-accent-teal to-accent-cyan"
+          className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/10 via-white/25 to-white/10"
           style={{
-            background: 'linear-gradient(180deg, #45A29E 0%, #66FCF1 50%, #45A29E 100%)',
+            background: 'linear-gradient(180deg, rgba(240, 240, 240, 0.12) 0%, rgba(240, 240, 240, 0.28) 50%, rgba(240, 240, 240, 0.12) 100%)',
             backgroundSize: '100% 200%',
             animation: 'gradientMove 8s ease infinite',
             willChange: 'background-position'
           }}
         ></div>
         
-        <div className="space-y-16">
+        <div className="space-y-10 md:space-y-12">
           {EXPERIENCES && EXPERIENCES.length > 0 ? EXPERIENCES.map((experience, index) => (
             <motion.div
               key={index}
@@ -66,9 +66,9 @@ const Experience = () => {
               className="relative flex items-start gap-6"
             >
               {/* Timeline dot */}
-              <div className="relative z-10 flex-shrink-0 w-16 h-16 bg-gradient-to-r from-accent-cyan to-accent-teal rounded-full flex items-center justify-center">
-                <div className="w-12 h-12 bg-base-dark rounded-full flex items-center justify-center">
-                  <div className="w-6 h-6 bg-gradient-to-r from-accent-cyan to-accent-teal rounded-full"></div>
+              <div className="relative z-10 flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-r from-white/20 to-white/10 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-base-dark flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full bg-base-soft/60"></div>
                 </div>
               </div>
 
@@ -78,7 +78,7 @@ const Experience = () => {
                     <h6 className="text-xl font-semibold text-base-light mb-1">
                       {experience.role}
                     </h6>
-                    <p className="text-accent-teal font-medium">
+                    <p className="body-text-tone font-medium">
                       @ {experience.company}
                     </p>
                   </div>
@@ -89,15 +89,15 @@ const Experience = () => {
 
                 <ul className="space-y-2 mb-4">
                   {formatDescription(experience.description).map((bullet, bulletIndex) => (
-                    <li key={bulletIndex} className="flex items-start gap-2 text-base-light">
-                      <span className="text-accent-cyan mt-1">•</span>
-                      <span className="text-sm leading-relaxed">
+                    <li key={bulletIndex} className="flex items-start gap-2">
+                      <span className="mt-1 text-base-light/50">•</span>
+                      <span className="body-text-tone">
                         {bullet}
                         {bulletIndex === 0 && index === 0 && (
-                          <span className="text-accent-cyan font-semibold"> +30% performance improvement</span>
+                          <span className="font-semibold text-base-soft"> +30% performance improvement</span>
                         )}
                         {bulletIndex === 1 && index === 0 && (
-                          <span className="text-accent-teal font-semibold"> 100+ projects delivered</span>
+                          <span className="font-semibold text-base-soft"> 100+ projects delivered</span>
                         )}
                       </span>
                     </li>
@@ -112,7 +112,7 @@ const Experience = () => {
                     <motion.span
                       key={idx}
                       variants={fadeInUp}
-                      className="rounded-full bg-gradient-to-r from-accent-cyan/20 to-accent-teal/20 px-3 py-1 text-xs text-accent-cyan border border-accent-cyan/30"
+                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-base-muted"
                       aria-label={`Technology: ${tech}`}
                     >
                       {tech}

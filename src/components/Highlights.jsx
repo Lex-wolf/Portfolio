@@ -15,7 +15,7 @@ const Highlights = () => {
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -40 }}
         transition={{ duration: 0.5 }}
-        className="my-16 text-center text-4xl font-semibold text-accent-cyan"
+        className="my-16 text-center text-4xl font-semibold text-base-soft"
       >
         Highlights
       </motion.h2>
@@ -47,7 +47,7 @@ const Highlights = () => {
                 }}
               >
             {/* Gradient border */}
-            <div className="absolute inset-0 bg-gradient-to-r from-accent-cyan via-accent-teal to-accent-cyan rounded-xl p-[1px]">
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/10 via-white/20 to-white/10 p-[1px]">
               <div className="bg-base-dark rounded-xl h-full w-full"></div>
             </div>
             
@@ -65,7 +65,7 @@ const Highlights = () => {
                 <ul className="space-y-3 mb-0">
                   {highlight.description.map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-base-light text-sm leading-relaxed">
-                      <span className="text-accent-cyan mt-1 flex-shrink-0">•</span>
+                      <span className="mt-1 flex-shrink-0 text-base-light/50">•</span>
                       <span className="flex-1">{item}</span>
                     </li>
                   ))}

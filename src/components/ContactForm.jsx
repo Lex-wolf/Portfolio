@@ -22,8 +22,8 @@ const ContactForm = () => {
         transition={{ duration: 0.5 }}
         className="text-center py-12"
       >
-        <CheckCircle className="w-16 h-16 text-accent-teal mx-auto mb-4" />
-        <h3 className="text-2xl font-semibold text-accent-teal mb-2">Thanks for reaching out!</h3>
+        <CheckCircle className="mx-auto mb-4 h-16 w-16 text-base-soft" />
+        <h3 className="mb-2 text-2xl font-semibold text-base-soft">Thanks for reaching out!</h3>
         <p className="text-base-light/70">
           I'll get back to you as soon as possible.
         </p>

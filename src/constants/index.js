@@ -36,13 +36,11 @@ Feel free to scroll down and explore the projects I’m currently working on, or
 
 
 export const ABOUT_TEXT = `
-Outside of work, I’m a pretty simple person.
+I've been in tech for over 10 years, mostly in QA but always with one foot in development. I like knowing how things are built, not just whether they break.
 
-I like making bread. Cooking pasta. Playing guitar when I need to reset my head a bit. Music has always been part of how I think and how I slow down. Traveling helps me see things differently, which somehow always comes back into the way I approach projects and problem solving.
+Most of my QA work has been on high-traffic platforms. Artist websites, mobile apps, e-commerce flows used by real people at scale. On the dev side I build client websites in React, handle deployment, and do more backend work than my job title usually suggests.
 
-I enjoy working with people who care about what they’re building. Good collaboration, honest conversations, and a bit of curiosity usually lead to the best results.
-
-At the end of the day, I’m just someone who likes understanding how things work, whether it’s a system, a website, or a good recipe.
+I'm bilingual in English and Spanish, fluent in Portuguese. I work well in cross-functional teams and I'm used to moving fast without cutting corners on quality.
 `;
 
 
@@ -110,31 +108,27 @@ export const EXPERIENCES = [
 
 export const HIGHLIGHTS = [
   {
-    title: "Quality Assurance",
+    title: "10+",
     description: [
-      "Tested and fine-tuned high-profile websites and apps for clients like Pearl Jam, Eric Church, and Thomas Rhett—making sure everything worked perfectly, everywhere.",
-      "Ran functional, regression, cross-browser, and multi-device testing to catch bugs before users ever saw them.",
-      "Checked performance across smartphones, tablets, desktops, and even smart TVs to ensure a seamless experience.",
-      "Worked closely with design teams to optimize UI/UX for consistency, responsiveness, and intuitive navigation.",
+      "Years of Experience",
     ],
   },
   {
-    title: "Frontend Development",
+    title: "750K+",
     description: [
-      "Built clean, scalable websites for a range of clients—including a nonprofit and a local artist—with unique needs and visual styles.",
-      "Used React, Tailwind CSS, and Vite to create responsive, fast-loading interfaces that look great on any screen.",
-      "Blended my QA background into dev work to make sure sites didn’t just look good—they ran smoothly too.",
-      "Earned recognition for merging solid technical chops with a quality-first mindset.",
+      "Users Reached",
     ],
   },
   {
-    title: "Collaboration",
+    title: "4",
     description: [
-      "Teamed up with cross-functional crews using Agile workflows to keep projects moving and ideas flowing.",
-      "Kept everything on track with tools like Jira, Trello, and ClickUp—no chaos, just clarity.",
-      "Helped clients stay organized with clean data entry and spreadsheet management using Excel and Google Sheets.",
-      "Brought strong communication to the table, making teamwork feel easy (even under pressure).",
-      "Worked side-by-side with devs, designers, and stakeholders to ship polished projects on tight timelines.",
+      "Major Artist Platforms (Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile)",
+    ],
+  },
+  {
+    title: "QA · Dev",
+    description: [
+      "Dual Expertise",
     ],
   },
 ];

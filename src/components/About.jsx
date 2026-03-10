@@ -7,18 +7,18 @@ const About = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   return (
-    <div className="border-b border-base-darker pb-4">
-      <h2 className="my-20 text-center text-4xl text-accent-cyan">
+    <div className="section-spacing border-b border-base-darker">
+      <h2 className="section-heading-spacing section-heading-tone text-center">
         About
-        <span className="text-base-light"> Me</span>
+        <span> Me</span>
       </h2>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap gap-y-8 md:gap-y-10">
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               animate={hasAnimated ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.9 }}
               onViewportEnter={() => setHasAnimated(true)}
-              className="w-full lg:w-1/2 lg:p-8"
+              className="w-full lg:w-1/2 lg:p-6"
             >
               <div className="flex items-center justify-center">
                 <motion.img 
@@ -43,8 +43,7 @@ const About = () => {
         >
           <div className="flex justify-center lg:justify-start">
             <p
-              className="my-2 max-w-2xl py-6 text-base-light text-base md:text-lg"
-              style={{ lineHeight: 1.7 }}
+              className="body-text-tone max-w-2xl pt-2 md:pt-4"
             >
               {ABOUT_TEXT}
             </p>

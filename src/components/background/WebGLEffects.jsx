@@ -5,6 +5,9 @@ import { useEffect, useRef } from "react";
  * Renderer uses alpha: true and setClearColor(0,0,0,0) for transparent background.
  */
 export function WebGLEffects() {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
   const containerRef = useRef(null);
   const sceneRef = useRef({
     camera: null,
@@ -15,6 +18,10 @@ export function WebGLEffects() {
     animationId: null,
     resizeHandler: null,
   });
+
+  if (prefersReducedMotion) {
+    return null;
+  }
 
   useEffect(() => {
     let script = null;

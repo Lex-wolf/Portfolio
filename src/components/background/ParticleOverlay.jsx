@@ -4,8 +4,15 @@ import { useEffect, useRef } from "react";
  * Bubble mouse trail overlay. Fixed background layer; does not affect layout or content interaction.
  * z-index: -10 (above BaseGradient -30 and AuroraBackground -20, below content z-10).
  */
-export function ParticleOverlay() {
+export function ParticleOverlay({ densityMultiplier = 1 }) {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
   const containerRef = useRef(null);
+
+  if (prefersReducedMotion) {
+    return null;
+  }
 
   useEffect(() => {
     const container = containerRef.current;
@@ -63,10 +70,12 @@ export function ParticleOverlay() {
       }
     }
 
+    const spawnRate = Math.max(0, Math.min(0.7 * densityMultiplier, 0.7));
+
     const handleMouseMove = (e) => {
       const x = e.clientX;
       const y = e.clientY;
-      if (Math.random() > 0.3) {
+      if (Math.random() < spawnRate) {
         particles.push(new Particle(x, y));
       }
     };
