@@ -110,7 +110,7 @@ const Technologies = () => {
   };
 
   return (
-    <div className="section-spacing border-b border-neutral-800">
+    <section className="section-spacing border-b border-neutral-800">
       <style jsx>{`
         .technology-icon,
         .technology-icon * {
@@ -147,7 +147,7 @@ const Technologies = () => {
         whileInView="visible"
         viewport={{ once: true }}
         variants={staggerContainer}
-        className="w-full max-w-7xl mx-auto px-4"
+        className="mx-auto w-full max-w-7xl px-0 sm:px-4"
       >
         <motion.h2 variants={fadeInUp} className="section-heading-spacing section-heading-tone text-center">
           Technologies
@@ -155,7 +155,7 @@ const Technologies = () => {
         
         <motion.p 
           variants={fadeInUp}
-          className="body-text-tone mx-auto mb-10 max-w-2xl text-center"
+          className="body-text-tone mx-auto mb-8 max-w-2xl text-center md:mb-10"
         >
           Here's the stack I build and test with. From modern frameworks to QA automation tools.
         </motion.p>
@@ -167,7 +167,7 @@ const Technologies = () => {
                 {category.title}
               </h3>
               <div
-                className="flex flex-wrap items-center justify-center gap-3"
+                className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
                 style={{
                   alignItems: "center",
                 }}
@@ -181,15 +181,15 @@ const Technologies = () => {
                       y: -4,
                     }}
                     whileTap={{ scale: 0.98 }}
-                    className="group relative cursor-pointer flex flex-col items-center"
+                    className="group relative flex cursor-pointer flex-col items-center"
                   >
                     <div
                       className="technology-icon rounded-lg border border-white/10 p-3 transition-all duration-300 ease-in-out group-hover:border-accent-cyan group-hover:animate-glow group-focus:outline-none group-focus:ring-2 group-focus:ring-accent-cyan group-focus:ring-offset-2 group-focus:ring-offset-base-dark"
                       style={{
                         background: "none",
                         backgroundColor: "transparent",
-                        width: "80px",
-                        height: "80px",
+                        width: "72px",
+                        height: "72px",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -201,7 +201,7 @@ const Technologies = () => {
                         <img
                           src={tech.icon}
                           alt={tech.name}
-                          className="w-10 h-10 transition-all duration-300 group-hover:drop-shadow-[0_0_15px_#66FCF1] group-hover:drop-shadow-[0_0_25px_#45A29E]"
+                          className="h-8 w-8 transition-all duration-300 group-hover:drop-shadow-[0_0_15px_#66FCF1] group-hover:drop-shadow-[0_0_25px_#45A29E] sm:h-10 sm:w-10"
                           title={tech.name}
                           style={{
                             willChange: "transform, opacity",
@@ -215,7 +215,7 @@ const Technologies = () => {
                         />
                       ) : (
                         <tech.icon
-                          className={`w-10 h-10 ${tech.color} transition-all duration-300 group-hover:drop-shadow-[0_0_15px_#66FCF1] group-hover:drop-shadow-[0_0_25px_#45A29E]`}
+                          className={`h-8 w-8 ${tech.color} transition-all duration-300 group-hover:drop-shadow-[0_0_15px_#66FCF1] group-hover:drop-shadow-[0_0_25px_#45A29E] sm:h-10 sm:w-10`}
                           title={tech.name}
                           aria-label={tech.name}
                           style={{
@@ -229,7 +229,7 @@ const Technologies = () => {
                         />
                       )}
                     </div>
-                    <div className="absolute top-full mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-base-dark/90 text-accent-cyan text-xs font-medium px-3 py-2 rounded-lg whitespace-nowrap shadow-lg z-20 border border-accent-cyan/30">
+                    <div className="absolute top-full z-20 mt-3 hidden whitespace-nowrap rounded-lg border border-accent-cyan/30 bg-base-dark/90 px-3 py-2 text-xs font-medium text-accent-cyan opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100 md:block">
                       {tech.name}
                     </div>
                   </motion.div>
@@ -254,7 +254,7 @@ const Technologies = () => {
                     {category.title}
                   </h3>
                   <div
-                    className="flex flex-wrap items-center justify-center gap-3"
+                  className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
                     style={{
                       alignItems: "center",
                     }}
@@ -268,15 +268,15 @@ const Technologies = () => {
                           y: -4,
                         }}
                         whileTap={{ scale: 0.98 }}
-                        className="group relative cursor-pointer flex flex-col items-center"
+                        className="group relative flex cursor-pointer flex-col items-center"
                       >
                         <div
                           className="technology-icon rounded-lg border border-white/10 p-3 transition-all duration-300 ease-in-out group-hover:border-accent-cyan group-hover:animate-glow group-focus:outline-none group-focus:ring-2 group-focus:ring-accent-cyan group-focus:ring-offset-2 group-focus:ring-offset-base-dark"
                           style={{
                             background: "none",
                             backgroundColor: "transparent",
-                            width: "80px",
-                            height: "80px",
+                            width: "72px",
+                            height: "72px",
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
@@ -288,7 +288,7 @@ const Technologies = () => {
                             <img
                               src={tech.icon}
                               alt={tech.name}
-                              className="w-10 h-10 transition-all duration-300 group-hover:drop-shadow-[0_0_15px_#66FCF1] group-hover:drop-shadow-[0_0_25px_#45A29E]"
+                              className="h-8 w-8 transition-all duration-300 group-hover:drop-shadow-[0_0_15px_#66FCF1] group-hover:drop-shadow-[0_0_25px_#45A29E] sm:h-10 sm:w-10"
                               title={tech.name}
                               style={{
                                 willChange: "transform, opacity",
@@ -302,7 +302,7 @@ const Technologies = () => {
                             />
                           ) : (
                             <tech.icon
-                              className={`w-10 h-10 ${tech.color} transition-all duration-300 group-hover:drop-shadow-[0_0_15px_#66FCF1] group-hover:drop-shadow-[0_0_25px_#45A29E]`}
+                              className={`h-8 w-8 ${tech.color} transition-all duration-300 group-hover:drop-shadow-[0_0_15px_#66FCF1] group-hover:drop-shadow-[0_0_25px_#45A29E] sm:h-10 sm:w-10`}
                               title={tech.name}
                               aria-label={tech.name}
                               style={{
@@ -316,7 +316,7 @@ const Technologies = () => {
                             />
                           )}
                         </div>
-                        <div className="absolute top-full mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-base-dark/90 text-accent-cyan text-xs font-medium px-3 py-2 rounded-lg whitespace-nowrap shadow-lg z-20 border border-accent-cyan/30">
+                        <div className="absolute top-full z-20 mt-3 hidden whitespace-nowrap rounded-lg border border-accent-cyan/30 bg-base-dark/90 px-3 py-2 text-xs font-medium text-accent-cyan opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100 md:block">
                           {tech.name}
                         </div>
                       </motion.div>
@@ -363,7 +363,7 @@ const Technologies = () => {
           </button>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 };
 

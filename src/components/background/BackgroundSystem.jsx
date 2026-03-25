@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { BaseGradient } from "./BaseGradient";
 import { AuroraBackground } from "./AuroraBackground";
 import { ParticleOverlay } from "./ParticleOverlay";
@@ -11,7 +12,21 @@ import { WebGLEffects } from "./WebGLEffects";
  * - WebGLEffects
  */
 export function BackgroundSystem() {
-  const isMobile = window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const updateViewport = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+
+    return () => {
+      window.removeEventListener("resize", updateViewport);
+    };
+  }, []);
+
   const shouldRenderWebGL = !isMobile && false;
 
   return (

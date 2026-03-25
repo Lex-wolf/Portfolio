@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { projects } from '../data/projectsData';
 import { X } from 'lucide-react';
@@ -18,6 +18,19 @@ const ProjectsNew = () => {
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useEffect(() => {
+    if (!selectedProject) {
+      document.body.style.overflow = "";
+      return undefined;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedProject]);
 
   const builtProjects = projects.filter(project => project.category === 'built');
   const qaProjects = projects.filter(project => project.category === 'qa');
@@ -97,7 +110,7 @@ const ProjectsNew = () => {
         } : {}}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="bg-neutral-900 rounded-lg overflow-hidden cursor-pointer group relative"
+        className="group relative cursor-pointer overflow-hidden rounded-xl bg-neutral-900"
         onClick={() => openDrawer(project)}
       >
         <div className="aspect-video overflow-hidden relative">
@@ -109,7 +122,7 @@ const ProjectsNew = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
         <div className="p-4">
-          <h3 className="font-semibold text-lg mb-2 group-hover:text-teal-400 transition-colors">
+          <h3 className="mb-2 text-base font-semibold transition-colors group-hover:text-teal-400 sm:text-lg">
             {project.title}
           </h3>
           <p className="body-text-tone overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
@@ -121,7 +134,7 @@ const ProjectsNew = () => {
   };
 
   return (
-    <div id="projects" className="section-spacing border-b border-neutral-900">
+    <section id="projects" className="section-spacing border-b border-neutral-900">
       {/* Section Header */}
       <motion.div
         whileInView={{ opacity: 1, y: 0 }}
@@ -138,12 +151,12 @@ const ProjectsNew = () => {
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: 50 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="mb-10 flex justify-center"
+        className="mb-8 flex justify-center md:mb-10"
       >
-        <div className="flex bg-neutral-900 rounded-lg p-1">
+        <div className="flex w-full max-w-md flex-wrap justify-center gap-2 rounded-xl border border-white/10 bg-neutral-900/80 p-2 sm:w-auto sm:flex-nowrap sm:gap-0 sm:rounded-lg sm:border-0 sm:bg-neutral-900 sm:p-1">
           <button
             onClick={() => setActiveTab('All')}
-            className={`px-4 sm:px-6 py-3 rounded-md transition-all duration-300 ${
+            className={`min-w-[92px] flex-1 rounded-lg px-4 py-3 text-sm transition-all duration-300 sm:flex-none sm:rounded-md sm:px-6 ${
               activeTab === 'All'
                 ? 'bg-teal-400 text-neutral-900 font-semibold'
                 : 'text-neutral-400 hover:text-white'
@@ -153,7 +166,7 @@ const ProjectsNew = () => {
           </button>
           <button
             onClick={() => setActiveTab('Built')}
-            className={`px-4 sm:px-6 py-3 rounded-md transition-all duration-300 ${
+            className={`min-w-[92px] flex-1 rounded-lg px-4 py-3 text-sm transition-all duration-300 sm:flex-none sm:rounded-md sm:px-6 ${
               activeTab === 'Built'
                 ? 'bg-teal-400 text-neutral-900 font-semibold'
                 : 'text-neutral-400 hover:text-white'
@@ -163,7 +176,7 @@ const ProjectsNew = () => {
           </button>
           <button
             onClick={() => setActiveTab('QA')}
-            className={`px-4 sm:px-6 py-3 rounded-md transition-all duration-300 ${
+            className={`min-w-[92px] flex-1 rounded-lg px-4 py-3 text-sm transition-all duration-300 sm:flex-none sm:rounded-md sm:px-6 ${
               activeTab === 'QA'
                 ? 'bg-teal-400 text-neutral-900 font-semibold'
                 : 'text-neutral-400 hover:text-white'
@@ -177,7 +190,7 @@ const ProjectsNew = () => {
       {/* Projects Grid */}
       <motion.div
         layout
-        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         <AnimatePresence>
           {currentProjects.map((project, index) => (
@@ -209,13 +222,13 @@ const ProjectsNew = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 h-full w-full sm:max-w-2xl bg-neutral-900 z-50 overflow-y-auto"
+              className="fixed right-0 top-0 z-50 h-full w-full overflow-y-auto bg-neutral-900 sm:max-w-2xl"
             >
               <div className="p-4 sm:p-6">
                 {/* Header */}
-                <div className="flex justify-between items-start mb-6">
+                <div className="mb-6 flex items-start justify-between gap-3">
                   <div className="flex-1 pr-4">
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-2">{selectedProject.title}</h2>
+                    <h2 className="mb-2 text-xl font-bold sm:text-3xl">{selectedProject.title}</h2>
                     <p className="text-teal-400 text-base sm:text-lg">{selectedProject.description}</p>
                   </div>
                   <button
@@ -229,11 +242,11 @@ const ProjectsNew = () => {
                 {/* Gallery or Single Image */}
                 <div className="mb-6">
                   {selectedProject.gallery && selectedProject.gallery.length > 0 ? (
-                    <div className="flex gap-3 overflow-x-auto pb-2 -mx-2 px-2">
+                    <div className="-mx-2 flex gap-3 overflow-x-auto px-2 pb-2">
                       {selectedProject.gallery.map((imgSrc, index) => (
                         <div
                           key={index}
-                          className="flex-shrink-0 w-40 sm:w-48 rounded-xl overflow-hidden bg-neutral-800 hover:bg-neutral-700 transition-colors"
+                          className="w-32 flex-shrink-0 overflow-hidden rounded-xl bg-neutral-800 transition-colors hover:bg-neutral-700 sm:w-48"
                         >
                           <img
                             src={imgSrc}
@@ -248,7 +261,7 @@ const ProjectsNew = () => {
                       <img
                         src={selectedProject.image}
                         alt={selectedProject.title}
-                        className="w-full max-w-[90%] mx-auto rounded-xl shadow-lg object-contain aspect-video transition-all duration-300 hover:shadow-xl"
+                        className="mx-auto aspect-video w-full max-w-full rounded-xl object-contain shadow-lg transition-all duration-300 hover:shadow-xl sm:max-w-[90%]"
                       />
                     </div>
                   )}
@@ -325,14 +338,14 @@ const ProjectsNew = () => {
                 <div className="mb-6">
                   <h3 className="text-lg sm:text-xl font-semibold mb-3">Links</h3>
                   {selectedProject.links && selectedProject.links.length > 0 ? (
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                       {selectedProject.links.map((link, index) => (
                         <a
                           key={index}
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-colors ${
+                          className={`inline-flex items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold transition-colors sm:px-6 sm:text-base ${
                             link.primary
                               ? "bg-teal-400 text-neutral-900 hover:bg-teal-300"
                               : "bg-neutral-800 text-teal-400 hover:bg-neutral-700"
@@ -347,7 +360,7 @@ const ProjectsNew = () => {
                       href={selectedProject.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-teal-400 text-neutral-900 font-semibold rounded-lg hover:bg-teal-300 transition-colors text-sm sm:text-base"
+                      className="inline-flex items-center justify-center rounded-lg bg-teal-400 px-4 py-3 text-sm font-semibold text-neutral-900 transition-colors hover:bg-teal-300 sm:px-6 sm:text-base"
                     >
                       Open Project
                     </a>
@@ -358,7 +371,7 @@ const ProjectsNew = () => {
           </>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
 };
 

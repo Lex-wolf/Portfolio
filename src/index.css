@@ -15,6 +15,10 @@ body,
   margin: 0;
 }
 
+html {
+  scroll-padding-top: 6rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
@@ -24,11 +28,11 @@ body,
 
 @layer components {
   .section-spacing {
-    @apply py-12 md:py-20;
+    @apply py-10 md:py-20;
   }
 
   .section-heading-spacing {
-    @apply mb-8 md:mb-10;
+    @apply mb-6 md:mb-10;
   }
 
   .hero-title-line {
@@ -38,7 +42,7 @@ body,
 
   .hero-subheadline {
     color: #a0a0b0;
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.7;
   }
 
@@ -62,8 +66,22 @@ body,
 
   .body-text-tone {
     color: #c0c0d0;
-    font-size: 1rem;
+    font-size: 0.98rem;
     line-height: 1.8;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-subheadline {
+    font-size: 1rem;
+  }
+
+  .section-heading-tone {
+    font-size: 2rem;
+  }
+
+  .body-text-tone {
+    font-size: 1rem;
   }
 }
 

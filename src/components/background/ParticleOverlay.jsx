@@ -5,16 +5,16 @@ import { useEffect, useRef } from "react";
  * z-index: -10 (above BaseGradient -30 and AuroraBackground -20, below content z-10).
  */
 export function ParticleOverlay({ densityMultiplier = 1 }) {
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const containerRef = useRef(null);
 
-  if (prefersReducedMotion) {
-    return null;
-  }
-
   useEffect(() => {
+    if (prefersReducedMotion) {
+      return undefined;
+    }
+
     const container = containerRef.current;
     if (!container) return;
 
@@ -107,7 +107,11 @@ export function ParticleOverlay({ densityMultiplier = 1 }) {
         canvas.parentNode.removeChild(canvas);
       }
     };
-  }, []);
+  }, [densityMultiplier, prefersReducedMotion]);
+
+  if (prefersReducedMotion) {
+    return null;
+  }
 
   return (
     <div

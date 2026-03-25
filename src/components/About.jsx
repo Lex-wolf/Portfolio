@@ -7,7 +7,7 @@ const About = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
 
   return (
-    <div className="section-spacing border-b border-base-darker">
+    <section id="about" className="section-spacing border-b border-base-darker">
       <h2 className="section-heading-spacing section-heading-tone text-center">
         About
         <span> Me</span>
@@ -50,7 +50,7 @@ const About = () => {
           </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -4,12 +4,12 @@ import ContactForm from "./ContactForm";
 
 const Contact = () => {
   return (
-    <div id="contact" className="section-spacing border-b border-neutral-900">
+    <section id="contact" className="section-spacing border-b border-neutral-900">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.6 }}
-        className="section-heading-spacing section-heading-tone text-center text-4xl"
+        className="section-heading-spacing section-heading-tone text-center"
         style={{ willChange: 'transform, opacity' }}
       >
         Have a project in mind?
@@ -19,13 +19,13 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: -100 }}
           transition={{ duration: 1 }}
-          className="text-[25px] text-base-soft"
+          className="mx-auto max-w-2xl text-xl text-base-soft sm:text-[25px]"
         >
           Available for freelance and full-time roles. Working worldwide, remotely.
         </motion.p>
             <motion.a
               href={"mailto:" + CONTACT.email}
-              className="body-link-tone rounded-sm border-b border-white/20 px-2 py-1 text-[30px] font-bold tracking-tight transition-all duration-300 ease-in-out hover:border-accent-cyan hover:text-accent-cyan hover:shadow-lg hover:shadow-accent-cyan/20 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark"
+              className="body-link-tone break-all rounded-sm border-b border-white/20 px-2 py-1 text-2xl font-bold tracking-tight transition-all duration-300 ease-in-out hover:border-accent-cyan hover:text-accent-cyan hover:shadow-lg hover:shadow-accent-cyan/20 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:text-[30px]"
               whileHover={{ 
                 scale: 1.02,
                 textShadow: "0 0 8px rgba(102, 252, 241, 0.3)"
@@ -45,7 +45,7 @@ const Contact = () => {
       >
         <ContactForm />
       </motion.div>
-    </div>
+    </section>
   );
 };
 

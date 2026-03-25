@@ -5,9 +5,9 @@ import { useEffect, useRef } from "react";
  * Transparent over BaseGradient; z-index -20; pointer-events none.
  */
 export function AuroraBackground({ opacity = 1 }) {
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const containerRef = useRef(null);
   const sceneRef = useRef({
     camera: null,
@@ -19,22 +19,13 @@ export function AuroraBackground({ opacity = 1 }) {
     resizeHandler: null,
   });
 
-  if (prefersReducedMotion) {
-    return (
-      <div
-        className="fixed inset-0 -z-20 pointer-events-none"
-        aria-hidden="true"
-        style={{
-          opacity,
-          background:
-            "radial-gradient(circle at 20% 20%, rgba(102, 252, 241, 0.14), transparent 45%), radial-gradient(circle at 80% 30%, rgba(69, 162, 158, 0.18), transparent 40%), radial-gradient(circle at 50% 80%, rgba(102, 252, 241, 0.08), transparent 45%)",
-        }}
-      />
-    );
-  }
-
   useEffect(() => {
+    if (prefersReducedMotion) {
+      return undefined;
+    }
+
     let script = null;
+    const sceneState = sceneRef.current;
 
     const initThreeJS = () => {
       if (!containerRef.current || !window.THREE) return;
@@ -45,7 +36,7 @@ export function AuroraBackground({ opacity = 1 }) {
       container.innerHTML = "";
 
       const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-      const scene = new THREE.Scene();
+      const threeScene = new THREE.Scene();
 
       const material = new THREE.ShaderMaterial({
         uniforms: {
@@ -122,7 +113,7 @@ export function AuroraBackground({ opacity = 1 }) {
 
       const geometry = new THREE.PlaneGeometry(2, 2);
       const mesh = new THREE.Mesh(geometry, material);
-      scene.add(mesh);
+      threeScene.add(mesh);
 
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
@@ -142,11 +133,11 @@ export function AuroraBackground({ opacity = 1 }) {
       canvas.style.pointerEvents = "none";
       canvas.style.zIndex = "-20";
 
-      sceneRef.current.camera = camera;
-      sceneRef.current.scene = scene;
-      sceneRef.current.renderer = renderer;
-      sceneRef.current.material = material;
-      sceneRef.current.geometry = geometry;
+      sceneState.camera = camera;
+      sceneState.scene = threeScene;
+      sceneState.renderer = renderer;
+      sceneState.material = material;
+      sceneState.geometry = geometry;
 
       const onWindowResize = () => {
         const w = window.innerWidth;
@@ -155,13 +146,13 @@ export function AuroraBackground({ opacity = 1 }) {
         material.uniforms.iResolution.value.set(w, h);
       };
 
-      sceneRef.current.resizeHandler = onWindowResize;
+      sceneState.resizeHandler = onWindowResize;
       window.addEventListener("resize", onWindowResize, false);
 
       const animate = () => {
-        sceneRef.current.animationId = requestAnimationFrame(animate);
+        sceneState.animationId = requestAnimationFrame(animate);
         material.uniforms.iTime.value += 0.016;
-        renderer.render(scene, camera);
+        renderer.render(threeScene, camera);
       };
 
       animate();
@@ -177,26 +168,40 @@ export function AuroraBackground({ opacity = 1 }) {
     document.head.appendChild(script);
 
     return () => {
-      if (sceneRef.current.animationId != null) {
-        cancelAnimationFrame(sceneRef.current.animationId);
-        sceneRef.current.animationId = null;
+      if (sceneState.animationId != null) {
+        cancelAnimationFrame(sceneState.animationId);
+        sceneState.animationId = null;
       }
-      if (sceneRef.current.resizeHandler) {
-        window.removeEventListener("resize", sceneRef.current.resizeHandler, false);
+      if (sceneState.resizeHandler) {
+        window.removeEventListener("resize", sceneState.resizeHandler, false);
       }
-      if (sceneRef.current.renderer) {
-        sceneRef.current.renderer.dispose();
-        if (sceneRef.current.renderer.domElement?.parentNode) {
-          sceneRef.current.renderer.domElement.parentNode.removeChild(sceneRef.current.renderer.domElement);
+      if (sceneState.renderer) {
+        sceneState.renderer.dispose();
+        if (sceneState.renderer.domElement?.parentNode) {
+          sceneState.renderer.domElement.parentNode.removeChild(sceneState.renderer.domElement);
         }
       }
-      if (sceneRef.current.material) sceneRef.current.material.dispose();
-      if (sceneRef.current.geometry) sceneRef.current.geometry.dispose();
+      if (sceneState.material) sceneState.material.dispose();
+      if (sceneState.geometry) sceneState.geometry.dispose();
       if (script?.parentNode) {
         script.parentNode.removeChild(script);
       }
     };
-  }, []);
+  }, [prefersReducedMotion]);
+
+  if (prefersReducedMotion) {
+    return (
+      <div
+        className="fixed inset-0 -z-20 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          opacity,
+          background:
+            "radial-gradient(circle at 20% 20%, rgba(102, 252, 241, 0.14), transparent 45%), radial-gradient(circle at 80% 30%, rgba(69, 162, 158, 0.18), transparent 40%), radial-gradient(circle at 50% 80%, rgba(102, 252, 241, 0.08), transparent 45%)",
+        }}
+      />
+    );
+  }
 
   return (
     <div

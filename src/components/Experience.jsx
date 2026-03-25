@@ -32,7 +32,7 @@ const Experience = () => {
 
   return (
     <motion.div
-      className="section-spacing mx-auto max-w-5xl border-b border-neutral-900 px-4"
+      className="section-spacing mx-auto max-w-5xl border-b border-neutral-900 px-0 sm:px-4"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
@@ -49,7 +49,7 @@ const Experience = () => {
       <div className="relative">
         {/* Timeline line */}
         <div 
-          className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/10 via-white/25 to-white/10"
+          className="absolute bottom-0 left-8 top-0 hidden w-0.5 bg-gradient-to-b from-white/10 via-white/25 to-white/10 sm:block"
           style={{
             background: 'linear-gradient(180deg, rgba(240, 240, 240, 0.12) 0%, rgba(240, 240, 240, 0.28) 50%, rgba(240, 240, 240, 0.12) 100%)',
             backgroundSize: '100% 200%',
@@ -63,26 +63,26 @@ const Experience = () => {
             <motion.div
               key={index}
               variants={fadeInUp}
-              className="relative flex items-start gap-6"
+              className="relative flex items-start gap-3 sm:gap-6"
             >
               {/* Timeline dot */}
-              <div className="relative z-10 flex-shrink-0 w-16 h-16 rounded-full bg-gradient-to-r from-white/20 to-white/10 flex items-center justify-center">
-                <div className="w-12 h-12 rounded-full bg-base-dark flex items-center justify-center">
-                  <div className="w-6 h-6 rounded-full bg-base-soft/60"></div>
+              <div className="relative z-10 hidden h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-white/20 to-white/10 sm:flex">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-base-dark">
+                  <div className="h-6 w-6 rounded-full bg-base-soft/60"></div>
                 </div>
               </div>
 
-              <div className="flex-1 bg-base-darker/50 backdrop-blur-sm rounded-xl p-6 border border-base-darker hover:border-accent-cyan/50 hover:shadow-lg hover:shadow-accent-cyan/10 transition-all duration-300 ease-in-out hover:-translate-y-1 focus-within:outline-none focus-within:ring-2 focus-within:ring-accent-cyan focus-within:ring-offset-2 focus-within:ring-offset-base-dark">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+              <div className="flex-1 rounded-xl border border-base-darker bg-base-darker/50 p-4 backdrop-blur-sm transition-all duration-300 ease-in-out hover:-translate-y-1 hover:border-accent-cyan/50 hover:shadow-lg hover:shadow-accent-cyan/10 focus-within:outline-none focus-within:ring-2 focus-within:ring-accent-cyan focus-within:ring-offset-2 focus-within:ring-offset-base-dark sm:p-6">
+                <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <h6 className="text-xl font-semibold text-base-light mb-1">
+                    <h6 className="mb-1 text-lg font-semibold text-base-light sm:text-xl">
                       {experience.role}
                     </h6>
                     <p className="body-text-tone font-medium">
                       @ {experience.company}
                     </p>
                   </div>
-                  <span className="text-sm text-base-light/70 mt-2 sm:mt-0">
+                  <span className="mt-1 text-xs uppercase tracking-[0.2em] text-base-light/70 sm:mt-0 sm:text-sm">
                     {experience.year}
                   </span>
                 </div>

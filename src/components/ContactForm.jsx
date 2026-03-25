@@ -37,7 +37,7 @@ const ContactForm = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       onSubmit={handleSubmit}
-      className="max-w-2xl mx-auto"
+      className="mx-auto max-w-2xl"
     >
       {/* Honeypot field for spam protection */}
       <input
@@ -48,7 +48,7 @@ const ContactForm = () => {
         autoComplete="off"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
         {/* Name Field */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-base-light mb-2">
@@ -58,7 +58,7 @@ const ContactForm = () => {
             type="text"
             id="name"
             name="name"
-            className="w-full px-4 py-3 bg-base-darker border border-base-darker rounded-lg text-base-light placeholder-base-light/50 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-200"
+            className="w-full rounded-lg border border-base-darker bg-base-darker px-4 py-3 text-base-light transition-all duration-200 placeholder-base-light/50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent-cyan"
             placeholder="Your name"
           />
         </div>
@@ -73,7 +73,7 @@ const ContactForm = () => {
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 bg-base-darker border border-base-darker rounded-lg text-base-light placeholder-base-light/50 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-200"
+            className="w-full rounded-lg border border-base-darker bg-base-darker px-4 py-3 text-base-light transition-all duration-200 placeholder-base-light/50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent-cyan"
             placeholder="your.email@example.com"
           />
           <ValidationError 
@@ -95,7 +95,7 @@ const ContactForm = () => {
           name="message"
           required
           rows={6}
-          className="w-full px-4 py-3 bg-base-darker border border-base-darker rounded-lg text-base-light placeholder-base-light/50 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-200 resize-none"
+          className="w-full resize-none rounded-lg border border-base-darker bg-base-darker px-4 py-3 text-base-light transition-all duration-200 placeholder-base-light/50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent-cyan"
           placeholder="Tell me about your project or just say hello..."
         />
         <ValidationError 

@@ -1,4 +1,3 @@
-import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/pfolio.jpeg";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -23,6 +22,14 @@ const Hero = () => {
 
   // Custom cursor effect
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    if (window.innerWidth < 768 || "ontouchstart" in window) {
+      return undefined;
+    }
+
     const cursor = document.createElement('div');
     cursor.className = 'custom-cursor';
     cursor.style.cssText = `
@@ -98,11 +105,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="border-b border-base-darker pb-4 lg:-ml-6 xl:-ml-10 2xl:-ml-16">
-      <div className="flex flex-wrap lg:gap-x-12 xl:gap-x-16">
+    <section
+      id="top"
+      aria-labelledby="hero-heading"
+      className="border-b border-base-darker pb-8 pt-6 sm:pb-10 sm:pt-8 lg:-ml-6 lg:pt-10 xl:-ml-10 2xl:-ml-16"
+    >
+      <div className="flex flex-wrap items-center gap-y-10 lg:gap-x-12 xl:gap-x-16">
         <div className="w-full lg:flex-1 lg:min-w-0 lg:max-w-3xl">
           <div className="flex flex-col items-center lg:items-start">
             <motion.h1
+              id="hero-heading"
               variants={container(0)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
@@ -110,7 +122,7 @@ const Hero = () => {
                 scale: 1.02,
                 transition: { duration: 0.2 },
               }}
-              className="font-light leading-tight tracking-tight mb-6 text-center lg:text-left text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-accent-cyan cursor-pointer transition-shadow duration-200 hover:drop-shadow-[0_0_20px_rgba(102,252,241,0.4)]"
+              className="mb-4 text-center font-light leading-[1.05] tracking-tight text-4xl text-accent-cyan transition-shadow duration-200 hover:drop-shadow-[0_0_20px_rgba(102,252,241,0.4)] sm:mb-6 sm:text-5xl md:text-6xl lg:text-left lg:text-7xl xl:text-8xl"
             >
               Alejandro Curiel
             </motion.h1>
@@ -119,11 +131,11 @@ const Hero = () => {
               variants={container(0.5)}
               initial={!hasAnimated ? "hidden" : "visible"}
               animate="visible"
-              className="text-center leading-snug lg:text-left"
+              className="max-w-2xl text-center leading-snug lg:text-left"
               style={{ willChange: 'transform, opacity' }}
             >
               <motion.h2
-                className="hero-title-line mt-1 max-w-2xl text-center text-2xl md:text-3xl lg:text-left"
+                className="hero-title-line mt-1 max-w-2xl text-center text-[1.85rem] leading-tight md:text-3xl lg:text-left"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -131,10 +143,10 @@ const Hero = () => {
                   textShadow: "0 0 12px rgba(102, 252, 241, 0.8)",
                 }}
               >
-                Senior QA Engineer · Software Developer
+                Senior QA Engineer &amp; Software Developer
               </motion.h2>
               <motion.p 
-                className="hero-subheadline mx-auto mt-3 max-w-2xl lg:mx-0"
+                className="hero-subheadline mx-auto mt-3 max-w-xl text-balance lg:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
@@ -161,7 +173,7 @@ const Hero = () => {
               I also build client websites from scratch. Both sides of the work, depending on what you need.
             </motion.p>
 
-            <div className="mt-10 flex w-full justify-center lg:hidden">
+            <div className="mt-8 flex w-full justify-center lg:hidden">
               <motion.img
                 initial={!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -170,7 +182,7 @@ const Hero = () => {
                   scale: 1.02,
                   boxShadow: "0 20px 40px rgba(102, 252, 241, 0.1)"
                 }}
-                className="w-full max-w-sm animate-float rounded-2xl sm:max-w-md"
+                className="w-full max-w-[320px] animate-float rounded-2xl sm:max-w-md"
                 src={profilePic}
                 alt="Alejandro Curiel"
                 style={{ willChange: 'transform, opacity' }}
@@ -185,13 +197,13 @@ const Hero = () => {
             >
               <a
                 href="#projects"
-                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan px-6 py-3 text-center font-semibold text-base-dark shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_10px_#66FCF1] focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:w-auto"
+                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan px-6 py-3 text-center text-sm font-semibold text-base-dark shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_10px_#66FCF1] focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:w-auto sm:text-base"
               >
                 Explore My Work
               </a>
               <a
                 href="#contact"
-                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan px-6 py-3 text-center font-semibold text-base-dark shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_10px_#66FCF1] focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:w-auto"
+                className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan px-6 py-3 text-center text-sm font-semibold text-base-dark shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_10px_#66FCF1] focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:w-auto sm:text-base"
               >
                 Contact Me
               </a>
@@ -209,7 +221,7 @@ const Hero = () => {
                 scale: 1.02,
                 boxShadow: "0 20px 40px rgba(102, 252, 241, 0.1)"
               }}
-              className="w-full max-w-sm animate-float rounded-2xl sm:max-w-md lg:max-w-lg"
+              className="w-full max-w-sm animate-float rounded-2xl sm:max-w-md lg:max-w-[28rem]"
               src={profilePic}
               alt="Alejandro Curiel"
               style={{ willChange: 'transform, opacity' }}
@@ -218,23 +230,21 @@ const Hero = () => {
         </div>
       </div>
       {/* Stats row */}
-      <div className="mt-12 flex flex-col items-center justify-center gap-8 text-center text-base-light sm:flex-row md:mt-14">
-        <div>
+      <div className="mt-12 grid grid-cols-1 gap-4 text-center text-base-light sm:grid-cols-3 md:mt-14 md:gap-6">
+        <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
           <p className="text-3xl md:text-4xl font-semibold tracking-tight">10+</p>
           <p className="text-sm text-neutral-400 mt-1">Years Experience</p>
         </div>
-        <div className="hidden sm:block h-10 w-px bg-neutral-800" />
-        <div>
+        <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
           <p className="text-3xl md:text-4xl font-semibold tracking-tight">100+</p>
           <p className="text-sm text-neutral-400 mt-1">Releases Supported</p>
         </div>
-        <div className="hidden sm:block h-10 w-px bg-neutral-800" />
-        <div>
+        <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
           <p className="text-3xl md:text-4xl font-semibold tracking-tight">QA + Dev</p>
           <p className="text-sm text-neutral-400 mt-1">Hybrid Expertise</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
