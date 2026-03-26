@@ -83,6 +83,11 @@ export function AuroraBackground({ opacity = 1 }) {
             return v;
           }
 
+          vec4 tanh4(vec4 x) {
+            vec4 e2x = exp(2.0 * x);
+            return (e2x - 1.0) / (e2x + 1.0);
+          }
+
           void main() {
             vec2 shake = vec2(sin(iTime * 1.2) * 0.005, cos(iTime * 2.1) * 0.005);
             vec2 p = ((gl_FragCoord.xy + shake * iResolution.xy) - iResolution.xy * 0.5) / iResolution.y * mat2(6.0, -4.0, 4.0, 6.0);
@@ -105,7 +110,7 @@ export function AuroraBackground({ opacity = 1 }) {
               o += currentContribution * (1.0 + tailNoise * 0.8) * thinnessFactor;
             }
 
-            o = tanh(pow(o / 100.0, vec4(1.6)));
+            o = tanh4(pow(o / 100.0, vec4(1.6)));
             gl_FragColor = o * 1.5;
           }
         `,

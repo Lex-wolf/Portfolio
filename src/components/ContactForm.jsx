@@ -1,20 +1,49 @@
-import React, { useEffect } from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle } from 'lucide-react';
 
 const ContactForm = () => {
-  const [state, handleSubmit] = useForm("mblzqpan");
+  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+  const [errorMessage, setErrorMessage] = useState('');
 
-  // Optional: Redirect to thank you page after success
-  useEffect(() => {
-    if (state.succeeded) {
-      // Uncomment the line below if you want to redirect to a thank you page
-      // window.location.href = '/thank-you';
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setErrorMessage('');
+
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        let message = 'Something went wrong. Please try again.';
+        try {
+          const body = await res.json();
+          message = body.error || message;
+        } catch {
+          // server returned non-JSON error
+        }
+        throw new Error(message);
+      }
+
+      setStatus('success');
+    } catch (err) {
+      setErrorMessage(err.message || 'Failed to send message. Please try again.');
+      setStatus('error');
     }
-  }, [state.succeeded]);
+  };
 
-  if (state.succeeded) {
+  if (status === 'success') {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
@@ -39,15 +68,6 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
       className="mx-auto max-w-2xl"
     >
-      {/* Honeypot field for spam protection */}
-      <input
-        type="text"
-        name="_gotcha"
-        style={{ display: 'none' }}
-        tabIndex="-1"
-        autoComplete="off"
-      />
-
       <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
         {/* Name Field */}
         <div>
@@ -76,12 +96,6 @@ const ContactForm = () => {
             className="w-full rounded-lg border border-base-darker bg-base-darker px-4 py-3 text-base-light transition-all duration-200 placeholder-base-light/50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent-cyan"
             placeholder="your.email@example.com"
           />
-          <ValidationError 
-            prefix="Email" 
-            field="email" 
-            errors={state.errors}
-            className="text-red-400 text-sm mt-1"
-          />
         </div>
       </div>
 
@@ -98,30 +112,24 @@ const ContactForm = () => {
           className="w-full resize-none rounded-lg border border-base-darker bg-base-darker px-4 py-3 text-base-light transition-all duration-200 placeholder-base-light/50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent-cyan"
           placeholder="Tell me about your project or just say hello..."
         />
-        <ValidationError 
-          prefix="Message" 
-          field="message" 
-          errors={state.errors}
-          className="text-red-400 text-sm mt-1"
-        />
       </div>
 
       {/* Submit Button */}
       <motion.button
         type="submit"
-        disabled={state.submitting}
-        whileHover={{ 
-          scale: state.submitting ? 1 : 1.02,
-          boxShadow: state.submitting ? "0 4px 12px rgba(0,0,0,0.3)" : "0 8px 25px rgba(20, 184, 166, 0.3)"
+        disabled={status === 'submitting'}
+        whileHover={{
+          scale: status === 'submitting' ? 1 : 1.02,
+          boxShadow: status === 'submitting' ? "0 4px 12px rgba(0,0,0,0.3)" : "0 8px 25px rgba(20, 184, 166, 0.3)"
         }}
-        whileTap={{ scale: state.submitting ? 1 : 0.98 }}
+        whileTap={{ scale: status === 'submitting' ? 1 : 0.98 }}
         className={`w-full flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-semibold transition-all duration-300 ease-in-out ${
-          state.submitting
+          status === 'submitting'
             ? 'bg-base-darker text-base-light/50 cursor-not-allowed'
             : 'bg-gradient-to-r from-accent-teal to-accent-cyan text-base-dark hover:shadow-[0_0_10px_#66FCF1] hover:-translate-y-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark'
         }`}
       >
-        {state.submitting ? (
+        {status === 'submitting' ? (
           <>
             <div className="w-5 h-5 border-2 border-base-light/50 border-t-transparent rounded-full animate-spin" />
             Sending...
@@ -134,12 +142,10 @@ const ContactForm = () => {
         )}
       </motion.button>
 
-      {/* General Error Display */}
-      {state.errors && state.errors.length > 0 && (
+      {/* Error Display */}
+      {status === 'error' && (
         <div className="mt-4 p-3 bg-red-900/20 border border-red-500/30 rounded-lg">
-          <p className="text-red-400 text-sm">
-            Please check the form for errors and try again.
-          </p>
+          <p className="text-red-400 text-sm">{errorMessage}</p>
         </div>
       )}
     </motion.form>

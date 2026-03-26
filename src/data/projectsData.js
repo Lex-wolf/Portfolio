@@ -474,7 +474,7 @@ export const projects = [
     gallery: [obagi2, obagi3, obagi4]
   },
   {
-    id: 19,
+    id: 24,
     title: "ASPIRE Galderma Rewards",
     category: "qa",
     description: "Mobile QA across iOS and Android builds",
