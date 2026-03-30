@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle } from 'lucide-react';
 import { useHydrated } from '../context/HydrationContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const ContactForm = () => {
   const hydrated = useHydrated();
+  const { t } = useLanguage();
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -28,7 +30,7 @@ const ContactForm = () => {
       });
 
       if (!res.ok) {
-        let message = 'Something went wrong. Please try again.';
+        let message = t('contact.errorGeneric');
         try {
           const body = await res.json();
           message = body.error || message;
@@ -40,7 +42,7 @@ const ContactForm = () => {
 
       setStatus('success');
     } catch (err) {
-      setErrorMessage(err.message || 'Failed to send message. Please try again.');
+      setErrorMessage(err.message || t('contact.errorSend'));
       setStatus('error');
     }
   };
@@ -54,9 +56,9 @@ const ContactForm = () => {
         className="text-center py-12"
       >
         <CheckCircle className="mx-auto mb-4 h-16 w-16 text-base-soft" />
-        <h3 className="mb-2 text-2xl font-semibold text-base-soft">Thanks for reaching out!</h3>
+        <h3 className="mb-2 text-2xl font-semibold text-base-soft">{t('contact.successTitle')}</h3>
         <p className="text-base-light/70">
-          I'll get back to you as soon as possible.
+          {t('contact.successBody')}
         </p>
       </motion.div>
     );
@@ -74,21 +76,21 @@ const ContactForm = () => {
         {/* Name Field */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-base-light mb-2">
-            Name
+            {t('contact.nameLabel')}
           </label>
           <input
             type="text"
             id="name"
             name="name"
             className="w-full rounded-lg border border-base-darker bg-base-darker px-4 py-3 text-base-light transition-all duration-200 placeholder-base-light/50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent-cyan"
-            placeholder="Your name"
+            placeholder={t('contact.namePlaceholder')}
           />
         </div>
 
         {/* Email Field */}
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-base-light mb-2">
-            Email <span className="text-red-400">*</span>
+            {t('contact.emailLabel')} <span className="text-red-400">*</span>
           </label>
           <input
             type="email"
@@ -96,7 +98,7 @@ const ContactForm = () => {
             name="email"
             required
             className="w-full rounded-lg border border-base-darker bg-base-darker px-4 py-3 text-base-light transition-all duration-200 placeholder-base-light/50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent-cyan"
-            placeholder="your.email@example.com"
+            placeholder={t('contact.emailPlaceholder')}
           />
         </div>
       </div>
@@ -104,7 +106,7 @@ const ContactForm = () => {
       {/* Message Field */}
       <div className="mb-6">
         <label htmlFor="message" className="block text-sm font-medium text-base-light mb-2">
-          Message <span className="text-red-400">*</span>
+          {t('contact.messageLabel')} <span className="text-red-400">*</span>
         </label>
         <textarea
           id="message"
@@ -112,7 +114,7 @@ const ContactForm = () => {
           required
           rows={6}
           className="w-full resize-none rounded-lg border border-base-darker bg-base-darker px-4 py-3 text-base-light transition-all duration-200 placeholder-base-light/50 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-accent-cyan"
-          placeholder="Tell me about your project or just say hello..."
+          placeholder={t('contact.messagePlaceholder')}
         />
       </div>
 
@@ -134,12 +136,12 @@ const ContactForm = () => {
         {status === 'submitting' ? (
           <>
             <div className="w-5 h-5 border-2 border-base-light/50 border-t-transparent rounded-full animate-spin" />
-            Sending...
+            {t('contact.sending')}
           </>
         ) : (
           <>
             <Send className="w-5 h-5" />
-            Send Message
+            {t('contact.button')}
           </>
         )}
       </motion.button>

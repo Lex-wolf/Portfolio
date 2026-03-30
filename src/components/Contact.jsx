@@ -2,9 +2,11 @@ import { CONTACT } from "../constants";
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
 import { useHydrated } from "../context/HydrationContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const Contact = () => {
   const hydrated = useHydrated();
+  const { t } = useLanguage();
 
   return (
     <section id="contact" className="section-spacing border-b border-neutral-900">
@@ -16,7 +18,7 @@ const Contact = () => {
         className="section-heading-spacing section-heading-tone text-center"
         style={{ willChange: 'transform, opacity' }}
       >
-        Have a project in mind?
+        {t("contact.heading")}
       </motion.h2>
       <div className="space-y-4 text-center tracking-tighter">
         <motion.p
@@ -26,7 +28,7 @@ const Contact = () => {
           transition={{ duration: 1 }}
           className="mx-auto max-w-2xl text-xl text-base-soft sm:text-[25px]"
         >
-          Available for freelance and full-time roles. Working worldwide, remotely.
+          {t("contact.body")}
         </motion.p>
             <motion.a
               href={"mailto:" + CONTACT.email}

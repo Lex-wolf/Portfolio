@@ -30,12 +30,14 @@ import { TbSql } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
 import { motion } from "framer-motion";
 import { useHydrated } from "../context/HydrationContext";
+import { useLanguage } from "../context/LanguageContext";
 
 // Import custom icons
 import AxeIcon from "../assets/icons/AXECORE.png";
 
 const Technologies = () => {
   const hydrated = useHydrated();
+  const { t } = useLanguage();
   const [isExpanded, setIsExpanded] = useState(false);
   const [expandedMaxPx, setExpandedMaxPx] = useState(0);
   const expandedContentRef = useRef(null);
@@ -51,7 +53,7 @@ const Technologies = () => {
   }, [isExpanded]);
   const technologyCategories = [
     {
-      title: "Development",
+      id: "development",
       technologies: [
         { name: "React", icon: RiReactjsFill, color: "text-blue-500" },
         { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
@@ -64,7 +66,7 @@ const Technologies = () => {
       ],
     },
     {
-      title: "QA & Automation",
+      id: "qaAutomation",
       technologies: [
         { name: "Playwright", icon: SiPlaywright, color: "text-green-400" },
         { name: "Postman", icon: SiPostman, color: "text-orange-400" },
@@ -77,7 +79,7 @@ const Technologies = () => {
       ],
     },
     {
-      title: "Accessibility & Auditing",
+      id: "accessibility",
       technologies: [
         { name: "axe-core", icon: AxeIcon, color: "text-red-400", isImage: true },
         { name: "Lighthouse", icon: SiLighthouse, color: "text-orange-400" },
@@ -86,7 +88,7 @@ const Technologies = () => {
       ],
     },
     {
-      title: "Collaboration & Tools",
+      id: "collaboration",
       technologies: [
         { name: "JIRA", icon: FaJira, color: "text-blue-500" },
         { name: "GitHub", icon: SiGithub, color: "text-white" },
@@ -98,7 +100,7 @@ const Technologies = () => {
       ],
     },
     {
-      title: "Backend & Tools",
+      id: "backend",
       technologies: [
         { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
         { name: "Git", icon: FaGitAlt, color: "text-orange-500" },
@@ -133,21 +135,21 @@ const Technologies = () => {
         className="mx-auto w-full max-w-7xl px-0 sm:px-4"
       >
         <motion.h2 variants={fadeInUp} className="section-heading-spacing section-heading-tone text-center">
-          Technologies
+          {t("technologies.heading")}
         </motion.h2>
         
         <motion.p 
           variants={fadeInUp}
           className="body-text-tone mx-auto mb-8 max-w-2xl text-center md:mb-10"
         >
-          Here's the stack I build and test with. From modern frameworks to QA automation tools.
+          {t("technologies.subheading")}
         </motion.p>
 
         <div className="space-y-8 md:space-y-10">
           {technologyCategories.slice(0, 2).map((category) => (
-            <motion.div key={category.title} variants={fadeInUp} className="text-center">
+            <motion.div key={category.id} variants={fadeInUp} className="text-center">
               <h3 className="mb-6 text-[0.75rem] uppercase tracking-[0.1em] text-white/50">
-                {category.title}
+                {t(`technologies.categories.${category.id}`)}
               </h3>
               <div
                 className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
@@ -157,7 +159,7 @@ const Technologies = () => {
               >
                 {category.technologies.map((tech) => (
                   <motion.div
-                    key={`${category.title}-${tech.name}`}
+                    key={`${category.id}-${tech.name}`}
                     variants={fadeInUp}
                     whileHover={{
                       scale: 1.08,
@@ -230,9 +232,9 @@ const Technologies = () => {
           >
             <div ref={expandedContentRef} className="space-y-8 md:space-y-10 pt-2">
               {technologyCategories.slice(2).map((category) => (
-                <motion.div key={category.title} variants={fadeInUp} className="text-center">
+                <motion.div key={category.id} variants={fadeInUp} className="text-center">
                   <h3 className="mb-6 text-[0.75rem] uppercase tracking-[0.1em] text-white/50">
-                    {category.title}
+                    {t(`technologies.categories.${category.id}`)}
                   </h3>
                   <div
                   className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
@@ -242,7 +244,7 @@ const Technologies = () => {
                   >
                     {category.technologies.map((tech) => (
                       <motion.div
-                        key={`${category.title}-${tech.name}`}
+                        key={`${category.id}-${tech.name}`}
                         variants={fadeInUp}
                         whileHover={{
                           scale: 1.08,
@@ -340,7 +342,7 @@ const Technologies = () => {
               event.currentTarget.style.textShadow = "none";
             }}
           >
-            {isExpanded ? "See less" : "See more skills"}
+            {isExpanded ? t("technologies.seeLess") : t("technologies.seeMore")}
           </button>
         </div>
       </motion.div>

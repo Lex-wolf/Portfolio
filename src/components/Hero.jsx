@@ -2,6 +2,7 @@ import profilePic from "../assets/pfolio.jpeg";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useHydrated } from "../context/HydrationContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -14,6 +15,7 @@ const container = (delay) => ({
 
 const Hero = () => {
   const hydrated = useHydrated();
+  const { t } = useLanguage();
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
@@ -145,7 +147,7 @@ const Hero = () => {
                   textShadow: "0 0 12px rgba(102, 252, 241, 0.8)",
                 }}
               >
-                Senior QA Engineer &amp; Software Developer
+                {t("hero.title")}
               </motion.h2>
               <motion.p 
                 className="hero-subheadline mx-auto mt-3 max-w-xl text-balance lg:mx-0"
@@ -153,7 +155,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                I build web products and make sure they work.
+                {t("hero.subtitle")}
               </motion.p>
             </motion.div>
 
@@ -163,7 +165,7 @@ const Hero = () => {
               animate="visible"
               className="body-text-tone mt-5 max-w-xl text-center lg:text-left"
             >
-              10+ years of QA experience on platforms used by hundreds of thousands of people. Pearl Jam, Eric Church, Thomas Rhett.
+              {t("hero.line1")}
             </motion.p>
 
             <motion.p
@@ -172,7 +174,7 @@ const Hero = () => {
               animate="visible"
               className="body-text-tone mt-4 max-w-xl text-center lg:text-left"
             >
-              I also build client websites from scratch. Both sides of the work, depending on what you need.
+              {t("hero.line2")}
             </motion.p>
 
             <div className="mt-8 flex w-full justify-center lg:hidden">
@@ -201,13 +203,13 @@ const Hero = () => {
                 href="#projects"
                 className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan px-6 py-3 text-center text-sm font-semibold text-base-dark shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_10px_#66FCF1] focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:w-auto sm:text-base"
               >
-                Explore My Work
+                {t("nav.work")}
               </a>
               <a
                 href="#contact"
                 className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-gradient-to-r from-accent-teal to-accent-cyan px-6 py-3 text-center text-sm font-semibold text-base-dark shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_10px_#66FCF1] focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:w-auto sm:text-base"
               >
-                Contact Me
+                {t("nav.contact")}
               </a>
             </motion.div>
           </div>
@@ -235,15 +237,15 @@ const Hero = () => {
       <div className="mt-12 grid grid-cols-1 gap-4 text-center text-base-light sm:grid-cols-3 md:mt-14 md:gap-6">
         <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
           <p className="text-3xl md:text-4xl font-semibold tracking-tight">10+</p>
-          <p className="text-sm text-neutral-400 mt-1">Years Experience</p>
+          <p className="text-sm text-neutral-400 mt-1">{t("hero.stats.years")}</p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
           <p className="text-3xl md:text-4xl font-semibold tracking-tight">100+</p>
-          <p className="text-sm text-neutral-400 mt-1">Releases Supported</p>
+          <p className="text-sm text-neutral-400 mt-1">{t("hero.stats.releases")}</p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
           <p className="text-3xl md:text-4xl font-semibold tracking-tight">QA + Dev</p>
-          <p className="text-sm text-neutral-400 mt-1">Hybrid Expertise</p>
+          <p className="text-sm text-neutral-400 mt-1">{t("hero.stats.hybrid")}</p>
         </div>
       </div>
     </section>

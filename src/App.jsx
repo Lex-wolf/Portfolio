@@ -8,10 +8,12 @@ import ProjectsNew from "./components/ProjectsNew";
 import Contact from "./components/Contact";
 import { BackgroundSystem } from "./components/background/BackgroundSystem";
 import { HydrationProvider } from "./context/HydrationContext";
+import { LanguageProvider } from "./context/LanguageContext";
 
 const App = () => {
   return (
     <HydrationProvider>
+      <LanguageProvider>
       <div className="relative min-h-screen overflow-hidden" style={{ scrollBehavior: "smooth" }}>
         <BackgroundSystem />
         <div className="relative z-10 overflow-x-hidden text-base-light antialiased selection:bg-accent-cyan selection:text-base-dark">
@@ -28,6 +30,7 @@ const App = () => {
           </div>
         </div>
       </div>
+      </LanguageProvider>
     </HydrationProvider>
   );
 };

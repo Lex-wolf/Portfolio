@@ -1,18 +1,18 @@
 import aboutImg from "../assets/work.jpg";
-import { ABOUT_TEXT } from "../constants";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useHydrated } from "../context/HydrationContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const About = () => {
   const hydrated = useHydrated();
+  const { t } = useLanguage();
   const [hasAnimated, setHasAnimated] = useState(false);
 
   return (
     <section id="about" className="section-spacing border-b border-base-darker">
       <h2 className="section-heading-spacing section-heading-tone text-center">
-        About
-        <span> Me</span>
+        {t("about.heading")}
       </h2>
       <div className="flex flex-wrap gap-y-8 md:gap-y-10">
             <motion.div
@@ -51,7 +51,7 @@ const About = () => {
             <p
               className="body-text-tone max-w-2xl pt-2 md:pt-4"
             >
-              {ABOUT_TEXT}
+              {t("about.body")}
             </p>
           </div>
         </motion.div>

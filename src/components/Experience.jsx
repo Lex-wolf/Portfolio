@@ -2,6 +2,7 @@ import { EXPERIENCES } from "../constants";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useHydrated } from "../context/HydrationContext";
+import { useLanguage } from "../context/LanguageContext";
 
 // Animation variant used to fade content in from below
 const fadeInUp = {
@@ -22,15 +23,8 @@ const containerStagger = {
 const Experience = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const hydrated = useHydrated();
-
-  // Convert long descriptions to bullet points
-  const formatDescription = (description) => {
-    // Clean up the description and split into meaningful sentences
-    const cleaned = description.replace(/\n\s*/g, ' ').trim();
-    const sentences = cleaned.split(/[.!?]+/).filter(s => s.trim().length > 10);
-    return sentences.map(sentence => sentence.trim()).slice(0, 4); // Max 4 bullets
-  };
-
+  const { t } = useLanguage();
+  const experienceRoles = t("experience.roles");
 
   return (
     <motion.div
@@ -46,7 +40,7 @@ const Experience = () => {
         variants={fadeInUp}
         className="section-heading-spacing section-heading-tone text-center"
       >
-        Experience & Impact
+        {t("experience.heading")}
       </motion.h2>
 
       <div className="relative">
@@ -62,7 +56,9 @@ const Experience = () => {
         ></div>
         
         <div className="space-y-10 md:space-y-12">
-          {EXPERIENCES && EXPERIENCES.length > 0 ? EXPERIENCES.map((experience, index) => (
+          {experienceRoles && experienceRoles.length > 0 ? experienceRoles.map((role, index) => {
+            const technologies = EXPERIENCES[index]?.technologies ?? [];
+            return (
             <motion.div
               key={index}
               variants={fadeInUp}
@@ -79,28 +75,28 @@ const Experience = () => {
                 <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <h6 className="mb-1 text-lg font-semibold text-base-light sm:text-xl">
-                      {experience.role}
+                      {role.title}
                     </h6>
                     <p className="body-text-tone font-medium">
-                      @ {experience.company}
+                      @ {role.company}
                     </p>
                   </div>
                   <span className="mt-1 text-xs uppercase tracking-[0.2em] text-base-light/70 sm:mt-0 sm:text-sm">
-                    {experience.year}
+                    {role.year}
                   </span>
                 </div>
 
                 <ul className="space-y-2 mb-4">
-                  {formatDescription(experience.description).map((bullet, bulletIndex) => (
+                  {role.bullets.map((bullet, bulletIndex) => (
                     <li key={bulletIndex} className="flex items-start gap-2">
                       <span className="mt-1 text-base-light/50">•</span>
                       <span className="body-text-tone">
                         {bullet}
                         {bulletIndex === 0 && index === 0 && (
-                          <span className="font-semibold text-base-soft"> +30% performance improvement</span>
+                          <span className="font-semibold text-base-soft">{t("experience.bisonExtra0")}</span>
                         )}
                         {bulletIndex === 1 && index === 0 && (
-                          <span className="font-semibold text-base-soft"> 100+ projects delivered</span>
+                          <span className="font-semibold text-base-soft">{t("experience.bisonExtra1")}</span>
                         )}
                       </span>
                     </li>
@@ -111,7 +107,7 @@ const Experience = () => {
                   className="flex flex-wrap gap-2"
                   variants={containerStagger}
                 >
-                  {experience.technologies.map((tech, idx) => (
+                  {technologies.map((tech, idx) => (
                     <motion.span
                       key={idx}
                       variants={fadeInUp}
@@ -124,9 +120,10 @@ const Experience = () => {
                 </motion.div>
               </div>
             </motion.div>
-          )) : (
+          );
+          }) : (
             <div className="text-center text-neutral-400 py-8">
-              <p>No experience data available</p>
+              <p>{t("experience.empty")}</p>
             </div>
           )}
         </div>

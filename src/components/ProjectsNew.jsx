@@ -3,9 +3,11 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from
 import { projects } from '../data/projectsData';
 import { X } from 'lucide-react';
 import { useHydrated } from '../context/HydrationContext';
+import { useLanguage } from '../context/LanguageContext';
 
 const ProjectsNew = () => {
   const hydrated = useHydrated();
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -146,8 +148,8 @@ const ProjectsNew = () => {
         transition={{ duration: 0.5 }}
         className="section-heading-spacing text-center"
       >
-            <h2 className="section-heading-tone mb-4">Projects.</h2>
-            <p className="body-text-tone">Explore my recent work in development and QA.</p>
+            <h2 className="section-heading-tone mb-4">{t('projects.heading')}</h2>
+            <p className="body-text-tone">{t('projects.subheading')}</p>
       </motion.div>
 
       {/* Tabs */}
@@ -167,7 +169,7 @@ const ProjectsNew = () => {
                 : 'text-neutral-400 hover:text-white'
             }`}
           >
-            All
+            {t('projects.tabs.all')}
           </button>
           <button
             onClick={() => setActiveTab('Built')}
@@ -177,7 +179,7 @@ const ProjectsNew = () => {
                 : 'text-neutral-400 hover:text-white'
             }`}
           >
-            Built
+            {t('projects.tabs.built')}
           </button>
           <button
             onClick={() => setActiveTab('QA')}
@@ -187,7 +189,7 @@ const ProjectsNew = () => {
                 : 'text-neutral-400 hover:text-white'
             }`}
           >
-            QA
+            {t('projects.tabs.qa')}
           </button>
         </div>
       </motion.div>
@@ -274,7 +276,7 @@ const ProjectsNew = () => {
 
                 {/* About Section */}
                 <div className="mb-6">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-3">About</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3">{t('projects.drawer.about')}</h3>
                   <p className="text-neutral-300 leading-relaxed text-sm sm:text-base">
                     {selectedProject.about}
                   </p>
@@ -283,7 +285,7 @@ const ProjectsNew = () => {
                 {/* Build / Impact Section (optional) */}
                 {selectedProject.build && (
                   <div className="mb-6">
-                    <h3 className="text-lg sm:text-xl font-semibold mb-3">Build</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold mb-3">{t('projects.drawer.build')}</h3>
                     <p className="text-neutral-300 leading-relaxed text-sm sm:text-base">
                       {selectedProject.build}
                     </p>
@@ -293,7 +295,7 @@ const ProjectsNew = () => {
                 {/* Testing Focus (QA-specific, optional) */}
                 {selectedProject.testingFocus && selectedProject.testingFocus.length > 0 && (
                   <div className="mb-6">
-                    <h3 className="text-lg sm:text-xl font-semibold mb-3">Testing Focus</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold mb-3">{t('projects.drawer.testingFocus')}</h3>
                     <ul className="list-disc list-inside space-y-1 text-neutral-300 text-sm sm:text-base">
                       {selectedProject.testingFocus.map((item, index) => (
                         <li key={index}>{item}</li>
@@ -307,7 +309,7 @@ const ProjectsNew = () => {
                   <div className="mb-6 grid gap-4 sm:grid-cols-2">
                     {selectedProject.platforms && (
                       <div>
-                        <h3 className="text-lg sm:text-xl font-semibold mb-2">Platforms</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold mb-2">{t('projects.drawer.platforms')}</h3>
                         <p className="text-neutral-300 text-sm sm:text-base">
                           {selectedProject.platforms}
                         </p>
@@ -315,7 +317,7 @@ const ProjectsNew = () => {
                     )}
                     {selectedProject.devices && (
                       <div>
-                        <h3 className="text-lg sm:text-xl font-semibold mb-2">Devices</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold mb-2">{t('projects.drawer.devices')}</h3>
                         <p className="text-neutral-300 text-sm sm:text-base">
                           {selectedProject.devices}
                         </p>
@@ -326,7 +328,7 @@ const ProjectsNew = () => {
 
                 {/* Technologies */}
                 <div className="mb-6">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-3">Technologies Used</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3">{t('projects.drawer.technologiesUsed')}</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech, index) => (
                       <span
@@ -341,7 +343,7 @@ const ProjectsNew = () => {
 
                 {/* Links */}
                 <div className="mb-6">
-                  <h3 className="text-lg sm:text-xl font-semibold mb-3">Links</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3">{t('projects.drawer.links')}</h3>
                   {selectedProject.links && selectedProject.links.length > 0 ? (
                     <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                       {selectedProject.links.map((link, index) => (
@@ -367,7 +369,7 @@ const ProjectsNew = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center rounded-lg bg-teal-400 px-4 py-3 text-sm font-semibold text-neutral-900 transition-colors hover:bg-teal-300 sm:px-6 sm:text-base"
                     >
-                      Open Project
+                      {t('projects.drawer.openProject')}
                     </a>
                   )}
                 </div>

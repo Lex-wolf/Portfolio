@@ -1,11 +1,14 @@
 import logo from "../assets/3.png";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { useLanguage } from "../context/LanguageContext";
 
 const socialLinkClass =
   "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-lg text-base-light transition-all duration-300 ease-in-out hover:scale-110 hover:text-accent-cyan hover:drop-shadow-lg hover:drop-shadow-accent-cyan/30 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:h-12 sm:w-12 sm:text-xl md:text-2xl";
 
 const Navbar = () => {
+  const { lang, setLang } = useLanguage();
+
   return (
     <nav
       aria-label="Primary"
@@ -30,7 +33,7 @@ const Navbar = () => {
         </a>
       </div>
 
-      <div className="flex min-w-0 flex-wrap items-center justify-center gap-x-1 gap-y-2 sm:justify-end sm:gap-x-0.5 md:gap-x-1">
+      <div className="flex min-w-0 flex-wrap items-center justify-center gap-x-2 gap-y-2 sm:justify-end sm:gap-x-1 md:gap-x-2">
         <a
           href="https://www.linkedin.com/in/alejandro-curiel-4a16554a/"
           target="_blank"
@@ -69,6 +72,15 @@ const Navbar = () => {
         >
           <FaInstagram className="pointer-events-none" aria-hidden />
         </a>
+
+        <button
+          type="button"
+          onClick={() => setLang(lang === "en" ? "es" : "en")}
+          className="inline-flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-lg border border-white/10 px-3 py-2 text-xs font-medium uppercase tracking-[0.2em] text-base-light/80 transition-colors duration-200 hover:border-accent-cyan hover:text-accent-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:text-sm"
+          aria-label={lang === "en" ? "Switch to Spanish" : "Switch to English"}
+        >
+          {lang === "en" ? "ES" : "EN"}
+        </button>
       </div>
     </nav>
   );
