@@ -1,5 +1,6 @@
 import { HIGHLIGHTS } from "../constants";
 import { motion } from "framer-motion";
+import { useHydrated } from "../context/HydrationContext";
 
 // Animation variant for card entry
 const fadeIn = {
@@ -8,12 +9,14 @@ const fadeIn = {
 };
 
 const Highlights = () => {
+  const hydrated = useHydrated();
 
   return (
     <section className="px-4 pb-24 mx-auto max-w-6xl border-b border-base-darker">
       <motion.h2
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -40 }}
+        whileInView={hydrated ? { opacity: 1, y: 0 } : undefined}
+        initial={hydrated ? { opacity: 0, y: -40 } : false}
+        animate={!hydrated ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.5 }}
         className="my-16 text-center text-4xl font-semibold text-base-soft"
       >
@@ -22,9 +25,14 @@ const Highlights = () => {
 
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
-        whileInView="visible"
-        initial="hidden"
-        variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
+        whileInView={hydrated ? "visible" : undefined}
+        initial={hydrated ? "hidden" : false}
+        animate={hydrated ? undefined : "visible"}
+        viewport={hydrated ? { once: true } : undefined}
+        variants={{
+          hidden: {},
+          visible: { transition: { staggerChildren: 0.2 } },
+        }}
         style={{ 
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           alignItems: 'stretch'

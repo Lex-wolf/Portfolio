@@ -1,6 +1,7 @@
 import profilePic from "../assets/pfolio.jpeg";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useHydrated } from "../context/HydrationContext";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -12,6 +13,7 @@ const container = (delay) => ({
 });
 
 const Hero = () => {
+  const hydrated = useHydrated();
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
@@ -116,7 +118,7 @@ const Hero = () => {
             <motion.h1
               id="hero-heading"
               variants={container(0)}
-              initial={!hasAnimated ? "hidden" : "visible"}
+              initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
               animate="visible"
               whileHover={{
                 scale: 1.02,
@@ -129,14 +131,14 @@ const Hero = () => {
 
             <motion.div
               variants={container(0.5)}
-              initial={!hasAnimated ? "hidden" : "visible"}
+              initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
               animate="visible"
               className="max-w-2xl text-center leading-snug lg:text-left"
               style={{ willChange: 'transform, opacity' }}
             >
               <motion.h2
                 className="hero-title-line mt-1 max-w-2xl text-center text-[1.85rem] leading-tight md:text-3xl lg:text-left"
-                initial={{ opacity: 0, y: 20 }}
+                initial={hydrated ? { opacity: 0, y: 20 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 whileHover={{
@@ -147,7 +149,7 @@ const Hero = () => {
               </motion.h2>
               <motion.p 
                 className="hero-subheadline mx-auto mt-3 max-w-xl text-balance lg:mx-0"
-                initial={{ opacity: 0, y: 20 }}
+                initial={hydrated ? { opacity: 0, y: 20 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
@@ -157,7 +159,7 @@ const Hero = () => {
 
             <motion.p
               variants={container(1)}
-              initial={!hasAnimated ? "hidden" : "visible"}
+              initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
               animate="visible"
               className="body-text-tone mt-5 max-w-xl text-center lg:text-left"
             >
@@ -166,7 +168,7 @@ const Hero = () => {
 
             <motion.p
               variants={container(1.1)}
-              initial={!hasAnimated ? "hidden" : "visible"}
+              initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
               animate="visible"
               className="body-text-tone mt-4 max-w-xl text-center lg:text-left"
             >
@@ -175,7 +177,7 @@ const Hero = () => {
 
             <div className="mt-8 flex w-full justify-center lg:hidden">
               <motion.img
-                initial={!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }}
+                initial={hydrated ? (!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }) : false}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 1.2 }}
                 whileHover={{ 
@@ -191,7 +193,7 @@ const Hero = () => {
 
             <motion.div
               variants={container(1.3)}
-              initial={!hasAnimated ? "hidden" : "visible"}
+              initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
               animate="visible"
               className="mt-8 flex w-full max-w-sm flex-col gap-3 self-center sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4 lg:justify-start lg:self-start"
             >
@@ -214,7 +216,7 @@ const Hero = () => {
         <div className="mt-12 hidden w-full lg:mt-0 lg:block lg:w-auto lg:flex-shrink-0 lg:min-w-[280px]">
           <div className="flex justify-center lg:justify-end">
             <motion.img
-              initial={!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }}
+              initial={hydrated ? (!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }) : false}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1.2 }}
               whileHover={{ 

@@ -1,17 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Bubble mouse trail overlay. Fixed background layer; does not affect layout or content interaction.
  * z-index: -10 (above BaseGradient -30 and AuroraBackground -20, below content z-10).
  */
 export function ParticleOverlay({ densityMultiplier = 1 }) {
-  const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const [mounted, setMounted] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const containerRef = useRef(null);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
+    setMounted(true);
+    setPrefersReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || prefersReducedMotion) {
       return undefined;
     }
 
@@ -107,7 +111,11 @@ export function ParticleOverlay({ densityMultiplier = 1 }) {
         canvas.parentNode.removeChild(canvas);
       }
     };
-  }, [densityMultiplier, prefersReducedMotion]);
+  }, [densityMultiplier, prefersReducedMotion, mounted]);
+
+  if (!mounted) {
+    return null;
+  }
 
   if (prefersReducedMotion) {
     return null;

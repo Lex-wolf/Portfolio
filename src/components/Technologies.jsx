@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import {
   SiJavascript,
   SiPlaywright,
@@ -29,13 +29,26 @@ import { BiTestTube } from "react-icons/bi";
 import { TbSql } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
 import { motion } from "framer-motion";
+import { useHydrated } from "../context/HydrationContext";
 
 // Import custom icons
 import AxeIcon from "../assets/icons/AXECORE.png";
 
 const Technologies = () => {
+  const hydrated = useHydrated();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [expandedMaxPx, setExpandedMaxPx] = useState(0);
   const expandedContentRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (!isExpanded) {
+      setExpandedMaxPx(0);
+      return;
+    }
+    const el = expandedContentRef.current;
+    if (!el) return;
+    setExpandedMaxPx(el.scrollHeight);
+  }, [isExpanded]);
   const technologyCategories = [
     {
       title: "Development",
@@ -111,41 +124,11 @@ const Technologies = () => {
 
   return (
     <section className="section-spacing border-b border-neutral-800">
-      <style jsx>{`
-        .technology-icon,
-        .technology-icon * {
-          background: none !important;
-          background-color: transparent !important;
-          box-shadow: none !important;
-        }
-        .technology-icon svg,
-        .technology-icon img {
-          background: transparent !important;
-          background-color: transparent !important;
-          mix-blend-mode: normal;
-          display: block;
-        }
-        .technology-icon:hover,
-        .technology-icon:hover * {
-          background: none !important;
-          background-color: transparent !important;
-        }
-        .technology-icon:hover {
-          box-shadow: 0 0 15px rgba(102, 252, 241, 0.4), 0 0 25px rgba(69, 162, 158, 0.25) !important;
-        }
-        .skills-toggle {
-          cursor: pointer;
-          background: transparent;
-          border: none;
-          padding: 0;
-          appearance: none;
-          -webkit-appearance: none;
-        }
-      `}</style>
       <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
+        initial={hydrated ? "hidden" : false}
+        animate={hydrated ? undefined : "visible"}
+        whileInView={hydrated ? "visible" : undefined}
+        viewport={hydrated ? { once: true } : undefined}
         variants={staggerContainer}
         className="mx-auto w-full max-w-7xl px-0 sm:px-4"
       >
@@ -174,7 +157,7 @@ const Technologies = () => {
               >
                 {category.technologies.map((tech) => (
                   <motion.div
-                    key={tech.name}
+                    key={`${category.title}-${tech.name}`}
                     variants={fadeInUp}
                     whileHover={{
                       scale: 1.08,
@@ -241,9 +224,7 @@ const Technologies = () => {
           <div
             className="overflow-hidden"
             style={{
-              maxHeight: isExpanded
-                ? `${expandedContentRef.current?.scrollHeight || 0}px`
-                : "0px",
+              maxHeight: isExpanded ? `${expandedMaxPx}px` : "0px",
               transition: "max-height 0.4s ease",
             }}
           >
@@ -261,7 +242,7 @@ const Technologies = () => {
                   >
                     {category.technologies.map((tech) => (
                       <motion.div
-                        key={tech.name}
+                        key={`${category.title}-${tech.name}`}
                         variants={fadeInUp}
                         whileHover={{
                           scale: 1.08,

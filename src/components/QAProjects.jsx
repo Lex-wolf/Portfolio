@@ -1,8 +1,10 @@
 import React from "react";
 import { QA_PROJECTS } from "../constants";
 import { motion } from "framer-motion";
+import { useHydrated } from "../context/HydrationContext";
 
 const QAProjects = () => {
+  const hydrated = useHydrated();
   // If no QA projects exist
   if (!QA_PROJECTS || QA_PROJECTS.length === 0) {
     return (
@@ -18,8 +20,9 @@ const QAProjects = () => {
   return (
     <section className="border-b border-neutral-900 pb-12">
       <motion.h2
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
+        whileInView={hydrated ? { opacity: 1, y: 0 } : undefined}
+        initial={hydrated ? { opacity: 0, y: -100 } : false}
+        animate={!hydrated ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.5 }}
         className="my-20 text-center text-4xl"
       >
@@ -31,8 +34,9 @@ const QAProjects = () => {
           <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
             {/* Project Image */}
             <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: -100 }}
+              whileInView={hydrated ? { opacity: 1, x: 0 } : undefined}
+              initial={hydrated ? { opacity: 0, x: -100 } : false}
+              animate={!hydrated ? { opacity: 1, x: 0 } : undefined}
               transition={{ duration: 0.5 }}
               className="w-full lg:w-1/4 flex justify-center"
             >
@@ -53,8 +57,9 @@ const QAProjects = () => {
 
             {/* Project Details */}
             <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: 100 }}
+              whileInView={hydrated ? { opacity: 1, x: 0 } : undefined}
+              initial={hydrated ? { opacity: 0, x: 100 } : false}
+              animate={!hydrated ? { opacity: 1, x: 0 } : undefined}
               transition={{ duration: 1 }}
               className="w-full max-w-xl lg:w-3/4"
             >

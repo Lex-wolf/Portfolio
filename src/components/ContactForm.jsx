@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle } from 'lucide-react';
+import { useHydrated } from '../context/HydrationContext';
 
 const ContactForm = () => {
+  const hydrated = useHydrated();
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -46,7 +48,7 @@ const ContactForm = () => {
   if (status === 'success') {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={hydrated ? { opacity: 0, scale: 0.8 } : false}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         className="text-center py-12"
@@ -62,7 +64,7 @@ const ContactForm = () => {
 
   return (
     <motion.form
-      initial={{ opacity: 0, y: 20 }}
+      initial={hydrated ? { opacity: 0, y: 20 } : false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       onSubmit={handleSubmit}

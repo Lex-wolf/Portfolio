@@ -1,13 +1,17 @@
 import { CONTACT } from "../constants";
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
+import { useHydrated } from "../context/HydrationContext";
 
 const Contact = () => {
+  const hydrated = useHydrated();
+
   return (
     <section id="contact" className="section-spacing border-b border-neutral-900">
       <motion.h2
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
+        whileInView={hydrated ? { opacity: 1, y: 0 } : undefined}
+        initial={hydrated ? { opacity: 0, y: -100 } : false}
+        animate={!hydrated ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.6 }}
         className="section-heading-spacing section-heading-tone text-center"
         style={{ willChange: 'transform, opacity' }}
@@ -16,8 +20,9 @@ const Contact = () => {
       </motion.h2>
       <div className="space-y-4 text-center tracking-tighter">
         <motion.p
-          whileInView={{ opacity: 1, x: 0 }}
-          initial={{ opacity: 0, x: -100 }}
+          whileInView={hydrated ? { opacity: 1, x: 0 } : undefined}
+          initial={hydrated ? { opacity: 0, x: -100 } : false}
+          animate={!hydrated ? { opacity: 1, x: 0 } : undefined}
           transition={{ duration: 1 }}
           className="mx-auto max-w-2xl text-xl text-base-soft sm:text-[25px]"
         >
@@ -38,8 +43,9 @@ const Contact = () => {
 
       {/* Contact Form */}
       <motion.div
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: 50 }}
+        whileInView={hydrated ? { opacity: 1, y: 0 } : undefined}
+        initial={hydrated ? { opacity: 0, y: 50 } : false}
+        animate={!hydrated ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.5, delay: 0.3 }}
         className="mt-10 md:mt-12"
       >

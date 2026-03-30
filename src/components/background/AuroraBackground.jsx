@@ -1,13 +1,27 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+function getAllowWebGL() {
+  if (typeof window === "undefined") return false;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const narrow = window.matchMedia("(max-width: 768px)").matches;
+  const cores = typeof navigator.hardwareConcurrency === "number" ? navigator.hardwareConcurrency : 8;
+  const lowPower = cores <= 4;
+  return !reduced && !narrow && !lowPower;
+}
+
+function getReducedMotion() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
 
 /**
- * Full-screen aurora WebGL background layer. Does not affect layout or scroll.
- * Transparent over BaseGradient; z-index -20; pointer-events none.
+ * Full-screen aurora WebGL background layer (desktop only). CSS fallback on mobile / low-power / reduced motion.
  */
 export function AuroraBackground({ opacity = 1 }) {
-  const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const [mounted, setMounted] = useState(false);
+  const [allowWebGL, setAllowWebGL] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
   const containerRef = useRef(null);
   const sceneRef = useRef({
     camera: null,
@@ -17,10 +31,18 @@ export function AuroraBackground({ opacity = 1 }) {
     geometry: null,
     animationId: null,
     resizeHandler: null,
+    resizeTimeoutId: null,
+    resizeRafId: null,
   });
 
   useEffect(() => {
-    if (prefersReducedMotion) {
+    setAllowWebGL(getAllowWebGL());
+    setReducedMotion(getReducedMotion());
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || !allowWebGL) {
       return undefined;
     }
 
@@ -122,10 +144,11 @@ export function AuroraBackground({ opacity = 1 }) {
 
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
-        alpha: true,
+        alpha: false,
       });
-      renderer.setClearColor(0x000000, 0);
-      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setClearColor(0x000000, 1);
+      const pr = Math.min(window.devicePixelRatio || 1, 2);
+      renderer.setPixelRatio(pr);
       renderer.setSize(window.innerWidth, window.innerHeight);
       container.appendChild(renderer.domElement);
 
@@ -137,6 +160,7 @@ export function AuroraBackground({ opacity = 1 }) {
       canvas.style.height = "100%";
       canvas.style.pointerEvents = "none";
       canvas.style.zIndex = "-20";
+      canvas.style.willChange = "transform";
 
       sceneState.camera = camera;
       sceneState.scene = threeScene;
@@ -144,11 +168,27 @@ export function AuroraBackground({ opacity = 1 }) {
       sceneState.material = material;
       sceneState.geometry = geometry;
 
-      const onWindowResize = () => {
+      const applyResize = () => {
         const w = window.innerWidth;
         const h = window.innerHeight;
         renderer.setSize(w, h);
         material.uniforms.iResolution.value.set(w, h);
+      };
+
+      const onWindowResize = () => {
+        if (sceneState.resizeTimeoutId != null) {
+          clearTimeout(sceneState.resizeTimeoutId);
+        }
+        sceneState.resizeTimeoutId = window.setTimeout(() => {
+          sceneState.resizeTimeoutId = null;
+          if (sceneState.resizeRafId != null) {
+            cancelAnimationFrame(sceneState.resizeRafId);
+          }
+          sceneState.resizeRafId = requestAnimationFrame(() => {
+            sceneState.resizeRafId = null;
+            applyResize();
+          });
+        }, 120);
       };
 
       sceneState.resizeHandler = onWindowResize;
@@ -173,12 +213,21 @@ export function AuroraBackground({ opacity = 1 }) {
     document.head.appendChild(script);
 
     return () => {
+      if (sceneState.resizeTimeoutId != null) {
+        clearTimeout(sceneState.resizeTimeoutId);
+        sceneState.resizeTimeoutId = null;
+      }
+      if (sceneState.resizeRafId != null) {
+        cancelAnimationFrame(sceneState.resizeRafId);
+        sceneState.resizeRafId = null;
+      }
       if (sceneState.animationId != null) {
         cancelAnimationFrame(sceneState.animationId);
         sceneState.animationId = null;
       }
       if (sceneState.resizeHandler) {
         window.removeEventListener("resize", sceneState.resizeHandler, false);
+        sceneState.resizeHandler = null;
       }
       if (sceneState.renderer) {
         sceneState.renderer.dispose();
@@ -192,17 +241,24 @@ export function AuroraBackground({ opacity = 1 }) {
         script.parentNode.removeChild(script);
       }
     };
-  }, [prefersReducedMotion]);
+  }, [mounted, allowWebGL]);
 
-  if (prefersReducedMotion) {
+  const showCssFallback = !mounted || !allowWebGL;
+
+  const fallbackClassName = [
+    "fixed inset-0 -z-20 pointer-events-none aurora-css-fallback",
+    mounted && !reducedMotion ? "aurora-css-fallback--animated" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  if (showCssFallback) {
     return (
       <div
-        className="fixed inset-0 -z-20 pointer-events-none"
+        className={fallbackClassName}
         aria-hidden="true"
         style={{
           opacity,
-          background:
-            "radial-gradient(circle at 20% 20%, rgba(102, 252, 241, 0.14), transparent 45%), radial-gradient(circle at 80% 30%, rgba(69, 162, 158, 0.18), transparent 40%), radial-gradient(circle at 50% 80%, rgba(102, 252, 241, 0.08), transparent 45%)",
         }}
       />
     );
@@ -214,7 +270,7 @@ export function AuroraBackground({ opacity = 1 }) {
       aria-hidden="true"
       style={{ opacity }}
     >
-      <div ref={containerRef} className="w-full h-full absolute" />
+      <div ref={containerRef} className="absolute h-full w-full" />
     </div>
   );
 }

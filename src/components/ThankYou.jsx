@@ -2,12 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useHydrated } from '../context/HydrationContext';
 
 const ThankYou = () => {
+  const hydrated = useHydrated();
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-neutral-900 to-neutral-800">
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={hydrated ? { opacity: 0, scale: 0.8 } : false}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         className="text-center max-w-md mx-auto p-8"

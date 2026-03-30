@@ -69,6 +69,73 @@ html {
     font-size: 0.98rem;
     line-height: 1.8;
   }
+
+  /* Technologies section — avoids styled-jsx `jsx` attr (SSR/hydration safe) */
+  .technology-icon,
+  .technology-icon * {
+    background: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .technology-icon svg,
+  .technology-icon img {
+    background: transparent !important;
+    background-color: transparent !important;
+    mix-blend-mode: normal;
+    display: block;
+  }
+
+  .technology-icon:hover,
+  .technology-icon:hover * {
+    background: none !important;
+    background-color: transparent !important;
+  }
+
+  .technology-icon:hover {
+    box-shadow:
+      0 0 15px rgba(102, 252, 241, 0.4),
+      0 0 25px rgba(69, 162, 158, 0.25) !important;
+  }
+
+  .skills-toggle {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+}
+
+@keyframes aurora-fallback-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 40%;
+  }
+}
+
+.aurora-css-fallback {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(102, 252, 241, 0.14), transparent 45%),
+    radial-gradient(circle at 80% 30%, rgba(69, 162, 158, 0.18), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(102, 252, 241, 0.08), transparent 45%);
+}
+
+.aurora-css-fallback--animated {
+  background:
+    linear-gradient(
+      125deg,
+      rgba(15, 35, 45, 0.5) 0%,
+      rgba(45, 90, 95, 0.35) 35%,
+      rgba(20, 55, 65, 0.45) 65%,
+      rgba(10, 28, 38, 0.5) 100%
+    );
+  background-size: 200% 200%;
+  animation: aurora-fallback-shift 22s ease-in-out infinite;
 }
 
 @media (min-width: 640px) {

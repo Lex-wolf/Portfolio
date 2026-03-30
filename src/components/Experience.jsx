@@ -1,6 +1,7 @@
 import { EXPERIENCES } from "../constants";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useHydrated } from "../context/HydrationContext";
 
 // Animation variant used to fade content in from below
 const fadeInUp = {
@@ -20,6 +21,7 @@ const containerStagger = {
 
 const Experience = () => {
   const [hasAnimated, setHasAnimated] = useState(false);
+  const hydrated = useHydrated();
 
   // Convert long descriptions to bullet points
   const formatDescription = (description) => {
@@ -33,9 +35,10 @@ const Experience = () => {
   return (
     <motion.div
       className="section-spacing mx-auto max-w-5xl border-b border-neutral-900 px-0 sm:px-4"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+      initial={hydrated ? "hidden" : false}
+      animate={hydrated ? undefined : "visible"}
+      whileInView={hydrated ? "visible" : undefined}
+      viewport={hydrated ? { once: true } : undefined}
       onViewportEnter={() => setHasAnimated(true)}
       variants={containerStagger}
     >

@@ -2,8 +2,10 @@ import aboutImg from "../assets/work.jpg";
 import { ABOUT_TEXT } from "../constants";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useHydrated } from "../context/HydrationContext";
 
 const About = () => {
+  const hydrated = useHydrated();
   const [hasAnimated, setHasAnimated] = useState(false);
 
   return (
@@ -14,8 +16,10 @@ const About = () => {
       </h2>
       <div className="flex flex-wrap gap-y-8 md:gap-y-10">
             <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              animate={hasAnimated ? { opacity: 1, x: 0 } : {}}
+              initial={hydrated ? { opacity: 0, x: -100 } : false}
+              animate={
+                !hydrated ? { opacity: 1, x: 0 } : hasAnimated ? { opacity: 1, x: 0 } : {}
+              }
               transition={{ duration: 0.9 }}
               onViewportEnter={() => setHasAnimated(true)}
               className="w-full lg:w-1/2 lg:p-6"
@@ -35,8 +39,10 @@ const About = () => {
               </div>
             </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          animate={hasAnimated ? { opacity: 1, x: 0 } : {}}
+          initial={hydrated ? { opacity: 0, x: 100 } : false}
+          animate={
+            !hydrated ? { opacity: 1, x: 0 } : hasAnimated ? { opacity: 1, x: 0 } : {}
+          }
           transition={{ duration: 0.9 }}
           onViewportEnter={() => setHasAnimated(true)}
           className="w-full lg:w-1/2"

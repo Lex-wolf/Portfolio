@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useHydrated } from "../context/HydrationContext";
 
 const DEFAULT_LETTER_IMAGES = [
   "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
@@ -24,6 +25,7 @@ export function RevealText({
   letterImages = DEFAULT_LETTER_IMAGES,
   noWrap = false,
 }) {
+  const hydrated = useHydrated();
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [showOverlayText, setShowOverlayText] = useState(false);
 
@@ -43,7 +45,7 @@ export function RevealText({
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
             className={`${fontSize} font-black tracking-tight cursor-pointer relative overflow-hidden inline-block`}
-            initial={{ scale: 0, opacity: 0 }}
+            initial={hydrated ? { scale: 0, opacity: 0 } : false}
             animate={{ scale: 1, opacity: 1 }}
             transition={{
               delay: index * letterDelay,

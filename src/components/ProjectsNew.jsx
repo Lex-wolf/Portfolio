@@ -2,8 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { projects } from '../data/projectsData';
 import { X } from 'lucide-react';
+import { useHydrated } from '../context/HydrationContext';
 
 const ProjectsNew = () => {
+  const hydrated = useHydrated();
   const [activeTab, setActiveTab] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -59,6 +61,7 @@ const ProjectsNew = () => {
 
   // 3D Card Component
   const ProjectCard = ({ project, index }) => {
+    const cardHydrated = useHydrated();
     const cardRef = useRef(null);
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -95,7 +98,7 @@ const ProjectsNew = () => {
       <motion.div
         ref={cardRef}
         layout
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={cardHydrated ? { opacity: 0, scale: 0.8 } : false}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8 }}
         transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -137,8 +140,9 @@ const ProjectsNew = () => {
     <section id="projects" className="section-spacing border-b border-neutral-900">
       {/* Section Header */}
       <motion.div
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
+        whileInView={hydrated ? { opacity: 1, y: 0 } : undefined}
+        initial={hydrated ? { opacity: 0, y: -100 } : false}
+        animate={!hydrated ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.5 }}
         className="section-heading-spacing text-center"
       >
@@ -148,8 +152,9 @@ const ProjectsNew = () => {
 
       {/* Tabs */}
       <motion.div
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: 50 }}
+        whileInView={hydrated ? { opacity: 1, y: 0 } : undefined}
+        initial={hydrated ? { opacity: 0, y: 50 } : false}
+        animate={!hydrated ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="mb-8 flex justify-center md:mb-10"
       >
