@@ -82,6 +82,8 @@ I'm bilingual in English and Spanish, fluent in Portuguese. I work well in cross
       heading: "Projects.",
       subheading: "Explore my recent work in development and QA.",
       tabs: { all: "All", built: "Built", qa: "QA" },
+      loadMore: "Load more",
+      loadLess: "Load less",
       drawer: {
         about: "About",
         build: "Build",
@@ -192,6 +194,8 @@ Hablo inglés y español con fluidez, y portugués con soltura. Me integro bien 
       heading: "Proyectos.",
       subheading: "Explora mi trabajo reciente en desarrollo y QA.",
       tabs: { all: "Todos", built: "Desarrollo", qa: "QA" },
+      loadMore: "Cargar más",
+      loadLess: "Cargar menos",
       drawer: {
         about: "Acerca de",
         build: "Construcción",

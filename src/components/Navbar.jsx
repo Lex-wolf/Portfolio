@@ -73,14 +73,38 @@ const Navbar = () => {
           <FaInstagram className="pointer-events-none" aria-hidden />
         </a>
 
-        <button
-          type="button"
-          onClick={() => setLang(lang === "en" ? "es" : "en")}
-          className="inline-flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-lg border border-white/10 px-3 py-2 text-xs font-medium uppercase tracking-[0.2em] text-base-light/80 transition-colors duration-200 hover:border-accent-cyan hover:text-accent-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:text-sm"
-          aria-label={lang === "en" ? "Switch to Spanish" : "Switch to English"}
+        <div
+          className="flex shrink-0 rounded-none border border-white/20"
+          role="group"
+          aria-label="Language"
         >
-          {lang === "en" ? "ES" : "EN"}
-        </button>
+          <button
+            type="button"
+            onClick={() => setLang("en")}
+            className={`min-h-[44px] min-w-[3.25rem] flex-1 border-0 border-r border-white/20 px-3 py-2 text-xs font-medium uppercase tracking-wider transition-colors focus:outline-none focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-base-dark sm:min-w-[3.5rem] sm:text-sm ${
+              lang === "en"
+                ? "bg-[#62abae] text-base-dark"
+                : "bg-transparent text-neutral-500 hover:text-neutral-300"
+            }`}
+            aria-pressed={lang === "en"}
+            aria-label="English"
+          >
+            EN
+          </button>
+          <button
+            type="button"
+            onClick={() => setLang("es")}
+            className={`min-h-[44px] min-w-[3.25rem] flex-1 border-0 px-3 py-2 text-xs font-medium uppercase tracking-wider transition-colors focus:outline-none focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-base-dark sm:min-w-[3.5rem] sm:text-sm ${
+              lang === "es"
+                ? "bg-[#62abae] text-base-dark"
+                : "bg-transparent text-neutral-500 hover:text-neutral-300"
+            }`}
+            aria-pressed={lang === "es"}
+            aria-label="Español"
+          >
+            ES
+          </button>
+        </div>
       </div>
     </nav>
   );

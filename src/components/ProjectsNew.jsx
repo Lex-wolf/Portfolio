@@ -5,12 +5,15 @@ import { X } from 'lucide-react';
 import { useHydrated } from '../context/HydrationContext';
 import { useLanguage } from '../context/LanguageContext';
 
+const MOBILE_PROJECTS_INITIAL = 4;
+
 const ProjectsNew = () => {
   const hydrated = useHydrated();
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -22,6 +25,10 @@ const ProjectsNew = () => {
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  useEffect(() => {
+    setMobileExpanded(false);
+  }, [activeTab]);
 
   useEffect(() => {
     if (!selectedProject) {
@@ -52,6 +59,14 @@ const ProjectsNew = () => {
   };
 
   const currentProjects = getCurrentProjects();
+
+  const visibleProjects =
+    isMobile && !mobileExpanded
+      ? currentProjects.slice(0, MOBILE_PROJECTS_INITIAL)
+      : currentProjects;
+
+  const showMobileLoadControls =
+    isMobile && currentProjects.length > MOBILE_PROJECTS_INITIAL;
 
   const openDrawer = (project) => {
     setSelectedProject(project);
@@ -200,7 +215,7 @@ const ProjectsNew = () => {
         className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         <AnimatePresence>
-          {currentProjects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <ProjectCard 
               key={project.id} 
               project={project} 
@@ -209,6 +224,28 @@ const ProjectsNew = () => {
           ))}
         </AnimatePresence>
       </motion.div>
+
+      {showMobileLoadControls ? (
+        <div className="mt-8 flex justify-center md:hidden">
+          {!mobileExpanded ? (
+            <button
+              type="button"
+              onClick={() => setMobileExpanded(true)}
+              className="min-h-[48px] rounded-lg border border-white/15 bg-neutral-900/80 px-6 py-3 text-sm font-semibold text-base-light transition-colors hover:border-accent-cyan hover:text-accent-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark"
+            >
+              {t('projects.loadMore')}
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setMobileExpanded(false)}
+              className="min-h-[48px] rounded-lg border border-white/15 bg-neutral-900/80 px-6 py-3 text-sm font-semibold text-base-light transition-colors hover:border-accent-cyan hover:text-accent-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark"
+            >
+              {t('projects.loadLess')}
+            </button>
+          )}
+        </div>
+      ) : null}
 
       {/* Side Drawer */}
       <AnimatePresence>

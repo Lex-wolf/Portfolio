@@ -126,7 +126,7 @@ const Hero = () => {
                 scale: 1.02,
                 transition: { duration: 0.2 },
               }}
-              className="mb-4 text-center font-light leading-[1.05] tracking-tight text-4xl text-accent-cyan transition-shadow duration-200 hover:drop-shadow-[0_0_20px_rgba(102,252,241,0.4)] sm:mb-6 sm:text-5xl md:text-6xl lg:text-left lg:text-7xl xl:text-8xl"
+              className="mb-3 text-center text-5xl font-semibold leading-[1.05] tracking-tight text-accent-cyan transition-shadow duration-200 hover:drop-shadow-[0_0_20px_rgba(102,252,241,0.4)] sm:mb-4 sm:text-5xl md:text-6xl lg:mb-6 lg:font-light lg:text-left lg:text-7xl xl:text-8xl"
             >
               Alejandro Curiel
             </motion.h1>
@@ -139,7 +139,7 @@ const Hero = () => {
               style={{ willChange: 'transform, opacity' }}
             >
               <motion.h2
-                className="hero-title-line mt-1 max-w-2xl text-center text-[1.85rem] leading-tight md:text-3xl lg:text-left"
+                className="hero-title-line mt-1 max-w-2xl text-center text-xl leading-snug sm:text-2xl md:text-3xl lg:mt-1 lg:text-left"
                 initial={hydrated ? { opacity: 0, y: 20 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
