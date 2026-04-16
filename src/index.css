@@ -8,23 +8,34 @@
   font-family: "inter", sans-serif;
 }
 
+/* Mobile-safe document scroll: never trap the main axis with height:100% + overflow:hidden */
 html {
   scroll-padding-top: 6rem;
+  scroll-behavior: smooth;
   margin: 0;
-  /* min-height (not height: 100%) so the document can grow past the viewport — fixes iOS scroll lock */
+  height: auto;
   min-height: 100%;
   min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
   margin: 0;
+  height: auto;
   min-height: 100%;
   min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 #root {
+  height: auto;
   min-height: 100%;
   min-height: 100dvh;
+  overflow-x: hidden;
+  /* Avoid a nested vertical scrollport; let html/body own vertical scroll */
+  overflow-y: visible;
 }
 
 @media (prefers-reduced-motion: reduce) {

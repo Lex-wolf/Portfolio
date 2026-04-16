@@ -31,15 +31,21 @@ const ProjectsNew = () => {
   }, [activeTab]);
 
   useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+
     if (!selectedProject) {
-      document.body.style.overflow = "";
+      html.style.overflow = "";
+      body.style.overflow = "";
       return undefined;
     }
 
-    document.body.style.overflow = "hidden";
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
 
     return () => {
-      document.body.style.overflow = "";
+      html.style.overflow = "";
+      body.style.overflow = "";
     };
   }, [selectedProject]);
 
