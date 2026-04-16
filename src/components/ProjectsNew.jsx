@@ -114,7 +114,7 @@ const ProjectsNew = () => {
     return (
       <motion.div
         ref={cardRef}
-        layout
+        layout={!isMobile}
         initial={cardHydrated ? { opacity: 0, scale: 0.8 } : false}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8 }}
@@ -211,7 +211,7 @@ const ProjectsNew = () => {
 
       {/* Projects Grid */}
       <motion.div
-        layout
+        layout={!isMobile}
         className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         <AnimatePresence>

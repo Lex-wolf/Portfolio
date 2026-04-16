@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { BaseGradient } from "./BaseGradient";
 import { AuroraBackground } from "./AuroraBackground";
 import { ParticleOverlay } from "./ParticleOverlay";
@@ -14,7 +14,7 @@ import { WebGLEffects } from "./WebGLEffects";
 export function BackgroundSystem() {
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const updateViewport = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -33,7 +33,8 @@ export function BackgroundSystem() {
     <>
       <BaseGradient />
       <AuroraBackground opacity={isMobile ? 0.4 : 1} />
-      <ParticleOverlay densityMultiplier={isMobile ? 0.3 : 1} />
+      {/* Per-frame canvas work is too heavy on phones; skip entirely on narrow viewports */}
+      {!isMobile ? <ParticleOverlay densityMultiplier={1} /> : null}
       {shouldRenderWebGL ? <WebGLEffects /> : null}
     </>
   );
