@@ -1,4 +1,8 @@
-import profilePic from "../assets/pfolio.jpeg";
+import profilePicJpeg from "../assets/pfolio.jpeg";
+import profilePicWebp from "../assets/pfolio.webp";
+
+const HERO_IMG_WIDTH = 896;
+const HERO_IMG_HEIGHT = 783;
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useHydrated } from "../context/HydrationContext";
@@ -136,7 +140,6 @@ const Hero = () => {
               initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
               animate="visible"
               className="max-w-2xl text-center leading-snug lg:text-left"
-              style={{ willChange: 'transform, opacity' }}
             >
               <motion.h2
                 className="hero-title-line mt-1 max-w-2xl text-center text-xl leading-snug sm:text-2xl md:text-3xl lg:mt-1 lg:text-left"
@@ -178,19 +181,30 @@ const Hero = () => {
             </motion.p>
 
             <div className="mt-8 flex w-full justify-center lg:hidden">
-              <motion.img
+              <motion.div
                 initial={hydrated ? (!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }) : false}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 1.2 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
-                  boxShadow: "0 20px 40px rgba(102, 252, 241, 0.1)"
+                  boxShadow: "0 20px 40px rgba(102, 252, 241, 0.1)",
                 }}
-                className="w-full max-w-[320px] animate-float rounded-2xl sm:max-w-md"
-                src={profilePic}
-                alt="Alejandro Curiel"
-                style={{ willChange: 'transform, opacity' }}
-              />
+                className="w-full max-w-[320px] sm:max-w-md"
+              >
+                <picture>
+                  <source srcSet={profilePicWebp} type="image/webp" />
+                  <img
+                    src={profilePicJpeg}
+                    alt="Alejandro Curiel"
+                    width={HERO_IMG_WIDTH}
+                    height={HERO_IMG_HEIGHT}
+                    className="h-auto w-full animate-float rounded-2xl object-cover"
+                    decoding="async"
+                    fetchPriority="high"
+                    loading="eager"
+                  />
+                </picture>
+              </motion.div>
             </div>
 
             <motion.div
@@ -217,19 +231,30 @@ const Hero = () => {
 
         <div className="mt-12 hidden w-full lg:mt-0 lg:block lg:w-auto lg:flex-shrink-0 lg:min-w-[280px]">
           <div className="flex justify-center lg:justify-end">
-            <motion.img
+            <motion.div
               initial={hydrated ? (!hasAnimated ? { x: 100, opacity: 0 } : { x: 0, opacity: 1 }) : false}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 1.2 }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
-                boxShadow: "0 20px 40px rgba(102, 252, 241, 0.1)"
+                boxShadow: "0 20px 40px rgba(102, 252, 241, 0.1)",
               }}
-              className="w-full max-w-sm animate-float rounded-2xl sm:max-w-md lg:max-w-[28rem]"
-              src={profilePic}
-              alt="Alejandro Curiel"
-              style={{ willChange: 'transform, opacity' }}
-            />
+              className="w-full max-w-sm sm:max-w-md lg:max-w-[28rem]"
+            >
+              <picture>
+                <source srcSet={profilePicWebp} type="image/webp" />
+                <img
+                  src={profilePicJpeg}
+                  alt="Alejandro Curiel"
+                  width={HERO_IMG_WIDTH}
+                  height={HERO_IMG_HEIGHT}
+                  className="h-auto w-full animate-float rounded-2xl object-cover"
+                  decoding="async"
+                  fetchPriority="low"
+                  loading="lazy"
+                />
+              </picture>
+            </motion.div>
           </div>
         </div>
       </div>

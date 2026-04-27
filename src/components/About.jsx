@@ -25,16 +25,20 @@ const About = () => {
               className="w-full lg:w-1/2 lg:p-6"
             >
               <div className="flex items-center justify-center">
-                <motion.img 
-                  className="rounded-2xl w-full max-w-md" 
-                  src={aboutImg} 
-                  alt="about"
-                  whileHover={{ 
+                <motion.img
+                  className="rounded-2xl w-full max-w-md"
+                  src={aboutImg}
+                  alt={t("about.heading")}
+                  width={1280}
+                  height={852}
+                  loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
+                  whileHover={{
                     scale: 1.02,
-                    boxShadow: "0 15px 30px rgba(102, 252, 241, 0.08)"
+                    boxShadow: "0 15px 30px rgba(102, 252, 241, 0.08)",
                   }}
                   transition={{ duration: 0.3 }}
-                  style={{ willChange: 'transform' }}
                 />
               </div>
             </motion.div>

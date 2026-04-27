@@ -30,6 +30,7 @@ await build({
   },
 });
 
+process.env.PORTFOLIO_SSR = "1";
 await build({
   root: projectRoot,
   build: {
@@ -38,6 +39,7 @@ await build({
     emptyOutDir: false,
   },
 });
+delete process.env.PORTFOLIO_SSR;
 
 const [{ render }, template] = await Promise.all([
   import(pathToFileURL(serverEntry).href),

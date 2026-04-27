@@ -186,6 +186,9 @@ const Technologies = () => {
                         <img
                           src={tech.icon}
                           alt={tech.name}
+                          loading="lazy"
+                          decoding="async"
+                          fetchPriority="low"
                           className="h-8 w-8 transition-all duration-300 group-hover:drop-shadow-[0_0_15px_#66FCF1] group-hover:drop-shadow-[0_0_25px_#45A29E] sm:h-10 sm:w-10"
                           title={tech.name}
                           style={{
@@ -271,6 +274,9 @@ const Technologies = () => {
                             <img
                               src={tech.icon}
                               alt={tech.name}
+                              loading="lazy"
+                              decoding="async"
+                              fetchPriority="low"
                               className="h-8 w-8 transition-all duration-300 group-hover:drop-shadow-[0_0_15px_#66FCF1] group-hover:drop-shadow-[0_0_25px_#45A29E] sm:h-10 sm:w-10"
                               title={tech.name}
                               style={{

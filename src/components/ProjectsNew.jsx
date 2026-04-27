@@ -143,6 +143,9 @@ const ProjectsNew = () => {
           <img
             src={project.image}
             alt={project.title}
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -301,6 +304,9 @@ const ProjectsNew = () => {
                           <img
                             src={imgSrc}
                             alt={`${selectedProject.title} screenshot ${index + 1}`}
+                            loading="lazy"
+                            decoding="async"
+                            fetchPriority="low"
                             className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
                           />
                         </div>
@@ -311,6 +317,8 @@ const ProjectsNew = () => {
                       <img
                         src={selectedProject.image}
                         alt={selectedProject.title}
+                        decoding="async"
+                        fetchPriority="high"
                         className="mx-auto aspect-video w-full max-w-full rounded-xl object-contain shadow-lg transition-all duration-300 hover:shadow-xl sm:max-w-[90%]"
                       />
                     </div>
