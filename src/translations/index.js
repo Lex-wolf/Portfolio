@@ -11,7 +11,7 @@ export const translations = {
     hero: {
       title: "Senior QA Engineer | Automation, Web & Mobile",
       subtitle: "I test the things other people build - and sometimes build them too.",
-      subtitleQa: "I test the things other people build — and sometimes build them too.",
+      subtitleQa: "I test the things other people build - and sometimes build them too.",
       subtitleWeb: "I build fast, clean websites that clients can actually manage.",
       line1:
         "Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile - platforms with 750K+ users",
@@ -24,15 +24,7 @@ export const translations = {
     },
     about: {
       heading: "About Me",
-      body: `I've spent 10 years breaking things so users don't have to. Mostly on mobile. I've tested platform releases for Pearl Jam, Eric Church, Thomas Rhett, and Brandi Carlile - sometimes with 750K+ users hitting at once.
-
-On the automation side, I write Playwright test suites, use Postman for API testing, and wire everything into CI/CD via GitHub Actions.
-
-I specialize in iOS and Android manual testing, WCAG 2.1/2.2 accessibility compliance, UI/UX validation, and CMS cross testing. I'm CPACC certified - meaning I've passed a formal exam on WCAG standards, not just run Lighthouse reports.
-
-I work in English, Spanish, and Portuguese. I'm used to environments where releases happen weekly and QA is the last gate before users see it.
-
-Available for remote contractor roles worldwide.`,
+      body: `I've spent 10 years breaking things so users don't have to. Mostly on mobile. I've tested platforms for Pearl Jam, Eric Church, Thomas Rhett, and Brandi Carlile - sometimes with 750K+ users at once. On the automation side, I write Playwright test suites, use Postman for API testing, and wire everything into CI/CD via GitHub Actions. I also do accessibility compliance, WCAG validation, and CMS cross-testing. I'm CPACC certified - meaning I've passed a formal exam on WCAG standards, not just run Lighthouse reports. I speak English, Spanish, and Portuguese. I'm used to environments where releases happen weekly and QA is the last gate before users see it. Available for remote contractor roles worldwide.`,
     },
     technologies: {
       heading: "Technologies",
@@ -51,18 +43,18 @@ Available for remote contractor roles worldwide.`,
     experience: {
       heading: "Experience & Impact",
       empty: "No experience data available",
-      bisonExtra0: " +30% performance improvement",
-      bisonExtra1: " 100+ projects delivered",
+      bisonExtra0: "",
+      bisonExtra1: "",
       roles: [
         {
           year: "2024 – Present",
           title: "Software Engineering Consultant",
           company: "Bison Digital · Freelance",
           bullets: [
-            "Provide consulting support on web applications, improving system stability, performance, and long-term maintainability",
-            "Contribute to React-based platforms while reviewing architecture decisions and resolving production-level issues",
-            "Lead manual and automated QA efforts using Playwright, Postman, SQL data validation, and CI/CD integration via GitHub Actions and Jenkins to ensure reliable production releases",
-            "Validate iOS builds using simulators and TestFlight, supporting mobile release readiness",
+            "Built Playwright suites for regression and smoke testing, cutting QA cycles by 30%.",
+            "Tested APIs in Postman across GET/POST requests, status codes, auth flows, and data validation.",
+            "Conducted WCAG 2.2 audits using axe-core and VoiceOver across web and mobile.",
+            "Verified iOS builds via Xcode simulators and TestFlight on real iOS and Android devices.",
           ],
         },
         {
@@ -70,9 +62,10 @@ Available for remote contractor roles worldwide.`,
           title: "Quality Assurance",
           company: "Analog Republic",
           bullets: [
-            "Led cross-platform QA across web, iOS, and Android platforms, ensuring stable releases for high-traffic consumer applications",
-            "Built and maintained test plans for web, iOS, and Android across concurrent client projects. Managed regression cycles tied to weekly release schedules",
-            "Specialized in performance, wireless, and stability testing, and used tools like Jira, Trello, and ClickUp to keep things organized",
+            "Led mobile QA across iOS and Android for artist platforms serving 750K+ users - Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile.",
+            "Tested and validated CMS functionality and frontend layouts across web and mobile.",
+            "Validated Shopify payment flows and backend integrations via Postman and SQL queries.",
+            "Triaged defects and managed test cycles in JIRA and ClickUp across multi-sprint regression cycles.",
           ],
         },
         {
@@ -80,8 +73,7 @@ Available for remote contractor roles worldwide.`,
           title: "Project Manager",
           company: "Analog Republic",
           bullets: [
-            "Managed timelines and client communication for music industry partnerships, coordinating between internal dev and external stakeholders",
-            "Kept everything moving smoothly from kickoff to delivery, making sure client goals turned into real, actionable plans",
+            "Managed timelines and client communication for music industry partnerships, coordinating between internal dev and external stakeholders.",
           ],
         },
       ],
@@ -133,11 +125,11 @@ Available for remote contractor roles worldwide.`,
       subtitle:
         "Pruebo lo que otras personas construyen, y a veces también lo construyo.",
       subtitleQa:
-        "Pruebo lo que otras personas construyen — y a veces también lo construyo.",
+        "Pruebo lo que otras personas construyen - y a veces también lo construyo.",
       subtitleWeb:
         "Hago sitios rápidos y claros que los clientes pueden mantener solos.",
       line1:
-        "Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile: plataformas con más de 750K usuarios",
+        "Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile - plataformas con más de 750K usuarios",
       line2: "También desarrollo sitios para clientes cuando el proyecto lo pide.",
       stats: {
         years: "Años de Experiencia",
@@ -147,15 +139,7 @@ Available for remote contractor roles worldwide.`,
     },
     about: {
       heading: "Sobre Mí",
-      body: `Llevo 10 años rompiendo cosas para que los usuarios no tengan que hacerlo. Sobre todo en móvil. He probado lanzamientos para Pearl Jam, Eric Church, Thomas Rhett y Brandi Carlile, a veces con más de 750K usuarios a la vez.
-
-En automatización escribo suites con Playwright, uso Postman para APIs y conecto todo a CI/CD con GitHub Actions.
-
-Me especializo en pruebas manuales iOS y Android, cumplimiento WCAG 2.1/2.2, validación UI/UX y QA en CMS. Tengo CPACC: aprobé un examen formal sobre WCAG, no solo corro Lighthouse.
-
-Trabajo en inglés, español y portugués. Estoy acostumbrado a entornos con releases semanales donde QA es la última puerta antes de que lo vean los usuarios.
-
-Disponible para contratos remotos en todo el mundo.`,
+      body: `Llevo 10 años rompiendo cosas para que los usuarios no tengan que hacerlo. Sobre todo en móvil. He probado plataformas para Pearl Jam, Eric Church, Thomas Rhett y Brandi Carlile, a veces con más de 750K usuarios a la vez. En automatización escribo suites con Playwright, uso Postman para APIs y conecto todo a CI/CD con GitHub Actions. También hago cumplimiento de accesibilidad, validación WCAG y pruebas cruzadas en CMS. Tengo CPACC: aprobé un examen formal sobre WCAG, no solo corro Lighthouse. Hablo inglés, español y portugués. Estoy acostumbrado a entornos con releases semanales donde QA es la última puerta antes de que lo vean los usuarios. Disponible para contratos remotos en todo el mundo.`,
     },
     technologies: {
       heading: "Tecnologías",
@@ -174,18 +158,18 @@ Disponible para contratos remotos en todo el mundo.`,
     experience: {
       heading: "Experiencia e Impacto",
       empty: "No hay datos de experiencia disponibles",
-      bisonExtra0: " +30% de mejora en rendimiento",
-      bisonExtra1: " más de 100 proyectos entregados",
+      bisonExtra0: "",
+      bisonExtra1: "",
       roles: [
         {
           year: "2024 – Actualidad",
           title: "Consultor de Ingeniería de Software",
           company: "Bison Digital · Freelance",
           bullets: [
-            "Brindo consultoría en aplicaciones web, mejorando estabilidad, rendimiento y mantenibilidad a largo plazo",
-            "Contribuyo a plataformas en React revisando decisiones de arquitectura y resolviendo incidencias a nivel de producción",
-            "Lidero QA manual y automatizado con Playwright, Postman, validación de datos SQL e integración CI/CD con GitHub Actions y Jenkins para releases confiables",
-            "Valido builds de iOS con simuladores y TestFlight para apoyar la salida a producción móvil",
+            "Construí suites de Playwright para regresión y smoke, recortando ciclos de QA alrededor de un 30%.",
+            "Probé APIs en Postman: GET/POST, códigos de estado, auth y validación de datos.",
+            "Hice auditorías WCAG 2.2 con axe-core y VoiceOver en web y móvil.",
+            "Verifiqué builds de iOS en simuladores de Xcode y TestFlight, y en dispositivos iOS y Android reales.",
           ],
         },
         {
@@ -193,9 +177,10 @@ Disponible para contratos remotos en todo el mundo.`,
           title: "Aseguramiento de Calidad",
           company: "Analog Republic",
           bullets: [
-            "Lideré QA multiplataforma en web, iOS y Android para asegurar releases estables en aplicaciones de alto tráfico",
-            "Construí y mantuve planes de prueba para web, iOS y Android en varios clientes a la vez. Organicé regresiones atadas a calendarios de release semanales",
-            "Me especialicé en pruebas de rendimiento, conectividad inalámbrica y estabilidad; organicé el trabajo con Jira, Trello y ClickUp",
+            "Lideré QA móvil en iOS y Android para plataformas de artistas con más de 750K usuarios: Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile.",
+            "Probé y validé CMS y layouts frontend en web y móvil.",
+            "Validé flujos de pago Shopify e integraciones backend con Postman y consultas SQL.",
+            "Clasifiqué defectos y organicé ciclos de prueba en JIRA y ClickUp en regresiones multisprint.",
           ],
         },
         {
@@ -203,8 +188,7 @@ Disponible para contratos remotos en todo el mundo.`,
           title: "Gerente de Proyecto",
           company: "Analog Republic",
           bullets: [
-            "Organicé tiempos y la comunicación con clientes en proyectos de la industria musical, entre desarrollo interno y stakeholders externos",
-            "Mantuve el flujo desde el arranque hasta la entrega, alineando objetivos del cliente con planes accionables",
+            "Organicé tiempos y la comunicación con clientes en proyectos de la industria musical, entre desarrollo interno y stakeholders externos.",
           ],
         },
       ],

@@ -119,7 +119,7 @@ export const projects = [
     title: "Portfolio Website",
     category: "built",
     description: "Personal portfolio showcasing projects and skills",
-    about: "Built my own portfolio from scratch to showcase projects, skills, and a bit of personality. Designed to be clean, simple, and easy to navigate—because first impressions matter. Powered by React, styled with Bootstrap, and optimized with Vite for a snappy dev experience.",
+    about: "Built my own portfolio from scratch to showcase projects, skills, and a bit of personality. Designed to be clean, simple, and easy to navigate because first impressions matter. Powered by React, styled with Bootstrap, and optimized with Vite for a snappy dev experience.",
     technologies: ["HTML", "CSS", "React.js", "Bootstrap", "Vite"],
     image: project3,
     website: "https://alexcuriel.com/",
@@ -139,7 +139,7 @@ export const projects = [
     title: "To Do App",
     category: "built",
     description: "Productivity app for task management",
-    about: "A simple but powerful productivity app to help users stay on top of their tasks. You can add, edit, delete, and prioritize to-dos with ease. Designed with a clean UI and smooth functionality that works well across devices—because getting things done shouldn't feel like a chore.",
+    about: "A simple but powerful productivity app to help users stay on top of their tasks. You can add, edit, delete, and prioritize to-dos with ease. Designed with a clean UI and smooth functionality that works well across devices because getting things done shouldn't feel like a chore.",
     technologies: ["HTML", "CSS", "JavaScript", "React"],
     image: project2,
     website: "https://todo-rho-ruby.vercel.app",
@@ -151,14 +151,14 @@ export const projects = [
     title: "Pearl Jam Official Website",
     category: "qa",
     description:
-      "QA lead for a high-traffic artist platform with 750K+ users. CMS workflows, multi-device regression, Shopify payments, and release cycles across iOS, Android, and web.",
+      "QA lead for a high-traffic artist platform with 750K+ users. Covered CMS workflows, multi-device regression, and Shopify payment flows across iOS, Android, and web.",
     about:
-      "QA lead for a high-traffic artist platform with 750K+ users. Covered CMS workflows, multi-device regression, Shopify payment flows, and release cycles across iOS, Android, and web.",
+      "QA lead for a high-traffic artist platform with 750K+ users. Covered CMS workflows, multi-device regression, and Shopify payment flows across iOS, Android, and web.",
     technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "API Testing", "CMS Validation"],
     image: pjWebsite,
     website: "https://pearljam.com/",
     tagline:
-      "QA lead for a high-traffic artist platform with 750K+ users. CMS workflows, multi-device regression, Shopify payments, and release cycles across iOS, Android, and web.",
+      "QA lead for a high-traffic artist platform with 750K+ users. Covered CMS workflows, multi-device regression, and Shopify payment flows across iOS, Android, and web.",
     testingFocus: [
       "Functional and regression testing",
       "Cross-browser coverage (Chrome, Safari, Firefox, Edge)",
@@ -180,14 +180,14 @@ export const projects = [
     title: "Eric Church Website",
     category: "qa",
     description:
-      "Website QA alongside frequent CMS and content releases: cross-browser regression, tour and shop flows, and coordination with the mobile app roadmap.",
+      "Mobile QA alongside frequent CMS and content releases. Validated layouts, links, and media across browsers and devices.",
     about:
-      "Website QA alongside frequent CMS and content releases: cross-browser regression, tour and shop flows, and coordination with the mobile app roadmap.",
+      "Mobile QA alongside frequent CMS and content releases. Validated layouts, links, and media across browsers and devices.",
     technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "Jira", "CMS Validation"],
     image: ecWebsite,
     website: "https://www.ericchurch.com/",
     tagline:
-      "Website QA alongside frequent CMS and content releases: cross-browser regression, tour and shop flows, and coordination with the mobile app roadmap.",
+      "Mobile QA alongside frequent CMS and content releases. Validated layouts, links, and media across browsers and devices.",
     testingFocus: [
       "Functional and regression testing",
       "Cross-browser checks across Chrome, Safari, Firefox, and Edge",
@@ -211,9 +211,9 @@ export const projects = [
     title: "Eric Church Official App",
     category: "qa",
     description:
-      "iOS and Android testing across builds delivered via TestFlight. Push notifications, in-app purchases, and tour date integrations across OS versions. Playwright for automated flow testing.",
+      "iOS and Android testing across builds delivered via TestFlight. Validated push notifications, in-app purchases, and tour date integrations across OS versions.",
     about:
-      "iOS and Android testing across builds delivered via TestFlight. Validated push notifications, in-app purchases, and tour date integrations across OS versions. Used Playwright for automated flow testing.",
+      "iOS and Android testing across builds delivered via TestFlight. Validated push notifications, in-app purchases, and tour date integrations across OS versions.",
     technologies: ["iOS", "Android", "Functional Testing", "Playwright", "TestFlight"],
     image: ecApp,
     website: "https://apps.apple.com/us/app/eric-church-official/id1436492159",
@@ -274,9 +274,9 @@ export const projects = [
     title: "Thomas Rhett Home Team App",
     category: "qa",
     description:
-      "Native app QA on iOS and Android: TestFlight and Play Store builds, regression around push, media, fan engagement, and store release checks.",
+      "Native app QA on iOS and Android via TestFlight and Play Store builds. Validated notifications, member flows, and content updates.",
     about:
-      "Native app QA on iOS and Android: TestFlight and Play Store builds, regression around push, media, fan engagement, and store release checks.",
+      "Native app QA on iOS and Android via TestFlight and Play Store builds. Validated notifications, member flows, and content updates.",
     technologies: [
       "Manual Testing",
       "Regression Testing",
@@ -286,7 +286,8 @@ export const projects = [
     ],
     image: thomasRApp,
     website: "https://apps.apple.com/us/app/thomas-rhetts-home-team-app/id1275224693",
-    tagline: "Mobile app QA across iOS and Android builds",
+    tagline:
+      "Native app QA on iOS and Android via TestFlight and Play Store builds. Validated notifications, member flows, and content updates.",
     testingFocus: [
       "Build validation and smoke checks",
       "Regression passes between releases",
@@ -359,9 +360,10 @@ export const projects = [
     id: 15,
     title: "ACE Parking App",
     category: "qa",
-    description: "Mobile QA focused on transaction reliability and UI accuracy",
+    description:
+      "Mobile QA focused on transaction reliability and UX accuracy across iOS and Android.",
     about:
-      "I worked on QA for the ACE Parking app across several release cycles. The main focus was keeping reservations, payments, and map results reliable while people used the app in real time. I checked reservation flows end to end, validated prices and availability, and made sure the UI stayed clear and predictable on both iOS and Android devices.",
+      "Mobile QA focused on transaction reliability and UX accuracy across iOS and Android.",
     technologies: [
       "Manual Testing",
       "Regression Testing",
@@ -372,7 +374,8 @@ export const projects = [
     ],
     image: aceParkingApp,
     website: "https://www.aceparking.com/",
-    tagline: "Mobile QA focused on transaction reliability and UI accuracy",
+    tagline:
+      "Mobile QA focused on transaction reliability and UX accuracy across iOS and Android.",
     testingFocus: [
       "Build validation and smoke checks",
       "Regression testing across release cycles",
@@ -406,9 +409,10 @@ export const projects = [
     id: 16,
     title: "Pride Study Website",
     category: "qa",
-    description: "Accessibility, questionnaire logic, and data accuracy testing",
+    description:
+      "Accessibility, questionnaire logic, and data accuracy testing. Verified screen reader compatibility and form validation flows.",
     about:
-      "I worked on QA for the Pride Study website with a focus on accessibility and clean research data. Most of the effort went into multi-step questionnaires, branching logic, and making sure responses were stored and surfaced correctly in participant views. I balanced front-end usability checks with backend data validation so the study team could trust what they were seeing.",
+      "Accessibility, questionnaire logic, and data accuracy testing. Verified screen reader compatibility and form validation flows.",
     technologies: [
       "Manual Testing",
       "Regression Testing",
@@ -420,7 +424,8 @@ export const projects = [
     ],
     image: prideStudy,
     website: "https://play.google.com/store/apps/details?id=com.cliniv.perampanel&hl=en_US",
-    tagline: "Accessibility, questionnaire logic, and data accuracy testing",
+    tagline:
+      "Accessibility, questionnaire logic, and data accuracy testing. Verified screen reader compatibility and form validation flows.",
     testingFocus: [
       "Functional and regression testing",
       "Accessibility validation for key user flows",

@@ -36,15 +36,7 @@ Feel free to scroll down and explore the projects I’m currently working on, or
 
 
 export const ABOUT_TEXT = `
-I've spent 10 years breaking things so users don't have to. Mostly on mobile. I've tested platform releases for Pearl Jam, Eric Church, Thomas Rhett, and Brandi Carlile - sometimes with 750K+ users hitting at once.
-
-On the automation side, I write Playwright test suites, use Postman for API testing, and wire everything into CI/CD via GitHub Actions.
-
-I specialize in iOS and Android manual testing, WCAG 2.1/2.2 accessibility compliance, UI/UX validation, and CMS cross testing. I'm CPACC certified - meaning I've passed a formal exam on WCAG standards, not just run Lighthouse reports.
-
-I work in English, Spanish, and Portuguese. I'm used to environments where releases happen weekly and QA is the last gate before users see it.
-
-Available for remote contractor roles worldwide.
+I've spent 10 years breaking things so users don't have to. Mostly on mobile. I've tested platforms for Pearl Jam, Eric Church, Thomas Rhett, and Brandi Carlile - sometimes with 750K+ users at once. On the automation side, I write Playwright test suites, use Postman for API testing, and wire everything into CI/CD via GitHub Actions. I also do accessibility compliance, WCAG validation, and CMS cross-testing. I'm CPACC certified - meaning I've passed a formal exam on WCAG standards, not just run Lighthouse reports. I speak English, Spanish, and Portuguese. I'm used to environments where releases happen weekly and QA is the last gate before users see it. Available for remote contractor roles worldwide.
 `;
 
 
@@ -54,10 +46,10 @@ export const EXPERIENCES = [
     role: "Software Engineering Consultant",
     company: "Bison Digital · Freelance",
     description: `
-      Provide consulting support on web applications, improving system stability, performance, and long-term maintainability.
-      Contribute to React-based platforms while reviewing architecture decisions and resolving production-level issues.
-      Lead manual and automated QA efforts using Playwright, Postman, SQL data validation, and CI/CD integration via GitHub Actions and Jenkins to ensure reliable production releases.
-      Validate iOS builds using simulators and TestFlight, supporting mobile release readiness.
+      Built Playwright suites for regression and smoke testing, cutting QA cycles by 30%.
+      Tested APIs in Postman across GET/POST requests, status codes, auth flows, and data validation.
+      Conducted WCAG 2.2 audits using axe-core and VoiceOver across web and mobile.
+      Verified iOS builds via Xcode simulators and TestFlight on real iOS and Android devices.
     `,
     technologies: [
       "Manual QA",
@@ -67,7 +59,7 @@ export const EXPERIENCES = [
       "axe-core",
       "Lighthouse",
       "Jenkins",
-      "GitHubActions",
+      "GitHub Actions",
       "ReactJS",
       "Tailwind",
       "WordPress",
@@ -95,7 +87,10 @@ export const EXPERIENCES = [
     role: "Quality Assurance",
     company: "Analog Republic",
     description: `
-      Led cross-platform QA across web, iOS, and Android platforms, ensuring stable releases for high-traffic consumer applications. Built and maintained test plans for web, iOS, and Android across concurrent client projects. Managed regression cycles tied to weekly release schedules. Specialized in performance, wireless, and stability testing, and used tools like Jira, Trello, and ClickUp to keep things organized. Basically, if there was a bug—I found it (and logged it like a pro).
+      Led mobile QA across iOS and Android for artist platforms serving 750K+ users - Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile.
+      Tested and validated CMS functionality and frontend layouts across web and mobile.
+      Validated Shopify payment flows and backend integrations via Postman and SQL queries.
+      Triaged defects and managed test cycles in JIRA and ClickUp across multi-sprint regression cycles.
     `,
     technologies: ["Jira", "Scrum", "TestRail", "PostMan", "Manual QA", "Regression & Smoke Testing",],
   },
@@ -104,7 +99,7 @@ export const EXPERIENCES = [
     role: "Project Manager",
     company: "Analog Republic",
     description: `
-     Managed timelines and client communication for music industry partnerships, coordinating between internal dev and external stakeholders. Kept everything moving smoothly from kickoff to delivery, making sure client goals turned into real, actionable plans.
+     Managed timelines and client communication for music industry partnerships, coordinating between internal dev and external stakeholders.
     `,
     technologies: ["Jira", "Scrum", "Trello", "Slack"],
   },
@@ -213,7 +208,7 @@ export const PROJECTS = [
     title: "Portfolio Website",
     image: project3,
     description:
-      "Built my own portfolio from scratch to showcase projects, skills, and a bit of personality. Designed to be clean, simple, and easy to navigate—because first impressions matter. Powered by React, styled with Bootstrap, and optimized with Vite for a snappy dev experience.",
+      "Built my own portfolio from scratch to showcase projects, skills, and a bit of personality. Designed to be clean, simple, and easy to navigate because first impressions matter. Powered by React, styled with Bootstrap, and optimized with Vite for a snappy dev experience.",
     technologies: ["HTML", "CSS", "React.js", "Bootstrap", "Vite"],
     link: "https://alexcuriel.com/",
   },
@@ -229,7 +224,7 @@ export const PROJECTS = [
     title: "To Do App",
     image: project2,
     description:
-      "A simple but powerful productivity app to help users stay on top of their tasks. You can add, edit, delete, and prioritize to-dos with ease. Designed with a clean UI and smooth functionality that works well across devices—because getting things done shouldn't feel like a chore.",
+      "A simple but powerful productivity app to help users stay on top of their tasks. You can add, edit, delete, and prioritize to-dos with ease. Designed with a clean UI and smooth functionality that works well across devices because getting things done shouldn't feel like a chore.",
     technologies: ["HTML", "CSS", "JavaScript", "React"],
     link: "https://todo-rho-ruby.vercel.app",
   },
@@ -246,7 +241,8 @@ export const QA_PROJECTS = [
     title: "Pearl Jam Official Website",
     image: pjWebsite,
     type: "website",
-    description: "Performed extensive QA testing for Pearl Jam's official website, ensuring smooth performance and cross-browser compatibility.",
+    description:
+      "QA lead for a high-traffic artist platform with 750K+ users. Covered CMS workflows, multi-device regression, and Shopify payment flows across iOS, Android, and web.",
     technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing"],
     link: "https://pearljam.com/",
   },
@@ -254,7 +250,8 @@ export const QA_PROJECTS = [
     title: "Eric Church Website",
     image: ecWebsite,
     type: "website",
-    description: "QA testing for Eric Church's website, focusing on UI/UX consistency and multi-device functionality.",
+    description:
+      "Mobile QA alongside frequent CMS and content releases. Validated layouts, links, and media across browsers and devices.",
     technologies: ["Manual Testing", "Cross-device Testing", "Jira"],
     link: "https://www.ericchurch.com/",
   },
@@ -262,7 +259,8 @@ export const QA_PROJECTS = [
     title: "Eric Church Official App",
     image: ecApp,
     type: "app",
-    description: "Tested the Eric Church official app across iOS and Android devices, ensuring a seamless experience.",
+    description:
+      "iOS and Android testing across builds delivered via TestFlight. Validated push notifications, in-app purchases, and tour date integrations across OS versions.",
     technologies: ["iOS", "Android", "Functional Testing"],
     link: "https://apps.apple.com/us/app/eric-church-official/id1436492159",
   },
@@ -270,7 +268,8 @@ export const QA_PROJECTS = [
     title: "Thomas Rhett Website",
     image: thomasRWebsite,
     type: "website",
-    description: "Executed QA testing on Thomas Rhett's website, including responsive design and performance checks.",
+    description:
+      "Mobile and tablet responsiveness testing across iOS and Android. Laravel CMS QA. Achieved 26% measured usability improvement.",
     technologies: ["Cross-browser Testing", "Responsive Testing"],
     link: "https://www.thomasrhett.com/#/",
   },
@@ -278,7 +277,8 @@ export const QA_PROJECTS = [
     title: "Thomas Rhett Home Team App",
     image: thomasRApp,
     type: "app",
-    description: "Performed mobile QA for Thomas Rhett's Home Team app, ensuring flawless cross-platform performance.",
+    description:
+      "Native app QA on iOS and Android via TestFlight and Play Store builds. Validated notifications, member flows, and content updates.",
     technologies: ["iOS", "Android", "Regression Testing"],
     link: "https://apps.apple.com/us/app/thomas-rhetts-home-team-app/id1275224693",
   },
@@ -286,7 +286,8 @@ export const QA_PROJECTS = [
     title: "Brandi Carlile Website",
     image: brandiWebsite,
     type: "website",
-    description: "QA-tested Brandi Carlile's official website, focusing on bug fixes and cross-device optimizations.",
+    description:
+      "Frontend and CMS testing across devices supporting 70K+ monthly visits. Ran accessibility audits against WCAG 2.1 using axe-core and VoiceOver.",
     technologies: ["Manual Testing", "Cross-browser Testing"],
     link: "https://www.brandicarlile.com/",
   },
@@ -294,7 +295,8 @@ export const QA_PROJECTS = [
     title: "ACE Parking App",
     image: aceParkingApp,
     type: "app",
-    description: "Performed QA on ACE Parking app with a focus on transaction reliability and UI accuracy.",
+    description:
+      "Mobile QA focused on transaction reliability and UX accuracy across iOS and Android.",
     technologies: ["iOS", "Android", "Functional Testing"],
     link: "https://www.aceparking.com/",
   },
@@ -302,7 +304,8 @@ export const QA_PROJECTS = [
     title: "Pride Study Website",
     image: prideStudy,
     type: "website",
-    description: "Tested the Pride Study platform, ensuring accessibility and data accuracy.",
+    description:
+      "Accessibility, questionnaire logic, and data accuracy testing. Verified screen reader compatibility and form validation flows.",
     technologies: ["Accessibility Testing", "Manual Testing"],
     link: "https://play.google.com/store/apps/details?id=com.cliniv.perampanel&hl=en_US",
   },
