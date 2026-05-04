@@ -199,7 +199,13 @@ const Hero = () => {
                   {audience === "web" ? t("hero.titleWeb") : t("hero.title")}
                 </motion.h2>
               </AnimatePresence>
-              <div className="hero-subheadline mx-auto mt-3 min-h-[3.5rem] max-w-xl text-balance lg:mx-0 sm:min-h-[4rem]">
+              <div
+                className={`hero-subheadline mx-auto max-w-xl text-balance lg:mx-0 ${
+                  audience === "web"
+                    ? "mt-2 min-h-0"
+                    : "mt-3 min-h-[3.5rem] sm:min-h-[4rem]"
+                }`}
+              >
                 <AnimatePresence mode="wait">
                   <motion.p
                     key={audience}
@@ -219,7 +225,11 @@ const Hero = () => {
               variants={container(1)}
               initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
               animate="visible"
-              className="mt-5 max-w-xl text-center lg:text-left"
+              className={
+                audience === "web"
+                  ? "mt-2 max-w-xl text-center lg:text-left"
+                  : "mt-5 max-w-xl text-center lg:text-left"
+              }
             >
               <AnimatePresence mode="wait">
                 <motion.div

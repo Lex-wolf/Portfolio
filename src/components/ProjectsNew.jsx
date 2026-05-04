@@ -47,24 +47,28 @@ const ProjectsNew = () => {
     }
   }, [audience, audienceProjects, selectedProject]);
 
-  useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
+  const drawerScrollLockKey = selectedProject ? "open" : "closed";
 
-    if (!selectedProject) {
-      html.style.overflow = "";
-      body.style.overflow = "";
+  useEffect(() => {
+    if (drawerScrollLockKey === "closed") {
       return undefined;
     }
 
-    html.style.overflow = "hidden";
-    body.style.overflow = "hidden";
+    const scrollY = window.scrollY;
+    document.body.dataset.scrollY = String(scrollY);
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
 
     return () => {
-      html.style.overflow = "";
-      body.style.overflow = "";
+      const savedY = parseInt(document.body.dataset.scrollY || "0", 10);
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      delete document.body.dataset.scrollY;
+      window.scrollTo(0, savedY);
     };
-  }, [selectedProject]);
+  }, [drawerScrollLockKey]);
 
   const currentProjects = audienceProjects;
 

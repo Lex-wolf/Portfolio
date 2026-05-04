@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import * as THREE from "three";
 import { scheduleIdleTask } from "../../utils/scheduleIdleTask.js";
 
 function getAllowWebGL() {
@@ -43,18 +44,19 @@ export function AuroraBackground({ opacity = 1 }) {
   }, []);
 
   useEffect(() => {
+    if (typeof window === "undefined" || window.innerWidth < 768 || "ontouchstart" in window) {
+      return undefined;
+    }
     if (!mounted || !allowWebGL) {
       return undefined;
     }
 
-    let script = null;
     let cancelled = false;
     const sceneState = sceneRef.current;
 
     const initThreeJS = () => {
-      if (cancelled || !containerRef.current || !window.THREE) return;
+      if (cancelled || !containerRef.current) return;
 
-      const THREE = window.THREE;
       const container = containerRef.current;
 
       container.innerHTML = "";
@@ -205,18 +207,13 @@ export function AuroraBackground({ opacity = 1 }) {
       animate();
     };
 
-    const appendThreeScript = () => {
-      if (cancelled) return;
-      script = document.createElement("script");
-      script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js";
-      script.onload = () => {
-        if (cancelled || !containerRef.current || !window.THREE) return;
+    const cancelIdle = scheduleIdleTask(
+      () => {
+        if (cancelled) return;
         initThreeJS();
-      };
-      document.head.appendChild(script);
-    };
-
-    const cancelIdle = scheduleIdleTask(appendThreeScript, { timeout: 2800 });
+      },
+      { timeout: 2800 },
+    );
 
     return () => {
       cancelled = true;
@@ -245,9 +242,6 @@ export function AuroraBackground({ opacity = 1 }) {
       }
       if (sceneState.material) sceneState.material.dispose();
       if (sceneState.geometry) sceneState.geometry.dispose();
-      if (script?.parentNode) {
-        script.parentNode.removeChild(script);
-      }
     };
   }, [mounted, allowWebGL]);
 

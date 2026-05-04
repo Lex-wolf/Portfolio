@@ -16,7 +16,7 @@ const App = () => {
     <HydrationProvider>
       <LanguageProvider>
       <AudienceViewProvider>
-      <div className="relative min-h-0 w-full overflow-x-hidden">
+      <div className="relative min-h-0 w-full">
         <BackgroundSystem />
         <div className="relative z-10 overflow-x-hidden text-base-light antialiased selection:bg-accent-cyan selection:text-base-dark">
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
