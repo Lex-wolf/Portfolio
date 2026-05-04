@@ -1,19 +1,29 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { projects } from '../data/projectsData';
 import { X } from 'lucide-react';
 import { useHydrated } from '../context/HydrationContext';
 import { useLanguage } from '../context/LanguageContext';
+import { useAudienceView } from '../context/AudienceViewContext';
+import {
+  QA_AUDIENCE_PROJECT_TITLES,
+  WEB_AUDIENCE_PROJECT_TITLES,
+} from '../constants/audienceFilters';
 
 const MOBILE_PROJECTS_INITIAL = 4;
 
 const ProjectsNew = () => {
   const hydrated = useHydrated();
   const { t } = useLanguage();
-  const [activeTab, setActiveTab] = useState('All');
+  const { audience } = useAudienceView();
   const [selectedProject, setSelectedProject] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(false);
+
+  const audienceProjects = useMemo(() => {
+    const set = audience === 'qa' ? QA_AUDIENCE_PROJECT_TITLES : WEB_AUDIENCE_PROJECT_TITLES;
+    return projects.filter((p) => set.has(p.title));
+  }, [audience]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -28,7 +38,14 @@ const ProjectsNew = () => {
 
   useEffect(() => {
     setMobileExpanded(false);
-  }, [activeTab]);
+  }, [audience]);
+
+  useEffect(() => {
+    if (!selectedProject) return;
+    if (!audienceProjects.some((p) => p.id === selectedProject.id)) {
+      setSelectedProject(null);
+    }
+  }, [audience, audienceProjects, selectedProject]);
 
   useEffect(() => {
     const html = document.documentElement;
@@ -49,22 +66,7 @@ const ProjectsNew = () => {
     };
   }, [selectedProject]);
 
-  const builtProjects = projects.filter(project => project.category === 'built');
-  const qaProjects = projects.filter(project => project.category === 'qa');
-  const allProjects = projects;
-
-  const getCurrentProjects = () => {
-    switch (activeTab) {
-      case 'Built':
-        return builtProjects;
-      case 'QA':
-        return qaProjects;
-      default:
-        return allProjects;
-    }
-  };
-
-  const currentProjects = getCurrentProjects();
+  const currentProjects = audienceProjects;
 
   const visibleProjects =
     isMobile && !mobileExpanded
@@ -143,6 +145,9 @@ const ProjectsNew = () => {
           <img
             src={project.image}
             alt={project.title}
+            width={800}
+            height={450}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             loading="lazy"
             decoding="async"
             fetchPriority="low"
@@ -174,48 +179,6 @@ const ProjectsNew = () => {
       >
             <h2 className="section-heading-tone mb-4">{t('projects.heading')}</h2>
             <p className="body-text-tone">{t('projects.subheading')}</p>
-      </motion.div>
-
-      {/* Tabs */}
-      <motion.div
-        whileInView={hydrated ? { opacity: 1, y: 0 } : undefined}
-        initial={hydrated ? { opacity: 0, y: 50 } : false}
-        animate={!hydrated ? { opacity: 1, y: 0 } : undefined}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="mb-8 flex justify-center md:mb-10"
-      >
-        <div className="flex w-full max-w-md flex-wrap justify-center gap-2 rounded-xl border border-white/10 bg-neutral-900/80 p-2 sm:w-auto sm:flex-nowrap sm:gap-0 sm:rounded-lg sm:border-0 sm:bg-neutral-900 sm:p-1">
-          <button
-            onClick={() => setActiveTab('All')}
-            className={`min-w-[92px] flex-1 rounded-lg px-4 py-3 text-sm transition-all duration-300 sm:flex-none sm:rounded-md sm:px-6 ${
-              activeTab === 'All'
-                ? 'bg-teal-400 text-neutral-900 font-semibold'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            {t('projects.tabs.all')}
-          </button>
-          <button
-            onClick={() => setActiveTab('Built')}
-            className={`min-w-[92px] flex-1 rounded-lg px-4 py-3 text-sm transition-all duration-300 sm:flex-none sm:rounded-md sm:px-6 ${
-              activeTab === 'Built'
-                ? 'bg-teal-400 text-neutral-900 font-semibold'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            {t('projects.tabs.built')}
-          </button>
-          <button
-            onClick={() => setActiveTab('QA')}
-            className={`min-w-[92px] flex-1 rounded-lg px-4 py-3 text-sm transition-all duration-300 sm:flex-none sm:rounded-md sm:px-6 ${
-              activeTab === 'QA'
-                ? 'bg-teal-400 text-neutral-900 font-semibold'
-                : 'text-neutral-400 hover:text-white'
-            }`}
-          >
-            {t('projects.tabs.qa')}
-          </button>
-        </div>
       </motion.div>
 
       {/* Projects Grid */}
@@ -304,6 +267,9 @@ const ProjectsNew = () => {
                           <img
                             src={imgSrc}
                             alt={`${selectedProject.title} screenshot ${index + 1}`}
+                            width={384}
+                            height={216}
+                            sizes="(max-width: 640px) 8rem, 12rem"
                             loading="lazy"
                             decoding="async"
                             fetchPriority="low"
@@ -317,8 +283,12 @@ const ProjectsNew = () => {
                       <img
                         src={selectedProject.image}
                         alt={selectedProject.title}
+                        width={800}
+                        height={450}
+                        sizes="(max-width: 640px) 100vw, 36rem"
+                        loading="lazy"
                         decoding="async"
-                        fetchPriority="high"
+                        fetchPriority="low"
                         className="mx-auto aspect-video w-full max-w-full rounded-xl object-contain shadow-lg transition-all duration-300 hover:shadow-xl sm:max-w-[90%]"
                       />
                     </div>

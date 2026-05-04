@@ -1,4 +1,5 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { scheduleIdleTask } from "../../utils/scheduleIdleTask.js";
 import { BaseGradient } from "./BaseGradient";
 import { AuroraBackground } from "./AuroraBackground";
 import { ParticleOverlay } from "./ParticleOverlay";
@@ -13,6 +14,11 @@ import { WebGLEffects } from "./WebGLEffects";
  */
 export function BackgroundSystem() {
   const [isMobile, setIsMobile] = useState(false);
+  const [particlesOn, setParticlesOn] = useState(false);
+
+  useEffect(() => {
+    return scheduleIdleTask(() => setParticlesOn(true), { timeout: 2600 });
+  }, []);
 
   useLayoutEffect(() => {
     const updateViewport = () => {
@@ -34,7 +40,7 @@ export function BackgroundSystem() {
       <BaseGradient />
       <AuroraBackground opacity={isMobile ? 0.4 : 1} />
       {/* Per-frame canvas work is too heavy on phones; skip entirely on narrow viewports */}
-      {!isMobile ? <ParticleOverlay densityMultiplier={1} /> : null}
+      {particlesOn && !isMobile ? <ParticleOverlay densityMultiplier={0.42} /> : null}
       {shouldRenderWebGL ? <WebGLEffects /> : null}
     </>
   );

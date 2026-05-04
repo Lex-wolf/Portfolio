@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import { Apple, Award, BookOpenCheck, Plane, Smartphone } from "lucide-react";
+import { Apple, Award, BookOpenCheck, Plane, ShoppingBag, Smartphone } from "lucide-react";
 import {
   SiJavascript,
   SiPlaywright,
@@ -32,6 +32,8 @@ import { VscVscode } from "react-icons/vsc";
 import { motion } from "framer-motion";
 import { useHydrated } from "../context/HydrationContext";
 import { useLanguage } from "../context/LanguageContext";
+import { useAudienceView } from "../context/AudienceViewContext";
+import { QA_SKILL_HIGHLIGHTS, WEB_SKILL_HIGHLIGHTS } from "../constants/audienceFilters";
 
 // Import custom icons
 import AxeIcon from "../assets/icons/AXECORE.png";
@@ -39,6 +41,7 @@ import AxeIcon from "../assets/icons/AXECORE.png";
 const Technologies = () => {
   const hydrated = useHydrated();
   const { t } = useLanguage();
+  const { audience } = useAudienceView();
   const [isExpanded, setIsExpanded] = useState(false);
   const [expandedMaxPx, setExpandedMaxPx] = useState(0);
   const expandedContentRef = useRef(null);
@@ -52,6 +55,18 @@ const Technologies = () => {
     if (!el) return;
     setExpandedMaxPx(el.scrollHeight);
   }, [isExpanded]);
+
+  const skillHighlightSet =
+    audience === "web" ? WEB_SKILL_HIGHLIGHTS : QA_SKILL_HIGHLIGHTS;
+
+  const technologyIconShellClass = (techName) =>
+    [
+      "technology-icon rounded-lg border p-3 transition-all duration-300 ease-in-out group-hover:border-accent-cyan group-hover:animate-glow group-focus:outline-none group-focus:ring-2 group-focus:ring-accent-cyan group-focus:ring-offset-2 group-focus:ring-offset-base-dark",
+      skillHighlightSet.has(techName)
+        ? "border-accent-teal ring-2 ring-accent-teal/60 shadow-[0_0_18px_rgba(69,162,158,0.35)]"
+        : "border-white/10",
+    ].join(" ");
+
   const technologyCategories = [
     {
       id: "development",
@@ -64,6 +79,7 @@ const Technologies = () => {
         { name: "HTML5", icon: SiHtml5, color: "text-orange-500" },
         { name: "CSS3", icon: SiCss3, color: "text-blue-500" },
         { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
+        { name: "Shopify", icon: ShoppingBag, color: "text-emerald-400" },
       ],
     },
     {
@@ -171,7 +187,7 @@ const Technologies = () => {
                     className="group relative flex cursor-pointer flex-col items-center"
                   >
                     <div
-                      className="technology-icon rounded-lg border border-white/10 p-3 transition-all duration-300 ease-in-out group-hover:border-accent-cyan group-hover:animate-glow group-focus:outline-none group-focus:ring-2 group-focus:ring-accent-cyan group-focus:ring-offset-2 group-focus:ring-offset-base-dark"
+                      className={technologyIconShellClass(tech.name)}
                       style={{
                         background: "none",
                         backgroundColor: "transparent",
@@ -259,7 +275,7 @@ const Technologies = () => {
                         className="group relative flex cursor-pointer flex-col items-center"
                       >
                         <div
-                          className="technology-icon rounded-lg border border-white/10 p-3 transition-all duration-300 ease-in-out group-hover:border-accent-cyan group-hover:animate-glow group-focus:outline-none group-focus:ring-2 group-focus:ring-accent-cyan group-focus:ring-offset-2 group-focus:ring-offset-base-dark"
+                          className={technologyIconShellClass(tech.name)}
                           style={{
                             background: "none",
                             backgroundColor: "transparent",

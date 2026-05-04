@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { scheduleIdleTask } from "../../utils/scheduleIdleTask.js";
 
 function getAllowWebGL() {
   if (typeof window === "undefined") return false;
@@ -47,10 +48,11 @@ export function AuroraBackground({ opacity = 1 }) {
     }
 
     let script = null;
+    let cancelled = false;
     const sceneState = sceneRef.current;
 
     const initThreeJS = () => {
-      if (!containerRef.current || !window.THREE) return;
+      if (cancelled || !containerRef.current || !window.THREE) return;
 
       const THREE = window.THREE;
       const container = containerRef.current;
@@ -147,7 +149,7 @@ export function AuroraBackground({ opacity = 1 }) {
         alpha: false,
       });
       renderer.setClearColor(0x000000, 1);
-      const pr = Math.min(window.devicePixelRatio || 1, 2);
+      const pr = Math.min(window.devicePixelRatio || 1, 1.5);
       renderer.setPixelRatio(pr);
       renderer.setSize(window.innerWidth, window.innerHeight);
       container.appendChild(renderer.domElement);
@@ -203,16 +205,22 @@ export function AuroraBackground({ opacity = 1 }) {
       animate();
     };
 
-    script = document.createElement("script");
-    script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js";
-    script.onload = () => {
-      if (containerRef.current && window.THREE) {
+    const appendThreeScript = () => {
+      if (cancelled) return;
+      script = document.createElement("script");
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js";
+      script.onload = () => {
+        if (cancelled || !containerRef.current || !window.THREE) return;
         initThreeJS();
-      }
+      };
+      document.head.appendChild(script);
     };
-    document.head.appendChild(script);
+
+    const cancelIdle = scheduleIdleTask(appendThreeScript, { timeout: 2800 });
 
     return () => {
+      cancelled = true;
+      cancelIdle();
       if (sceneState.resizeTimeoutId != null) {
         clearTimeout(sceneState.resizeTimeoutId);
         sceneState.resizeTimeoutId = null;

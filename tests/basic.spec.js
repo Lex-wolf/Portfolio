@@ -62,6 +62,9 @@ test.describe('Portfolio Basic Tests', () => {
   });
 
   test('should have proper page structure', async ({ page }) => {
+    await page.addInitScript(() => {
+      window.localStorage.removeItem('alexcuriel-audience-view');
+    });
     await page.goto('/');
     
     // Check for main sections
@@ -71,12 +74,11 @@ test.describe('Portfolio Basic Tests', () => {
     // Check for main content sections
     const sections = [
       'About',
-      'Technologies', 
+      'Technologies',
       'Experience',
-      'Highlights',
       'Projects',
-      'QA Projects',
-      'Contact'
+      'QA & Automation',
+      'Contact',
     ];
     
     for (const section of sections) {

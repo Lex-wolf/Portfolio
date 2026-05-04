@@ -3,10 +3,12 @@ import profilePicWebp from "../assets/pfolio.webp";
 
 const HERO_IMG_WIDTH = 896;
 const HERO_IMG_HEIGHT = 783;
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useHydrated } from "../context/HydrationContext";
 import { useLanguage } from "../context/LanguageContext";
+import { useAudienceView } from "../context/AudienceViewContext";
+import AudienceToggle from "./AudienceToggle";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -20,6 +22,7 @@ const container = (delay) => ({
 const Hero = () => {
   const hydrated = useHydrated();
   const { t } = useLanguage();
+  const { audience } = useAudienceView();
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
@@ -69,43 +72,74 @@ const Hero = () => {
     `;
     cursor.appendChild(dot);
 
-    let x = 0, y = 0;
-    let targetX = 0, targetY = 0;
+    let x = 0;
+    let y = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let rafId = 0;
+    let unmounted = false;
 
-    const animate = () => {
+    const tick = () => {
+      rafId = 0;
+      if (unmounted || document.visibilityState === "hidden") {
+        return;
+      }
       x += (targetX - x) * 0.15;
       y += (targetY - y) * 0.15;
       cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-      requestAnimationFrame(animate);
+      rafId = window.requestAnimationFrame(tick);
+    };
+
+    const startLoop = () => {
+      if (unmounted || document.visibilityState === "hidden" || rafId !== 0) {
+        return;
+      }
+      rafId = window.requestAnimationFrame(tick);
+    };
+
+    const handleVisibility = () => {
+      if (document.visibilityState === "visible") {
+        startLoop();
+      } else if (rafId !== 0) {
+        window.cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
     };
 
     const handleMouseMove = (e) => {
       targetX = e.clientX;
       targetY = e.clientY;
-      cursor.style.opacity = '1';
+      cursor.style.opacity = "1";
+      startLoop();
     };
 
     const handleMouseLeave = () => {
-      cursor.style.opacity = '0';
+      cursor.style.opacity = "0";
     };
 
     const handleMouseEnter = () => {
-      cursor.style.opacity = '1';
+      cursor.style.opacity = "1";
     };
 
-    // Keep default cursor visible
-    document.body.style.cursor = 'auto';
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseleave', handleMouseLeave);
-    document.addEventListener('mouseenter', handleMouseEnter);
-    
-    animate();
-    
+    document.body.style.cursor = "auto";
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mouseenter", handleMouseEnter);
+    document.addEventListener("visibilitychange", handleVisibility);
+
+    startLoop();
+
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      document.removeEventListener('mouseenter', handleMouseEnter);
-      document.body.style.cursor = 'auto';
+      unmounted = true;
+      if (rafId !== 0) {
+        window.cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mouseenter", handleMouseEnter);
+      document.removeEventListener("visibilitychange", handleVisibility);
+      document.body.style.cursor = "auto";
       if (cursor.parentNode) {
         cursor.parentNode.removeChild(cursor);
       }
@@ -136,6 +170,15 @@ const Hero = () => {
             </motion.h1>
 
             <motion.div
+              variants={container(0.35)}
+              initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
+              animate="visible"
+              className="mb-5 mt-1 w-full max-w-2xl"
+            >
+              <AudienceToggle />
+            </motion.div>
+
+            <motion.div
               variants={container(0.5)}
               initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
               animate="visible"
@@ -152,14 +195,20 @@ const Hero = () => {
               >
                 {t("hero.title")}
               </motion.h2>
-              <motion.p 
-                className="hero-subheadline mx-auto mt-3 max-w-xl text-balance lg:mx-0"
-                initial={hydrated ? { opacity: 0, y: 20 } : false}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                {t("hero.subtitle")}
-              </motion.p>
+              <div className="hero-subheadline mx-auto mt-3 min-h-[3.5rem] max-w-xl text-balance lg:mx-0 sm:min-h-[4rem]">
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={audience}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                    className="text-balance"
+                  >
+                    {audience === "web" ? t("hero.subtitleWeb") : t("hero.subtitleQa")}
+                  </motion.p>
+                </AnimatePresence>
+              </div>
             </motion.div>
 
             <motion.p

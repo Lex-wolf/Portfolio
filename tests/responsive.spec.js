@@ -2,6 +2,12 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Portfolio Responsive Design Tests', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      window.localStorage.removeItem('alexcuriel-audience-view');
+    });
+  });
+
   test('should display correctly on desktop (1920x1080)', async ({ page }) => {
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto('/');
@@ -98,12 +104,11 @@ test.describe('Portfolio Responsive Design Tests', () => {
       await page.setViewportSize(viewport);
       await page.goto('/');
       
-      // Scroll to projects section
+      // Scroll to projects section (default audience: QA)
       await page.locator('text=Projects').scrollIntoViewIfNeeded();
-      
-      // Check that project cards are visible
-      await expect(page.locator('text=Rose Auto Service')).toBeVisible();
-      await expect(page.locator('text=Axe Thro Co\'s Pizza Bar')).toBeVisible();
+
+      await expect(page.locator('text=Pearl Jam Official Website')).toBeVisible();
+      await expect(page.locator('text=Eric Church Website')).toBeVisible();
     }
   });
 
@@ -119,8 +124,7 @@ test.describe('Portfolio Responsive Design Tests', () => {
       await page.setViewportSize(viewport);
       await page.goto('/');
       
-      // Scroll to QA projects section
-      await page.locator('text=QA Projects').scrollIntoViewIfNeeded();
+      await page.locator('text=Projects').scrollIntoViewIfNeeded();
       
       // Check that QA project cards are visible
       await expect(page.locator('text=Pearl Jam Official Website')).toBeVisible();

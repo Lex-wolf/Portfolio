@@ -3,9 +3,16 @@
 export const translations = {
   en: {
     nav: { work: "Explore My Work", contact: "Contact Me" },
+    audience: {
+      qa: "QA & Automation",
+      web: "Web Development",
+      toggleGroupLabel: "Choose portfolio focus",
+    },
     hero: {
       title: "Senior QA Engineer | Automation, Web & Mobile",
       subtitle: "I test the things other people build - and sometimes build them too.",
+      subtitleQa: "I test the things other people build — and sometimes build them too.",
+      subtitleWeb: "I build fast, clean websites that clients can actually manage.",
       line1:
         "Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile - platforms with 750K+ users",
       line2: "I also build client websites when that is what the project needs.",
@@ -116,10 +123,19 @@ Available for remote contractor roles worldwide.`,
 
   es: {
     nav: { work: "Ver Mi Trabajo", contact: "Contáctame" },
+    audience: {
+      qa: "QA y automatización",
+      web: "Desarrollo web",
+      toggleGroupLabel: "Elige el enfoque del portafolio",
+    },
     hero: {
       title: "Ingeniero QA Senior | Automatización, web y móvil",
       subtitle:
         "Pruebo lo que otras personas construyen, y a veces también lo construyo.",
+      subtitleQa:
+        "Pruebo lo que otras personas construyen — y a veces también lo construyo.",
+      subtitleWeb:
+        "Hago sitios rápidos y claros que los clientes pueden mantener solos.",
       line1:
         "Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile: plataformas con más de 750K usuarios",
       line2: "También desarrollo sitios para clientes cuando el proyecto lo pide.",

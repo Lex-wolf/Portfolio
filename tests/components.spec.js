@@ -2,6 +2,12 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Portfolio Components Tests', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.addInitScript(() => {
+      window.localStorage.removeItem('alexcuriel-audience-view');
+    });
+  });
+
   test('Hero section should display correctly', async ({ page }) => {
     await page.goto('/');
     
@@ -11,7 +17,10 @@ test.describe('Portfolio Components Tests', () => {
     // Check job title
     await expect(page.locator('text=Senior QA Engineer | Automation, Web & Mobile')).toBeVisible();
     
-    // Check tagline
+    await expect(page.getByRole('tab', { name: /QA & Automation/i })).toBeVisible();
+    await expect(page.getByRole('tab', { name: /Web Development/i })).toBeVisible();
+
+    // Default QA audience tagline
     await expect(page.locator('text=I test the things other people build')).toBeVisible();
     
     // Check client line
@@ -35,7 +44,7 @@ test.describe('Portfolio Components Tests', () => {
     await page.locator('text=Technologies').scrollIntoViewIfNeeded();
     
     // Check for common technologies
-    const techKeywords = ['React', 'JavaScript', 'HTML', 'CSS', 'Node.js', 'Tailwind'];
+    const techKeywords = ['React', 'JavaScript', 'Node.js', 'Tailwind', 'Shopify'];
     
     for (const tech of techKeywords) {
       await expect(page.locator(`text=${tech}`)).toBeVisible();
@@ -58,36 +67,12 @@ test.describe('Portfolio Components Tests', () => {
     await expect(page.locator('text=Analog Republic')).toBeVisible();
   });
 
-  test('Projects section should display portfolio items', async ({ page }) => {
+  test('Projects section shows QA portfolio when QA audience is selected', async ({ page }) => {
     await page.goto('/');
-    
-    // Scroll to projects section
-    await page.locator('text=Projects').scrollIntoViewIfNeeded();
-    
-    // Check for project titles
-    const projectTitles = [
-      'Rose Auto Service',
-      'Axe Thro Co\'s Pizza Bar',
-      'Nonprofit Tree Planting Community',
-      'Geodesic Brasil Website',
-      'Local Artist Website',
-      'Portfolio Website',
-      'Weather App',
-      'To Do App'
-    ];
-    
-    for (const title of projectTitles) {
-      await expect(page.locator(`text=${title}`)).toBeVisible();
-    }
-  });
 
-  test('QA Projects section should display QA work', async ({ page }) => {
-    await page.goto('/');
-    
-    // Scroll to QA projects section
-    await page.locator('text=QA Projects').scrollIntoViewIfNeeded();
-    
-    // Check for QA project titles
+    await page.getByRole('tab', { name: /QA & Automation/i }).click();
+    await page.locator('text=Projects').scrollIntoViewIfNeeded();
+
     const qaProjectTitles = [
       'Pearl Jam Official Website',
       'Eric Church Website',
@@ -97,13 +82,35 @@ test.describe('Portfolio Components Tests', () => {
       'Brandi Carlile Website',
       'ACE Parking App',
       'Pride Study Website',
-      'Eric Church Forums',
-      'To The Stars Website'
     ];
-    
+
     for (const title of qaProjectTitles) {
-      await expect(page.locator(`text=${title}`)).toBeVisible();
+      await expect(page.locator(`text=${title}`).first()).toBeVisible();
     }
+
+    await expect(page.locator('#projects').getByText('The Taco Garage')).toHaveCount(0);
+  });
+
+  test('Projects section shows web portfolio when Web Development audience is selected', async ({ page }) => {
+    await page.goto('/');
+
+    await page.getByRole('tab', { name: /Web Development/i }).click();
+    await page.locator('text=Projects').scrollIntoViewIfNeeded();
+
+    const webProjectTitles = [
+      'The Taco Garage',
+      'Geodesic Brasil Website',
+      'Neuroplasticity Lab',
+      'Nonprofit Tree Planting Community',
+      'Astro Reminder Website',
+      'Local Artist Website',
+    ];
+
+    for (const title of webProjectTitles) {
+      await expect(page.locator(`text=${title}`).first()).toBeVisible();
+    }
+
+    await expect(page.locator('#projects').getByText('Pearl Jam Official Website')).toHaveCount(0);
   });
 
   test('Contact section should have contact information', async ({ page }) => {
@@ -118,52 +125,25 @@ test.describe('Portfolio Components Tests', () => {
     await expect(page.locator('text=info@alexcuriel.com')).toBeVisible();
   });
 
-  test('Project links should be clickable', async ({ page }) => {
+  test('Web project external link is available from the drawer', async ({ page }) => {
     await page.goto('/');
-    
-    // Scroll to projects section
-    await page.locator('text=Projects').scrollIntoViewIfNeeded();
-    
-    // Check for project links
-    const projectLinks = [
-      'https://www.roseautoservice.com',
-      'https://axethroco.com/pizza-bar/',
-      'https://ftpp.support/',
-      'https://www.geodesicbrasil.com/',
-      'https://chicanahummingbird.com/',
-      'https://alexcuriel.com/',
-      'https://weather-app-one-rho-19.vercel.app',
-      'https://todo-rho-ruby.vercel.app'
-    ];
-    
-    for (const link of projectLinks) {
-      const linkElement = page.locator(`a[href="${link}"]`);
-      await expect(linkElement).toBeVisible();
-      await expect(linkElement).toHaveAttribute('target', '_blank');
-    }
+
+    await page.getByRole('tab', { name: /Web Development/i }).click();
+    await page.locator('#projects').getByRole('heading', { name: 'The Taco Garage' }).click();
+
+    const linkElement = page.locator('a[href="https://www.thetacogarage.com"]');
+    await expect(linkElement).toBeVisible();
+    await expect(linkElement).toHaveAttribute('target', '_blank');
   });
 
-  test('QA Project links should be clickable', async ({ page }) => {
+  test('QA project external link is available from the drawer', async ({ page }) => {
     await page.goto('/');
-    
-    // Scroll to QA projects section
-    await page.locator('text=QA Projects').scrollIntoViewIfNeeded();
-    
-    // Check for QA project links
-    const qaProjectLinks = [
-      'https://pearljam.com/',
-      'https://www.ericchurch.com/',
-      'https://www.thomasrhett.com/#/',
-      'https://www.brandicarlile.com/',
-      'https://www.aceparking.com/',
-      'https://ericchurch.topfan.com/forums',
-      'https://tothestars.media/'
-    ];
-    
-    for (const link of qaProjectLinks) {
-      const linkElement = page.locator(`a[href="${link}"]`);
-      await expect(linkElement).toBeVisible();
-      await expect(linkElement).toHaveAttribute('target', '_blank');
-    }
+
+    await page.getByRole('tab', { name: /QA & Automation/i }).click();
+    await page.locator('#projects').getByRole('heading', { name: 'Pearl Jam Official Website' }).click();
+
+    const linkElement = page.locator('a[href="https://pearljam.com/"]');
+    await expect(linkElement).toBeVisible();
+    await expect(linkElement).toHaveAttribute('target', '_blank');
   });
 });

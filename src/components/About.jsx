@@ -1,4 +1,4 @@
-import aboutImg from "../assets/work.jpg";
+import aboutImg from "../assets/work.webp";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useHydrated } from "../context/HydrationContext";
@@ -31,6 +31,7 @@ const About = () => {
                   alt={t("about.heading")}
                   width={1280}
                   height={852}
+                  sizes="(max-width: 1024px) 100vw, 28rem"
                   loading="lazy"
                   decoding="async"
                   fetchPriority="low"

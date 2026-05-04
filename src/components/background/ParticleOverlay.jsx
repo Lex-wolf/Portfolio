@@ -81,11 +81,22 @@ export function ParticleOverlay({ densityMultiplier = 1 }) {
       const y = e.clientY;
       if (Math.random() < spawnRate) {
         particles.push(new Particle(x, y));
+        scheduleFrame();
       }
     };
 
-    let animationId;
-    const animate = () => {
+    let animationId = null;
+
+    const scheduleFrame = () => {
+      if (animationId != null) return;
+      animationId = window.requestAnimationFrame(tick);
+    };
+
+    const tick = () => {
+      animationId = null;
+      if (document.visibilityState === "hidden") {
+        return;
+      }
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (let i = particles.length - 1; i >= 0; i--) {
         const particle = particles[i];
@@ -95,18 +106,31 @@ export function ParticleOverlay({ densityMultiplier = 1 }) {
           particles.splice(i, 1);
         }
       }
-      animationId = requestAnimationFrame(animate);
+      if (particles.length > 0) {
+        scheduleFrame();
+      }
+    };
+
+    const handleVisibility = () => {
+      if (document.visibilityState === "hidden" && animationId != null) {
+        window.cancelAnimationFrame(animationId);
+        animationId = null;
+      }
     };
 
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
     window.addEventListener("mousemove", handleMouseMove);
-    animate();
+    window.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", resizeCanvas);
-      if (animationId != null) cancelAnimationFrame(animationId);
+      window.removeEventListener("visibilitychange", handleVisibility);
+      if (animationId != null) {
+        window.cancelAnimationFrame(animationId);
+        animationId = null;
+      }
       if (canvas.parentNode) {
         canvas.parentNode.removeChild(canvas);
       }
