@@ -25,6 +25,13 @@ test.describe('Portfolio Components Tests', () => {
     
     // Check client line
     await expect(page.locator('text=Brandi Carlile')).toBeVisible();
+
+    await page.getByRole('tab', { name: /Web Development/i }).click();
+    await expect(
+      page.getByRole('heading', { level: 2, name: /Web Developer \| React, Shopify & Client Sites/ }),
+    ).toBeVisible();
+    await expect(page.locator('text=The Taco Garage')).toBeVisible();
+    await expect(page.locator('text=Shopify')).toBeVisible();
   });
 
   test('About section should be present', async ({ page }) => {

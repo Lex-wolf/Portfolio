@@ -184,17 +184,21 @@ const Hero = () => {
               animate="visible"
               className="max-w-2xl text-center leading-snug lg:text-left"
             >
-              <motion.h2
-                className="hero-title-line mt-1 max-w-2xl text-center text-xl leading-snug sm:text-2xl md:text-3xl lg:mt-1 lg:text-left"
-                initial={hydrated ? { opacity: 0, y: 20 } : false}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                whileHover={{
-                  textShadow: "0 0 12px rgba(102, 252, 241, 0.8)",
-                }}
-              >
-                {t("hero.title")}
-              </motion.h2>
+              <AnimatePresence mode="wait">
+                <motion.h2
+                  key={audience}
+                  className="hero-title-line mt-1 max-w-2xl text-center text-xl leading-snug sm:text-2xl md:text-3xl lg:mt-1 lg:text-left"
+                  initial={hydrated ? { opacity: 0, y: 14 } : false}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{
+                    textShadow: "0 0 12px rgba(102, 252, 241, 0.8)",
+                  }}
+                >
+                  {audience === "web" ? t("hero.titleWeb") : t("hero.title")}
+                </motion.h2>
+              </AnimatePresence>
               <div className="hero-subheadline mx-auto mt-3 min-h-[3.5rem] max-w-xl text-balance lg:mx-0 sm:min-h-[4rem]">
                 <AnimatePresence mode="wait">
                   <motion.p
@@ -211,23 +215,30 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            <motion.p
+            <motion.div
               variants={container(1)}
               initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
               animate="visible"
-              className="body-text-tone mt-5 max-w-xl text-center lg:text-left"
+              className="mt-5 max-w-xl text-center lg:text-left"
             >
-              {t("hero.line1")}
-            </motion.p>
-
-            <motion.p
-              variants={container(1.1)}
-              initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
-              animate="visible"
-              className="body-text-tone mt-4 max-w-xl text-center lg:text-left"
-            >
-              {t("hero.line2")}
-            </motion.p>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={audience}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                  className="space-y-4"
+                >
+                  <p className="body-text-tone">
+                    {audience === "web" ? t("hero.line1Web") : t("hero.line1")}
+                  </p>
+                  <p className="body-text-tone">
+                    {audience === "web" ? t("hero.line2Web") : t("hero.line2")}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
 
             <div className="mt-8 flex w-full justify-center lg:hidden">
               <motion.div

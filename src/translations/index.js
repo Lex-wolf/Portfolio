@@ -10,12 +10,17 @@ export const translations = {
     },
     hero: {
       title: "Senior QA Engineer | Automation, Web & Mobile",
+      titleWeb: "Web Developer | React, Shopify & Client Sites",
       subtitle: "I test the things other people build - and sometimes build them too.",
       subtitleQa: "I test the things other people build - and sometimes build them too.",
       subtitleWeb: "I build fast, clean websites that clients can actually manage.",
       line1:
         "Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile - platforms with 750K+ users",
+      line1Web:
+        "The Taco Garage is a headless Shopify build: React on the Storefront API, Tailwind, Node on Vercel, checkout still on Shopify. Other shipped work includes Geodesic Brasil (React, Vite, TypeScript), Astro Reminder (React, Tailwind, Framer Motion), Neuroplasticity Lab, Nonprofit Tree Planting Community, and Local Artist Website on React and Vite.",
       line2: "I also build client websites when that is what the project needs.",
+      line2Web:
+        "Use the QA toggle for testing and accessibility; this view is the client sites I built in the browser.",
       stats: {
         years: "Years Experience",
         releases: "Releases Supported",
@@ -122,6 +127,7 @@ export const translations = {
     },
     hero: {
       title: "Ingeniero QA Senior | Automatización, web y móvil",
+      titleWeb: "Desarrollo web | React, Shopify y sitios para clientes",
       subtitle:
         "Pruebo lo que otras personas construyen, y a veces también lo construyo.",
       subtitleQa:
@@ -130,7 +136,11 @@ export const translations = {
         "Hago sitios rápidos y claros que los clientes pueden mantener solos.",
       line1:
         "Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile - plataformas con más de 750K usuarios",
+      line1Web:
+        "The Taco Garage: tienda headless con React sobre la Storefront API de Shopify, Tailwind, Node en Vercel y checkout en Shopify. También Geodesic Brasil (React, Vite, TypeScript), Astro Reminder (React, Tailwind, Framer Motion), Neuroplasticity Lab, la web del proyecto de árboles sin fines de lucro y un sitio para artista local con React y Vite.",
       line2: "También desarrollo sitios para clientes cuando el proyecto lo pide.",
+      line2Web:
+        "En el modo QA está el enfoque de pruebas y accesibilidad; aquí solo los sitios que construí en el front-end.",
       stats: {
         years: "Años de Experiencia",
         releases: "Lanzamientos Soportados",
