@@ -1,7 +1,7 @@
 export const siteMetadata = {
   siteUrl: "https://alexcuriel.com",
-  title: "Alejandro Curiel | Senior QA Engineer & Software Developer",
+  title: "Alejandro Curiel | Senior QA Engineer | Automation, Web & Mobile",
   description:
-    "Senior QA Engineer and Software Developer with 10+ years of experience building reliable web products, leading QA strategy, and shipping polished client work.",
+    "Senior QA engineer with 10+ years on high-traffic artist platforms, automation with Playwright and CI/CD, accessibility (CPACC), and client web builds when the project needs it.",
   ogImage: "https://alexcuriel.com/og-image.jpg",
 };

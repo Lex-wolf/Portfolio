@@ -269,7 +269,7 @@ const Hero = () => {
           <p className="text-sm text-neutral-400 mt-1">{t("hero.stats.releases")}</p>
         </div>
         <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
-          <p className="text-3xl md:text-4xl font-semibold tracking-tight">QA + Dev</p>
+          <p className="text-3xl md:text-4xl font-semibold tracking-tight">CPACC</p>
           <p className="text-sm text-neutral-400 mt-1">{t("hero.stats.hybrid")}</p>
         </div>
       </div>

@@ -79,7 +79,7 @@ test.describe('Portfolio Accessibility Tests', () => {
     const mainHeading = page.locator('h1');
     await expect(mainHeading).toBeVisible();
     
-    const heroText = page.locator('text=Senior QA Engineer & Frontend Developer');
+    const heroText = page.locator('text=Senior QA Engineer | Automation, Web & Mobile');
     await expect(heroText).toBeVisible();
     
     // Check that text has sufficient contrast by ensuring it's visible

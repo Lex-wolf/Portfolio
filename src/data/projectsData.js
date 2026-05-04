@@ -150,13 +150,15 @@ export const projects = [
     id: 9,
     title: "Pearl Jam Official Website",
     category: "qa",
-    description: "Website QA across CMS, multi-device, and release cycles",
+    description:
+      "QA lead for a high-traffic artist platform with 750K+ users. CMS workflows, multi-device regression, Shopify payments, and release cycles across iOS, Android, and web.",
     about:
-      "Pearl Jam's site runs at serious scale. 750K+ users, multiple release cycles a year. I handled functional and regression testing, cross-browser coverage, CMS publishing workflows and Shopify payment validation. Every tour update and announcement had to go out clean.",
+      "QA lead for a high-traffic artist platform with 750K+ users. Covered CMS workflows, multi-device regression, Shopify payment flows, and release cycles across iOS, Android, and web.",
     technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "API Testing", "CMS Validation"],
     image: pjWebsite,
     website: "https://pearljam.com/",
-    tagline: "Website QA across CMS, multi-device, and release cycles",
+    tagline:
+      "QA lead for a high-traffic artist platform with 750K+ users. CMS workflows, multi-device regression, Shopify payments, and release cycles across iOS, Android, and web.",
     testingFocus: [
       "Functional and regression testing",
       "Cross-browser coverage (Chrome, Safari, Firefox, Edge)",
@@ -177,13 +179,15 @@ export const projects = [
     id: 10,
     title: "Eric Church Website",
     category: "qa",
-    description: "Cross-browser and multi-device website QA",
+    description:
+      "Website QA alongside frequent CMS and content releases: cross-browser regression, tour and shop flows, and coordination with the mobile app roadmap.",
     about:
-      "Frequent content releases across a lot of devices and browsers. I ran functional, regression and exploratory testing to keep the platform consistent for fans no matter how they were accessing it.",
+      "Website QA alongside frequent CMS and content releases: cross-browser regression, tour and shop flows, and coordination with the mobile app roadmap.",
     technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "Jira", "CMS Validation"],
     image: ecWebsite,
     website: "https://www.ericchurch.com/",
-    tagline: "Cross-browser and multi-device website QA",
+    tagline:
+      "Website QA alongside frequent CMS and content releases: cross-browser regression, tour and shop flows, and coordination with the mobile app roadmap.",
     testingFocus: [
       "Functional and regression testing",
       "Cross-browser checks across Chrome, Safari, Firefox, and Edge",
@@ -206,9 +210,11 @@ export const projects = [
     id: 11,
     title: "Eric Church Official App",
     category: "qa",
-    description: "iOS and Android app testing for seamless experience",
-    about: "iOS and Android QA for the official app. I automated login and UGC flow tests using Playwright which cut down QA cycle time and kept production releases stable.",
-    technologies: ["iOS", "Android", "Functional Testing"],
+    description:
+      "iOS and Android testing across builds delivered via TestFlight. Push notifications, in-app purchases, and tour date integrations across OS versions. Playwright for automated flow testing.",
+    about:
+      "iOS and Android testing across builds delivered via TestFlight. Validated push notifications, in-app purchases, and tour date integrations across OS versions. Used Playwright for automated flow testing.",
+    technologies: ["iOS", "Android", "Functional Testing", "Playwright", "TestFlight"],
     image: ecApp,
     website: "https://apps.apple.com/us/app/eric-church-official/id1436492159",
     links: [
@@ -228,9 +234,10 @@ export const projects = [
     id: 12,
     title: "Thomas Rhett Website",
     category: "qa",
-    description: "Responsive, performance, and cross-browser website QA",
+    description:
+      "Mobile and tablet responsiveness testing across iOS and Android. Laravel CMS QA. Achieved 26% measured usability improvement.",
     about:
-      "Tablet and mobile responsiveness were the main focus here, along with Laravel CMS validation. The QA work tied directly to a 26% usability improvement across the platform.",
+      "Mobile and tablet responsiveness testing across iOS and Android. Laravel CMS QA. Achieved 26% measured usability improvement.",
     technologies: [
       "Manual Testing",
       "Regression Testing",
@@ -242,7 +249,8 @@ export const projects = [
     ],
     image: thomasRWebsite,
     website: "https://www.thomasrhett.com/#/",
-    tagline: "Responsive, performance, and cross-browser website QA",
+    tagline:
+      "Mobile and tablet responsiveness testing across iOS and Android. Laravel CMS QA. Achieved 26% measured usability improvement.",
     testingFocus: [
       "Functional and regression testing",
       "Cross-browser checks across Chrome, Safari, Firefox, and Edge",
@@ -265,9 +273,10 @@ export const projects = [
     id: 13,
     title: "Thomas Rhett Home Team App",
     category: "qa",
-    description: "Mobile app QA across iOS and Android builds",
+    description:
+      "Native app QA on iOS and Android: TestFlight and Play Store builds, regression around push, media, fan engagement, and store release checks.",
     about:
-      "Tablet and mobile responsiveness were the main focus here, along with Laravel CMS validation. The QA work tied directly to a 26% usability improvement across the platform.",
+      "Native app QA on iOS and Android: TestFlight and Play Store builds, regression around push, media, fan engagement, and store release checks.",
     technologies: [
       "Manual Testing",
       "Regression Testing",
@@ -311,9 +320,10 @@ export const projects = [
     id: 14,
     title: "Brandi Carlile Website",
     category: "qa",
-    description: "Cross-browser QA and multi-device optimization",
+    description:
+      "Frontend and CMS testing across devices supporting 70K+ monthly visits. Ran accessibility audits against WCAG 2.1 using axe-core and VoiceOver.",
     about:
-      "Frontend and CMS testing across devices for a site doing 70K+ visits a month. Focused on accessibility and making sure the experience held up consistently across browsers and screen sizes.",
+      "Frontend and CMS testing across devices supporting 70K+ monthly visits. Ran accessibility audits against WCAG 2.1 using axe-core and VoiceOver.",
     technologies: [
       "Manual Testing",
       "Regression Testing",
@@ -324,7 +334,8 @@ export const projects = [
     ],
     image: brandiWebsite,
     website: "https://www.brandicarlile.com/",
-    tagline: "Cross-browser QA and multi-device optimization",
+    tagline:
+      "Frontend and CMS testing across devices supporting 70K+ monthly visits. Ran accessibility audits against WCAG 2.1 using axe-core and VoiceOver.",
     testingFocus: [
       "Functional and regression testing",
       "Cross-browser checks across Chrome, Safari, Firefox, and Edge",

@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef, useState } from "react";
+import { Apple, Award, BookOpenCheck, Plane, Smartphone } from "lucide-react";
 import {
   SiJavascript,
   SiPlaywright,
@@ -71,11 +72,15 @@ const Technologies = () => {
         { name: "Playwright", icon: SiPlaywright, color: "text-green-400" },
         { name: "Postman", icon: SiPostman, color: "text-orange-400" },
         { name: "JIRA", icon: FaJira, color: "text-blue-500" },
-        { name: "axe-core", icon: AxeIcon, color: "text-red-400", isImage: true },
         { name: "TestRail", icon: BiTestTube, color: "text-blue-400" },
         { name: "Chrome DevTools", icon: SiGooglechrome, color: "text-blue-400" },
         { name: "Xcode", icon: FaApple, color: "text-gray-300" },
-        { name: "GitHub", icon: SiGithub, color: "text-white" },
+        { name: "GitHub Actions", icon: SiGithub, color: "text-white" },
+        { name: "iOS", icon: Apple, color: "text-gray-300" },
+        { name: "Android", icon: Smartphone, color: "text-green-400" },
+        { name: "TestFlight", icon: Plane, color: "text-sky-400" },
+        { name: "WCAG 2.1", icon: BookOpenCheck, color: "text-amber-300" },
+        { name: "CPACC Certified", icon: Award, color: "text-teal-400" },
       ],
     },
     {
@@ -90,8 +95,6 @@ const Technologies = () => {
     {
       id: "collaboration",
       technologies: [
-        { name: "JIRA", icon: FaJira, color: "text-blue-500" },
-        { name: "GitHub", icon: SiGithub, color: "text-white" },
         { name: "Trello", icon: SiTrello, color: "text-blue-400" },
         { name: "ClickUp", icon: SiClickup, color: "text-purple-400" },
         { name: "Jenkins", icon: SiJenkins, color: "text-red-400" },
@@ -102,7 +105,6 @@ const Technologies = () => {
     {
       id: "backend",
       technologies: [
-        { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
         { name: "Git", icon: FaGitAlt, color: "text-orange-500" },
         { name: "Vercel", icon: SiVercel, color: "text-white" },
         { name: "SQL", icon: TbSql, color: "text-cyan-400" },

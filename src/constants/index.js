@@ -36,11 +36,15 @@ Feel free to scroll down and explore the projects I’m currently working on, or
 
 
 export const ABOUT_TEXT = `
-I've been in tech for over 10 years, mostly in QA but always with one foot in development. I like knowing how things are built, not just whether they break.
+I've spent 10 years breaking things so users don't have to. Mostly on mobile. I've tested platform releases for Pearl Jam, Eric Church, Thomas Rhett, and Brandi Carlile - sometimes with 750K+ users hitting at once.
 
-Most of my QA work has been on high-traffic platforms. Artist websites, mobile apps, e-commerce flows used by real people at scale. On the dev side I build client websites in React, handle deployment, and do more backend work than my job title usually suggests.
+On the automation side, I write Playwright test suites, use Postman for API testing, and wire everything into CI/CD via GitHub Actions.
 
-I'm bilingual in English and Spanish, fluent in Portuguese. I work well in cross-functional teams and I'm used to moving fast without cutting corners on quality.
+I specialize in iOS and Android manual testing, WCAG 2.1/2.2 accessibility compliance, UI/UX validation, and CMS cross testing. I'm CPACC certified - meaning I've passed a formal exam on WCAG standards, not just run Lighthouse reports.
+
+I work in English, Spanish, and Portuguese. I'm used to environments where releases happen weekly and QA is the last gate before users see it.
+
+Available for remote contractor roles worldwide.
 `;
 
 
@@ -91,7 +95,7 @@ export const EXPERIENCES = [
     role: "Quality Assurance",
     company: "Analog Republic",
     description: `
-      Led cross-platform QA across web, iOS, and Android platforms, ensuring stable releases for high-traffic consumer applications. I created detailed test plans and ran through endless test cases to catch bugs before users ever saw them. Worked closely with cross-functional teams to keep communication flowing and projects on track. Specialized in performance, wireless, and stability testing, and used tools like Jira, Trello, and ClickUp to keep things organized. Basically, if there was a bug—I found it (and logged it like a pro).
+      Led cross-platform QA across web, iOS, and Android platforms, ensuring stable releases for high-traffic consumer applications. Built and maintained test plans for web, iOS, and Android across concurrent client projects. Managed regression cycles tied to weekly release schedules. Specialized in performance, wireless, and stability testing, and used tools like Jira, Trello, and ClickUp to keep things organized. Basically, if there was a bug—I found it (and logged it like a pro).
     `,
     technologies: ["Jira", "Scrum", "TestRail", "PostMan", "Manual QA", "Regression & Smoke Testing",],
   },
@@ -100,7 +104,7 @@ export const EXPERIENCES = [
     role: "Project Manager",
     company: "Analog Republic",
     description: `
-     Wore the project manager hat for a bit, turning chaos into clarity for complex projects—especially in the fast-paced world of music industry partnerships. I kept everything moving smoothly from kickoff to delivery, making sure client goals turned into real, actionable plans. Loved collaborating with teams, problem-solving on the fly, and delivering results that made clients smile.
+     Managed timelines and client communication for music industry partnerships, coordinating between internal dev and external stakeholders. Kept everything moving smoothly from kickoff to delivery, making sure client goals turned into real, actionable plans.
     `,
     technologies: ["Jira", "Scrum", "Trello", "Slack"],
   },
@@ -126,9 +130,9 @@ export const HIGHLIGHTS = [
     ],
   },
   {
-    title: "QA · Dev",
+    title: "CPACC",
     description: [
-      "Dual Expertise",
+      "Certified (WCAG standards, formal exam)",
     ],
   },
 ];

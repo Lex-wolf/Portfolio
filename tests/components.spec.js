@@ -9,13 +9,13 @@ test.describe('Portfolio Components Tests', () => {
     await expect(page.locator('h1')).toContainText('Alejandro Curiel');
     
     // Check job title
-    await expect(page.locator('text=Senior QA Engineer & Frontend Developer')).toBeVisible();
+    await expect(page.locator('text=Senior QA Engineer | Automation, Web & Mobile')).toBeVisible();
     
-    // Check skills line
-    await expect(page.locator('text=Manual & Automated QA | Playwright | API & Accessibility | React & Tailwind')).toBeVisible();
+    // Check tagline
+    await expect(page.locator('text=I test the things other people build')).toBeVisible();
     
-    // Check hero content
-    await expect(page.locator('text=I\'ve spent over 8 years in the world of Quality Assurance')).toBeVisible();
+    // Check client line
+    await expect(page.locator('text=Brandi Carlile')).toBeVisible();
   });
 
   test('About section should be present', async ({ page }) => {
@@ -25,7 +25,7 @@ test.describe('Portfolio Components Tests', () => {
     await page.locator('text=About').scrollIntoViewIfNeeded();
     
     // Check for about content
-    await expect(page.locator('text=I\'m a frontend developer who loves crafting clean')).toBeVisible();
+    await expect(page.locator('text=I\'ve spent 10 years breaking things')).toBeVisible();
   });
 
   test('Technologies section should display tech stack', async ({ page }) => {
@@ -50,7 +50,7 @@ test.describe('Portfolio Components Tests', () => {
     
     // Check for experience entries
     await expect(page.locator('text=2024 – Present')).toBeVisible();
-    await expect(page.locator('text=Frontend Developer + QA')).toBeVisible();
+    await expect(page.locator('text=Software Engineering Consultant')).toBeVisible();
     await expect(page.locator('text=Freelance')).toBeVisible();
     
     await expect(page.locator('text=2017 - 2024')).toBeVisible();

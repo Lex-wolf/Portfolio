@@ -4,25 +4,28 @@ export const translations = {
   en: {
     nav: { work: "Explore My Work", contact: "Contact Me" },
     hero: {
-      title: "Senior QA Engineer & Software Developer",
-      subtitle: "I build web products and make sure they work.",
+      title: "Senior QA Engineer | Automation, Web & Mobile",
+      subtitle: "I test the things other people build - and sometimes build them too.",
       line1:
-        "10+ years of QA experience on platforms used by hundreds of thousands of people. Pearl Jam, Eric Church, Thomas Rhett.",
-      line2:
-        "I also build client websites from scratch. Both sides of the work, depending on what you need.",
+        "Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile - platforms with 750K+ users",
+      line2: "I also build client websites when that is what the project needs.",
       stats: {
         years: "Years Experience",
         releases: "Releases Supported",
-        hybrid: "Hybrid Expertise",
+        hybrid: "Certified",
       },
     },
     about: {
       heading: "About Me",
-      body: `I've been in tech for over 10 years, mostly in QA but always with one foot in development. I like knowing how things are built, not just whether they break.
+      body: `I've spent 10 years breaking things so users don't have to. Mostly on mobile. I've tested platform releases for Pearl Jam, Eric Church, Thomas Rhett, and Brandi Carlile - sometimes with 750K+ users hitting at once.
 
-Most of my QA work has been on high-traffic platforms. Artist websites, mobile apps, e-commerce flows used by real people at scale. On the dev side I build client websites in React, handle deployment, and do more backend work than my job title usually suggests.
+On the automation side, I write Playwright test suites, use Postman for API testing, and wire everything into CI/CD via GitHub Actions.
 
-I'm bilingual in English and Spanish, fluent in Portuguese. I work well in cross-functional teams and I'm used to moving fast without cutting corners on quality.`,
+I specialize in iOS and Android manual testing, WCAG 2.1/2.2 accessibility compliance, UI/UX validation, and CMS cross testing. I'm CPACC certified - meaning I've passed a formal exam on WCAG standards, not just run Lighthouse reports.
+
+I work in English, Spanish, and Portuguese. I'm used to environments where releases happen weekly and QA is the last gate before users see it.
+
+Available for remote contractor roles worldwide.`,
     },
     technologies: {
       heading: "Technologies",
@@ -61,8 +64,7 @@ I'm bilingual in English and Spanish, fluent in Portuguese. I work well in cross
           company: "Analog Republic",
           bullets: [
             "Led cross-platform QA across web, iOS, and Android platforms, ensuring stable releases for high-traffic consumer applications",
-            "Created detailed test plans and ran through endless test cases to catch bugs before users ever saw them",
-            "Worked closely with cross-functional teams to keep communication flowing and projects on track",
+            "Built and maintained test plans for web, iOS, and Android across concurrent client projects. Managed regression cycles tied to weekly release schedules",
             "Specialized in performance, wireless, and stability testing, and used tools like Jira, Trello, and ClickUp to keep things organized",
           ],
         },
@@ -71,9 +73,8 @@ I'm bilingual in English and Spanish, fluent in Portuguese. I work well in cross
           title: "Project Manager",
           company: "Analog Republic",
           bullets: [
-            "Wore the project manager hat for a bit, turning chaos into clarity for complex projects—especially in the fast-paced world of music industry partnerships",
+            "Managed timelines and client communication for music industry partnerships, coordinating between internal dev and external stakeholders",
             "Kept everything moving smoothly from kickoff to delivery, making sure client goals turned into real, actionable plans",
-            "Loved collaborating with teams, problem-solving on the fly, and delivering results that made clients smile",
           ],
         },
       ],
@@ -116,25 +117,29 @@ I'm bilingual in English and Spanish, fluent in Portuguese. I work well in cross
   es: {
     nav: { work: "Ver Mi Trabajo", contact: "Contáctame" },
     hero: {
-      title: "Ingeniero QA Senior y Desarrollador de Software",
-      subtitle: "Construyo productos web y me aseguro de que funcionen.",
+      title: "Ingeniero QA Senior | Automatización, web y móvil",
+      subtitle:
+        "Pruebo lo que otras personas construyen, y a veces también lo construyo.",
       line1:
-        "Más de 10 años de experiencia en QA en plataformas usadas por cientos de miles de personas. Pearl Jam, Eric Church, Thomas Rhett.",
-      line2:
-        "También desarrollo sitios para clientes desde cero. Ambas vertientes, según lo que necesites.",
+        "Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile: plataformas con más de 750K usuarios",
+      line2: "También desarrollo sitios para clientes cuando el proyecto lo pide.",
       stats: {
         years: "Años de Experiencia",
         releases: "Lanzamientos Soportados",
-        hybrid: "Experiencia Híbrida",
+        hybrid: "Certificado",
       },
     },
     about: {
       heading: "Sobre Mí",
-      body: `Llevo más de 10 años en tecnología, principalmente en QA, pero siempre con un pie en desarrollo. Me gusta entender cómo se construyen las cosas, no solo si fallan.
+      body: `Llevo 10 años rompiendo cosas para que los usuarios no tengan que hacerlo. Sobre todo en móvil. He probado lanzamientos para Pearl Jam, Eric Church, Thomas Rhett y Brandi Carlile, a veces con más de 750K usuarios a la vez.
 
-La mayor parte de mi trabajo en QA ha sido en plataformas de alto tráfico: sitios de artistas, apps móviles y flujos de comercio electrónico usados por personas reales a escala. En desarrollo armo sitios para clientes en React, manejo despliegues y hago más trabajo de backend de lo que sugiere mi título.
+En automatización escribo suites con Playwright, uso Postman para APIs y conecto todo a CI/CD con GitHub Actions.
 
-Hablo inglés y español con fluidez, y portugués con soltura. Me integro bien en equipos multidisciplinarios y estoy acostumbrado a avanzar rápido sin sacrificar calidad.`,
+Me especializo en pruebas manuales iOS y Android, cumplimiento WCAG 2.1/2.2, validación UI/UX y QA en CMS. Tengo CPACC: aprobé un examen formal sobre WCAG, no solo corro Lighthouse.
+
+Trabajo en inglés, español y portugués. Estoy acostumbrado a entornos con releases semanales donde QA es la última puerta antes de que lo vean los usuarios.
+
+Disponible para contratos remotos en todo el mundo.`,
     },
     technologies: {
       heading: "Tecnologías",
@@ -173,8 +178,7 @@ Hablo inglés y español con fluidez, y portugués con soltura. Me integro bien 
           company: "Analog Republic",
           bullets: [
             "Lideré QA multiplataforma en web, iOS y Android para asegurar releases estables en aplicaciones de alto tráfico",
-            "Diseñé planes de prueba detallados y ejecuté casos exhaustivos para detectar errores antes de que los usuarios los vieran",
-            "Trabajé de cerca con equipos multifuncionales para mantener la comunicación y los proyectos alineados",
+            "Construí y mantuve planes de prueba para web, iOS y Android en varios clientes a la vez. Organicé regresiones atadas a calendarios de release semanales",
             "Me especialicé en pruebas de rendimiento, conectividad inalámbrica y estabilidad; organicé el trabajo con Jira, Trello y ClickUp",
           ],
         },
@@ -183,9 +187,8 @@ Hablo inglés y español con fluidez, y portugués con soltura. Me integro bien 
           title: "Gerente de Proyecto",
           company: "Analog Republic",
           bullets: [
-            "Asumí el rol de project manager para ordenar proyectos complejos, sobre todo en el ritmo de la industria musical",
+            "Organicé tiempos y la comunicación con clientes en proyectos de la industria musical, entre desarrollo interno y stakeholders externos",
             "Mantuve el flujo desde el arranque hasta la entrega, alineando objetivos del cliente con planes accionables",
-            "Colaboré con equipos, resolví sobre la marcha y entregué resultados que generaron confianza",
           ],
         },
       ],
