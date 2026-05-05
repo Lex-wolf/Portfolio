@@ -199,13 +199,7 @@ const Hero = () => {
                   {audience === "web" ? t("hero.titleWeb") : t("hero.title")}
                 </motion.h2>
               </AnimatePresence>
-              <div
-                className={`hero-subheadline mx-auto max-w-xl text-balance lg:mx-0 ${
-                  audience === "web"
-                    ? "mt-2 min-h-0"
-                    : "mt-3 min-h-[3.5rem] sm:min-h-[4rem]"
-                }`}
-              >
+              <div className="hero-subheadline mx-auto mt-2 min-h-0 max-w-xl text-balance lg:mx-0">
                 <AnimatePresence mode="wait">
                   <motion.p
                     key={audience}
@@ -225,11 +219,7 @@ const Hero = () => {
               variants={container(1)}
               initial={hydrated ? (!hasAnimated ? "hidden" : "visible") : false}
               animate="visible"
-              className={
-                audience === "web"
-                  ? "mt-2 max-w-xl text-center lg:text-left"
-                  : "mt-5 max-w-xl text-center lg:text-left"
-              }
+              className="mt-2 max-w-xl text-center lg:text-left"
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -238,7 +228,7 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-                  className="space-y-4"
+                  className="space-y-0"
                 >
                   <p className="body-text-tone">
                     {audience === "web" ? t("hero.line1Web") : t("hero.line1")}
