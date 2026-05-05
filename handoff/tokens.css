@@ -1,0 +1,94 @@
+/* ============================================================
+   alex.curiel — Design Tokens
+   Drop this into src/index.css (REPLACE existing :root block).
+   Then import the Google Fonts in your index.html <head>:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+   ============================================================ */
+
+:root, [data-theme="dark"] {
+  --bg-primary:    #08171E;
+  --bg-surface:    #042B44;
+  --bg-elevated:   #096B90;
+  --text-primary:  #A1CCDC;
+  --text-secondary:#71B7D5;
+  --text-muted:    #096B90;
+  --accent:        #9E291E;
+  --accent-dark:   #7B241E;
+  --accent-glow:   rgba(158,41,30,0.18);
+  --border:        rgba(161,204,220,0.10);
+  --tag-bg:        rgba(9,107,144,0.22);
+}
+
+[data-theme="light"] {
+  --bg-primary:    #D8D7D2;
+  --bg-surface:    #164346;   /* deep teal — major surface in tech section */
+  --bg-elevated:   #1d5559;
+  --text-primary:  #182B30;
+  --text-secondary:#164346;
+  --text-muted:    #2A5A5E;
+  --accent:        #9E291E;
+  --accent-dark:   #7B241E;
+  --accent-glow:   rgba(158,41,30,0.22);
+  --border:        rgba(24,43,48,0.18);
+  --tag-bg:        rgba(158,41,30,0.10);
+}
+
+/* ============ Global ============ */
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background 0.4s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+body, body * {
+  transition: background-color 0.4s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+::selection { background: var(--accent); color: #fff; }
+
+/* ============ Eyebrow label (use on every section) ============ */
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ============ Container & section spacing ============ */
+.container-1100 {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+@media (max-width: 720px) {
+  .container-1100 { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+.section-py { padding-top: 5.5rem; padding-bottom: 5.5rem; }
+@media (max-width: 720px) { .section-py { padding-top: 4rem; padding-bottom: 4rem; } }

@@ -17,6 +17,7 @@ const ProjectsNew = () => {
           <div>
             <div className="eyebrow">02 / Projects</div>
             <h2>{t("projects.heading")}</h2>
+            <p>{t("projects.subheading")}</p>
           </div>
           <div className="proj-tabs">
             <button className={filter === "all" ? "active" : ""} onClick={() => setFilter("all")}>{t("projects.tabs.all")}</button>

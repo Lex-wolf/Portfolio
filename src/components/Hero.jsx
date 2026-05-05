@@ -28,7 +28,7 @@ const Hero = () => {
       <div className="container hero-inner">
         <div className="hero-grid">
           <div>
-            <div className="eyebrow hero-eyebrow" data-stagger>PORTFOLIO · 2025</div>
+            <div className="eyebrow hero-eyebrow" data-stagger>PORTFOLIO · 2026</div>
             <h1 data-stagger>Alejandro Curiel</h1>
             <div data-stagger>
               <AudienceToggle />

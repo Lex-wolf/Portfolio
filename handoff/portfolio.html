@@ -1,0 +1,1833 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>alex.curiel — Senior QA Automation Engineer & Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+/* ============ THEME TOKENS ============ */
+:root, [data-theme="dark"] {
+  --bg-primary:    #08171E;
+  --bg-surface:    #042B44;
+  --bg-elevated:   #096B90;
+  --text-primary:  #A1CCDC;
+  --text-secondary:#71B7D5;
+  --text-muted:    #096B90;
+  --accent:        #9E291E;
+  --accent-dark:   #7B241E;
+  --accent-glow:   rgba(158,41,30,0.18);
+  --border:        rgba(161,204,220,0.10);
+  --tag-bg:        rgba(9,107,144,0.22);
+  --card-shadow:   0 1px 0 rgba(255,255,255,0.02) inset;
+}
+[data-theme="light"] {
+  --bg-primary:    #D8D7D2;
+  --bg-surface:    #164346;   /* deep teal — major surface */
+  --bg-elevated:   #1d5559;
+  --text-primary:  #182B30;
+  --text-secondary:#164346;
+  --text-muted:    #2A5A5E;
+  --accent:        #9E291E;
+  --accent-dark:   #7B241E;
+  --accent-glow:   rgba(158,41,30,0.22);
+  --border:        rgba(24,43,48,0.18);
+  --tag-bg:        rgba(158,41,30,0.10);
+  --card-shadow:   0 1px 0 rgba(255,255,255,0.6) inset;
+}
+/* Light mode — Alone palette: stone base, teal surfaces, crimson accents */
+[data-theme="light"] body { background: var(--bg-primary); }
+[data-theme="light"] .navbar { background: color-mix(in srgb, #D8D7D2 92%, transparent); }
+[data-theme="light"] .chip { color: #fff; background: #164346; }
+[data-theme="light"] .proj-tag { color: #A1CCDC; background: rgba(22,67,70,0.18); }
+[data-theme="light"] .tech-icon { color: #fff; background: var(--accent); }
+[data-theme="light"] .proj-icon { color: #fff; background: var(--accent); }
+[data-theme="light"] .audience-toggle { background: #fff; border-color: rgba(24,43,48,0.14); }
+[data-theme="light"] .proj-tabs { background: #fff; border-color: rgba(24,43,48,0.14); }
+
+/* About meta cards — keep light/cream */
+[data-theme="light"] .about-meta div { background: #EEEDEA; border-color: rgba(24,43,48,0.10); }
+[data-theme="light"] .about-meta .k { color: var(--accent); }
+[data-theme="light"] .about-meta strong { color: #182B30; }
+
+/* Project cards — stone surface, teal trim */
+[data-theme="light"] .proj-card { background: #EEEDEA; border-color: rgba(24,43,48,0.10); }
+[data-theme="light"] .proj-card:hover { border-color: var(--accent); }
+[data-theme="light"] .proj-arrow { background: rgba(255,255,255,0.85); border-color: rgba(24,43,48,0.14); color: #164346; }
+[data-theme="light"] .proj-cat { color: #164346; }
+
+/* Technologies — TEAL section */
+[data-theme="light"] .tech-section { background: #164346; border-color: rgba(24,43,48,0.18); color: #D8D7D2; }
+[data-theme="light"] .tech-section h2,
+[data-theme="light"] .tech-section .section-head p,
+[data-theme="light"] .tech-section .tech-cat { color: #D8D7D2; }
+[data-theme="light"] .tech-section .eyebrow { color: #fff; }
+[data-theme="light"] .tech-section .eyebrow::before { background: #fff; }
+[data-theme="light"] .tech-item { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.10); }
+[data-theme="light"] .tech-item .tech-label { color: #D8D7D2; }
+[data-theme="light"] .tech-item:hover { background: rgba(255,255,255,0.10); border-color: var(--accent); }
+[data-theme="light"] .tech-item:hover .tech-label { color: #fff; }
+
+/* Experience */
+[data-theme="light"] .exp-row { border-color: rgba(24,43,48,0.14); }
+
+/* Forms */
+[data-theme="light"] .contact-form { background: #EEEDEA; border-color: rgba(24,43,48,0.10); }
+[data-theme="light"] .field input,
+[data-theme="light"] .field textarea { background: #fff; border-color: rgba(24,43,48,0.14); color: #182B30; }
+[data-theme="light"] .contact-success { background: #EEEDEA; border-color: rgba(24,43,48,0.10); }
+
+/* Chrome */
+[data-theme="light"] .navbar,
+[data-theme="light"] .footer,
+[data-theme="light"] .hero-stats { border-color: rgba(24,43,48,0.14); }
+[data-theme="light"] .theme-toggle { background: #EEEDEA; border-color: rgba(24,43,48,0.14); }
+[data-theme="light"] .social-btn { background: #164346; border-color: #164346; color: #D8D7D2; }
+[data-theme="light"] .social-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+[data-theme="light"] .modal-panel,
+[data-theme="light"] .modal-head { border-color: rgba(24,43,48,0.14); }
+[data-theme="light"] .modal-close { background: #EEEDEA; border-color: rgba(24,43,48,0.14); }
+[data-theme="light"] .portrait { border-color: rgba(24,43,48,0.16); background: #EEEDEA; }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.4s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+body, body * {
+  transition: background-color 0.4s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Type */
+.font-display { font-family: 'Syne', sans-serif; font-weight: 800; letter-spacing: -0.02em; }
+.font-mono    { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+h1, h2, h3, h4 { font-family: 'Syne', sans-serif; font-weight: 800; letter-spacing: -0.02em; margin: 0; color: var(--text-primary); }
+p { margin: 0; line-height: 1.75; color: var(--text-secondary); }
+
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--accent); color: #fff; }
+
+/* Layout */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2.5rem; }
+section { padding: 5.5rem 0; }
+@media (max-width: 720px) {
+  .container { padding: 0 1.25rem; }
+  section { padding: 4rem 0; }
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+}
+.eyebrow.no-line::before { display: none; }
+
+/* ============ NAVBAR ============ */
+.navbar {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.logo .dot { color: var(--accent); }
+
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+.nav-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  position: relative;
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0; height: 1px;
+  background: var(--accent);
+  transition: width 0.28s ease;
+}
+.nav-link:hover { color: var(--accent); }
+.nav-link:hover::after { width: 100%; }
+
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  min-height: 36px;
+  min-width: 64px;
+  justify-content: center;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.theme-toggle svg { width: 14px; height: 14px; }
+
+.hamburger {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  width: 44px; height: 44px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .hamburger { display: inline-flex; }
+}
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  overflow: hidden;
+}
+.hero-orb {
+  position: absolute;
+  width: 720px; height: 720px;
+  left: -200px; top: -100px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+  filter: blur(40px);
+  pointer-events: none;
+  animation: orbPulse 8s ease-in-out infinite;
+  z-index: 0;
+}
+.hero-orb.b {
+  left: auto; right: -300px; top: auto; bottom: -200px;
+  width: 580px; height: 580px;
+  animation-delay: 4s;
+}
+@keyframes orbPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.08); }
+}
+
+.hero-inner { position: relative; z-index: 1; width: 100%; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+.hero-eyebrow { margin-bottom: 1.5rem; }
+
+.hero h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.0;
+  margin-bottom: 1.5rem;
+}
+.hero-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin-bottom: 1.4rem;
+}
+.hero-body {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin-bottom: 2rem;
+  line-height: 1.75;
+}
+
+.audience-toggle {
+  display: inline-flex;
+  padding: 4px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  margin-bottom: 1.6rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.audience-toggle button {
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  transition: all 0.25s ease;
+  min-height: 36px;
+}
+.audience-toggle button.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+.chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--tag-bg);
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+.chip.accent { border-color: var(--accent); color: var(--accent); }
+
+.cta-row { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+.btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.95rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px var(--accent-glow);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Hero portrait */
+.portrait {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  aspect-ratio: 4/5;
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; display: block; transition: filter 0.4s ease; }
+.portrait .portrait-img {
+  filter: contrast(1.04) saturate(0.85) brightness(0.96);
+  mix-blend-mode: normal;
+}
+[data-theme="dark"] .portrait .portrait-img {
+  filter: contrast(1.05) saturate(0.65) brightness(0.82) hue-rotate(-8deg);
+}
+[data-theme="dark"] .portrait::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(8,23,30,0.0) 40%, rgba(8,23,30,0.55) 100%), radial-gradient(circle at 30% 20%, rgba(9,107,144,0.18), transparent 60%);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+[data-theme="light"] .portrait::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(22,67,70,0.18) 100%);
+  pointer-events: none;
+}
+.portrait-meta {
+  position: absolute; left: 1rem; bottom: 1rem; right: 1rem;
+  display: flex; justify-content: space-between; align-items: end;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+  z-index: 2;
+}
+.portrait-meta .blink {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  background: #4ade80; margin-right: 0.4rem; vertical-align: middle;
+  animation: blink 1.6s ease-in-out infinite;
+}
+@keyframes blink { 50% { opacity: 0.3; } }
+
+/* Hero stats */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 600px) { .hero-stats { grid-template-columns: 1fr; } }
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* ============ SECTION HEADER ============ */
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 3rem;
+}
+@media (max-width: 720px) { .section-head { grid-template-columns: 1fr; } }
+.section-head h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.05;
+  margin-top: 1rem;
+}
+.section-head p { color: var(--text-secondary); max-width: 420px; }
+
+/* ============ ABOUT ============ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+@media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+.about-body p { font-weight: 300; font-size: 1.02rem; color: var(--text-secondary); margin-bottom: 1rem; }
+
+.skill-list { display: flex; flex-direction: column; gap: 1.05rem; }
+.skill {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.skill .label { color: var(--text-secondary); }
+.skill .pct { color: var(--accent); }
+.skill .bar { grid-column: 1 / -1; height: 4px; background: var(--tag-bg); border-radius: 2px; overflow: hidden; }
+.skill .bar > span { display: block; height: 100%; background: var(--accent); border-radius: 2px; transform-origin: left; }
+
+.about-meta {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.about-meta div { padding: 0.85rem 1rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-surface); }
+.about-meta strong { display: block; color: var(--text-primary); font-weight: 600; margin-top: 4px; letter-spacing: 0.05em; }
+.about-meta .k { color: var(--text-muted); }
+
+/* ============ PROJECTS ============ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+@media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) { .projects-grid { grid-template-columns: 1fr; } }
+
+.proj-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+}
+.proj-card::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.proj-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 18px 40px var(--accent-glow); }
+.proj-card:hover::before { opacity: 1; }
+
+.proj-thumb {
+  aspect-ratio: 16/10;
+  width: 100%;
+  background: var(--bg-elevated);
+  position: relative;
+  overflow: hidden;
+}
+.proj-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.proj-card:hover .proj-thumb img { transform: scale(1.04); }
+
+.proj-arrow {
+  position: absolute; top: 0.8rem; right: 0.8rem;
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-primary) 80%, transparent);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+.proj-card:hover .proj-arrow { color: var(--accent); border-color: var(--accent); transform: translate(2px, -2px); }
+
+.proj-body { padding: 2rem; display: flex; flex-direction: column; gap: 0.9rem; flex: 1; }
+.proj-icon-row { display: flex; align-items: center; gap: 0.65rem; }
+.proj-icon {
+  width: 28px; height: 28px; border-radius: 8px;
+  background: var(--tag-bg);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+}
+.proj-cat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+}
+.proj-title { font-size: 1.25rem; line-height: 1.15; }
+.proj-desc { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; }
+
+.proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto; padding-top: 0.5rem; }
+.proj-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  background: var(--tag-bg);
+  color: var(--text-secondary);
+}
+
+.proj-tabs {
+  display: inline-flex;
+  padding: 4px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.proj-tabs button {
+  background: transparent; color: var(--text-muted);
+  border: none; padding: 0.5rem 1rem; border-radius: 999px;
+  cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit;
+  transition: all 0.2s ease;
+}
+.proj-tabs button.active { background: var(--accent); color: #fff; }
+
+/* ============ TECHNOLOGIES ============ */
+.tech-section {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.6rem;
+}
+@media (max-width: 900px) { .tech-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 600px) { .tech-grid { grid-template-columns: repeat(3, 1fr); } }
+.tech-item {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+[data-theme="light"] .tech-item { background: var(--bg-elevated); }
+.tech-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+.tech-item:hover .tech-label { color: var(--accent); }
+.tech-icon {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--tag-bg);
+  border-radius: 8px;
+}
+.tech-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.tech-cat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+  margin-top: 1.6rem;
+}
+.tech-cat:first-child { margin-top: 0; }
+
+/* ============ EXPERIENCE ============ */
+.exp-list { display: flex; flex-direction: column; gap: 1rem; }
+.exp-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  padding: 1.8rem 0;
+  border-top: 1px solid var(--border);
+}
+.exp-row:last-child { border-bottom: 1px solid var(--border); }
+@media (max-width: 720px) {
+  .exp-row { grid-template-columns: 1fr; gap: 0.8rem; padding: 1.4rem 0; }
+}
+.exp-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  padding-top: 0.35rem;
+}
+.exp-title { font-size: 1.4rem; line-height: 1.2; margin-bottom: 0.3rem; }
+.exp-company { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1rem; letter-spacing: 0.04em; }
+.exp-bullets { display: flex; flex-direction: column; gap: 0.55rem; }
+.exp-bullets li {
+  list-style: none;
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.exp-bullets li::before {
+  content: "";
+  position: absolute; left: 0; top: 0.7rem;
+  width: 8px; height: 1px;
+  background: var(--accent);
+}
+.exp-bullets ul { padding: 0; margin: 0; }
+
+/* ============ CONTACT ============ */
+.contact {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+.contact::before {
+  content: "";
+  position: absolute; left: 50%; top: 50%;
+  width: 800px; height: 800px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  pointer-events: none;
+}
+.contact-inner { position: relative; max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+.contact-inner > .eyebrow { margin-bottom: 0.5rem; }
+
+.contact-form {
+  width: 100%;
+  text-align: left;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex; flex-direction: column; gap: 1.1rem;
+  box-shadow: var(--card-shadow);
+}
+[data-theme="light"] .contact-form { box-shadow: 0 1px 0 rgba(255,255,255,0.7) inset, 0 8px 28px rgba(24,43,48,0.06); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+.field { display: flex; flex-direction: column; gap: 0.5rem; }
+.field label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-secondary);
+}
+.field .req { color: var(--accent); }
+.field input, .field textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  resize: none;
+}
+.field input::placeholder, .field textarea::placeholder { color: var(--text-muted); opacity: 0.7; }
+.field input:focus, .field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.contact-submit { align-self: stretch; min-height: 52px; margin-top: 0.4rem; }
+.contact-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+.spinner {
+  width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.form-error {
+  padding: 0.8rem 1rem;
+  background: var(--accent-glow);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+}
+.contact-success {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+  text-align: center;
+}
+.contact-success h3 { font-size: 1.6rem; }
+.contact-success p { color: var(--text-secondary); }
+.success-check {
+  width: 64px; height: 64px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 12px 32px var(--accent-glow);
+  animation: popIn 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.success-check svg { width: 28px; height: 28px; }
+@keyframes popIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.contact h2 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.0;
+  margin: 1.4rem 0 1.5rem;
+}
+.contact p { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 2.5rem; }
+
+.socials {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+.social-btn {
+  width: 48px; height: 48px;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.social-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px var(--accent-glow);
+}
+.social-btn svg { width: 18px; height: 18px; }
+
+/* ============ FOOTER ============ */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+.footer-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+.footer-row .right { text-align: right; }
+.footer-row a:hover { color: var(--accent); }
+@media (max-width: 720px) {
+  .footer-row { grid-template-columns: 1fr; text-align: center; gap: 0.6rem; }
+  .footer-row .right { text-align: center; }
+}
+
+/* ============ MODAL ============ */
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 100;
+  background: color-mix(in srgb, #000 70%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex; justify-content: flex-end;
+  animation: fadein 0.3s ease;
+}
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+.modal-panel {
+  width: min(640px, 100%);
+  height: 100%;
+  background: var(--bg-primary);
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  animation: slidein 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes slidein { from { transform: translateX(100%); } to { transform: translateX(0); } }
+.modal-head {
+  position: sticky; top: 0; z-index: 2;
+  background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 1rem 1.6rem;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+.modal-close {
+  width: 40px; height: 40px;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.modal-close:hover { color: var(--accent); border-color: var(--accent); }
+.modal-body { padding: 0 0 3rem; }
+.modal-image {
+  aspect-ratio: 16/10;
+  background: var(--bg-elevated);
+  overflow: hidden;
+}
+.modal-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.modal-content { padding: 1.8rem 1.6rem; display: flex; flex-direction: column; gap: 1.6rem; }
+.modal-content h2 { font-size: 1.8rem; line-height: 1.1; }
+.modal-section h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.16em;
+}
+.modal-section p { font-size: 0.96rem; color: var(--text-secondary); line-height: 1.75; }
+
+.modal-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.modal-cta {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.95rem 1.5rem;
+  background: var(--accent); color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+  align-self: flex-start;
+}
+.modal-cta:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 12px 28px var(--accent-glow); }
+
+/* ============ REVEAL ============ */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Image placeholder fallback */
+.img-placeholder {
+  width: 100%; height: 100%;
+  background:
+    repeating-linear-gradient(45deg,
+      var(--bg-elevated) 0,
+      var(--bg-elevated) 8px,
+      var(--bg-surface) 8px,
+      var(--bg-surface) 16px);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" data-presets="env,react">
+const { useState, useEffect, useRef, useMemo } = React;
+
+/* ============ DATA — verbatim copy from existing site ============ */
+const NAV = [
+  { label: "Work", href: "#projects" },
+  { label: "About", href: "#about" },
+  { label: "Stack", href: "#technologies" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
+];
+
+const HERO_CHIPS_QA = ["Playwright", "GitHub Actions", "Shopify", "WCAG 2.2", "Postman", "iOS / Android", "CPACC"];
+const HERO_CHIPS_WEB = ["React", "Vite", "Tailwind", "Shopify Storefront API", "Node.js", "TypeScript", "Vercel"];
+
+const SKILLS = [
+  { label: "Playwright Automation", pct: 95 },
+  { label: "Mobile QA · iOS / Android", pct: 92 },
+  { label: "WCAG 2.2 / Accessibility", pct: 90 },
+  { label: "React + Vite Frontends", pct: 88 },
+  { label: "GitHub Actions / CI", pct: 85 },
+  { label: "Shopify QA & Storefront API", pct: 82 },
+];
+
+const TECH = {
+  "Development": [
+    { abbr: "Re", label: "React" },
+    { abbr: "Vt", label: "Vite" },
+    { abbr: "Tw", label: "Tailwind" },
+    { abbr: "Ts", label: "TypeScript" },
+    { abbr: "Js", label: "JavaScript" },
+    { abbr: "Nd", label: "Node.js" },
+  ],
+  "QA & Automation": [
+    { abbr: "Pw", label: "Playwright" },
+    { abbr: "Pm", label: "Postman" },
+    { abbr: "Gh", label: "GitHub Actions" },
+    { abbr: "Jr", label: "JIRA" },
+    { abbr: "Cu", label: "ClickUp" },
+    { abbr: "Tf", label: "TestFlight" },
+  ],
+  "Accessibility & Auditing": [
+    { abbr: "Ax", label: "axe-core" },
+    { abbr: "Vo", label: "VoiceOver" },
+    { abbr: "Lh", label: "Lighthouse" },
+    { abbr: "Wc", label: "WCAG 2.2" },
+    { abbr: "Cp", label: "CPACC" },
+    { abbr: "Sc", label: "Screen Readers" },
+  ],
+  "Backend & Tools": [
+    { abbr: "Sh", label: "Shopify" },
+    { abbr: "Sa", label: "Storefront API" },
+    { abbr: "Sq", label: "SQL" },
+    { abbr: "Xc", label: "Xcode" },
+    { abbr: "Vc", label: "Vercel" },
+    { abbr: "Fm", label: "Framer Motion" },
+  ],
+};
+
+/* All copy below comes verbatim from translations/index.js or projectsData.js */
+
+const ABOUT_BODY = `I've spent 10 years breaking things so users don't have to. Mostly on mobile. I've tested platforms for Pearl Jam, Eric Church, Thomas Rhett, and Brandi Carlile - sometimes with 750K+ users at once. On the automation side, I write Playwright test suites, use Postman for API testing, and wire everything into CI/CD via GitHub Actions. I also do accessibility compliance, WCAG validation, and CMS cross-testing. I'm CPACC certified - meaning I've passed a formal exam on WCAG standards, not just run Lighthouse reports. I speak English, Spanish, and Portuguese. I'm used to environments where releases happen weekly and QA is the last gate before users see it. Available for remote contractor roles worldwide.`;
+
+const EXPERIENCE = [
+  {
+    year: "2024 – Present",
+    title: "Software Engineering Consultant",
+    company: "Bison Digital · Freelance",
+    bullets: [
+      "Built Playwright suites for regression and smoke testing, cutting QA cycles by 30%.",
+      "Tested APIs in Postman across GET/POST requests, status codes, auth flows, and data validation.",
+      "Conducted WCAG 2.2 audits using axe-core and VoiceOver across web and mobile.",
+      "Verified iOS builds via Xcode simulators and TestFlight on real iOS and Android devices.",
+    ],
+  },
+  {
+    year: "2017 - 2024",
+    title: "Quality Assurance",
+    company: "Analog Republic",
+    bullets: [
+      "Led mobile QA across iOS and Android for artist platforms serving 750K+ users - Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile.",
+      "Tested and validated CMS functionality and frontend layouts across web and mobile.",
+      "Validated Shopify payment flows and backend integrations via Postman and SQL queries.",
+      "Triaged defects and managed test cycles in JIRA and ClickUp across multi-sprint regression cycles.",
+    ],
+  },
+  {
+    year: "2016 - 2017",
+    title: "Project Manager",
+    company: "Analog Republic",
+    bullets: [
+      "Managed timelines and client communication for music industry partnerships, coordinating between internal dev and external stakeholders.",
+    ],
+  },
+];
+
+const PROJECTS = [
+  {
+    id: 23,
+    title: "Neuroplasticity Lab",
+    category: "built",
+    description: "A one-day experimental build exploring neuroplasticity through interactive design and immersive UI.",
+    about: "A one-day experimental build exploring neuroplasticity through interactive design and immersive UI. The project focuses on clean typography, animated sections, and a modern dark interface inspired by scientific storytelling.",
+    build: "Built in a focused one-day sprint. Designed and developed from scratch to explore interactive storytelling and scientific concepts through modern frontend tools.",
+    technologies: ["HTML", "CSS", "JavaScript", "Canvas API", "Vercel"],
+    image: null,
+    placeholder: "Neuroplasticity Lab",
+    website: "https://neuroplasticity.vercel.app/#types",
+  },
+  {
+    id: 20,
+    title: "The Taco Garage",
+    category: "built",
+    description: "Custom headless e-commerce built with React + Shopify",
+    about: "The Taco Garage wanted a custom storefront without giving up Shopify's checkout reliability. I built a React frontend on top of the Shopify Storefront API so they got full design control and kept the backend they trusted. Built for speed, easy product management, and long term growth.",
+    technologies: ["React", "JavaScript", "Shopify Storefront API", "Vercel", "Tailwind CSS", "Node.js"],
+    image: "assets/taco-garage.webp",
+    website: "https://www.thetacogarage.com",
+  },
+  {
+    id: 19,
+    title: "Astro Reminder Website",
+    category: "built",
+    description: "Astrology & Coaching Platform",
+    about: "Carlos runs an astrology and coaching practice and needed a site that felt intentional, not generic. I built it in React with Framer Motion, keeping the layout clean and the animations subtle. Accessible, responsive, and easy to navigate across all devices.",
+    technologies: ["React.js", "JavaScript", "Tailwind CSS", "Framer Motion", "HTML", "CSS"],
+    image: "assets/astro.webp",
+    website: "https://astroreminder.com/",
+  },
+  {
+    id: 1,
+    title: "Rose Auto Service",
+    category: "built",
+    description: "BMW, Audi, Mercedes, and Volkswagen specialist website",
+    about: "70 years in business with no real web presence. I built a responsive React site that showcases their services, testimonials and location clearly. Clean, professional, mobile first. Gives them a front door that matches the quality of their work.",
+    technologies: ["React", "Tailwind CSS", "Vite", "JavaScript", "SEO", "GoDaddy", "Vercel"],
+    image: "assets/roseauto.webp",
+    website: "https://www.roseautoservice.com",
+  },
+  {
+    id: 4,
+    title: "Geodesic Brasil Website",
+    category: "built",
+    description: "Sustainable geodesic architecture platform for Brazil",
+    about: "Inspired by the beauty of geodesic architecture, this platform showcases sustainable design tailored for Brazilian landscapes. I focused on balancing visuals with performance, using React, Vite, and Node.js to build a fast, flexible site with structure as unique as the subject matter.",
+    technologies: ["HTML", "CSS", "React.js", "JavaScript", "Vite", "Node.js", "TypeScript"],
+    image: "assets/geobrasil.webp",
+    website: "https://www.geodesicbrasil.com/",
+  },
+  {
+    id: 5,
+    title: "Local Artist Website",
+    category: "built",
+    description: "Chicana-inspired artist portfolio and cultural storytelling",
+    about: "Collaborated with a local artist to bring her Chicana-inspired work to life online. The site blends earthy visuals, cultural storytelling, and a nature-forward aesthetic. I used React, Tailwind, and Node.js to build a fast, flexible platform that showcases her portfolio while staying true to her creative voice.",
+    technologies: ["HTML", "Tailwind CSS", "React.js", "JavaScript", "Vite", "Node.js"],
+    image: "assets/chicana2.webp",
+    website: "https://chicanahummingbird.com/",
+  },
+  {
+    id: 9,
+    title: "Pearl Jam Official Website",
+    category: "qa",
+    description: "QA lead for a high-traffic artist platform with 750K+ users. Covered CMS workflows, multi-device regression, and Shopify payment flows across iOS, Android, and web.",
+    about: "QA lead for a high-traffic artist platform with 750K+ users. Covered CMS workflows, multi-device regression, and Shopify payment flows across iOS, Android, and web.",
+    technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "API Testing", "CMS Validation"],
+    testingFocus: ["Functional and regression testing", "Cross-browser coverage (Chrome, Safari, Firefox, Edge)", "CMS publishing and content workflows", "Tour dates and dynamic content checks", "Desktop and mobile breakpoint validation", "API response and error handling"],
+    image: "assets/pj-website.webp",
+    website: "https://pearljam.com/",
+  },
+  {
+    id: 10,
+    title: "Eric Church Website",
+    category: "qa",
+    description: "Mobile QA alongside frequent CMS and content releases. Validated layouts, links, and media across browsers and devices.",
+    about: "Mobile QA alongside frequent CMS and content releases. Validated layouts, links, and media across browsers and devices.",
+    technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "Jira", "CMS Validation"],
+    testingFocus: ["Functional and regression testing", "Cross-browser checks across Chrome, Safari, Firefox, and Edge", "Responsive layout validation at key breakpoints", "CMS publishing and content accuracy", "Login and account-related flows"],
+    image: "assets/ec-website.webp",
+    website: "https://www.ericchurch.com/",
+  },
+  {
+    id: 11,
+    title: "Eric Church Official App",
+    category: "qa",
+    description: "iOS and Android testing across builds delivered via TestFlight. Validated push notifications, in-app purchases, and tour date integrations across OS versions.",
+    about: "iOS and Android testing across builds delivered via TestFlight. Validated push notifications, in-app purchases, and tour date integrations across OS versions.",
+    technologies: ["iOS", "Android", "Functional Testing", "Playwright", "TestFlight"],
+    image: "assets/ec-app.webp",
+    website: "https://apps.apple.com/us/app/eric-church-official/id1436492159",
+  },
+  {
+    id: 12,
+    title: "Thomas Rhett Website",
+    category: "qa",
+    description: "Mobile and tablet responsiveness testing across iOS and Android. Laravel CMS QA. Achieved 26% measured usability improvement.",
+    about: "Mobile and tablet responsiveness testing across iOS and Android. Laravel CMS QA. Achieved 26% measured usability improvement.",
+    technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "Responsive Testing", "Performance Validation", "Jira", "CMS Validation"],
+    testingFocus: ["Functional and regression testing", "Responsive layout validation for key breakpoints", "Performance and basic load time checks", "E-commerce cart and checkout flows", "CMS publishing and content accuracy"],
+    image: "assets/thomasr-website.webp",
+    website: "https://www.thomasrhett.com/#/",
+  },
+  {
+    id: 13,
+    title: "Thomas Rhett Home Team App",
+    category: "qa",
+    description: "Native app QA on iOS and Android via TestFlight and Play Store builds. Validated notifications, member flows, and content updates.",
+    about: "Native app QA on iOS and Android via TestFlight and Play Store builds. Validated notifications, member flows, and content updates.",
+    technologies: ["Manual Testing", "Regression Testing", "Mobile Testing", "API Validation", "Jira"],
+    testingFocus: ["Build validation and smoke checks", "Login and authentication flows", "Push notification delivery and deep links", "Fan engagement and community features", "Media playback and in-app viewing"],
+    image: "assets/thomasr-app.webp",
+    website: "https://apps.apple.com/us/app/thomas-rhetts-home-team-app/id1275224693",
+  },
+  {
+    id: 14,
+    title: "Brandi Carlile Website",
+    category: "qa",
+    description: "Frontend and CMS testing across devices supporting 70K+ monthly visits. Ran accessibility audits against WCAG 2.1 using axe-core and VoiceOver.",
+    about: "Frontend and CMS testing across devices supporting 70K+ monthly visits. Ran accessibility audits against WCAG 2.1 using axe-core and VoiceOver.",
+    technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "Responsive Testing", "CMS Validation", "Jira"],
+    testingFocus: ["Functional and regression testing", "Cross-browser checks across Chrome, Safari, Firefox, and Edge", "Responsive layout validation on key breakpoints", "CMS publishing and content workflows", "E-commerce and shop flows", "Performance and basic load time checks"],
+    image: "assets/brandi-c-website.webp",
+    website: "https://www.brandicarlile.com/",
+  },
+  {
+    id: 15,
+    title: "ACE Parking App",
+    category: "qa",
+    description: "Mobile QA focused on transaction reliability and UX accuracy across iOS and Android.",
+    about: "Mobile QA focused on transaction reliability and UX accuracy across iOS and Android.",
+    technologies: ["Manual Testing", "Regression Testing", "Mobile Testing", "Functional Testing", "API Validation", "Jira"],
+    testingFocus: ["Build validation and smoke checks", "Reservation and booking flows", "Payment processing and receipt validation", "Map rendering and geolocation accuracy", "Pricing and availability consistency"],
+    image: "assets/aceparking-app.webp",
+    website: "https://www.aceparking.com/",
+  },
+  {
+    id: 16,
+    title: "Pride Study Website",
+    category: "qa",
+    description: "Accessibility, questionnaire logic, and data accuracy testing. Verified screen reader compatibility and form validation flows.",
+    about: "Accessibility, questionnaire logic, and data accuracy testing. Verified screen reader compatibility and form validation flows.",
+    technologies: ["Manual Testing", "Regression Testing", "Accessibility Testing", "Cross-browser Testing", "CMS Validation", "API Validation", "Jira"],
+    testingFocus: ["Functional and regression testing", "Accessibility validation for key user flows", "Multi-step questionnaire and survey logic", "Conditional branching and skip logic checks", "Form validation, errors, and edge cases"],
+    image: "assets/pridestudy.webp",
+    website: "https://play.google.com/store/apps/details?id=com.cliniv.perampanel&hl=en_US",
+  },
+  {
+    id: 21,
+    title: "Obagi Events",
+    category: "qa",
+    description: "Enterprise event app QA across iOS and iPad builds",
+    about: "I worked on Obagi Events for about 7–8 years as part of the QA team. Most builds shipped ahead of live events, so the app had to stay stable while people were on-site. I focused on schedules, speakers, login, navigation, alerts, and making sure each screen showed the right content at the right time.",
+    technologies: ["Manual QA", "Regression Testing", "Functional Testing", "API Testing", "iOS", "iPad"],
+    testingFocus: ["Build validation before event launches", "Agenda and scheduling rules", "Timezone handling and event start times", "Speaker profiles and image rendering", "Push notification delivery and routing", "iPad layout and split view checks"],
+    image: "assets/obagi-2.webp",
+    website: "https://apps.apple.com/us/app/obagi-events/id1613723546",
+  },
+  {
+    id: 24,
+    title: "ASPIRE Galderma Rewards",
+    category: "qa",
+    description: "Mobile QA across iOS and Android builds",
+    about: "Long term QA support over 4–5 years for Galderma's ASPIRE rewards app. Tested frequent builds, kept wallet balances and offers accurate, and made sure the UI stayed clean and predictable as features evolved.",
+    technologies: ["Manual QA", "Regression Testing", "Functional Testing", "API Testing", "iOS", "Android"],
+    testingFocus: ["Build validation and smoke checks", "Payment, wallet, and rewards flows", "Points earning and redemption logic", "Provider search and location accuracy", "Gift certificate purchase and redemption"],
+    image: "assets/aspire-1.webp",
+    website: "https://apps.apple.com/us/app/aspire-galderma-rewards/id1501759750",
+  },
+  {
+    id: 17,
+    title: "Eric Church Forums",
+    category: "qa",
+    description: "Community platform QA across functionality, performance, and integration",
+    about: "I handled QA for the Eric Church community forums through multiple updates and fan cycles. My work covered threads, posting, moderation tools, and search so fans could use the platform without friction. I also validated CMS-driven content, checked that integrations behaved as expected, and kept an eye on performance when tours or big announcements pushed traffic up.",
+    technologies: ["Manual Testing", "Functional Testing", "Regression Testing", "Performance Testing", "Usability Testing", "Compatibility Testing", "CMS Validation", "API Validation", "Jira"],
+    testingFocus: ["Smoke checks before smaller releases", "Thread creation, replies, and editing flows", "Roles, permissions, and moderation tools", "Search and filter accuracy for posts and topics", "Performance and load time checks during busy periods"],
+    image: "assets/ec-forums.webp",
+    website: "https://ericchurch.topfan.com/forums",
+  },
+  {
+    id: 18,
+    title: "To The Stars Website",
+    category: "qa",
+    description: "Navigation, responsive layout, and e-commerce QA",
+    about: "I worked on QA for the To The Stars site across multiple releases, helping keep navigation smooth and layouts consistent while new products and content rolled out. Most of the focus was on menus, responsive behavior, and store flows, plus checking that CMS updates for drops, news, and project pages rendered correctly on the front end.",
+    technologies: ["Manual Testing", "Regression Testing", "Cross-browser Testing", "Responsive Testing", "E-commerce Validation", "CMS Validation", "API Validation", "Jira"],
+    testingFocus: ["Functional and regression testing", "Responsive layout validation across key breakpoints", "Navigation and menu flow checks", "Cart and checkout e-commerce flows", "CMS publishing and content verification"],
+    image: "assets/to-the-stars-website.webp",
+    website: "https://tothestars.media/",
+  },
+  {
+    id: 22,
+    title: "Our Rescue Website",
+    category: "qa",
+    description: "Educational platform QA and questionnaire validation",
+    about: "I worked on QA for the Our Rescue website between 2018 and 2020. The focus was on educational content flows and the multi-step questionnaires that sat on top of them. I checked dynamic content tied to awareness campaigns, validated form logic end to end, and made sure data was processed and surfaced consistently across the platform.",
+    technologies: ["Manual Testing", "Regression Testing", "Accessibility Testing", "Cross-browser Testing", "Responsive Testing", "CMS Validation", "API Validation", "Jira"],
+    testingFocus: ["Functional and regression testing", "Multi-step questionnaire and form flows", "Conditional branching and error handling", "CMS publishing and content verification", "Basic accessibility checks on core flows"],
+    image: "assets/ourrescue-website.webp",
+    website: "https://ourrescue.org/",
+  },
+];
+
+/* ============ Reveal-on-scroll ============ */
+function useReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!ref.current) return;
+    const el = ref.current;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { el.classList.add("in"); io.unobserve(el); }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return ref;
+}
+
+/* ============ ICONS ============ */
+const Icon = {
+  sun: (p) => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...p}><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>,
+  moon: (p) => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>,
+  arrow: (p) => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M7 17L17 7M9 7h8v8"/></svg>,
+  close: (p) => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M6 6l12 12M18 6L6 18"/></svg>,
+  github: (p) => <svg viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 008 11c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6a11.5 11.5 0 008-11C23.5 5.65 18.35.5 12 .5z"/></svg>,
+  linkedin: (p) => <svg viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zM8.34 8h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 7v7.44h-4.56V15.4c0-1.7-.03-3.88-2.36-3.88-2.36 0-2.72 1.84-2.72 3.75V22H8.34V8z"/></svg>,
+  email: (p) => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...p}><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>,
+};
+
+/* ============ NAVBAR ============ */
+function Navbar({ theme, setTheme }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <nav className="navbar">
+      <div className="nav-inner">
+        <a href="#top" className="logo">alex<span className="dot">.</span>curiel</a>
+
+        <div className={"nav-links" + (open ? " open" : "")}>
+          {NAV.map((n) => (
+            <a key={n.label} href={n.href} className="nav-link" onClick={() => setOpen(false)}>{n.label}</a>
+          ))}
+        </div>
+
+        <div className="nav-right">
+          <button
+            className="theme-toggle"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Icon.sun /> : <Icon.moon />}
+            <span>{theme === "dark" ? "LIGHT" : "DARK"}</span>
+          </button>
+          <button className="hamburger" onClick={() => setOpen(!open)} aria-label="Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <path d="M3 6h18M3 12h18M3 18h18"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+/* ============ HERO ============ */
+function Hero({ audience, setAudience }) {
+  const chips = audience === "qa" ? HERO_CHIPS_QA : HERO_CHIPS_WEB;
+  const title = audience === "qa"
+    ? "Senior QA Engineer | Automation, Web & Mobile"
+    : "Web Developer | React, Shopify & Client Sites";
+  const subtitle = audience === "qa"
+    ? "I test the things other people build - and sometimes build them too."
+    : "I build fast, clean websites that clients can actually manage.";
+  const line1 = audience === "qa"
+    ? "I've broken more staging environments than I can count. That's the job. 10 years finding what engineers miss before 750K+ users find it first. Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile."
+    : "The Taco Garage is a headless Shopify build: React on the Storefront API, Tailwind, Node on Vercel, checkout still on Shopify. Other shipped work includes Geodesic Brasil (React, Vite, TypeScript), Astro Reminder (React, Tailwind, Framer Motion), Neuroplasticity Lab, Nonprofit Tree Planting Community, and Local Artist Website on React and Vite.";
+  const line2 = audience === "qa"
+    ? "I also build client websites when that is what the project needs."
+    : "Use the QA toggle for testing and accessibility; this view is the client sites I built in the browser.";
+
+  return (
+    <section id="top" className="hero">
+      <div className="hero-orb" />
+      <div className="hero-orb b" />
+      <div className="container hero-inner">
+        <div className="hero-grid">
+          <div>
+            <div className="hero-eyebrow eyebrow no-line">
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--accent)", display: "inline-block" }}/>
+              MEXICO CITY · AVAILABLE WORLDWIDE · REMOTE
+            </div>
+
+            <h1 className="font-display">Alejandro Curiel</h1>
+
+            <div className="audience-toggle" role="tablist">
+              <button className={audience === "qa" ? "active" : ""} onClick={() => setAudience("qa")}>QA &amp; Automation</button>
+              <button className={audience === "web" ? "active" : ""} onClick={() => setAudience("web")}>Web Development</button>
+            </div>
+
+            <h2 style={{ fontSize: "clamp(1.2rem, 2.4vw, 1.7rem)", fontWeight: 600, color: "var(--text-primary)", lineHeight: 1.25, marginBottom: "1rem", maxWidth: 620 }}>
+              {title}
+            </h2>
+            <p className="hero-subtitle">{subtitle}</p>
+            <p className="hero-body">{line1}</p>
+            <p className="hero-body" style={{ marginTop: "-1rem", marginBottom: "1.6rem" }}>{line2}</p>
+
+            <div className="chips">
+              {chips.map((c) => (
+                <span key={c} className="chip">{c}</span>
+              ))}
+            </div>
+
+            <div className="cta-row">
+              <a href="#projects" className="btn btn-primary">Explore My Work <Icon.arrow style={{ width: 14, height: 14 }}/></a>
+              <a href="#contact" className="btn btn-secondary">Contact Me</a>
+            </div>
+          </div>
+
+          <div>
+            <div className="portrait">
+              <img src="assets/portrait.png" alt="Alejandro Curiel" className="portrait-img" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentNode.querySelector('.img-placeholder').style.display = 'flex'; }}/>
+              <div className="img-placeholder" style={{ display: 'none', position: 'absolute', inset: 0 }}>portrait</div>
+              <div className="portrait-meta">
+                <span><span className="blink"/>AVAILABLE</span>
+                <span>EST. 2014</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-stats">
+          <div>
+            <div className="stat-num">10+</div>
+            <div className="stat-label">Years Experience</div>
+          </div>
+          <div>
+            <div className="stat-num">750K+</div>
+            <div className="stat-label">Releases Supported</div>
+          </div>
+          <div>
+            <div className="stat-num">CPACC</div>
+            <div className="stat-label">Certified</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ ABOUT ============ */
+function About() {
+  const ref = useReveal();
+  return (
+    <section id="about" ref={ref} className="reveal">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <span className="eyebrow">01 / About</span>
+            <h2>About Me</h2>
+          </div>
+          <p>QA contracts and web development clients. The same person, two outputs.</p>
+        </div>
+
+        <div className="about-grid">
+          <div className="about-body">
+            <p>{ABOUT_BODY}</p>
+            <div className="about-meta">
+              <div><span className="k">Based</span><strong>Mexico City, MX</strong></div>
+              <div><span className="k">Working</span><strong>Worldwide · Remote</strong></div>
+              <div><span className="k">Languages</span><strong>EN · ES · PT</strong></div>
+              <div><span className="k">Cert</span><strong>CPACC · WCAG 2.2</strong></div>
+            </div>
+          </div>
+
+          <div>
+            <div className="eyebrow" style={{ marginBottom: "1.4rem" }}>Skills</div>
+            <div className="skill-list">
+              {SKILLS.map((s) => (
+                <Skill key={s.label} {...s}/>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Skill({ label, pct }) {
+  const ref = useRef(null);
+  const [shown, setShown] = useState(false);
+  useEffect(() => {
+    if (!ref.current) return;
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { setShown(true); io.disconnect(); } }),
+      { threshold: 0.4 }
+    );
+    io.observe(ref.current);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <div className="skill" ref={ref}>
+      <span className="label">{label}</span>
+      <span className="pct">{pct}%</span>
+      <div className="bar"><span style={{ transform: `scaleX(${shown ? pct / 100 : 0})`, transition: "transform 1s cubic-bezier(0.22, 1, 0.36, 1)" }}/></div>
+    </div>
+  );
+}
+
+/* ============ PROJECTS ============ */
+function Projects({ open }) {
+  const ref = useReveal();
+  const [tab, setTab] = useState("all");
+  const list = useMemo(() => {
+    if (tab === "all") return PROJECTS;
+    return PROJECTS.filter((p) => p.category === tab);
+  }, [tab]);
+
+  return (
+    <section id="projects" ref={ref} className="reveal">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <span className="eyebrow">02 / Projects</span>
+            <h2>Projects.</h2>
+            <p style={{ marginTop: "0.8rem" }}>Explore my recent work in development and QA.</p>
+          </div>
+          <div className="proj-tabs">
+            {[["all", "All"], ["built", "Built"], ["qa", "QA"]].map(([k, l]) => (
+              <button key={k} className={tab === k ? "active" : ""} onClick={() => setTab(k)}>{l}</button>
+            ))}
+          </div>
+        </div>
+
+        <div className="projects-grid">
+          {list.map((p, i) => (
+            <button
+              key={p.id}
+              className="proj-card reveal in"
+              style={{ animationDelay: `${i * 0.06}s` }}
+              onClick={() => open(p)}
+            >
+              <div className="proj-thumb">
+                {p.image ? (
+                  <img src={p.image} alt={p.title} loading="lazy" onError={(e) => { e.currentTarget.style.display = 'none'; const ph = e.currentTarget.parentNode.querySelector('.img-placeholder'); if (ph) ph.style.display = 'flex'; }}/>
+                ) : null}
+                <div className="img-placeholder" style={{ display: p.image ? 'none' : 'flex', position: 'absolute', inset: 0 }}>{p.placeholder || p.title}</div>
+                <span className="proj-arrow"><Icon.arrow style={{ width: 14, height: 14 }}/></span>
+              </div>
+              <div className="proj-body">
+                <div className="proj-icon-row">
+                  <span className="proj-icon">{p.category === "qa" ? "QA" : "//"}</span>
+                  <span className="proj-cat">{p.category === "qa" ? "Quality Assurance" : "Frontend Build"}</span>
+                </div>
+                <div className="proj-title font-display">{p.title}</div>
+                <div className="proj-desc">{p.description}</div>
+                <div className="proj-tags">
+                  {p.technologies.slice(0, 4).map((t) => <span key={t} className="proj-tag">{t}</span>)}
+                </div>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ TECHNOLOGIES ============ */
+function Technologies() {
+  const ref = useReveal();
+  return (
+    <section id="technologies" ref={ref} className="reveal tech-section">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <span className="eyebrow">03 / Stack</span>
+            <h2>Technologies</h2>
+            <p style={{ marginTop: "0.8rem" }}>Here's the stack I build and test with. From modern frameworks to QA automation tools.</p>
+          </div>
+        </div>
+
+        {Object.entries(TECH).map(([cat, items]) => (
+          <div key={cat}>
+            <div className="tech-cat">{cat}</div>
+            <div className="tech-grid">
+              {items.map((it) => (
+                <div key={it.label} className="tech-item">
+                  <span className="tech-icon">{it.abbr}</span>
+                  <span className="tech-label">{it.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ============ EXPERIENCE ============ */
+function Experience() {
+  const ref = useReveal();
+  return (
+    <section id="experience" ref={ref} className="reveal">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <span className="eyebrow">04 / Track Record</span>
+            <h2>Experience &amp; Impact</h2>
+          </div>
+          <p>10 years across artist platforms, e-commerce, and the last gate before users see it.</p>
+        </div>
+        <div className="exp-list">
+          {EXPERIENCE.map((r) => (
+            <div key={r.title + r.year} className="exp-row">
+              <div className="exp-year">{r.year}</div>
+              <div>
+                <div className="exp-title font-display">{r.title}</div>
+                <div className="exp-company">{r.company}</div>
+                <ul className="exp-bullets">
+                  {r.bullets.map((b, i) => <li key={i}>{b}</li>)}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ CONTACT ============ */
+function Contact() {
+  const ref = useReveal();
+  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+  const [errMsg, setErrMsg] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("submitting");
+    setErrMsg("");
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+    };
+    try {
+      // Simulated /api/contact (Resend integration in production)
+      await new Promise((res) => setTimeout(res, 1100));
+      if (!data.email || !data.message) throw new Error("Something went wrong. Please try again.");
+      setStatus("success");
+    } catch (err) {
+      setErrMsg(err.message || "Failed to send message. Please try again.");
+      setStatus("error");
+    }
+  };
+
+  return (
+    <section id="contact" ref={ref} className="reveal contact">
+      <div className="container">
+        <div className="contact-inner">
+          <span className="eyebrow">05 / Get in touch</span>
+          <h2>Have a project in mind?</h2>
+          <p>Available for freelance and full-time roles. Working worldwide, remotely.</p>
+
+          {status === "success" ? (
+            <div className="contact-success">
+              <div className="success-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <h3 className="font-display">Thanks for reaching out!</h3>
+              <p>I'll get back to you as soon as possible.</p>
+              <button type="button" className="btn btn-secondary" onClick={() => setStatus("idle")} style={{ marginTop: "1.5rem" }}>Send another</button>
+            </div>
+          ) : (
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-row">
+                <div className="field">
+                  <label htmlFor="name">Name</label>
+                  <input type="text" id="name" name="name" placeholder="Your name"/>
+                </div>
+                <div className="field">
+                  <label htmlFor="email">Email <span className="req">*</span></label>
+                  <input type="email" id="email" name="email" required placeholder="your.email@example.com"/>
+                </div>
+              </div>
+              <div className="field">
+                <label htmlFor="message">Message <span className="req">*</span></label>
+                <textarea id="message" name="message" required rows={6} placeholder="Tell me about your project or just say hello..."/>
+              </div>
+              <button type="submit" className="btn btn-primary contact-submit" disabled={status === "submitting"}>
+                {status === "submitting" ? (<><span className="spinner"/> Sending...</>) : (<>Send Message <Icon.arrow style={{ width: 14, height: 14 }}/></>)}
+              </button>
+              {status === "error" ? (<div className="form-error">{errMsg}</div>) : null}
+            </form>
+          )}
+
+          <div className="socials">
+            <a className="social-btn" href="https://github.com" aria-label="GitHub"><Icon.github/></a>
+            <a className="social-btn" href="https://linkedin.com" aria-label="LinkedIn"><Icon.linkedin/></a>
+            <a className="social-btn" href="mailto:hello@alexcuriel.com" aria-label="Email"><Icon.email/></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ FOOTER ============ */
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container footer-row">
+        <div>© 2026 ALEJANDRO CURIEL</div>
+        <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center" }}>
+          <a href="#about">ABOUT</a>
+          <a href="#projects">WORK</a>
+          <a href="#contact">CONTACT</a>
+        </div>
+        <div className="right">REACT · VITE · TAILWIND · VERCEL</div>
+      </div>
+    </footer>
+  );
+}
+
+/* ============ MODAL ============ */
+function ProjectModal({ project, close }) {
+  useEffect(() => {
+    if (!project) return;
+    const onKey = (e) => { if (e.key === "Escape") close(); };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [project, close]);
+
+  if (!project) return null;
+  return (
+    <div className="modal-backdrop" onClick={close}>
+      <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-head">
+          <span className="eyebrow no-line" style={{ color: "var(--text-muted)" }}>
+            {project.category === "qa" ? "QUALITY ASSURANCE" : "FRONTEND BUILD"}
+          </span>
+          <button className="modal-close" onClick={close} aria-label="Close"><Icon.close/></button>
+        </div>
+
+        <div className="modal-body">
+          <div className="modal-image">
+            {project.image ? (
+              <img src={project.image} alt={project.title} onError={(e) => { e.currentTarget.style.display = 'none'; const ph = e.currentTarget.parentNode.querySelector('.img-placeholder'); if (ph) ph.style.display = 'flex'; }}/>
+            ) : null}
+            <div className="img-placeholder" style={{ display: project.image ? 'none' : 'flex' }}>{project.placeholder || project.title}</div>
+          </div>
+
+          <div className="modal-content">
+            <h2 className="font-display">{project.title}</h2>
+
+            <div className="modal-section">
+              <h4>About</h4>
+              <p>{project.about}</p>
+            </div>
+
+            {project.build ? (
+              <div className="modal-section">
+                <h4>Build</h4>
+                <p>{project.build}</p>
+              </div>
+            ) : null}
+
+            {project.testingFocus ? (
+              <div className="modal-section">
+                <h4>Testing Focus</h4>
+                <div className="modal-tags">
+                  {project.testingFocus.map((t) => <span key={t} className="proj-tag">{t}</span>)}
+                </div>
+              </div>
+            ) : null}
+
+            <div className="modal-section">
+              <h4>Technologies Used</h4>
+              <div className="modal-tags">
+                {project.technologies.map((t) => <span key={t} className="proj-tag">{t}</span>)}
+              </div>
+            </div>
+
+            {project.website ? (
+              <div className="modal-section">
+                <h4>Links</h4>
+                <a href={project.website} target="_blank" rel="noreferrer" className="modal-cta">
+                  Open Project <Icon.arrow style={{ width: 14, height: 14 }}/>
+                </a>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============ APP ============ */
+function App() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined") return "dark";
+    return localStorage.getItem("theme") || "dark";
+  });
+  const [audience, setAudience] = useState("qa");
+  const [active, setActive] = useState(null);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  return (
+    <>
+      <Navbar theme={theme} setTheme={setTheme}/>
+      <main>
+        <Hero audience={audience} setAudience={setAudience}/>
+        <About/>
+        <Projects open={setActive}/>
+        <Technologies/>
+        <Experience/>
+        <Contact/>
+      </main>
+      <Footer/>
+      <ProjectModal project={active} close={() => setActive(null)}/>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>

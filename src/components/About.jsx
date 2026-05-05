@@ -26,10 +26,13 @@ const About = () => {
             <p>{t("about.body")}</p>
             <div className="about-meta">
               <div><span className="k">BASED</span><strong>MEXICO CITY</strong></div>
-              <div><span className="k">FOCUS</span><strong>QA + WEB DEV</strong></div>
+              <div><span className="k">WORKING</span><strong>WORLDWIDE · REMOTE</strong></div>
+              <div><span className="k">LANGUAGES</span><strong>EN · ES · PT</strong></div>
+              <div><span className="k">CERT</span><strong>CPACC · WCAG 2.2</strong></div>
             </div>
           </div>
           <div className="skill-list">
+            <div className="eyebrow" style={{ marginBottom: "1rem" }}>SKILLS</div>
             {skills.map((s) => (
               <div className="skill" key={s.name}>
                 <span className="label">{s.name}</span>
