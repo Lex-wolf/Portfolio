@@ -1,58 +1,38 @@
 import { CONTACT } from "../constants";
-import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
-import { useHydrated } from "../context/HydrationContext";
 import { useLanguage } from "../context/LanguageContext";
 
 const Contact = () => {
-  const hydrated = useHydrated();
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="section-spacing border-b border-neutral-900">
-      <motion.h2
-        whileInView={hydrated ? { opacity: 1, y: 0 } : undefined}
-        initial={hydrated ? { opacity: 0, y: -100 } : false}
-        animate={!hydrated ? { opacity: 1, y: 0 } : undefined}
-        transition={{ duration: 0.6 }}
-        className="section-heading-spacing section-heading-tone text-center"
-        style={{ willChange: 'transform, opacity' }}
-      >
-        {t("contact.heading")}
-      </motion.h2>
-      <div className="space-y-4 text-center tracking-tighter">
-        <motion.p
-          whileInView={hydrated ? { opacity: 1, x: 0 } : undefined}
-          initial={hydrated ? { opacity: 0, x: -100 } : false}
-          animate={!hydrated ? { opacity: 1, x: 0 } : undefined}
-          transition={{ duration: 1 }}
-          className="mx-auto max-w-2xl text-xl text-base-soft sm:text-[25px]"
-        >
-          {t("contact.body")}
-        </motion.p>
-            <motion.a
-              href={"mailto:" + CONTACT.email}
-              className="body-link-tone break-all rounded-sm border-b border-white/20 px-2 py-1 text-2xl font-bold tracking-tight transition-all duration-300 ease-in-out hover:border-accent-cyan hover:text-accent-cyan hover:shadow-lg hover:shadow-accent-cyan/20 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:text-[30px]"
-              whileHover={{ 
-                scale: 1.02,
-                textShadow: "0 0 8px rgba(102, 252, 241, 0.3)"
-              }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {CONTACT.email}
-            </motion.a>
+    <section id="contact" className="contact reveal">
+      <div className="container">
+        <div className="contact-inner">
+          <div className="eyebrow">05 / Contact</div>
+          <h2>{t("contact.heading")}</h2>
+          <p>{t("contact.body")}</p>
+          <ContactForm />
+          <div className="socials">
+            <a className="social-btn" href={`mailto:${CONTACT.email}`} aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M3 7l9 6 9-6" />
+              </svg>
+            </a>
+            <a className="social-btn" href="https://github.com" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 008 11c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.3 1.2a11 11 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6a11.5 11.5 0 008-11C23.5 5.65 18.35.5 12 .5z" />
+              </svg>
+            </a>
+            <a className="social-btn" href="https://linkedin.com" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zM8.34 8h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 7v7.44h-4.56V15.4c0-1.7-.03-3.88-2.36-3.88-2.36 0-2.72 1.84-2.72 3.75V22H8.34V8z" />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
-
-      {/* Contact Form */}
-      <motion.div
-        whileInView={hydrated ? { opacity: 1, y: 0 } : undefined}
-        initial={hydrated ? { opacity: 0, y: 50 } : false}
-        animate={!hydrated ? { opacity: 1, y: 0 } : undefined}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="mt-10 md:mt-12"
-      >
-        <ContactForm />
-      </motion.div>
     </section>
   );
 };

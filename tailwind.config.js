@@ -1,67 +1,43 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
-      fontFamily: {
-        "dm-sans": ["DM Sans", "sans-serif"],
-        "syne": ["Syne", "sans-serif"],
-        "jakarta": ["Plus Jakarta Sans", "sans-serif"],
-      },
       colors: {
-        base: {
-          dark: '#0B0C10',
-          darker: '#1F2833',
-          light: '#C5C6C7',
-          soft: '#F0F0F0',
-          muted: '#D7DBE0',
-          subtle: '#8F98A3',
-        },
-        accent: {
-          cyan: '#66FCF1',
-          teal: '#45A29E',
-        },
+        'bg-primary': 'var(--bg-primary)',
+        'bg-surface': 'var(--bg-surface)',
+        'bg-elevated': 'var(--bg-elevated)',
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'text-muted': 'var(--text-muted)',
+        accent: 'var(--accent)',
+        'accent-dark': 'var(--accent-dark)',
+        'border-soft': 'var(--border)',
+        'tag-bg': 'var(--tag-bg)',
       },
-          animation: {
-            'gradient-move': 'moveGradient 20s ease infinite',
-            'gradient-move-text': 'gradientMove 8s ease infinite',
-            'gradient-shift': 'gradientShift 10s ease-in-out infinite',
-            'gradient-shift-subtle': 'gradientShiftSubtle 12s ease infinite alternate',
-            'float': 'float 6s ease-in-out infinite',
-            'glow': 'glow 2s ease-in-out infinite alternate',
-          },
-          keyframes: {
-            moveGradient: {
-              '0%': { 'background-position': '0% 50%' },
-              '50%': { 'background-position': '100% 50%' },
-              '100%': { 'background-position': '0% 50%' },
-            },
-            gradientMove: {
-              '0%': { 'background-position': '0% 50%' },
-              '50%': { 'background-position': '100% 50%' },
-              '100%': { 'background-position': '0% 50%' },
-            },
-            gradientShift: {
-              '0%': { 'background-position': '0% 50%' },
-              '50%': { 'background-position': '100% 50%' },
-              '100%': { 'background-position': '0% 50%' },
-            },
-            gradientShiftSubtle: {
-              '0%': { 'background-position': 'left top' },
-              '100%': { 'background-position': 'right bottom' },
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
-            },
-            glow: {
-              '0%': { 'box-shadow': '0 0 5px rgba(102, 252, 241, 0.2)' },
-              '100%': { 'box-shadow': '0 0 20px rgba(102, 252, 241, 0.4)' },
-            },
-          },
+      fontFamily: {
+        display: ['Syne', 'sans-serif'],
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+      },
+      fontSize: {
+        hero: ['clamp(3rem, 7vw, 6rem)', { lineHeight: '1.0', letterSpacing: '-0.02em' }],
+        h2: ['clamp(2rem, 4.5vw, 3.2rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
+      },
+      maxWidth: {
+        content: '1100px',
+      },
+      spacing: {
+        section: '5.5rem',
+      },
+      boxShadow: {
+        'accent-glow': '0 18px 40px var(--accent-glow)',
+      },
+      letterSpacing: {
+        'tightest-d': '-0.02em',
+      },
     },
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-  ],
+  plugins: [],
 };

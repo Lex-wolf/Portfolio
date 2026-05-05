@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -6,33 +6,50 @@ import Technologies from "./components/Technologies";
 import Experience from "./components/Experience";
 import ProjectsNew from "./components/ProjectsNew";
 import Contact from "./components/Contact";
-import { BackgroundSystem } from "./components/background/BackgroundSystem";
+import Footer from "./components/Footer";
 import { HydrationProvider } from "./context/HydrationContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import { AudienceViewProvider } from "./context/AudienceViewContext";
 
 const App = () => {
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll(".reveal"));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            entry.target.classList.add("reveal-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <HydrationProvider>
       <LanguageProvider>
-      <AudienceViewProvider>
-      <div className="relative min-h-0 w-full">
-        <BackgroundSystem />
-        <div className="relative z-10 overflow-x-hidden text-base-light antialiased selection:bg-accent-cyan selection:text-base-dark">
-          <div className="container mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-            <Navbar />
-            <main>
-              <Hero />
-              <About />
-              <Technologies />
-              <Experience />
-              <ProjectsNew />
-              <Contact />
-            </main>
+        <AudienceViewProvider>
+          <div className="relative min-h-0 w-full">
+            <div className="app-shell">
+              <Navbar />
+              <main>
+                <Hero />
+                <About />
+                <ProjectsNew />
+                <Technologies />
+                <Experience />
+                <Contact />
+              </main>
+              <Footer />
+            </div>
           </div>
-        </div>
-      </div>
-      </AudienceViewProvider>
+        </AudienceViewProvider>
       </LanguageProvider>
     </HydrationProvider>
   );

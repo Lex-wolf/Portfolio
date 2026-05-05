@@ -1,108 +1,60 @@
-import logo from "../assets/3.png";
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { useLanguage } from "../context/LanguageContext";
+import { useEffect, useState } from "react";
 
-const socialLinkClass =
-  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-lg text-base-light transition-all duration-300 ease-in-out hover:scale-110 hover:text-accent-cyan hover:drop-shadow-lg hover:drop-shadow-accent-cyan/30 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-base-dark sm:h-12 sm:w-12 sm:text-xl md:text-2xl";
+const SunIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+  </svg>
+);
+
+const MoonIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+  </svg>
+);
 
 const Navbar = () => {
-  const { lang, setLang } = useLanguage();
+  const [theme, setTheme] = useState("dark");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme") || "dark";
+    setTheme(storedTheme);
+    document.documentElement.dataset.theme = storedTheme;
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    localStorage.setItem("theme", nextTheme);
+    document.documentElement.dataset.theme = nextTheme;
+  };
 
   return (
-    <nav
-      aria-label="Primary"
-      className="mb-10 flex flex-col gap-4 sm:mb-16 sm:flex-row sm:items-center sm:justify-between sm:gap-4 md:mb-20"
-    >
-      <div className="flex min-w-0 shrink-0 items-center">
-        <a
-          href="#top"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          className="inline-flex items-center rounded-lg p-1 transition-all duration-300 ease-in-out hover:scale-110 focus:outline-none"
-        >
-          <img
-            className="h-9 w-9 object-contain sm:h-10 sm:w-10 md:h-11 md:w-11"
-            src={logo}
-            alt="Alejandro Curiel logo"
-            width={44}
-            height={44}
-          />
-        </a>
-      </div>
-
-      <div className="flex min-w-0 flex-wrap items-center justify-center gap-x-2 gap-y-2 sm:justify-end sm:gap-x-1 md:gap-x-2">
-        <a
-          href="https://www.linkedin.com/in/alejandro-curiel-4a16554a/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className={socialLinkClass}
-        >
-          <FaLinkedin className="pointer-events-none" aria-hidden />
+    <nav className="navbar">
+      <div className="nav-inner">
+        <a href="#top" className="logo">
+          alex<span className="dot">.</span>curiel
         </a>
 
-        <a
-          href="https://github.com/Lex-wolf"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className={socialLinkClass}
-        >
-          <FaGithub className="pointer-events-none" aria-hidden />
-        </a>
-        <a
-          href="https://x.com/MuCepher"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="X"
-          className={socialLinkClass}
-        >
-          <FaSquareXTwitter className="pointer-events-none" aria-hidden />
-        </a>
+        <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <a href="#projects" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
+          <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
+          <a href="#technologies" className="nav-link" onClick={() => setMenuOpen(false)}>Stack</a>
+          <a href="#experience" className="nav-link" onClick={() => setMenuOpen(false)}>Experience</a>
+          <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
+        </div>
 
-        <a
-          href="https://www.instagram.com/urban.shaman/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          className={socialLinkClass}
-        >
-          <FaInstagram className="pointer-events-none" aria-hidden />
-        </a>
-
-        <div
-          className="flex shrink-0 rounded-none border border-white/20"
-          role="group"
-          aria-label="Language"
-        >
-          <button
-            type="button"
-            onClick={() => setLang("en")}
-            className={`min-h-[44px] min-w-[3.25rem] flex-1 border-0 border-r border-white/20 px-3 py-2 text-xs font-medium uppercase tracking-wider transition-colors focus:outline-none focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-base-dark sm:min-w-[3.5rem] sm:text-sm ${
-              lang === "en"
-                ? "bg-[#62abae] text-base-dark"
-                : "bg-transparent text-neutral-500 hover:text-neutral-300"
-            }`}
-            aria-pressed={lang === "en"}
-            aria-label="English"
-          >
-            EN
+        <div className="nav-right">
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+            <span>{theme === "dark" ? "LIGHT" : "DARK"}</span>
           </button>
-          <button
-            type="button"
-            onClick={() => setLang("es")}
-            className={`min-h-[44px] min-w-[3.25rem] flex-1 border-0 px-3 py-2 text-xs font-medium uppercase tracking-wider transition-colors focus:outline-none focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-base-dark sm:min-w-[3.5rem] sm:text-sm ${
-              lang === "es"
-                ? "bg-[#62abae] text-base-dark"
-                : "bg-transparent text-neutral-500 hover:text-neutral-300"
-            }`}
-            aria-pressed={lang === "es"}
-            aria-label="Español"
-          >
-            ES
+
+          <button type="button" className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen((prev) => !prev)}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
           </button>
         </div>
       </div>

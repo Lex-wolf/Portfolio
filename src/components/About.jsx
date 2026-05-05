@@ -1,65 +1,44 @@
-import aboutImg from "../assets/work.webp";
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { useHydrated } from "../context/HydrationContext";
 import { useLanguage } from "../context/LanguageContext";
 
 const About = () => {
-  const hydrated = useHydrated();
   const { t } = useLanguage();
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const skills = [
+    { name: "Playwright Automation", pct: 95 },
+    { name: "Mobile QA · iOS / Android", pct: 92 },
+    { name: "WCAG 2.2 / Accessibility", pct: 90 },
+    { name: "React + Vite Frontends", pct: 88 },
+    { name: "GitHub Actions / CI", pct: 85 },
+    { name: "Shopify QA & Storefront API", pct: 82 },
+  ];
 
   return (
-    <section id="about" className="section-spacing border-b border-base-darker">
-      <h2 className="section-heading-spacing section-heading-tone text-center">
-        {t("about.heading")}
-      </h2>
-      <div className="flex flex-wrap gap-y-8 md:gap-y-10">
-            <motion.div
-              initial={hydrated ? { opacity: 0, x: -100 } : false}
-              animate={
-                !hydrated ? { opacity: 1, x: 0 } : hasAnimated ? { opacity: 1, x: 0 } : {}
-              }
-              transition={{ duration: 0.9 }}
-              onViewportEnter={() => setHasAnimated(true)}
-              className="w-full lg:w-1/2 lg:p-6"
-            >
-              <div className="flex items-center justify-center">
-                <motion.img
-                  className="rounded-2xl w-full max-w-md"
-                  src={aboutImg}
-                  alt={t("about.heading")}
-                  width={1280}
-                  height={852}
-                  sizes="(max-width: 1024px) 100vw, 28rem"
-                  loading="lazy"
-                  decoding="async"
-                  fetchPriority="low"
-                  whileHover={{
-                    scale: 1.02,
-                    boxShadow: "0 15px 30px rgba(102, 252, 241, 0.08)",
-                  }}
-                  transition={{ duration: 0.3 }}
-                />
-              </div>
-            </motion.div>
-        <motion.div
-          initial={hydrated ? { opacity: 0, x: 100 } : false}
-          animate={
-            !hydrated ? { opacity: 1, x: 0 } : hasAnimated ? { opacity: 1, x: 0 } : {}
-          }
-          transition={{ duration: 0.9 }}
-          onViewportEnter={() => setHasAnimated(true)}
-          className="w-full lg:w-1/2"
-        >
-          <div className="flex justify-center lg:justify-start">
-            <p
-              className="body-text-tone max-w-2xl pt-2 md:pt-4"
-            >
-              {t("about.body")}
-            </p>
+    <section id="about" className="about reveal">
+      <div className="container">
+        <div className="section-head">
+          <div>
+            <div className="eyebrow">01 / About</div>
+            <h2>{t("about.heading")}</h2>
           </div>
-        </motion.div>
+          <p>QA contracts and web development clients. The same person, two outputs.</p>
+        </div>
+        <div className="about-grid">
+          <div className="about-body">
+            <p>{t("about.body")}</p>
+            <div className="about-meta">
+              <div><span className="k">BASED</span><strong>MEXICO CITY</strong></div>
+              <div><span className="k">FOCUS</span><strong>QA + WEB DEV</strong></div>
+            </div>
+          </div>
+          <div className="skill-list">
+            {skills.map((s) => (
+              <div className="skill" key={s.name}>
+                <span className="label">{s.name}</span>
+                <span className="pct">{s.pct}%</span>
+                <div className="bar"><span style={{ width: `${s.pct}%` }} /></div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
