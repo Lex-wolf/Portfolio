@@ -223,6 +223,10 @@ section { padding: 5.5rem 0; }
 .proj-tabs button { background: transparent; color: var(--text-muted); border: none; padding: 0.5rem 1rem; border-radius: 999px; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit; transition: all 0.2s ease; }
 .proj-tabs button.active { background: var(--accent); color: #fff; }
 .tech-section { background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.tech-section .section-head h2 {
+  line-height: 1.12;
+  padding-bottom: 0.06em;
+}
 .tech-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.6rem; }
 @media (max-width: 900px) { .tech-grid { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 600px) { .tech-grid { grid-template-columns: repeat(3, 1fr); } }
