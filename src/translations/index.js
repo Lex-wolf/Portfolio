@@ -52,8 +52,8 @@ export const translations = {
       bisonExtra1: "",
       roles: [
         {
-          year: "2024 – Present",
-          title: "Software Engineering Consultant",
+          year: "Dec 2024 – Present",
+          title: "QA Automation Engineer | Freelance",
           company: "Bison Digital · Freelance",
           bullets: [
             "Built Playwright suites for regression and smoke testing, cutting QA cycles by 30%.",
@@ -63,22 +63,22 @@ export const translations = {
           ],
         },
         {
-          year: "2017 - 2024",
-          title: "Quality Assurance",
+          year: "Aug 2017 – Nov 2024",
+          title: "Software Test Engineer",
           company: "Analog Republic",
           bullets: [
-            "Led mobile QA across iOS and Android for artist platforms serving 750K+ users - Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile.",
+            "Led mobile QA across iOS and Android for artist platforms serving 750K+ users — Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile.",
             "Tested and validated CMS functionality and frontend layouts across web and mobile.",
             "Validated Shopify payment flows and backend integrations via Postman and SQL queries.",
             "Triaged defects and managed test cycles in JIRA and ClickUp across multi-sprint regression cycles.",
           ],
         },
         {
-          year: "2016 - 2017",
+          year: "Apr 2016 – Apr 2017",
           title: "Project Manager",
           company: "Analog Republic",
           bullets: [
-            "Managed timelines and client communication for music industry partnerships, coordinating between internal dev and external stakeholders.",
+            "Coordinated QA and development timelines using Agile methodology, cross-team communication, and client deliverable alignment during platform launches.",
           ],
         },
       ],
