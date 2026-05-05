@@ -153,8 +153,8 @@ const Hero = () => {
       className="border-b border-base-darker pb-8 pt-6 sm:pb-10 sm:pt-8 lg:-ml-6 lg:pt-10 xl:-ml-10 2xl:-ml-16"
     >
       <div className="flex flex-wrap items-center gap-y-10 lg:gap-x-12 xl:gap-x-16">
-        <div className="w-full lg:flex-1 lg:min-w-0 lg:max-w-3xl">
-          <div className="flex flex-col items-center lg:items-start">
+        <div className="w-full min-w-0 lg:flex-1 lg:max-w-3xl">
+          <div className="flex w-full min-w-0 flex-col items-center lg:items-start">
             <motion.h1
               id="hero-heading"
               variants={container(0)}

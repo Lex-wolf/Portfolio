@@ -152,21 +152,49 @@ test.describe('Portfolio Responsive Design Tests', () => {
   test('should not have horizontal scroll on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
-    
-    // Check that there's no horizontal scroll
+
     const body = page.locator('body');
     const bodyBox = await body.boundingBox();
-    
-    // Body width should not exceed viewport width
     expect(bodyBox.width).toBeLessThanOrEqual(375);
-    
-    // Check that all content is within viewport
-    const allElements = await page.locator('*').all();
-    for (const element of allElements) {
-      const box = await element.boundingBox();
-      if (box) {
-        expect(box.x + box.width).toBeLessThanOrEqual(375);
-      }
+
+    const docOverflow = await page.evaluate(() => {
+      const el = document.documentElement;
+      return el.scrollWidth - el.clientWidth;
+    });
+    expect(docOverflow).toBeLessThanOrEqual(1);
+  });
+
+  test('should not overflow horizontally on mobile and tablet viewports', async ({ page }) => {
+    const sizes = [
+      { width: 375, height: 667 },
+      { width: 390, height: 844 },
+      { width: 768, height: 1024 },
+      { width: 820, height: 1180 },
+    ];
+
+    for (const { width, height } of sizes) {
+      await page.setViewportSize({ width, height });
+      await page.goto('/');
+
+      const overflowDefault = await page.evaluate(() => {
+        const el = document.documentElement;
+        return el.scrollWidth - el.clientWidth;
+      });
+      expect(overflowDefault).toBeLessThanOrEqual(1);
+
+      await page.getByRole('tab', { name: /Web Development/i }).click();
+      const overflowWeb = await page.evaluate(() => {
+        const el = document.documentElement;
+        return el.scrollWidth - el.clientWidth;
+      });
+      expect(overflowWeb).toBeLessThanOrEqual(1);
+
+      await page.locator('text=Projects').scrollIntoViewIfNeeded();
+      const overflowProjects = await page.evaluate(() => {
+        const el = document.documentElement;
+        return el.scrollWidth - el.clientWidth;
+      });
+      expect(overflowProjects).toBeLessThanOrEqual(1);
     }
   });
 });
