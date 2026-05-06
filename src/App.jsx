@@ -13,29 +13,52 @@ import { AudienceViewProvider } from "./context/AudienceViewContext";
 
 const App = () => {
   useEffect(() => {
+    const reveal = (target) => {
+      target.classList.add("in", "reveal-in");
+    };
+
     const elements = Array.from(document.querySelectorAll(".reveal"));
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("in");
-            entry.target.classList.add("reveal-in");
+            reveal(entry.target);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      {
+        // iOS Safari: address bar / visual viewport can delay or skip callbacks with a single strict threshold.
+        threshold: [0, 0.08, 0.15],
+        rootMargin: "0px 0px 20% 0px",
+      }
     );
 
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    const runFallback = () => {
+      elements.forEach((el) => {
+        if (!el.classList.contains("in")) reveal(el);
+      });
+    };
+
+    let raf1 = requestAnimationFrame(() => {
+      elements.forEach((el) => observer.observe(el));
+    });
+
+    // Failsafe if IntersectionObserver never fires (mobile Safari edge cases).
+    const fallbackTimer = window.setTimeout(runFallback, 4500);
+
+    return () => {
+      cancelAnimationFrame(raf1);
+      window.clearTimeout(fallbackTimer);
+      observer.disconnect();
+    };
   }, []);
 
   return (
     <HydrationProvider>
       <LanguageProvider>
         <AudienceViewProvider>
-          <div className="relative min-h-0 w-full">
+          <div className="relative isolate z-[1] w-full min-h-full">
             <div className="app-shell">
               <Navbar />
               <main>
