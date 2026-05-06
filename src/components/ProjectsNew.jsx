@@ -1,14 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { projects } from "../data/projectsData";
 import { useLanguage } from "../context/LanguageContext";
 import ProjectModal from "./ProjectModal";
+
+/** Matches `@media (max-width: 720px)` in `index.css` (single-column project grid). */
+const MOBILE_BREAKPOINT_PX = 720;
+const MOBILE_PROJECT_PREVIEW_COUNT = 4;
 
 const ProjectsNew = () => {
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState("qa");
+  const [isMobileLayout, setIsMobileLayout] = useState(false);
+  const [mobileListExpanded, setMobileListExpanded] = useState(false);
   const filteredProjects = filter === "all" ? projects : projects.filter((p) => p.category === filter);
   const openProject = (project) => setSelectedProject(project);
+
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT_PX}px)`);
+    const sync = () => setIsMobileLayout(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
+  useEffect(() => {
+    setMobileListExpanded(false);
+  }, [filter]);
+
+  const mobileTruncates =
+    isMobileLayout && !mobileListExpanded && filteredProjects.length > MOBILE_PROJECT_PREVIEW_COUNT;
+  const visibleProjects = mobileTruncates
+    ? filteredProjects.slice(0, MOBILE_PROJECT_PREVIEW_COUNT)
+    : filteredProjects;
 
   return (
     <section id="projects" className="projects reveal">
@@ -27,7 +51,7 @@ const ProjectsNew = () => {
         </div>
 
         <div className="projects-grid">
-          {filteredProjects.map((p) => (
+          {visibleProjects.map((p) => (
             <button type="button" key={p.id} className="proj-card" onClick={() => openProject(p)}>
               <div className="proj-thumb">
                 <img src={p.image} alt={p.title} />
@@ -49,6 +73,28 @@ const ProjectsNew = () => {
             </button>
           ))}
         </div>
+
+        {isMobileLayout && filteredProjects.length > MOBILE_PROJECT_PREVIEW_COUNT ? (
+          <div className="proj-expand-row">
+            {mobileListExpanded ? (
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => setMobileListExpanded(false)}
+              >
+                {t("projects.loadLess")}
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => setMobileListExpanded(true)}
+              >
+                {t("projects.seeMore")}
+              </button>
+            )}
+          </div>
+        ) : null}
       </div>
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} t={t} />
     </section>

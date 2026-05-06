@@ -87,6 +87,7 @@ export const translations = {
       heading: "Projects.",
       subheading: "Explore my recent work in development and QA.",
       tabs: { all: "All", built: "Built", qa: "QA" },
+      seeMore: "See more",
       loadMore: "Load more",
       loadLess: "Load less",
       drawer: {
@@ -207,6 +208,7 @@ export const translations = {
       heading: "Proyectos.",
       subheading: "Explora mi trabajo reciente en desarrollo y QA.",
       tabs: { all: "Todos", built: "Desarrollo", qa: "QA" },
+      seeMore: "Ver más",
       loadMore: "Cargar más",
       loadLess: "Cargar menos",
       drawer: {
