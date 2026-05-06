@@ -162,9 +162,10 @@ section { padding: 5.5rem 0; }
 .hero h1 { font-size: clamp(3rem, 7vw, 6rem); line-height: 1.0; margin-bottom: 1.5rem; }
 .hero-subtitle { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 1.15rem; color: var(--text-muted); max-width: 480px; margin-bottom: 1.4rem; }
 .hero-body { font-size: 0.98rem; color: var(--text-secondary); max-width: 540px; margin-bottom: 2rem; line-height: 1.75; }
-.audience-toggle { display: inline-flex; padding: 4px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 999px; margin-bottom: 1.6rem; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; }
-.audience-toggle button { background: transparent; color: var(--text-muted); border: none; padding: 0.55rem 1.1rem; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: inherit; letter-spacing: inherit; text-transform: inherit; transition: all 0.25s ease; min-height: 36px; }
+.audience-toggle { display: inline-flex; flex-wrap: wrap; max-width: 100%; padding: 4px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 999px; margin-bottom: 1.6rem; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; }
+.audience-toggle button { background: transparent; color: var(--text-muted); border: none; padding: 0.55rem 1.1rem; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: inherit; letter-spacing: inherit; text-transform: inherit; transition: all 0.25s ease; min-height: 36px; max-width: 100%; }
 .audience-toggle button.active { background: var(--accent); color: #fff; }
+.proj-tabs { display: inline-flex; flex-wrap: wrap; max-width: 100%; padding: 4px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; }
 .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
 .chip { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.05em; padding: 0.4rem 0.8rem; border-radius: 999px; background: var(--tag-bg); color: var(--text-secondary); border: 1px solid transparent; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 0.85rem; }
@@ -235,7 +236,6 @@ section { padding: 5.5rem 0; }
   border: 1px solid rgba(161,204,220,0.25);
   white-space: nowrap;
 }
-.proj-tabs { display: inline-flex; padding: 4px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; }
 .proj-tabs button { background: transparent; color: var(--text-muted); border: none; padding: 0.5rem 1rem; border-radius: 999px; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit; transition: all 0.2s ease; }
 .proj-tabs button.active { background: var(--accent); color: #fff; }
 .tech-section { background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -311,6 +311,18 @@ section { padding: 5.5rem 0; }
 .footer-row .right { text-align: right; }
 .footer-row a:hover { color: var(--accent); }
 @media (max-width: 720px) { .footer-row { grid-template-columns: 1fr; text-align: center; gap: 0.6rem; } .footer-row .right { text-align: center; } }
+@media (max-width: 480px) {
+  .audience-toggle {
+    width: 100%;
+    border-radius: 16px;
+  }
+  .audience-toggle button {
+    flex: 1 1 48%;
+    min-width: 0;
+    text-align: center;
+    padding: 0.55rem 0.75rem;
+  }
+}
 .modal-backdrop { position: fixed; inset: 0; z-index: 100; background: color-mix(in srgb, #000 70%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; justify-content: flex-end; animation: fadein 0.3s ease; }
 @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 .modal-panel { width: min(640px, 100%); height: 100%; background: var(--bg-primary); border-left: 1px solid var(--border); overflow-y: auto; animation: slidein 0.4s cubic-bezier(0.22, 1, 0.36, 1); }

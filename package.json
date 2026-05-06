@@ -26,6 +26,7 @@
     "three": "^0.160.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
     "@playwright/test": "^1.56.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",

@@ -1,7 +1,18 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 test.describe('Portfolio Accessibility Tests', () => {
+  test('should not have WCAG A accessibility violations', async ({ page }) => {
+    await page.goto('/');
+
+    const accessibilityScanResults = await new AxeBuilder({ page })
+      .withTags(['wcag2a'])
+      .analyze();
+
+    expect(accessibilityScanResults.violations).toEqual([]);
+  });
+
   test('should have proper heading hierarchy', async ({ page }) => {
     await page.goto('/');
     

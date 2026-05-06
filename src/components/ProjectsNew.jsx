@@ -6,7 +6,7 @@ import ProjectModal from "./ProjectModal";
 const ProjectsNew = () => {
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState(null);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("qa");
   const filteredProjects = filter === "all" ? projects : projects.filter((p) => p.category === filter);
   const openProject = (project) => setSelectedProject(project);
 
