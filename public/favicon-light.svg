@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="alex curiel">
+  <!-- Light theme tokens from src/index.css [data-theme="light"] -->
+  <rect width="32" height="32" rx="8" fill="#D8D7D2"/>
+  <rect x="5" y="5" width="12" height="2" rx="1" fill="#9E291E"/>
+  <rect x="5" y="9" width="22" height="5" rx="1.5" fill="#182B30"/>
+  <rect
+    x="4"
+    y="17"
+    width="24"
+    height="11"
+    rx="5.5"
+    fill="#FFFFFF"
+    stroke="#182B30"
+    stroke-opacity="0.14"
+    stroke-width="0.75"
+  />
+  <rect x="5.5" y="18.25" width="12.5" height="8.5" rx="4.25" fill="#9E291E"/>
+</svg>

@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 
+function applyThemeFavicon(theme) {
+  const el = document.getElementById("portfolio-favicon");
+  if (!el) return;
+  el.href = theme === "light" ? "/favicon-light.svg" : "/favicon-dark.svg";
+}
+
 const SunIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="4" />
@@ -21,6 +27,7 @@ const Navbar = () => {
     const storedTheme = localStorage.getItem("theme") || "dark";
     setTheme(storedTheme);
     document.documentElement.dataset.theme = storedTheme;
+    applyThemeFavicon(storedTheme);
   }, []);
 
   const toggleTheme = () => {
@@ -28,6 +35,7 @@ const Navbar = () => {
     setTheme(nextTheme);
     localStorage.setItem("theme", nextTheme);
     document.documentElement.dataset.theme = nextTheme;
+    applyThemeFavicon(nextTheme);
   };
 
   return (

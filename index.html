@@ -2,7 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" id="portfolio-favicon" href="/favicon-dark.svg" type="image/svg+xml" />
+    <script>
+      (function () {
+        try {
+          var el = document.getElementById("portfolio-favicon");
+          if (el && (localStorage.getItem("theme") || "dark") === "light") {
+            el.setAttribute("href", "/favicon-light.svg");
+          }
+        } catch (_) {}
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />

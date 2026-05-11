@@ -1,15 +1,28 @@
 import { useLanguage } from "../context/LanguageContext";
+import { useAudienceView } from "../context/AudienceViewContext";
+
+const SKILLS_QA = [
+  { name: "Playwright Automation", pct: 95 },
+  { name: "Mobile QA · iOS / Android", pct: 92 },
+  { name: "WCAG 2.2 / Accessibility", pct: 90 },
+  { name: "API testing · Postman", pct: 88 },
+  { name: "GitHub Actions / CI", pct: 85 },
+  { name: "Shopify QA & Storefront API", pct: 82 },
+];
+
+const SKILLS_WEB = [
+  { name: "React + Vite · production SPAs", pct: 92 },
+  { name: "TypeScript", pct: 90 },
+  { name: "Tailwind & responsive UI", pct: 88 },
+  { name: "Shopify Storefront API & themes", pct: 86 },
+  { name: "Node.js · scripting & APIs", pct: 84 },
+  { name: "GitHub Actions / Vercel deploys", pct: 82 },
+];
 
 const About = () => {
   const { t } = useLanguage();
-  const skills = [
-    { name: "Playwright Automation", pct: 95 },
-    { name: "Mobile QA · iOS / Android", pct: 92 },
-    { name: "WCAG 2.2 / Accessibility", pct: 90 },
-    { name: "React + Vite Frontends", pct: 88 },
-    { name: "GitHub Actions / CI", pct: 85 },
-    { name: "Shopify QA & Storefront API", pct: 82 },
-  ];
+  const { audience } = useAudienceView();
+  const skills = audience === "web" ? SKILLS_WEB : SKILLS_QA;
 
   return (
     <section id="about" className="about reveal">

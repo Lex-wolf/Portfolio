@@ -44,6 +44,21 @@ test.describe('Portfolio Components Tests', () => {
     await expect(page.locator('text=I\'ve spent 10 years breaking things')).toBeVisible();
   });
 
+  test('About skills bars follow QA vs Web audience tab', async ({ page }) => {
+    await page.goto('/');
+    const about = page.locator('#about');
+    await about.scrollIntoViewIfNeeded();
+    await expect(about.getByText('Playwright Automation')).toBeVisible();
+    await expect(about.getByText('React + Vite · production SPAs')).not.toBeVisible();
+
+    await page.getByRole('tab', { name: /Web Development/i }).click();
+    await expect(about.getByText('React + Vite · production SPAs')).toBeVisible();
+    await expect(about.getByText('Playwright Automation')).not.toBeVisible();
+
+    await page.getByRole('tab', { name: /QA & Automation/i }).click();
+    await expect(about.getByText('Playwright Automation')).toBeVisible();
+  });
+
   test('Technologies section should display tech stack', async ({ page }) => {
     await page.goto('/');
     
