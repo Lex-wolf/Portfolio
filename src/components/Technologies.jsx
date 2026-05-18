@@ -18,6 +18,7 @@ const Technologies = () => {
       name: "QA & Automation",
       items: [
         { abbr: "Pw", name: "Playwright" },
+        { abbr: "Ap", name: "Appium" },
         { abbr: "Pm", name: "Postman" },
         { abbr: "Gh", name: "GitHub Actions" },
         { abbr: "Jr", name: "JIRA" },
