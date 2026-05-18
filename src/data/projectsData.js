@@ -29,6 +29,7 @@ import obagi4 from "../assets/obagi-4.webp";
 import obagi5 from "../assets/obagi-5.webp";
 import obagi6 from "../assets/obagi-6.webp";
 import ourRescueWebsite from "../assets/ourrescue-website.webp";
+import goldEvents from "../assets/gold-events.webp";
 
 // Updated: Local Artist Website now uses chicana2.png
 export const projects = [
@@ -43,6 +44,27 @@ export const projects = [
     technologies: ["HTML", "CSS", "JavaScript", "Canvas API", "Vercel"],
     image: "https://placehold.co/800x450/111118/c8f0a0?text=Neuroplasticity+Lab",
     website: "https://neuroplasticity.vercel.app/#types",
+  },
+  {
+    id: 25,
+    title: "GOLD Events",
+    category: "built",
+    description: "The client had a locked Wix site with no real data layer.",
+    about:
+      "The client had a locked Wix site with no real data layer. I rebuilt it from scratch in React and Vite, replaced Wix entirely with a Supabase backend — 7 form flows each feeding their own database table — and built a custom admin dashboard so the client owns and manages all their data directly. Includes Clerk auth on the admin route, a staging-to-production deployment workflow, and a brand-consistent luxury design across 15+ pages.",
+    technologies: [
+      "React 18",
+      "Vite",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+      "Clerk",
+      "Resend",
+      "Vercel",
+      "React Router",
+    ],
+    image: goldEvents,
+    website: "https://www.goldevents.gold",
   },
   {
     id: 20,
