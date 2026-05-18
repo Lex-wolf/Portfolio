@@ -7,13 +7,29 @@ import ProjectModal from "./ProjectModal";
 const MOBILE_BREAKPOINT_PX = 720;
 const MOBILE_PROJECT_PREVIEW_COUNT = 4;
 
+/** Older personal projects — always shown last (must match `projectsData.js` titles). */
+const BOTTOM_PROJECT_TITLES = new Set(["Portfolio Website", "Weather App", "To Do App"]);
+const BOTTOM_PROJECT_ORDER = ["Portfolio Website", "Weather App", "To Do App"];
+
+const compareProjects = (a, b) => {
+  const aBottom = BOTTOM_PROJECT_TITLES.has(a.title);
+  const bBottom = BOTTOM_PROJECT_TITLES.has(b.title);
+  if (aBottom !== bBottom) return aBottom ? 1 : -1;
+  if (aBottom && bBottom) {
+    return BOTTOM_PROJECT_ORDER.indexOf(a.title) - BOTTOM_PROJECT_ORDER.indexOf(b.title);
+  }
+  return b.id - a.id;
+};
+
 const ProjectsNew = () => {
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState("qa");
   const [isMobileLayout, setIsMobileLayout] = useState(false);
   const [mobileListExpanded, setMobileListExpanded] = useState(false);
-  const filteredProjects = filter === "all" ? projects : projects.filter((p) => p.category === filter);
+  const filteredProjects = (filter === "all" ? projects : projects.filter((p) => p.category === filter))
+    .slice()
+    .sort(compareProjects);
   const openProject = (project) => setSelectedProject(project);
 
   useEffect(() => {

@@ -266,8 +266,8 @@ section { padding: 5.5rem 0; }
 .tech-item:hover .tech-label { color: var(--accent); }
 .tech-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 600; color: var(--text-primary); background: var(--tag-bg); border-radius: 8px; }
 .tech-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.05em; color: var(--text-secondary); transition: color 0.3s ease; text-align: center; }
-.tech-cat { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--text-muted); margin-bottom: 0.85rem; margin-top: 1.6rem; }
-.tech-cat:first-child { margin-top: 0; }
+.tech-cat { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--text-muted); margin-bottom: 0.85rem; }
+.tech-group + .tech-group { margin-top: 3rem; }
 .exp-list { display: flex; flex-direction: column; gap: 1rem; }
 .exp-row { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding: 1.8rem 0; border-top: 1px solid var(--border); }
 .exp-row:last-child { border-bottom: 1px solid var(--border); }

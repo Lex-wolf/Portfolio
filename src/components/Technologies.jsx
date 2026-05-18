@@ -33,25 +33,15 @@ const Technologies = () => {
       ],
     },
     {
-      name: "Backend & Integrations",
+      name: "Tools & Deployment",
       items: [
         { abbr: "Sh", name: "Shopify" },
         { abbr: "Sa", name: "Storefront API" },
         { abbr: "Sb", name: "Supabase" },
         { abbr: "Sq", name: "SQL" },
-      ],
-    },
-    {
-      name: "DevOps & Deployment",
-      items: [
         { abbr: "Ve", name: "Vercel" },
         { abbr: "Cf", name: "Cloudflare" },
         { abbr: "Gh", name: "GitHub Actions" },
-      ],
-    },
-    {
-      name: "Project Management",
-      items: [
         { abbr: "Jr", name: "JIRA" },
         { abbr: "Cu", name: "ClickUp" },
       ],
@@ -69,7 +59,7 @@ const Technologies = () => {
           <p>{t("technologies.subheading")}</p>
         </div>
         {categories.map((cat) => (
-          <div key={cat.name}>
+          <div className="tech-group" key={cat.name}>
             <div className="tech-cat">{cat.name}</div>
             <div className="tech-grid">
               {cat.items.map((item) => (
