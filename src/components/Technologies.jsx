@@ -12,6 +12,7 @@ const Technologies = () => {
         { abbr: "Ts", name: "TypeScript" },
         { abbr: "Js", name: "JavaScript" },
         { abbr: "Nd", name: "Node.js" },
+        { abbr: "Fm", name: "Framer Motion" },
       ],
     },
     {
@@ -21,31 +22,37 @@ const Technologies = () => {
         { abbr: "Ap", name: "Appium" },
         { abbr: "Pm", name: "Postman" },
         { abbr: "Gh", name: "GitHub Actions" },
-        { abbr: "Jr", name: "JIRA" },
-        { abbr: "Cu", name: "ClickUp" },
         { abbr: "Tf", name: "TestFlight" },
-      ],
-    },
-    {
-      name: "Accessibility",
-      items: [
         { abbr: "Ax", name: "axe-core" },
         { abbr: "Vo", name: "VoiceOver" },
         { abbr: "Lh", name: "Lighthouse" },
         { abbr: "Wc", name: "WCAG 2.2" },
         { abbr: "Cp", name: "CPACC" },
         { abbr: "Sc", name: "Screen Readers" },
+        { abbr: "Xc", name: "Xcode" },
       ],
     },
     {
-      name: "Backend",
+      name: "Backend & Integrations",
       items: [
         { abbr: "Sh", name: "Shopify" },
         { abbr: "Sa", name: "Storefront API" },
+        { abbr: "Sb", name: "Supabase" },
         { abbr: "Sq", name: "SQL" },
-        { abbr: "Xc", name: "Xcode" },
+      ],
+    },
+    {
+      name: "DevOps & Deployment",
+      items: [
         { abbr: "Ve", name: "Vercel" },
-        { abbr: "Fm", name: "Framer Motion" },
+        { abbr: "Gh", name: "GitHub Actions" },
+      ],
+    },
+    {
+      name: "Project Management",
+      items: [
+        { abbr: "Jr", name: "JIRA" },
+        { abbr: "Cu", name: "ClickUp" },
       ],
     },
   ];
@@ -65,7 +72,7 @@ const Technologies = () => {
             <div className="tech-cat">{cat.name}</div>
             <div className="tech-grid">
               {cat.items.map((item) => (
-                <div className="tech-item" key={item.name}>
+                <div className="tech-item" key={`${cat.name}-${item.name}`}>
                   <div className="tech-icon">{item.abbr}</div>
                   <div className="tech-label">{item.name}</div>
                 </div>
