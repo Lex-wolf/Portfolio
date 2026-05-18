@@ -45,6 +45,7 @@ const Technologies = () => {
       name: "DevOps & Deployment",
       items: [
         { abbr: "Ve", name: "Vercel" },
+        { abbr: "Cf", name: "Cloudflare" },
         { abbr: "Gh", name: "GitHub Actions" },
       ],
     },
