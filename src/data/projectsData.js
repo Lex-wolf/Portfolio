@@ -30,6 +30,7 @@ import obagi5 from "../assets/obagi-5.webp";
 import obagi6 from "../assets/obagi-6.webp";
 import ourRescueWebsite from "../assets/ourrescue-website.webp";
 import goldEvents from "../assets/gold-events.webp";
+import neuroplasticityLab from "../assets/neuroplasticity-lab.webp";
 
 // Updated: Local Artist Website now uses chicana2.png
 export const projects = [
@@ -63,7 +64,7 @@ export const projects = [
     about: "A one-day experimental build exploring neuroplasticity through interactive design and immersive UI. The project focuses on clean typography, animated sections, and a modern dark interface inspired by scientific storytelling.",
     build: "Built in a focused one-day sprint. Designed and developed from scratch to explore interactive storytelling and scientific concepts through modern frontend tools.",
     technologies: ["HTML", "CSS", "JavaScript", "Canvas API", "Vercel"],
-    image: "https://placehold.co/800x450/111118/c8f0a0?text=Neuroplasticity+Lab",
+    image: neuroplasticityLab,
     website: "https://neuroplasticity.vercel.app/#types",
   },
   {
