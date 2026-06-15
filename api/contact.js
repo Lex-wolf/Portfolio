@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { normalizeContactPayload } from '../src/utils/contactPayload.js';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -7,19 +8,20 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, message } = req.body;
-
-  if (!email || !message) {
-    return res.status(400).json({ error: 'Email and message are required' });
+  const normalized = normalizeContactPayload(req.body);
+  if (normalized.error) {
+    return res.status(400).json({ error: normalized.error });
   }
+
+  const { payload, subject, text } = normalized;
 
   try {
     await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: process.env.CONTACT_EMAIL,
-      replyTo: email,
-      subject: `Portfolio message from ${name || email}`,
-      text: `Name: ${name || 'Not provided'}\nEmail: ${email}\n\n${message}`,
+      replyTo: payload.email,
+      subject,
+      text,
     });
 
     return res.status(200).json({ success: true });

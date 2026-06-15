@@ -63,7 +63,8 @@
 [data-theme="light"] .exp-row { border-color: rgba(24,43,48,0.14); }
 [data-theme="light"] .contact-form { background: #EEEDEA; border-color: rgba(24,43,48,0.10); }
 [data-theme="light"] .field input,
-[data-theme="light"] .field textarea { background: #fff; border-color: rgba(24,43,48,0.14); color: #182B30; }
+[data-theme="light"] .field textarea,
+[data-theme="light"] .field select { background: #fff; border-color: rgba(24,43,48,0.14); color: #182B30; }
 [data-theme="light"] .contact-success { background: #EEEDEA; border-color: rgba(24,43,48,0.10); }
 [data-theme="light"] .navbar,
 [data-theme="light"] .footer,
@@ -300,9 +301,35 @@ section { padding: 5.5rem 0; }
 .field { display: flex; flex-direction: column; gap: 0.5rem; }
 .field label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--text-secondary); }
 .field .req { color: var(--accent); }
-.field input, .field textarea { width: 100%; padding: 0.85rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; transition: border-color 0.2s ease, box-shadow 0.2s ease; resize: none; }
+.field input, .field textarea, .field select { width: 100%; padding: 0.85rem 1rem; background: var(--bg-primary); border: 1px solid var(--border); border-radius: 8px; color: var(--text-primary); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; transition: border-color 0.2s ease, box-shadow 0.2s ease; resize: none; }
+.field select {
+  appearance: none;
+  padding-right: 2.75rem;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2388A0A8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+.field select:invalid { color: var(--text-muted); }
+.field select option { color: var(--text-primary); background: var(--bg-surface); }
 .field input::placeholder, .field textarea::placeholder { color: var(--text-muted); opacity: 0.7; }
-.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+.field-conditional {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  margin-top: -0.35rem;
+  transition: grid-template-rows 0.28s ease, opacity 0.22s ease, margin-top 0.28s ease;
+  pointer-events: none;
+}
+.field-conditional.is-visible {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 0;
+  pointer-events: auto;
+}
+.field-conditional-inner { overflow: hidden; min-height: 0; }
+.field-conditional-fields { display: flex; flex-direction: column; gap: 1.1rem; }
 .contact-submit { align-self: stretch; min-height: 52px; margin-top: 0.4rem; }
 .contact-submit:disabled { opacity: 0.7; cursor: not-allowed; }
 .spinner { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.4); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; display: inline-block; }

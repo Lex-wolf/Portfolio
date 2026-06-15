@@ -147,6 +147,56 @@ test.describe('Portfolio Components Tests', () => {
     await expect(page.locator('text=info@alexcuriel.com')).toBeVisible();
   });
 
+  test('Contact form shows inquiry type and conditional fields', async ({ page }) => {
+    await page.goto('/');
+    await page.locator('#contact').scrollIntoViewIfNeeded();
+
+    const inquirySelect = page.locator('#contact-inquiry-type');
+    await expect(inquirySelect).toBeVisible();
+    await expect(page.locator('label[for="contact-inquiry-type"]')).toContainText(
+      'What are you contacting me about?',
+    );
+
+    await inquirySelect.selectOption('employment');
+    await expect(page.locator('#contact-employer-company')).toBeVisible();
+    await expect(page.locator('#contact-position-title')).toBeVisible();
+    await expect(page.locator('#contact-role-type')).toBeVisible();
+    await expect(page.locator('#contact-business-name')).toBeHidden();
+
+    await inquirySelect.selectOption('project');
+    await expect(page.locator('#contact-business-name')).toBeVisible();
+    await expect(page.locator('#contact-project-type')).toBeVisible();
+    await expect(page.locator('#contact-employer-company')).toBeHidden();
+  });
+
+  test('Contact form validates required inquiry type on desktop', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto('/');
+    await page.locator('#contact').scrollIntoViewIfNeeded();
+
+    await page.locator('#contact-name').fill('Test User');
+    await page.locator('#contact-email').fill('test@example.com');
+    await page.locator('#contact-message').fill('Hello from Playwright validation test.');
+    await page.locator('.contact-submit').click();
+
+    const inquirySelect = page.locator('#contact-inquiry-type');
+    await expect(inquirySelect).toBeFocused();
+  });
+
+  test('Contact form layout works on mobile', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/');
+    await page.locator('#contact').scrollIntoViewIfNeeded();
+
+    await expect(page.locator('#contact-inquiry-type')).toBeVisible();
+    await expect(page.locator('#contact-message')).toBeVisible();
+    await expect(page.locator('.contact-submit')).toBeVisible();
+
+    await page.locator('#contact-inquiry-type').selectOption('general');
+    await expect(page.locator('#contact-employer-company')).toBeHidden();
+    await expect(page.locator('#contact-business-name')).toBeHidden();
+  });
+
   test('Web project external link is available from the drawer', async ({ page }) => {
     await page.goto('/');
 

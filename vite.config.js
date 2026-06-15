@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { Resend } from 'resend'
+import { normalizeContactPayload } from './src/utils/contactPayload.js'
 
 async function readJsonBody(req) {
   const chunks = []
@@ -22,13 +23,16 @@ function contactApiDevPlugin() {
         }
 
         try {
-          const { name, email, message } = await readJsonBody(req)
-          if (!email || !message) {
+          const body = await readJsonBody(req)
+          const normalized = normalizeContactPayload(body)
+          if (normalized.error) {
             res.statusCode = 400
             res.setHeader('Content-Type', 'application/json')
-            res.end(JSON.stringify({ error: 'Email and message are required' }))
+            res.end(JSON.stringify({ error: normalized.error }))
             return
           }
+
+          const { payload, subject, text } = normalized
 
           const apiKey = process.env.RESEND_API_KEY
           const toEmail = process.env.CONTACT_EMAIL
@@ -44,9 +48,9 @@ function contactApiDevPlugin() {
           await resend.emails.send({
             from: 'Portfolio Contact <onboarding@resend.dev>',
             to: toEmail,
-            replyTo: email,
-            subject: `Portfolio message from ${name || email}`,
-            text: `Name: ${name || 'Not provided'}\nEmail: ${email}\n\n${message}`,
+            replyTo: payload.email,
+            subject,
+            text,
           })
 
           res.statusCode = 200
