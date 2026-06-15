@@ -31,10 +31,30 @@ import obagi6 from "../assets/obagi-6.webp";
 import ourRescueWebsite from "../assets/ourrescue-website.webp";
 import goldEvents from "../assets/gold-events.webp";
 import neuroplasticityLab from "../assets/neuroplasticity-lab.webp";
+import axeThroCo from "../assets/axe-throco.webp";
 
 // Updated: Local Artist Website now uses chicana2.png
 export const projects = [
   // Frontend Projects
+  {
+    id: 26,
+    title: "Axe Thro Co",
+    category: "built",
+    description: "Full-site remake of San Diego's axe throwing venue — bold, fast, and built to convert.",
+    about:
+      "Axe Thro Co needed a site that matched the energy of the venue: high-impact visuals, clear booking paths, and mobile-first performance. I rebuilt the full marketing site from scratch in Next.js with Tailwind CSS v4 — static export on Cloudflare Pages, GA4 conversion tracking on every Book Now CTA, and a Resend-powered contact form via Cloudflare Pages Functions. Twelve lanes, group bookings, pizza bar, and midnight hours — all surfaced in a design that feels as sharp as the axes.",
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Cloudflare Pages",
+      "Resend",
+      "GA4",
+    ],
+    image: axeThroCo,
+    website: "https://axethroco.com",
+  },
   {
     id: 25,
     title: "GOLD Events",
