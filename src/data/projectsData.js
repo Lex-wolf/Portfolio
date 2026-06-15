@@ -53,7 +53,7 @@ export const projects = [
       "GA4",
     ],
     image: axeThroCo,
-    website: "https://axethroco.com",
+    website: "https://www.axethroco.com/",
   },
   {
     id: 25,
