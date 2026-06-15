@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { projects } from "../data/projectsData";
 import { useLanguage } from "../context/LanguageContext";
+import { useAudienceView } from "../context/AudienceViewContext";
 import ProjectModal from "./ProjectModal";
 
 /** Matches `@media (max-width: 720px)` in `index.css` (single-column project grid). */
@@ -23,8 +24,9 @@ const compareProjects = (a, b) => {
 
 const ProjectsNew = () => {
   const { t } = useLanguage();
+  const { audience } = useAudienceView();
   const [selectedProject, setSelectedProject] = useState(null);
-  const [filter, setFilter] = useState("qa");
+  const [filter, setFilter] = useState(() => (audience === "web" ? "built" : "all"));
   const [isMobileLayout, setIsMobileLayout] = useState(false);
   const [mobileListExpanded, setMobileListExpanded] = useState(false);
   const filteredProjects = (filter === "all" ? projects : projects.filter((p) => p.category === filter))
@@ -39,6 +41,10 @@ const ProjectsNew = () => {
     mq.addEventListener("change", sync);
     return () => mq.removeEventListener("change", sync);
   }, []);
+
+  useEffect(() => {
+    setFilter(audience === "web" ? "built" : "all");
+  }, [audience]);
 
   useEffect(() => {
     setMobileListExpanded(false);

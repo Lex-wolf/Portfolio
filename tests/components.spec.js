@@ -89,28 +89,16 @@ test.describe('Portfolio Components Tests', () => {
     await expect(page.locator('text=Analog Republic')).toBeVisible();
   });
 
-  test('Projects section shows QA portfolio when QA audience is selected', async ({ page }) => {
+  test('Projects section shows all projects when QA audience is selected', async ({ page }) => {
     await page.goto('/');
 
     await page.getByRole('tab', { name: /QA & Automation/i }).click();
-    await page.locator('text=Projects').scrollIntoViewIfNeeded();
+    await page.locator('#projects').scrollIntoViewIfNeeded();
 
-    const qaProjectTitles = [
-      'Pearl Jam Official Website',
-      'Eric Church Website',
-      'Eric Church Official App',
-      'Thomas Rhett Website',
-      'Thomas Rhett Home Team App',
-      'Brandi Carlile Website',
-      'ACE Parking App',
-      'Pride Study Website',
-    ];
+    await expect(page.locator('#projects .proj-tabs button.active')).toHaveText('All');
 
-    for (const title of qaProjectTitles) {
-      await expect(page.locator(`text=${title}`).first()).toBeVisible();
-    }
-
-    await expect(page.locator('#projects').getByText('The Taco Garage')).toHaveCount(0);
+    await expect(page.locator('#projects').getByText('Pearl Jam Official Website').first()).toBeVisible();
+    await expect(page.locator('#projects').getByText('The Taco Garage').first()).toBeVisible();
   });
 
   test('Projects section shows web portfolio when Web Development audience is selected', async ({ page }) => {
@@ -118,6 +106,8 @@ test.describe('Portfolio Components Tests', () => {
 
     await page.getByRole('tab', { name: /Web Development/i }).click();
     await page.locator('text=Projects').scrollIntoViewIfNeeded();
+
+    await expect(page.locator('#projects .proj-tabs button.active')).toHaveText('Built');
 
     const webProjectTitles = [
       'The Taco Garage',
