@@ -15,18 +15,26 @@ export default async function handler(req, res) {
 
   const { payload, subject, text } = normalized;
 
+  const fromAddress =
+    process.env.RESEND_FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>';
+
   try {
-    await resend.emails.send({
-      from: 'Portfolio Contact <onboarding@resend.dev>',
+    const { data, error } = await resend.emails.send({
+      from: fromAddress,
       to: process.env.CONTACT_EMAIL,
       replyTo: payload.email,
       subject,
       text,
     });
 
-    return res.status(200).json({ success: true });
+    if (error) {
+      console.error('Resend error:', error);
+      return res.status(500).json({ error: 'Failed to send message' });
+    }
+
+    return res.status(200).json({ success: true, id: data?.id });
   } catch (error) {
-    console.error('Resend error:', error);
+    console.error('Resend request failed:', error);
     return res.status(500).json({ error: 'Failed to send message' });
   }
 }

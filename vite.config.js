@@ -44,19 +44,30 @@ function contactApiDevPlugin() {
             return
           }
 
+          const fromAddress =
+            process.env.RESEND_FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>'
           const resend = new Resend(apiKey)
-          await resend.emails.send({
-            from: 'Portfolio Contact <onboarding@resend.dev>',
+          const { error } = await resend.emails.send({
+            from: fromAddress,
             to: toEmail,
             replyTo: payload.email,
             subject,
             text,
           })
 
+          if (error) {
+            console.error('Resend error:', error)
+            res.statusCode = 500
+            res.setHeader('Content-Type', 'application/json')
+            res.end(JSON.stringify({ error: 'Failed to send message' }))
+            return
+          }
+
           res.statusCode = 200
           res.setHeader('Content-Type', 'application/json')
           res.end(JSON.stringify({ success: true }))
         } catch (error) {
+          console.error('Resend request failed:', error)
           res.statusCode = 500
           res.setHeader('Content-Type', 'application/json')
           res.end(JSON.stringify({ error: 'Failed to send message' }))
