@@ -32,7 +32,7 @@ function contactApiDevPlugin() {
             return
           }
 
-          const { payload, subject, text } = normalized
+          const { payload, subject, text, html } = normalized
 
           const apiKey = process.env.RESEND_API_KEY
           const toEmail = process.env.CONTACT_EMAIL
@@ -53,6 +53,7 @@ function contactApiDevPlugin() {
             replyTo: payload.email,
             subject,
             text,
+            html,
           })
 
           if (error) {

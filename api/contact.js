@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: normalized.error });
   }
 
-  const { payload, subject, text } = normalized;
+  const { payload, subject, text, html } = normalized;
 
   const fromAddress =
     process.env.RESEND_FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>';
@@ -25,6 +25,7 @@ export default async function handler(req, res) {
       replyTo: payload.email,
       subject,
       text,
+      html,
     });
 
     if (error) {

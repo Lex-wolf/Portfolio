@@ -1,3 +1,5 @@
+import { buildContactEmailHtml } from "./contactEmailTemplate.js";
+
 const VALID_INQUIRY_TYPES = new Set(["employment", "project", "general"]);
 
 export function normalizeContactPayload(body) {
@@ -67,22 +69,25 @@ export function normalizeContactPayload(body) {
     trimmedMessage,
   ].filter((line) => line !== null);
 
+  const payload = {
+    name: trimmedName,
+    email: trimmedEmail,
+    message: trimmedMessage,
+    inquiryType: trimmedInquiryType,
+    inquiryTypeLabel: inquiryLabel,
+    companyName: trimmedCompanyName,
+    positionTitle: trimmedPositionTitle,
+    roleType: String(roleType).trim(),
+    roleTypeLabel: trimmedRoleTypeLabel,
+    businessName: trimmedBusinessName,
+    projectType: String(projectType).trim(),
+    projectTypeLabel: trimmedProjectTypeLabel,
+  };
+
   return {
-    payload: {
-      name: trimmedName,
-      email: trimmedEmail,
-      message: trimmedMessage,
-      inquiryType: trimmedInquiryType,
-      inquiryTypeLabel: inquiryLabel,
-      companyName: trimmedCompanyName,
-      positionTitle: trimmedPositionTitle,
-      roleType: String(roleType).trim(),
-      roleTypeLabel: trimmedRoleTypeLabel,
-      businessName: trimmedBusinessName,
-      projectType: String(projectType).trim(),
-      projectTypeLabel: trimmedProjectTypeLabel,
-    },
+    payload,
     subject: `Portfolio: ${inquiryLabel} — ${trimmedName || trimmedEmail}`,
     text: lines.join("\n"),
+    html: buildContactEmailHtml(payload),
   };
 }
