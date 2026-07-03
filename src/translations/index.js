@@ -53,8 +53,8 @@ export const translations = {
       roles: [
         {
           year: "Dec 2024 – Present",
-          title: "QA Automation Engineer | Freelance",
-          company: "Bison Digital · Freelance",
+          title: "QA Automation Engineer",
+          company: "Bison Digital",
           bullets: [
             "Built Playwright suites for regression and smoke testing, cutting QA cycles by 30%.",
             "Tested APIs in Postman across GET/POST requests, status codes, auth flows, and data validation.",
@@ -204,7 +204,7 @@ export const translations = {
         {
           year: "2024 – Actualidad",
           title: "Consultor de Ingeniería de Software",
-          company: "Bison Digital · Freelance",
+          company: "Bison Digital",
           bullets: [
             "Construí suites de Playwright para regresión y smoke, recortando ciclos de QA alrededor de un 30%.",
             "Probé APIs en Postman: GET/POST, códigos de estado, auth y validación de datos.",

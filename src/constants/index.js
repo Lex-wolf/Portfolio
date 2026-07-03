@@ -44,7 +44,7 @@ export const EXPERIENCES = [
   {
     year: "2024 – Present",
     role: "Software Engineering Consultant",
-    company: "Bison Digital · Freelance",
+    company: "Bison Digital",
     description: `
       Built Playwright suites for regression and smoke testing, cutting QA cycles by 30%.
       Tested APIs in Postman across GET/POST requests, status codes, auth flows, and data validation.
