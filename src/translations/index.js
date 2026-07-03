@@ -56,10 +56,10 @@ export const translations = {
           title: "QA Automation Engineer",
           company: "Bison Digital",
           bullets: [
-            "Built Playwright suites for regression and smoke testing, cutting QA cycles by 30%.",
+            "Performed manual and automated QA — built Playwright suites for regression and smoke testing, cutting QA cycles by 30%.",
             "Tested APIs in Postman across GET/POST requests, status codes, auth flows, and data validation.",
             "Conducted WCAG 2.2 audits using axe-core and VoiceOver across web and mobile.",
-            "Verified iOS builds via Xcode simulators and TestFlight on real iOS and Android devices.",
+            "Verified iOS builds via Xcode simulators, TestFlight, and Appium on real iOS and Android devices.",
           ],
         },
         {
