@@ -213,7 +213,7 @@ test.describe('Experience Section', () => {
     expect(body).toContain('Analog Republic');
   });
 
-  test('Bison Digital / Freelance role is listed', async ({ page }) => {
+  test('Bison Digital role is listed', async ({ page }) => {
     await page.goto(BASE_URL);
     const body = await page.textContent('body');
     expect(body).toContain('Bison Digital');

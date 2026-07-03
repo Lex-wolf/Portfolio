@@ -80,12 +80,12 @@ test.describe('Portfolio Components Tests', () => {
     await page.locator('text=Experience').scrollIntoViewIfNeeded();
     
     // Check for experience entries
-    await expect(page.locator('text=2024 – Present')).toBeVisible();
-    await expect(page.locator('text=Software Engineering Consultant')).toBeVisible();
-    await expect(page.locator('text=Freelance')).toBeVisible();
+    await expect(page.locator('text=Dec 2024 – Present')).toBeVisible();
+    await expect(page.locator('text=QA Automation Engineer')).toBeVisible();
+    await expect(page.locator('text=Bison Digital')).toBeVisible();
     
-    await expect(page.locator('text=2017 - 2024')).toBeVisible();
-    await expect(page.locator('text=Quality Assurance')).toBeVisible();
+    await expect(page.locator('text=Aug 2017 – Nov 2024')).toBeVisible();
+    await expect(page.locator('text=Software Test Engineer')).toBeVisible();
     await expect(page.locator('text=Analog Republic')).toBeVisible();
   });
 
