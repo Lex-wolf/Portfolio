@@ -10,7 +10,7 @@ const Footer = () => {
         </div>
         <div className="right" style={{ display: "flex", justifyContent: "flex-end", gap: "0.8rem", flexWrap: "wrap" }}>
           <a href="https://github.com" target="_blank" rel="noreferrer">GITHUB</a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">LINKEDIN</a>
+          <a href="https://www.linkedin.com/in/lxcrl/" target="_blank" rel="noreferrer">LINKEDIN</a>
           <a href="https://x.com" target="_blank" rel="noreferrer">X</a>
           <a href="https://instagram.com" target="_blank" rel="noreferrer">INSTAGRAM</a>
         </div>
