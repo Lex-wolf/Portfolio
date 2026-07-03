@@ -4,9 +4,18 @@ import { useLanguage } from "../context/LanguageContext";
 import { useAudienceView } from "../context/AudienceViewContext";
 import ProjectModal from "./ProjectModal";
 
-/** Matches `@media (max-width: 720px)` in `index.css` (single-column project grid). */
-const MOBILE_BREAKPOINT_PX = 720;
-const MOBILE_PROJECT_PREVIEW_COUNT = 4;
+/** Matches `.projects-grid` breakpoints in `index.css`. */
+const GRID_BREAKPOINTS = {
+  tablet: 900,
+  mobile: 720,
+};
+const PREVIEW_ROWS = 4;
+
+function getProjectGridColumns(width) {
+  if (width <= GRID_BREAKPOINTS.mobile) return 1;
+  if (width <= GRID_BREAKPOINTS.tablet) return 2;
+  return 3;
+}
 
 /** Older personal projects — always shown last (must match `projectsData.js` titles). */
 const BOTTOM_PROJECT_TITLES = new Set(["Portfolio Website", "Weather App", "To Do App"]);
@@ -27,19 +36,20 @@ const ProjectsNew = () => {
   const { audience } = useAudienceView();
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState(() => (audience === "web" ? "built" : "all"));
-  const [isMobileLayout, setIsMobileLayout] = useState(false);
-  const [mobileListExpanded, setMobileListExpanded] = useState(false);
+  const [gridColumns, setGridColumns] = useState(() =>
+    getProjectGridColumns(typeof window !== "undefined" ? window.innerWidth : 1200),
+  );
+  const [listExpanded, setListExpanded] = useState(false);
   const filteredProjects = (filter === "all" ? projects : projects.filter((p) => p.category === filter))
     .slice()
     .sort(compareProjects);
   const openProject = (project) => setSelectedProject(project);
 
   useEffect(() => {
-    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT_PX}px)`);
-    const sync = () => setIsMobileLayout(mq.matches);
+    const sync = () => setGridColumns(getProjectGridColumns(window.innerWidth));
     sync();
-    mq.addEventListener("change", sync);
-    return () => mq.removeEventListener("change", sync);
+    window.addEventListener("resize", sync);
+    return () => window.removeEventListener("resize", sync);
   }, []);
 
   useEffect(() => {
@@ -47,14 +57,13 @@ const ProjectsNew = () => {
   }, [audience]);
 
   useEffect(() => {
-    setMobileListExpanded(false);
+    setListExpanded(false);
   }, [filter]);
 
-  const mobileTruncates =
-    isMobileLayout && !mobileListExpanded && filteredProjects.length > MOBILE_PROJECT_PREVIEW_COUNT;
-  const visibleProjects = mobileTruncates
-    ? filteredProjects.slice(0, MOBILE_PROJECT_PREVIEW_COUNT)
-    : filteredProjects;
+  const previewCount = gridColumns * PREVIEW_ROWS;
+  const canExpand = filteredProjects.length > previewCount;
+  const visibleProjects =
+    canExpand && !listExpanded ? filteredProjects.slice(0, previewCount) : filteredProjects;
 
   return (
     <section id="projects" className="projects reveal">
@@ -96,25 +105,15 @@ const ProjectsNew = () => {
           ))}
         </div>
 
-        {isMobileLayout && filteredProjects.length > MOBILE_PROJECT_PREVIEW_COUNT ? (
+        {canExpand ? (
           <div className="proj-expand-row">
-            {mobileListExpanded ? (
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={() => setMobileListExpanded(false)}
-              >
-                {t("projects.loadLess")}
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={() => setMobileListExpanded(true)}
-              >
-                {t("projects.seeMore")}
-              </button>
-            )}
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => setListExpanded((prev) => !prev)}
+            >
+              {listExpanded ? t("projects.loadLess") : t("projects.loadMore")}
+            </button>
           </div>
         ) : null}
       </div>
