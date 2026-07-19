@@ -59,14 +59,15 @@ export const projects = [
     id: 25,
     title: "GOLD Events",
     category: "built",
-    description: "The client had a locked Wix site with no real data layer.",
+    description:
+      "Wix rebuild into React + Vite with Neon, Clerk admin, and a two-way Resend inbox.",
     about:
-      "The client had a locked Wix site with no real data layer. I rebuilt it from scratch in React and Vite, replaced Wix entirely with a Supabase backend — 7 form flows each feeding their own database table — and built a custom admin dashboard so the client owns and manages all their data directly. Includes Clerk auth on the admin route, a staging-to-production deployment workflow, and a brand-consistent luxury design across 15+ pages.",
+      "Rebuilt a client’s locked Wix site into a React + Vite app with a Neon (PostgreSQL) data layer and serverless API routes. Multiple inquiry forms each write to their own tables, with a Clerk-protected admin dashboard for managing submissions, service content, and site popups. Added a two-way admin inbox over Resend (reply from the brand inbox, capture client replies via webhook), split GOLD Services into Attend and Invite experiences, and built a private-session request flow with admin intake. Deployed on Vercel with a staging-to-production workflow and a brand-consistent luxury design across 15+ pages.",
     technologies: [
       "React 18",
       "Vite",
       "Tailwind CSS",
-      "Supabase",
+      "Neon",
       "PostgreSQL",
       "Clerk",
       "Resend",

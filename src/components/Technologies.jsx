@@ -37,7 +37,7 @@ const Technologies = () => {
       items: [
         { abbr: "Sh", name: "Shopify" },
         { abbr: "Sa", name: "Storefront API" },
-        { abbr: "Sb", name: "Supabase" },
+        { abbr: "Ne", name: "Neon" },
         { abbr: "Sq", name: "SQL" },
         { abbr: "Ve", name: "Vercel" },
         { abbr: "Cf", name: "Cloudflare" },
