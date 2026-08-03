@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 function applyThemeFavicon(theme) {
   const el = document.getElementById("portfolio-favicon");
@@ -20,6 +21,7 @@ const MoonIcon = () => (
 );
 
 const Navbar = () => {
+  const { lang, setLang } = useLanguage();
   const [theme, setTheme] = useState("dark");
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -56,8 +58,29 @@ const Navbar = () => {
         <div className="nav-right">
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-            <span>{theme === "dark" ? "LIGHT" : "DARK"}</span>
+            <span className="theme-toggle-label">{theme === "dark" ? "LIGHT" : "DARK"}</span>
           </button>
+
+          <div className="lang-toggle" role="group" aria-label="Language">
+            <button
+              type="button"
+              className={lang === "en" ? "active" : undefined}
+              onClick={() => setLang("en")}
+              aria-pressed={lang === "en"}
+              aria-label="English"
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              className={lang === "es" ? "active" : undefined}
+              onClick={() => setLang("es")}
+              aria-pressed={lang === "es"}
+              aria-label="Español"
+            >
+              ES
+            </button>
+          </div>
 
           <button type="button" className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen((prev) => !prev)}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
