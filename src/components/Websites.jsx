@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import WebsitesQuoteForm from "./WebsitesQuoteForm";
+import { projects } from "../data/projectsData";
 import {
   heroSwapPhrases,
   websitePrices,
@@ -116,32 +117,41 @@ const steps = [
   },
 ];
 
-const proofProjects = [
-  {
-    title: "Chicana Hummingbird",
-    tag: "Artist · Shop",
-    text: "Artist site with gallery, shop, and a clear path to get in touch.",
-    image: chicanaImage,
-    alt: "Homepage of Chicana Hummingbird, an artist website with gallery and shop",
-    href: "https://chicanahummingbird.com/",
-  },
-  {
-    title: "Rose Auto Service",
-    tag: "Auto repair",
-    text: "Local shop site so drivers can find hours and book service.",
-    image: roseAutoImage,
-    alt: "Homepage of Rose Auto Service, a San Diego auto repair website",
-    href: "https://www.roseautoservice.com",
-  },
-  {
-    title: "The Taco Garage",
-    tag: "Restaurant · Shopify",
-    text: "Custom storefront for a taco spot — browse, order, and come back.",
-    image: tacoGarageImage,
-    alt: "Homepage of The Taco Garage online storefront",
-    href: "https://www.thetacogarage.com",
-  },
-];
+const proofTags = {
+  "Axe Thro Co": "Venue",
+  "GOLD Events": "Events",
+  "Neuroplasticity Lab": "Experiment",
+  "The Taco Garage": "Restaurant",
+  "Astro Reminder Website": "Coaching",
+  "Rose Auto Service": "Auto repair",
+  "Axe Thro Co's Pizza Bar": "Restaurant",
+  "Nonprofit Tree Planting Community": "Community",
+  "Geodesic Brasil Website": "Architecture",
+  "Chicana Hummingbird": "Artist · Shop",
+  "Weather App": "App",
+  "To Do App": "App",
+};
+
+const proofLast = ["Weather App", "To Do App"];
+
+const proofProjects = projects
+  .filter((project) => project.category === "built" && project.title !== "Portfolio Website")
+  .slice()
+  .sort((a, b) => {
+    const aLast = proofLast.includes(a.title);
+    const bLast = proofLast.includes(b.title);
+    if (aLast !== bLast) return aLast ? 1 : -1;
+    if (aLast && bLast) return proofLast.indexOf(a.title) - proofLast.indexOf(b.title);
+    return b.id - a.id;
+  })
+  .map((project) => ({
+    title: project.title,
+    tag: proofTags[project.title] ?? "Built",
+    text: project.description,
+    image: project.image,
+    alt: `Homepage of ${project.title}`,
+    href: project.website,
+  }));
 
 const heroShots = [
   {
@@ -829,20 +839,8 @@ const Websites = () => {
                 Real sites, already live.
               </h2>
             </div>
-            <p>Work you can open and click through — including the portfolio you’re on right now.</p>
+            <p>Client sites you can open and click through.</p>
           </div>
-          <article className="ws-here reveal">
-            <div>
-              <p className="ws-kicker">You’re on one now</p>
-              <h3>This website</h3>
-              <p>
-                alexcuriel.com is a working site: fast to read on a phone, clear about who I am, and held to the same bar I’d set for a client.
-              </p>
-            </div>
-            <a className="ws-ghost" href="/">
-              Open the homepage ↗
-            </a>
-          </article>
           <ul className="ws-proj">
             {proofProjects.map((project) => (
               <li key={project.title}>
