@@ -1224,7 +1224,7 @@ html[data-theme="light"] .websites::after {
     background 0.3s,
     color 0.3s;
 }
-.ws-cta:hover {
+.websites .ws-cta:hover {
   background: var(--ws-ink);
   color: var(--ws-bg);
 }
