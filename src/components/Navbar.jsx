@@ -23,7 +23,7 @@ const MoonIcon = () => (
 const Navbar = ({ path = "/" }) => {
   const onHome = path === "/";
   const sectionHref = (id) => (onHome ? `#${id}` : `/#${id}`);
-  const { lang, setLang } = useLanguage();
+  const { lang, setLang, t } = useLanguage();
   const [theme, setTheme] = useState("dark");
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -50,18 +50,18 @@ const Navbar = ({ path = "/" }) => {
         </a>
 
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <a href={sectionHref("projects")} className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
-          <a href={sectionHref("about")} className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
-          <a href={sectionHref("technologies")} className="nav-link" onClick={() => setMenuOpen(false)}>Stack</a>
-          <a href={sectionHref("experience")} className="nav-link" onClick={() => setMenuOpen(false)}>Experience</a>
-          <a href={sectionHref("contact")} className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
+          <a href={sectionHref("projects")} className="nav-link" onClick={() => setMenuOpen(false)}>{t("nav.workLink")}</a>
+          <a href={sectionHref("about")} className="nav-link" onClick={() => setMenuOpen(false)}>{t("nav.about")}</a>
+          <a href={sectionHref("technologies")} className="nav-link" onClick={() => setMenuOpen(false)}>{t("nav.stack")}</a>
+          <a href={sectionHref("experience")} className="nav-link" onClick={() => setMenuOpen(false)}>{t("nav.experience")}</a>
+          <a href={sectionHref("contact")} className="nav-link" onClick={() => setMenuOpen(false)}>{t("nav.contactLink")}</a>
           <a
             href="/websites"
             className="nav-link"
             aria-current={path === "/websites" ? "page" : undefined}
             onClick={() => setMenuOpen(false)}
           >
-            Websites
+            {t("nav.websites")}
           </a>
         </div>
 
@@ -89,6 +89,15 @@ const Navbar = ({ path = "/" }) => {
               aria-label="Español"
             >
               ES
+            </button>
+            <button
+              type="button"
+              className={lang === "pt" ? "active" : undefined}
+              onClick={() => setLang("pt")}
+              aria-pressed={lang === "pt"}
+              aria-label="Português"
+            >
+              PT
             </button>
           </div>
 

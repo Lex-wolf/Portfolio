@@ -15,6 +15,8 @@ export const heroSwapPhrases = [
   "Yelp listing.",
   "link in bio.",
   "2014 website.",
+  "Wix page.",
+  "Squarespace page.",
 ];
 
 export const websitesSeo = {

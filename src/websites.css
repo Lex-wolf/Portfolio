@@ -401,6 +401,10 @@ html[data-theme="light"] .websites::after {
   gap: 56px;
   align-items: center;
 }
+.ws-hero-copy {
+  min-width: 0;
+  container-type: inline-size;
+}
 
 .ws-meta {
   display: flex;
@@ -473,10 +477,13 @@ html[data-theme="light"] .websites::after {
   }
 }
 
-.ws-swap {
+.ws-line > span.ws-swap {
   position: relative;
   display: inline-grid;
-  color: var(--ws-red);
+  max-width: 100%;
+  /* Longest phrase ("Squarespace page.") has to fit the column at 125% Archivo. */
+  font-size: min(1em, 8.8cqi);
+  color: var(--ws-red2);
 }
 .ws-swap > span {
   grid-area: 1 / 1;
@@ -484,6 +491,12 @@ html[data-theme="light"] .websites::after {
     transform 0.6s cubic-bezier(0.7, 0, 0.2, 1),
     opacity 0.6s;
   white-space: nowrap;
+}
+.ws-swap > span.out,
+.ws-swap > span.in {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .ws-swap > span.out {
   transform: translateY(-100%);
@@ -1367,7 +1380,7 @@ html[data-theme="light"] .websites::after {
 .ws-ring text {
   font-family: var(--ws-mono);
   font-size: 10.5px;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.26em;
   fill: var(--ws-on-dark);
   text-transform: uppercase;
 }

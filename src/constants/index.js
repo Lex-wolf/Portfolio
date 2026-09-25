@@ -169,7 +169,7 @@ export const PROJECTS = [
     title: "Nonprofit Tree Planting Community",
     image: ftp2Image,
     description:
-      "This project let me combine my dev skills with a cause I care about. FTPP is all about planting fruit trees and building stronger communities in San Diego. I designed and built a clean, accessible site using React to help spread the word and invite people to get involved. It’s simple, clear, and made to grow alongside their mission.",
+      "This project let me combine my dev skills with a cause I care about. FTPP is all about planting fruit trees and building stronger communities. I designed and built a clean, accessible site using React to help spread the word and invite people to get involved. It’s simple, clear, and made to grow alongside their mission.",
     technologies: ["HTML", "CSS", "React.js", "JavaScript"],
     link: "https://ftpp.support/",
   },

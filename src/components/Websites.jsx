@@ -470,6 +470,7 @@ const Websites = () => {
                       className={
                         i === swapIndex ? "" : i === (swapIndex + heroSwapPhrases.length - 1) % heroSwapPhrases.length ? "out" : "in"
                       }
+                      aria-hidden={i !== swapIndex}
                     >
                       {phrase}
                     </span>
@@ -778,7 +779,7 @@ const Websites = () => {
                 <path id="ws-ring-path" d="M80,80 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0" />
               </defs>
               <text>
-                <textPath href="#ws-ring-path">San Diego · Hablo español · San Diego · Hablo español ·</textPath>
+                <textPath href="#ws-ring-path">Worldwide remote · Hablo español · Remote ·</textPath>
               </text>
             </svg>
             <figure className="ws-portrait">
@@ -792,7 +793,7 @@ const Websites = () => {
               />
               <figcaption className="ws-lab">
                 <span>Alejandro Curiel</span>
-                <span>San Diego, CA</span>
+                <span>Worldwide remote</span>
               </figcaption>
             </figure>
           </div>

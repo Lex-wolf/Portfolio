@@ -39,7 +39,7 @@ export const projects = [
     id: 26,
     title: "Axe Thro Co",
     category: "built",
-    description: "Full-site remake of San Diego's axe throwing venue — bold, fast, and built to convert.",
+    description: "Full-site remake of an axe throwing venue — bold, fast, and built to convert.",
     about:
       "Axe Thro Co needed a site that matched the energy of the venue: high-impact visuals, clear booking paths, and mobile-first performance. I rebuilt the full marketing site from scratch in Next.js with Tailwind CSS v4 — static export on Cloudflare Pages, GA4 conversion tracking on every Book Now CTA, and a Resend-powered contact form via Cloudflare Pages Functions. Twelve lanes, group bookings, pizza bar, and midnight hours — all surfaced in a design that feels as sharp as the axes.",
     technologies: [
@@ -131,8 +131,8 @@ export const projects = [
     id: 3,
     title: "Nonprofit Tree Planting Community",
     category: "built",
-    description: "Community platform for fruit tree planting in San Diego",
-    about: "FTPP plants fruit trees to strengthen communities in San Diego. I built their React site to help spread the mission, bring in volunteers and drive donations. One of those projects where the work felt like it actually mattered.",
+    description: "Community platform for fruit tree planting",
+    about: "FTPP plants fruit trees to strengthen communities. I built their React site to help spread the mission, bring in volunteers and drive donations. One of those projects where the work felt like it actually mattered.",
     technologies: ["HTML", "CSS", "React.js", "JavaScript"],
     image: ftp2Image,
     website: "https://ftpp.support/",
@@ -154,7 +154,7 @@ export const projects = [
     description:
       "Artist site rebuild with print shop, a dedicated admin she can use to update inventory, Neon content, and Stripe checkout.",
     about:
-      "Rebuilt chicanahummingbird.com into an editorial artist site for a San Diego muralist and print seller. The public site covers latest work, gallery, contact, and a print/sticker shop with cart flow. She has a dedicated Clerk-protected studio admin she can use to update her inventory and gallery content stored in Neon, and Stripe handles checkout for matte poster prints. Built with React, Vite, and Tailwind, deployed on Vercel.",
+      "Rebuilt chicanahummingbird.com into an editorial artist site for a muralist and print seller. The public site covers latest work, gallery, contact, and a print/sticker shop with cart flow. She has a dedicated Clerk-protected studio admin she can use to update her inventory and gallery content stored in Neon, and Stripe handles checkout for matte poster prints. Built with React, Vite, and Tailwind, deployed on Vercel.",
     technologies: [
       "React 18",
       "Vite",

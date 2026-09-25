@@ -149,7 +149,7 @@ section { padding: 5.5rem 0; }
 .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
 .theme-toggle svg { width: 14px; height: 14px; }
 .lang-toggle {
-  display: none;
+  display: inline-flex;
   align-items: stretch;
   padding: 3px;
   border-radius: 999px;

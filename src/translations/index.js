@@ -1,8 +1,17 @@
-/** @typedef {'en' | 'es'} Lang */
+/** @typedef {'en' | 'es' | 'pt'} Lang */
 
 export const translations = {
   en: {
-    nav: { work: "Explore My Work", contact: "Contact Me" },
+    nav: {
+      work: "Explore My Work",
+      contact: "Contact Me",
+      workLink: "Work",
+      about: "About",
+      stack: "Stack",
+      experience: "Experience",
+      contactLink: "Contact",
+      websites: "Websites",
+    },
     audience: {
       qa: "QA & Automation",
       web: "Web Development",
@@ -149,7 +158,16 @@ export const translations = {
   },
 
   es: {
-    nav: { work: "Ver Mi Trabajo", contact: "Contáctame" },
+    nav: {
+      work: "Ver Mi Trabajo",
+      contact: "Contáctame",
+      workLink: "Trabajo",
+      about: "Sobre mí",
+      stack: "Stack",
+      experience: "Experiencia",
+      contactLink: "Contacto",
+      websites: "Sitios",
+    },
     audience: {
       qa: "QA y automatización",
       web: "Desarrollo web",
@@ -295,6 +313,162 @@ export const translations = {
       successBody: "Te responderé lo antes posible.",
       errorGeneric: "Algo salió mal. Intenta de nuevo.",
       errorSend: "No se pudo enviar el mensaje. Intenta de nuevo.",
+    },
+  },
+
+  pt: {
+    nav: {
+      work: "Ver meu trabalho",
+      contact: "Fale comigo",
+      workLink: "Trabalho",
+      about: "Sobre",
+      stack: "Stack",
+      experience: "Experiência",
+      contactLink: "Contato",
+      websites: "Sites",
+    },
+    audience: {
+      qa: "QA e automação",
+      web: "Desenvolvimento web",
+      toggleGroupLabel: "Escolha o foco do portfólio",
+    },
+    hero: {
+      title: "Engenheiro de QA sênior | Automação, web e mobile",
+      titleWeb: "Desenvolvimento web | React, Shopify e sites para clientes",
+      subtitle: "Eu testo o que outras pessoas constroem — e às vezes também construo.",
+      subtitleQa: "Eu testo o que outras pessoas constroem — e às vezes também construo.",
+      subtitleWeb: "Faço sites rápidos e claros que o cliente consegue atualizar.",
+      line1:
+        "Já quebrei mais ambientes de staging do que consigo contar. Esse é o trabalho. 10 anos achando o que os engenheiros deixam passar antes de mais de 750 mil usuários acharem primeiro. Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile.",
+      line1Web:
+        "The Taco Garage é uma loja headless: React na Storefront API da Shopify, Tailwind, Node na Vercel, checkout ainda na Shopify. Outros sites entregues: Geodesic Brasil (React, Vite, TypeScript), Astro Reminder (React, Tailwind, Framer Motion), Neuroplasticity Lab, o site comunitário de plantio de árvores e Chicana Hummingbird (React, Vite, Clerk, Neon, Stripe).",
+      line2: "Também faço sites para clientes quando o projeto pede isso.",
+      line2Web:
+        "No modo QA está o trabalho de testes e acessibilidade; aqui ficam os sites que construí no navegador.",
+      stats: {
+        years: "Anos de experiência",
+        releases: "Lançamentos acompanhados",
+        hybrid: "Certificado",
+      },
+    },
+    about: {
+      heading: "Sobre mim",
+      body: `Passei 10 anos quebrando coisas para o usuário não precisar quebrar. Principalmente no celular. Testei plataformas do Pearl Jam, Eric Church, Thomas Rhett e Brandi Carlile — às vezes com mais de 750 mil usuários ao mesmo tempo. Em automação escrevo suítes com Playwright, uso Postman para APIs e ligo tudo ao CI/CD com GitHub Actions. Também faço conformidade de acessibilidade, validação WCAG e testes cruzados de CMS. Tenho CPACC: passei num exame formal de WCAG, não só rodei o Lighthouse. Falo inglês, espanhol e português. Estou acostumado a ambientes com lançamentos semanais, em que QA é a última porta antes do usuário ver. Disponível para contratos remotos no mundo todo.`,
+    },
+    technologies: {
+      heading: "Tecnologias",
+      subheading:
+        "Esta é a base com que eu construo e testo. De frameworks atuais a ferramentas de automação de QA.",
+      categories: {
+        development: "Desenvolvimento",
+        qaAutomation: "QA e automação",
+        accessibility: "Acessibilidade e auditoria",
+        collaboration: "Colaboração e ferramentas",
+        backend: "Backend e ferramentas",
+      },
+      seeMore: "Ver mais habilidades",
+      seeLess: "Ver menos",
+    },
+    experience: {
+      heading: "Experiência e impacto",
+      empty: "Nenhuma experiência disponível",
+      bisonExtra0: "",
+      bisonExtra1: "",
+      roles: [
+        {
+          year: "Dez 2024 – hoje",
+          title: "Engenheiro de automação de QA",
+          company: "Bison Digital",
+          bullets: [
+            "QA manual e automatizado — suítes Playwright de regressão e smoke, reduzindo os ciclos de QA em cerca de 30%.",
+            "Testei APIs no Postman: GET/POST, códigos de status, autenticação e validação de dados.",
+            "Auditorias WCAG 2.2 com axe-core e VoiceOver na web e no celular.",
+            "Verifiquei builds de iOS no simulador do Xcode, TestFlight e Appium em aparelhos iOS e Android reais.",
+          ],
+        },
+        {
+          year: "Ago 2017 – Nov 2024",
+          title: "Engenheiro de testes de software",
+          company: "Analog Republic",
+          bullets: [
+            "Liderei QA mobile em iOS e Android para plataformas de artistas com mais de 750 mil usuários — Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile.",
+            "Testei e validei CMS e layouts de frontend na web e no celular.",
+            "Validei pagamentos da Shopify e integrações de backend com Postman e consultas SQL.",
+            "Classifiquei defeitos e organizei ciclos de teste no JIRA e no ClickUp em regressões de vários sprints.",
+          ],
+        },
+        {
+          year: "Abr 2016 – Abr 2017",
+          title: "Gerente de projeto",
+          company: "Analog Republic",
+          bullets: [
+            "Organizei prazos e a comunicação com clientes em projetos da indústria musical, entre o time interno e as pessoas de fora.",
+          ],
+        },
+      ],
+    },
+    projects: {
+      heading: "Projetos.",
+      subheading: "Veja meu trabalho recente em desenvolvimento e QA.",
+      tabs: { all: "Todos", built: "Desenvolvimento", qa: "QA" },
+      seeMore: "Ver mais",
+      loadMore: "Carregar mais",
+      loadLess: "Carregar menos",
+      drawer: {
+        about: "Sobre",
+        build: "Construção",
+        testingFocus: "Foco dos testes",
+        platforms: "Plataformas",
+        devices: "Dispositivos",
+        technologiesUsed: "Tecnologias",
+        links: "Links",
+        openProject: "Abrir projeto",
+      },
+    },
+    contact: {
+      heading: "Tem um projeto em mente?",
+      body: "Disponível para projetos freelance e vagas em tempo integral. Trabalho remoto de qualquer lugar.",
+      nameLabel: "Nome",
+      emailLabel: "E-mail",
+      messageLabel: "Mensagem",
+      inquiryTypeLabel: "Sobre o que você quer falar?",
+      inquiryTypePlaceholder: "Escolha uma opção",
+      inquiryTypes: {
+        employment: "Oportunidade de emprego",
+        project: "Site ou projeto de negócio",
+        general: "Consulta geral",
+      },
+      employerCompanyLabel: "Nome da empresa",
+      employerCompanyPlaceholder: "Empresa ou organização",
+      positionTitleLabel: "Cargo",
+      positionTitlePlaceholder: "ex.: Engenheiro de QA sênior",
+      roleTypeLabel: "Tipo de vaga",
+      roleTypePlaceholder: "Selecione a vaga (opcional)",
+      roleTypes: {
+        qa: "Engenheiro de QA",
+        frontend: "Desenvolvedor frontend",
+        "web-engineer": "Engenheiro web",
+        other: "Outro",
+      },
+      businessNameLabel: "Nome do negócio",
+      businessNamePlaceholder: "Seu negócio ou marca",
+      projectTypeLabel: "Tipo de projeto",
+      projectTypePlaceholder: "Selecione o tipo (opcional)",
+      projectTypes: {
+        "new-website": "Site novo",
+        updates: "Atualizações no site",
+        "online-store": "Loja online",
+        other: "Outro",
+      },
+      namePlaceholder: "Seu nome",
+      emailPlaceholder: "seu.email@exemplo.com",
+      messagePlaceholder: "Conta um pouco o que você procura...",
+      button: "Enviar mensagem",
+      sending: "Enviando...",
+      successTitle: "Obrigado por escrever!",
+      successBody: "Respondo assim que puder.",
+      errorGeneric: "Algo deu errado. Tente de novo.",
+      errorSend: "Não foi possível enviar a mensagem. Tente de novo.",
     },
   },
 };
