@@ -384,6 +384,7 @@ section { padding: 5.5rem 0; }
 .social-btn:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 24px var(--accent-glow); }
 .social-btn svg { width: 18px; height: 18px; }
 .footer { border-top: 1px solid var(--border); padding: 2rem 0; font-family: 'JetBrains Mono', monospace; font-size: 0.67rem; letter-spacing: 0.08em; color: var(--text-muted); }
+.footer-row a { text-transform: uppercase; }
 .footer-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem; align-items: center; }
 .footer-row .right { text-align: right; }
 .footer-row a:hover { color: var(--accent); }

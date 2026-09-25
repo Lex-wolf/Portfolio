@@ -11,6 +11,14 @@ const initialFields = {
   lang: "en",
 };
 
+const LANG_EMAIL = {
+  en: "English",
+  es: "Spanish",
+  pt: "Portuguese",
+  multi: "More than one",
+  both: "More than one",
+};
+
 const WebsitesQuoteForm = ({
   selectedPlan = "Help me pick",
   careSelected = false,
@@ -19,6 +27,7 @@ const WebsitesQuoteForm = ({
   launchPrice = websitePrices.launch.replace("From ", ""),
   businessPrice = websitePrices.business.replace("From ", ""),
   customPrice = websitePrices.custom.replace("From ", ""),
+  copy,
 }) => {
   const [fields, setFields] = useState(initialFields);
   const [status, setStatus] = useState("idle");
@@ -37,7 +46,7 @@ const WebsitesQuoteForm = ({
     const extras = [
       `Need: ${fields.need}`,
       `Plan: ${selectedPlan}${careSelected ? " + Care Plan" : ""}`,
-      `Language: ${fields.lang === "en" ? "English" : fields.lang === "es" ? "Español" : "Both"}`,
+      `Language: ${LANG_EMAIL[fields.lang] ?? fields.lang}`,
     ];
     if (phone) extras.unshift(`Phone: ${phone}`);
 
@@ -62,7 +71,7 @@ const WebsitesQuoteForm = ({
       });
 
       if (!response.ok) {
-        let messageText = "That message did not send. Try again, or use the email or phone number beside the form.";
+        let messageText = copy.sendError;
         try {
           const body = await response.json();
           if (body.error) messageText = body.error;
@@ -77,7 +86,7 @@ const WebsitesQuoteForm = ({
       onPlanChange?.("Help me pick");
       onCareChange?.(false);
     } catch (error) {
-      setErrorMessage(error.message || "That message did not send. Try again, or use the email or phone number beside the form.");
+      setErrorMessage(error.message || copy.sendError);
       setStatus("error");
     }
   };
@@ -89,8 +98,8 @@ const WebsitesQuoteForm = ({
           <div className="ws-ck" aria-hidden="true">
             ✓
           </div>
-          <h3>Got it — thanks!</h3>
-          <p>I’ll reply within a day with a price and a plan. Check your inbox (and spam, just in case).</p>
+          <h3>{copy.doneTitle}</h3>
+          <p>{copy.doneBody}</p>
         </div>
       </div>
     );
@@ -101,8 +110,8 @@ const WebsitesQuoteForm = ({
       <div className="ws-frow">
         <div className="ws-field">
           <label htmlFor="quote-name">
-            Your name <span className="req" aria-hidden="true">*</span>
-            <span className="sr-only"> (required)</span>
+            {copy.name} <span className="req" aria-hidden="true">*</span>
+            <span className="sr-only"> {copy.required}</span>
           </label>
           <input
             required
@@ -117,8 +126,8 @@ const WebsitesQuoteForm = ({
         </div>
         <div className="ws-field">
           <label htmlFor="quote-business">
-            Business name <span className="req" aria-hidden="true">*</span>
-            <span className="sr-only"> (required)</span>
+            {copy.business} <span className="req" aria-hidden="true">*</span>
+            <span className="sr-only"> {copy.required}</span>
           </label>
           <input
             required
@@ -136,8 +145,8 @@ const WebsitesQuoteForm = ({
       <div className="ws-frow">
         <div className="ws-field">
           <label htmlFor="quote-email">
-            Email <span className="req" aria-hidden="true">*</span>
-            <span className="sr-only"> (required)</span>
+            {copy.email} <span className="req" aria-hidden="true">*</span>
+            <span className="sr-only"> {copy.required}</span>
           </label>
           <input
             required
@@ -153,7 +162,7 @@ const WebsitesQuoteForm = ({
         </div>
         <div className="ws-field">
           <label htmlFor="quote-phone">
-            Phone <span className="ws-optional">(optional)</span>
+            {copy.phone} <span className="ws-optional">{copy.optional}</span>
           </label>
           <input
             type="tel"
@@ -169,14 +178,9 @@ const WebsitesQuoteForm = ({
       </div>
 
       <fieldset className="ws-chips-group">
-        <legend>What do you need?</legend>
+        <legend>{copy.needLegend}</legend>
         <div className="ws-chips">
-          {[
-            ["New site", "A new site"],
-            ["Redo", "Redo my old one"],
-            ["Booking", "A booking page"],
-            ["Unsure", "Not sure yet"],
-          ].map(([value, label]) => (
+          {copy.needs.map(([value, label]) => (
             <label key={value}>
               <input
                 type="radio"
@@ -192,13 +196,13 @@ const WebsitesQuoteForm = ({
       </fieldset>
 
       <fieldset className="ws-chips-group">
-        <legend>Plan in mind</legend>
+        <legend>{copy.planLegend}</legend>
         <div className="ws-chips">
           {[
             ["Launch", `Launch · ${launchPrice}`],
             ["Business", `Business · ${businessPrice}`],
             ["Custom", `Custom · ${customPrice}`],
-            ["Help me pick", "Help me pick"],
+            ["Help me pick", copy.help],
           ].map(([value, label]) => (
             <label key={value}>
               <input
@@ -219,19 +223,15 @@ const WebsitesQuoteForm = ({
               checked={careSelected}
               onChange={(event) => onCareChange?.(event.target.checked)}
             />
-            <span>+ Care plan</span>
+            <span>{copy.care}</span>
           </label>
         </div>
       </fieldset>
 
       <fieldset className="ws-chips-group">
-        <legend>Language</legend>
+        <legend>{copy.langLegend}</legend>
         <div className="ws-chips">
-          {[
-            ["en", "English"],
-            ["es", "Español"],
-            ["both", "Both"],
-          ].map(([value, label]) => (
+          {copy.langs.map(([value, label]) => (
             <label key={value}>
               <input
                 type="radio"
@@ -248,8 +248,8 @@ const WebsitesQuoteForm = ({
 
       <div className="ws-field">
         <label htmlFor="quote-message">
-          What’s the goal? <span className="req" aria-hidden="true">*</span>
-          <span className="sr-only"> (required)</span>
+          {copy.goal} <span className="req" aria-hidden="true">*</span>
+          <span className="sr-only"> {copy.required}</span>
         </label>
         <textarea
           required
@@ -258,7 +258,7 @@ const WebsitesQuoteForm = ({
           rows={4}
           value={fields.message}
           onChange={updateField("message")}
-          placeholder="More calls, a menu people can find, a page where people can book — a sentence or two is fine."
+          placeholder={copy.goalPlaceholder}
         />
       </div>
 
@@ -269,7 +269,7 @@ const WebsitesQuoteForm = ({
       )}
 
       <button className="ws-btn" type="submit" disabled={status === "submitting"}>
-        <span>{status === "submitting" ? "Sending…" : "Get a free quote"}</span>
+        <span>{status === "submitting" ? copy.sending : copy.submit}</span>
         <span className="ws-arr" aria-hidden="true">
           →
         </span>

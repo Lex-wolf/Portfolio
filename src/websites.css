@@ -519,16 +519,14 @@ html[data-theme="light"] .websites::after {
 }
 @keyframes ws-strike {
   0%,
-  15% {
+  12% {
     transform: scaleX(0);
+    opacity: 1;
   }
-  35%,
-  85% {
-    transform: scaleX(1);
-  }
+  32%,
   100% {
     transform: scaleX(1);
-    opacity: 0;
+    opacity: 1;
   }
 }
 

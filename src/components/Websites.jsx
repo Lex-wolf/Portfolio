@@ -1,136 +1,13 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import WebsitesQuoteForm from "./WebsitesQuoteForm";
+import { useLanguage } from "../context/LanguageContext";
 import { projects } from "../data/projectsData";
-import {
-  heroSwapPhrases,
-  websitePrices,
-  websitesPlaceholders,
-  websitesSeo,
-} from "../data/websitesContent";
+import { websitePrices, websitesPlaceholders } from "../data/websitesContent";
+import { getWebsitesCopy } from "../data/websitesCopy";
 import chicanaImage from "../assets/chicana2.webp";
 import roseAutoImage from "../assets/roseauto.webp";
 import tacoGarageImage from "../assets/taco-garage.webp";
 import alejandroPortrait from "../assets/headshot-2026.png";
-
-const audiences = [
-  {
-    title: "Restaurants & cafés",
-    text: "People pick where to eat from their phone. A menu stuck in Facebook posts is easy to skip.",
-  },
-  {
-    title: "Clinics & practices",
-    text: "Patients want hours, services, and a way to book before they dial.",
-  },
-  {
-    title: "Local shops",
-    text: "If the only thing online is an old post, you can look closed when the door is open.",
-  },
-  {
-    title: "Tradespeople",
-    text: "Plumbers, electricians, cleaners, contractors — people search Google and call whoever shows up clearly.",
-  },
-];
-
-const packages = [
-  {
-    name: "Launch",
-    price: websitePrices.launch,
-    timeline: websitesPlaceholders.timelines.launch,
-    summary: "One solid page. Who you are, what you do, how to reach you.",
-    items: [
-      "Services, hours, and location",
-      "Call, email, or message button",
-      "Looks right on a phone",
-      "Plain words a stranger gets fast",
-      "Checked for keyboard and screen readers",
-    ],
-    cta: "Start with Launch",
-    featured: false,
-  },
-  {
-    name: "Business",
-    price: websitePrices.business,
-    timeline: websitesPlaceholders.timelines.business,
-    summary: "A full site with room for each service and an easy way to get in touch.",
-    items: [
-      "Home, services, about, contact",
-      "Form that lands in your inbox",
-      "A page for each service",
-      "Photos and wording that sound like you",
-      "Same phone and accessibility checks",
-    ],
-    cta: "Start with Business",
-    featured: true,
-    badge: "Most picked",
-  },
-  {
-    name: "Custom",
-    price: websitePrices.custom,
-    timeline: websitesPlaceholders.timelines.custom,
-    summary: "A bigger build. More pages, more than one language, or a shop that takes payment.",
-    items: [
-      "Scope and price agreed up front",
-      "Several pages, or an online shop",
-      "English and Spanish, if you need both",
-      "Booking, payments, or an admin to update it",
-      "You still own the site outright",
-    ],
-    cta: "Start with Custom",
-    featured: false,
-  },
-  {
-    name: "Care Plan",
-    price: websitePrices.care,
-    interval: websitePrices.careInterval,
-    timeline: websitesPlaceholders.timelines.care,
-    optionalNote: websitesPlaceholders.careOptionalNote,
-    summary: "I keep it online and handle the small changes you’d rather not fight with.",
-    items: [
-      "Hosting so the site stays up",
-      "Updates for hours, menus, services",
-      "Backups if something goes wrong",
-      "Small text and photo changes",
-      "A real person to email",
-    ],
-    cta: "Add Care Plan",
-    featured: false,
-    optionalLabel: "Optional",
-  },
-];
-
-const steps = [
-  {
-    title: "We talk",
-    text: "A short call about your business and what the site needs to do. You leave knowing the price before any work starts.",
-  },
-  {
-    title: "You see a draft",
-    text: "Within a week you get a real page to click through — not a slide of ideas. It already says what you do and how to reach you.",
-  },
-  {
-    title: "You say what’s off",
-    text: "Words, photos, order — tell me in plain English. I’ll change it. You don’t need design vocabulary.",
-  },
-  {
-    title: "It goes live",
-    text: "The site launches. You own it: the words, the design, the files. If you ever want to move it, you can.",
-  },
-];
-
-const proofTags = {
-  "Axe Thro Co": "Venue",
-  "GOLD Events": "Events",
-  "Neuroplasticity Lab": "Experiment",
-  "The Taco Garage": "Restaurant",
-  "Astro Reminder Website": "Coaching",
-  "Rose Auto Service": "Auto repair",
-  "Axe Thro Co's Pizza Bar": "Restaurant",
-  "Nonprofit Tree Planting Community": "Community",
-  "Geodesic Brasil Website": "Architecture",
-  "Chicana Hummingbird": "Artist · Shop",
-  "Weather App": "App",
-  "To Do App": "App",
-};
 
 const proofLast = ["Weather App", "To Do App"];
 
@@ -146,7 +23,7 @@ const proofProjects = projects
   })
   .map((project) => ({
     title: project.title,
-    tag: proofTags[project.title] ?? "Built",
+    tag: project.title,
     text: project.description,
     image: project.image,
     alt: `Homepage of ${project.title}`,
@@ -171,54 +48,7 @@ const heroShots = [
   },
 ];
 
-const marqueeItems = [
-  "Restaurants",
-  "Cafés",
-  "Taquerías",
-  "Clinics",
-  "Barbershops",
-  "Auto shops",
-  "Plumbers",
-  "Electricians",
-  "Artists",
-  "Boutiques",
-  "Cleaners",
-  "Contractors",
-];
-
-const faqs = [
-  {
-    question: "How long does it take?",
-    answer:
-      "A Launch page is usually about two weeks. A full Business site is about three to four. A Custom build takes longer — the quote says how long. Most of the waiting is on photos and wording — I’ll help with both.",
-  },
-  {
-    question: "How much does it cost?",
-    answer: `Launch starts at ${websitePrices.launch.replace("From ", "")}, Business at ${websitePrices.business.replace("From ", "")}, and Custom at ${websitePrices.custom.replace("From ", "")} for a bigger site. The Care Plan is ${websitePrices.care}${websitePrices.careInterval} and optional. Your free quote gives the exact number before any work starts.`,
-  },
-  {
-    question: "Do I own the site?",
-    answer:
-      "Yes. The words, the design, the files, and the domain are yours. If you ever want to move it somewhere else, you can.",
-  },
-  {
-    question: "What do you need from me?",
-    answer:
-      "Your logo if you have one, a few photos, your hours, and a list of what you offer. If you don’t have some of it, we’ll figure it out together.",
-  },
-  {
-    question: "Can you update it after launch?",
-    answer:
-      "Yes — the Care Plan covers small changes like hours, menus, and photos. Without it, I’ll quote changes as they come up.",
-  },
-  {
-    question: "¿Hablas español?",
-    answer:
-      "Sí. We can work in English, Spanish, or both — and your site can be in both languages too.",
-  },
-];
-
-const { beforeAfter, testimonials, testimonialsIntro } = websitesPlaceholders;
+const { testimonials, testimonialsIntro } = websitesPlaceholders;
 
 function prefersReducedMotion() {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -254,6 +84,13 @@ const Websites = () => {
   const heroRef = useRef(null);
   const draggingRef = useRef(false);
   const faqId = useId();
+  const { lang } = useLanguage();
+  const copy = useMemo(() => getWebsitesCopy(lang), [lang]);
+  const packages = copy.packages;
+  const steps = copy.steps;
+  const audiences = copy.audiences;
+  const faqs = copy.faqs;
+  const marqueeItems = copy.marquee;
 
   useEffect(() => {
     setReduceMotion(prefersReducedMotion());
@@ -261,7 +98,7 @@ const Websites = () => {
 
   useEffect(() => {
     const previousTitle = document.title;
-    document.title = websitesSeo.title;
+    document.title = copy.seoTitle;
 
     let description = document.querySelector('meta[name="description"]');
     const created = !description;
@@ -271,7 +108,7 @@ const Websites = () => {
       document.head.appendChild(description);
     }
     const previousDescription = description.getAttribute("content");
-    description.setAttribute("content", websitesSeo.description);
+    description.setAttribute("content", copy.seoDescription);
 
     return () => {
       document.title = previousTitle;
@@ -281,15 +118,19 @@ const Websites = () => {
         description.setAttribute("content", previousDescription);
       }
     };
-  }, []);
+  }, [copy.seoTitle, copy.seoDescription]);
+
+  useEffect(() => {
+    setSwapIndex(0);
+  }, [lang]);
 
   useEffect(() => {
     if (prefersReducedMotion()) return undefined;
     const id = window.setInterval(() => {
-      setSwapIndex((i) => (i + 1) % heroSwapPhrases.length);
+      setSwapIndex((i) => (i + 1) % copy.phrases.length);
     }, 3200);
     return () => window.clearInterval(id);
-  }, []);
+  }, [copy.phrases.length]);
 
   useEffect(() => {
     if (prefersReducedMotion()) return undefined;
@@ -448,27 +289,23 @@ const Websites = () => {
             <div className="ws-meta">
               <span className="ws-pill">
                 <i className="ws-dot" aria-hidden="true" />
-                Taking new projects
+                {copy.pillStatus}
               </span>
-              <span className="ws-pill">English · Español</span>
+              <span className="ws-pill">{copy.pillLang}</span>
             </div>
             <h1 id="websites-heading" className="ws-disp">
-              <span className="ws-line">
-                <span>Your business</span>
-              </span>
-              <span className="ws-line">
-                <span>deserves better</span>
-              </span>
-              <span className="ws-line">
-                <span>than a</span>
-              </span>
+              {copy.heroLines.map((line) => (
+                <span className="ws-line" key={line}>
+                  <span>{line}</span>
+                </span>
+              ))}
               <span className="ws-line">
                 <span className="ws-swap" aria-live="polite">
-                  {heroSwapPhrases.map((phrase, i) => (
+                  {copy.phrases.map((phrase, i) => (
                     <span
                       key={phrase}
                       className={
-                        i === swapIndex ? "" : i === (swapIndex + heroSwapPhrases.length - 1) % heroSwapPhrases.length ? "out" : "in"
+                        i === swapIndex ? "" : i === (swapIndex + copy.phrases.length - 1) % copy.phrases.length ? "out" : "in"
                       }
                       aria-hidden={i !== swapIndex}
                     >
@@ -478,21 +315,19 @@ const Websites = () => {
                 </span>
               </span>
             </h1>
-            <p className="ws-lede">
-              A clear site so people find you on Google, trust what they see, and know how to call, book, or walk in — without you learning to build websites.
-            </p>
+            <p className="ws-lede">{copy.lede}</p>
             <div className="ws-actions">
               <a className="ws-btn" href="#quote">
-                <span>Get a free quote</span>
+                <span>{copy.quoteCta}</span>
                 <span className="ws-arr" aria-hidden="true">
                   →
                 </span>
               </a>
               <a className="ws-ghost" href="#pricing">
-                See pricing
+                {copy.seePricing}
               </a>
             </div>
-            <p className="ws-fine">Takes about two minutes · No pitch deck</p>
+            <p className="ws-fine">{copy.fine}</p>
           </div>
 
           <div className="ws-stage" ref={stageRef}>
@@ -524,27 +359,27 @@ const Websites = () => {
             <div className="ws-float ws-f1" aria-hidden="true">
               <span className="ws-ic">98</span>
               <div>
-                Loads fast on phones
-                <small>Lighthouse checked</small>
+                {copy.floatFast}
+                <small>{copy.floatFastSmall}</small>
               </div>
             </div>
             <div className="ws-float ws-f2" aria-hidden="true">
               <span className="ws-ic">A11y</span>
               <div>
-                Screen-reader tested
+                {copy.floatA11y}
                 <small>WCAG 2.2</small>
               </div>
             </div>
             <div className="ws-float ws-f3" aria-hidden="true">
               <span className="ws-ic">G</span>
               <div>
-                Shows up on Google
-                <small>Maps + search</small>
+                {copy.floatGoogle}
+                <small>{copy.floatGoogleSmall}</small>
               </div>
             </div>
             <p className="ws-caption">
               <span>
-                {String(shotIndex + 1).padStart(2, "0")} / 03 — Live client site
+                {String(shotIndex + 1).padStart(2, "0")} / 03 — {copy.shotCaption}
               </span>
               <span className="ws-bar" aria-hidden="true">
                 <i />
@@ -566,14 +401,12 @@ const Websites = () => {
         <div className="container">
           <div className="ws-head reveal">
             <div>
-              <p className="ws-eyebrow">01 / Who it’s for</p>
+              <p className="ws-eyebrow">{copy.whoEyebrow}</p>
               <h2 id="who-heading" className="ws-disp">
-                Built for owners who just need people to find them.
+                {copy.whoHeading}
               </h2>
             </div>
-            <p>
-              If customers search, find nothing useful, and call someone else — this is for you. You don’t need a big brand. You need a page that answers the obvious questions.
-            </p>
+            <p>{copy.whoLede}</p>
           </div>
           <ul className="ws-who reveal">
             {audiences.map((item, index) => (
@@ -594,12 +427,12 @@ const Websites = () => {
         <div className="container">
           <div className="ws-head reveal">
             <div>
-              <p className="ws-eyebrow">02 / The difference</p>
+              <p className="ws-eyebrow">{copy.compareEyebrow}</p>
               <h2 id="compare-heading" className="ws-disp">
-                {beforeAfter.heading}
+                {copy.compareHeading}
               </h2>
             </div>
-            <p>{beforeAfter.lede}</p>
+            <p>{copy.compareLede}</p>
           </div>
           <div
             className="ws-compare reveal"
@@ -607,7 +440,7 @@ const Websites = () => {
             ref={compareRef}
             style={{ "--x": `${compareX}%` }}
             role="slider"
-            aria-label={`${beforeAfter.before.alt}. ${beforeAfter.after.alt}`}
+            aria-label={`${copy.beforeAlt}. ${copy.afterAlt}`}
             tabIndex={0}
             onPointerDown={onComparePointerDown}
             onPointerMove={onComparePointerMove}
@@ -626,66 +459,69 @@ const Websites = () => {
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={Math.round(compareX)}
-            aria-valuetext={`${Math.round(compareX)} percent showing the after website`}
+            aria-valuetext={`${Math.round(compareX)} ${copy.compareValue}`}
           >
             <div className="ws-pane ws-before">
               <div className="ws-fb">
                 <div className="ws-fb-hd">
                   <div className="ws-fb-av" />
                   <div>
-                    <div className="ws-fb-nm">Your Business</div>
-                    <div className="ws-fb-tm">3 weeks ago · 🌐</div>
+                    <div className="ws-fb-nm">{copy.fbName}</div>
+                    <div className="ws-fb-tm">{copy.fbTime}</div>
                   </div>
                 </div>
-                <div>Open today!! 🎉 msg us for prices. new hours soon, check back</div>
+                <div>{copy.fbPost}</div>
                 <div className="ws-fb-ph" />
                 <div className="ws-fb-cm">
-                  <div>are you open sunday?</div>
-                  <div>do you guys have a website</div>
-                  <div>what’s the address?</div>
+                  {copy.fbComments.map((comment) => (
+                    <div key={comment}>{comment}</div>
+                  ))}
                 </div>
               </div>
             </div>
             <div className="ws-pane ws-after">
               <div className="ws-site-mock">
                 <div className="ws-sn">
-                  <b>Your Business</b>
-                  <span>Menu · Hours · Book</span>
+                  <b>{copy.fbName}</b>
+                  <span>{copy.mockNav}</span>
                 </div>
-                <h4>Open today until 9pm. Two blocks from the trolley.</h4>
+                <h4>{copy.mockHeading}</h4>
                 <div className="ws-row">
-                  <span>Call (619) 555-0148</span>
-                  <span>Get directions</span>
-                  <span>Book a table</span>
+                  {copy.mockActions.map((action) => (
+                    <span key={action}>{action}</span>
+                  ))}
                 </div>
                 <div className="ws-info">
                   <div>
-                    <small>Hours</small>Mon–Sun · 8a–9p
+                    <small>{copy.mockHoursLabel}</small>
+                    {copy.mockHours}
                   </div>
                   <div>
-                    <small>Where</small>North Park, SD
+                    <small>{copy.mockWhereLabel}</small>
+                    {copy.mockWhere}
                   </div>
                   <div>
-                    <small>Pricing</small>Right on the page
+                    <small>{copy.mockPriceLabel}</small>
+                    {copy.mockPrice}
                   </div>
                 </div>
               </div>
             </div>
             <div className="ws-handle" aria-hidden="true" />
-            <span className="ws-tag ws-tag-l">Before · social page</span>
-            <span className="ws-tag ws-tag-r">After · real site</span>
+            <span className="ws-tag ws-tag-l">{copy.tagBefore}</span>
+            <span className="ws-tag ws-tag-r">{copy.tagAfter}</span>
           </div>
           <div className="ws-cmp-notes reveal">
             <div>
-              <b>Questions in the comments</b>
-              Hours, address, prices — buried or missing. Every unanswered question is a customer who calls someone else.
+              <b>{copy.noteBeforeTitle}</b>
+              {copy.noteBefore}
             </div>
             <div>
-              <b>Answers on the first screen</b>
-              What you do, when you’re open, and one tap to call, book, or get directions. On any phone.
+              <b>{copy.noteAfterTitle}</b>
+              {copy.noteAfter}
             </div>
           </div>
-          {dragging ? <span className="sr-only">Comparison slider active</span> : null}
+          {dragging ? <span className="sr-only">{copy.sliderActive}</span> : null}
         </div>
       </section>
 
@@ -693,25 +529,25 @@ const Websites = () => {
         <div className="container">
           <div className="ws-head reveal">
             <div>
-              <p className="ws-eyebrow">03 / Pricing</p>
+              <p className="ws-eyebrow">{copy.priceEyebrow}</p>
               <h2 id="packages-heading" className="ws-disp">
-                A starting point for every size.
+                {copy.priceHeading}
               </h2>
             </div>
-            <p>Pick what fits. The free quote is the real number for your business — no surprise line items later.</p>
+            <p>{copy.priceLede}</p>
           </div>
           <div className="ws-plans">
             {packages.map((pkg) => {
               const { from, amount } = priceParts(pkg.price);
               return (
-                <article key={pkg.name} className={`ws-plan reveal${pkg.featured ? " feat" : ""}`}>
+                <article key={pkg.id} className={`ws-plan reveal${pkg.featured ? " feat" : ""}`}>
                   <div className="ws-kind">
                     <span>{pkg.name}</span>
                     {pkg.badge ? <span className="ws-badge">{pkg.badge}</span> : null}
                     {pkg.optionalLabel ? <span>{pkg.optionalLabel}</span> : null}
                   </div>
                   <p className="ws-price">
-                    {from ? <span className="ws-from">from</span> : null}
+                    {from ? <span className="ws-from">{copy.from}</span> : null}
                     <span className="ws-amount">{amount}</span>
                     {pkg.interval ? <small>{pkg.interval}</small> : null}
                   </p>
@@ -723,34 +559,32 @@ const Websites = () => {
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
-                  <a className="ws-cta" href="#quote" onClick={() => selectPlan(pkg.name)}>
+                  <a className="ws-cta" href="#quote" onClick={() => selectPlan(pkg.id)}>
                     {pkg.cta} <span aria-hidden="true">→</span>
                   </a>
                 </article>
               );
             })}
           </div>
-          <p className="ws-fineprint">Not required to own your site · Cancel the care plan any time</p>
+          <p className="ws-fineprint">{copy.fineprint}</p>
         </div>
       </section>
 
       <section className="ws-s ws-about" aria-labelledby="why-heading">
         <div className="container ws-about-grid">
           <div className="reveal">
-            <p className="ws-eyebrow ws-eyebrow-on-dark">04 / Who builds it</p>
+            <p className="ws-eyebrow ws-eyebrow-on-dark">{copy.aboutEyebrow}</p>
             <h2 id="why-heading" className="ws-disp">
-              I’m Alejandro<span className="ws-em">.</span>
+              {copy.aboutHeading}
+              <span className="ws-em">.</span>
             </h2>
-            <p className="ws-sub">I make sites that people can actually use.</p>
+            <p className="ws-sub">{copy.aboutSub}</p>
             <p>
-              Ten years testing software before real people had to rely on it — for apps serving 350K+ users — plus a{" "}
-              <strong>CPACC credential</strong> in making websites usable for people with disabilities.
+              {copy.aboutP1} <strong>{copy.aboutCred}</strong> {copy.aboutP1b}
             </p>
+            <p>{copy.aboutP2}</p>
             <p>
-              Your site gets built so more people can use it: phone, keyboard, or screen reader. Then it’s checked the way software gets checked — links, forms, and the path from “I found you” to “I’m contacting you.”
-            </p>
-            <p>
-              <strong>English, Spanish, or both. Your call.</strong>
+              <strong>{copy.aboutLang}</strong>
             </p>
             <div className="ws-stats" ref={statsRef}>
               <div>
@@ -758,18 +592,18 @@ const Websites = () => {
                   {qaCount}
                   {countsDone || reduceMotion ? "+" : ""}
                 </b>
-                <span>Years in QA</span>
+                <span>{copy.statYears}</span>
               </div>
               <div>
                 <b>
                   {releaseCount}
                   {countsDone || reduceMotion ? "+" : ""}
                 </b>
-                <span>Releases shipped</span>
+                <span>{copy.statReleases}</span>
               </div>
               <div>
                 <b>CPACC</b>
-                <span>Certified</span>
+                <span>{copy.statCertified}</span>
               </div>
             </div>
           </div>
@@ -779,7 +613,7 @@ const Websites = () => {
                 <path id="ws-ring-path" d="M80,80 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0" />
               </defs>
               <text>
-                <textPath href="#ws-ring-path">Worldwide remote · Hablo español · Remote ·</textPath>
+                <textPath href="#ws-ring-path">{copy.ring}</textPath>
               </text>
             </svg>
             <figure className="ws-portrait">
@@ -793,7 +627,7 @@ const Websites = () => {
               />
               <figcaption className="ws-lab">
                 <span>Alejandro Curiel</span>
-                <span>Worldwide remote</span>
+                <span>{copy.location}</span>
               </figcaption>
             </figure>
           </div>
@@ -804,12 +638,12 @@ const Websites = () => {
         <div className="container">
           <div className="ws-head reveal">
             <div>
-              <p className="ws-eyebrow">05 / How it works</p>
+              <p className="ws-eyebrow">{copy.processEyebrow}</p>
               <h2 id="process-heading" className="ws-disp">
-                Getting a site should feel easy.
+                {copy.processHeading}
               </h2>
             </div>
-            <p>Four short steps. You always know what’s next, and you own the finished site.</p>
+            <p>{copy.processLede}</p>
           </div>
           <div className="ws-steps" ref={stepsRef}>
             <div className="ws-rail" aria-hidden="true">
@@ -835,12 +669,12 @@ const Websites = () => {
         <div className="container">
           <div className="ws-head reveal">
             <div>
-              <p className="ws-eyebrow">06 / Proof</p>
+              <p className="ws-eyebrow">{copy.proofEyebrow}</p>
               <h2 id="proof-heading" className="ws-disp">
-                Real sites, already live.
+                {copy.proofHeading}
               </h2>
             </div>
-            <p>Client sites you can open and click through.</p>
+            <p>{copy.proofLede}</p>
           </div>
           <ul className="ws-proj">
             {proofProjects.map((project) => (
@@ -855,10 +689,10 @@ const Websites = () => {
                       loading="lazy"
                       decoding="async"
                     />
-                    <span className="ws-view">Visit ↗</span>
+                    <span className="ws-view">{copy.visit}</span>
                   </div>
                   <div className="ws-bd">
-                    <span className="ws-t">{project.tag}</span>
+                    <span className="ws-t">{copy.tags[project.title] ?? project.tag}</span>
                     <h3>{project.title}</h3>
                     <p>{project.text}</p>
                   </div>
@@ -873,9 +707,9 @@ const Websites = () => {
         <div className="container">
           <div className="ws-head reveal">
             <div>
-              <p className="ws-eyebrow">Clients</p>
+              <p className="ws-eyebrow">{copy.clientsEyebrow}</p>
               <h2 id="testimonials-heading" className="ws-disp">
-                What clients say.
+                {copy.clientsHeading}
               </h2>
             </div>
             <p>{testimonialsIntro}</p>
@@ -917,9 +751,9 @@ const Websites = () => {
       <section className="ws-s" aria-labelledby="faq-heading">
         <div className="container ws-faq-grid">
           <div>
-            <p className="ws-eyebrow">07 / FAQ</p>
+            <p className="ws-eyebrow">{copy.faqEyebrow}</p>
             <h2 id="faq-heading" className="ws-disp">
-              Quick answers.
+              {copy.faqHeading}
             </h2>
           </div>
           <div className="ws-faq reveal">
@@ -944,18 +778,16 @@ const Websites = () => {
         <div className="ws-blob ws-blob-a ws-blob-contact" aria-hidden="true" />
         <div className="container ws-contact-grid">
           <div className="reveal">
-            <p className="ws-eyebrow">08 / Free quote</p>
+            <p className="ws-eyebrow">{copy.quoteEyebrow}</p>
             <h2 id="quote-heading" className="ws-disp">
-              Ready? Tell me about the business.
+              {copy.quoteHeading}
             </h2>
-            <p className="ws-lede">
-              A few lines is enough. I’ll reply within a day with a price and what the first version would include. Or just call — that’s often easier.
-            </p>
+            <p className="ws-lede">{copy.quoteLede}</p>
             <ul className="ws-direct">
               <li>
                 <a href="mailto:info@alexcuriel.com">
                   <span>
-                    <small>Email</small>
+                    <small>{copy.emailLabel}</small>
                     info@alexcuriel.com
                   </span>
                   <span aria-hidden="true">↗</span>
@@ -964,7 +796,7 @@ const Websites = () => {
               <li>
                 <a href="tel:+16197928464">
                   <span>
-                    <small>Call or text</small>
+                    <small>{copy.callLabel}</small>
                     (619) 792-8464
                   </span>
                   <span aria-hidden="true">↗</span>
@@ -980,6 +812,7 @@ const Websites = () => {
             launchPrice={websitePrices.launch.replace("From ", "")}
             businessPrice={websitePrices.business.replace("From ", "")}
             customPrice={websitePrices.custom.replace("From ", "")}
+            copy={copy.form}
           />
         </div>
       </section>
