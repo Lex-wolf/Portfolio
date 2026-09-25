@@ -20,7 +20,9 @@ const MoonIcon = () => (
   </svg>
 );
 
-const Navbar = () => {
+const Navbar = ({ path = "/" }) => {
+  const onHome = path === "/";
+  const sectionHref = (id) => (onHome ? `#${id}` : `/#${id}`);
   const { lang, setLang } = useLanguage();
   const [theme, setTheme] = useState("dark");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -43,16 +45,24 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-inner">
-        <a href="#top" className="logo">
+        <a href={onHome ? "#top" : "/"} className="logo">
           alex<span className="dot">.</span>curiel
         </a>
 
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <a href="#projects" className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
-          <a href="#about" className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
-          <a href="#technologies" className="nav-link" onClick={() => setMenuOpen(false)}>Stack</a>
-          <a href="#experience" className="nav-link" onClick={() => setMenuOpen(false)}>Experience</a>
-          <a href="#contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
+          <a href={sectionHref("projects")} className="nav-link" onClick={() => setMenuOpen(false)}>Work</a>
+          <a href={sectionHref("about")} className="nav-link" onClick={() => setMenuOpen(false)}>About</a>
+          <a href={sectionHref("technologies")} className="nav-link" onClick={() => setMenuOpen(false)}>Stack</a>
+          <a href={sectionHref("experience")} className="nav-link" onClick={() => setMenuOpen(false)}>Experience</a>
+          <a href={sectionHref("contact")} className="nav-link" onClick={() => setMenuOpen(false)}>Contact</a>
+          <a
+            href="/websites"
+            className="nav-link"
+            aria-current={path === "/websites" ? "page" : undefined}
+            onClick={() => setMenuOpen(false)}
+          >
+            Websites
+          </a>
         </div>
 
         <div className="nav-right">

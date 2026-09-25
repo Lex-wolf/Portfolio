@@ -2,7 +2,7 @@ import project1 from "../assets/weather.webp";
 import project2 from "../assets/todo.webp";
 import project3 from "../assets/profile2.webp";
 import ftp2Image from "../assets/FTP2.webp";
-import chicanaImage from "../assets/chicana2.webp";
+import chicanaImage from "../assets/chicana-hummingbird.webp";
 import project6 from "../assets/geobrasil.webp";
 import PizzaBar from "../assets/PizzaBar.webp";
 import RoseAuto from "../assets/roseauto.webp";
@@ -190,17 +190,19 @@ export const PROJECTS = [
     link: "https://www.geodesicbrasil.com/",
   },
   {
-    title: "Local Artist Website",
+    title: "Chicana Hummingbird",
     image: chicanaImage,
     description:
-      " Collaborated with a local artist to bring her Chicana-inspired work to life online. The site blends earthy visuals, cultural storytelling, and a nature-forward aesthetic. I used React, Tailwind, and Node.js to build a fast, flexible platform that showcases her portfolio while staying true to her creative voice.",
+      "Rebuilt chicanahummingbird.com into an editorial artist site with a print shop, a dedicated admin she can use to update her inventory, Neon-backed content, and Stripe checkout. React, Vite, and Tailwind on Vercel.",
     technologies: [
-      "HTML",
-      "Tailwind CSS",
-      "React.js",
-      "JavaScript",
+      "React 18",
       "Vite",
-      "Node.js",
+      "Tailwind CSS",
+      "React Router",
+      "Clerk",
+      "Neon",
+      "Stripe",
+      "Vercel",
     ],
     link: "https://chicanahummingbird.com/",
   },

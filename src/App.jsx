@@ -7,11 +7,34 @@ import Experience from "./components/Experience";
 import ProjectsNew from "./components/ProjectsNew";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Websites from "./components/Websites";
+import "./websites.css";
 import { HydrationProvider } from "./context/HydrationContext";
 import { LanguageProvider } from "./context/LanguageContext";
 import { AudienceViewProvider } from "./context/AudienceViewContext";
 
-const App = () => {
+function normalizePath(path) {
+  if (!path) return "/";
+  const clean = path.split("?")[0].split("#")[0];
+  if (clean.length > 1 && clean.endsWith("/")) return clean.slice(0, -1);
+  return clean || "/";
+}
+
+const App = ({ url }) => {
+  const pathname = normalizePath(
+    url ?? (typeof window !== "undefined" ? window.location.pathname : "/"),
+  );
+  const isWebsites = pathname === "/websites";
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("on-websites", isWebsites);
+    document.body.classList.toggle("on-websites", isWebsites);
+    return () => {
+      document.documentElement.classList.remove("on-websites");
+      document.body.classList.remove("on-websites");
+    };
+  }, [isWebsites]);
+
   useEffect(() => {
     const reveal = (target) => {
       target.classList.add("in", "reveal-in");
@@ -59,17 +82,28 @@ const App = () => {
       <LanguageProvider>
         <AudienceViewProvider>
           <div className="relative isolate z-[1] w-full min-h-full">
-            <div className="app-shell">
-              <Navbar />
-              <main>
-                <Hero />
-                <About />
-                <ProjectsNew />
-                <Technologies />
-                <Experience />
-                <Contact />
-              </main>
-              <Footer />
+            <div className={`app-shell${isWebsites ? " websites-route" : ""}`}>
+              {isWebsites ? (
+                <a className="skip-link" href="#websites-main">
+                  Skip to content
+                </a>
+              ) : null}
+              <Navbar path={pathname} />
+              {isWebsites ? (
+                <main id="websites-main">
+                  <Websites />
+                </main>
+              ) : (
+                <main>
+                  <Hero />
+                  <About />
+                  <ProjectsNew />
+                  <Technologies />
+                  <Experience />
+                  <Contact />
+                </main>
+              )}
+              <Footer path={pathname} />
             </div>
           </div>
         </AudienceViewProvider>

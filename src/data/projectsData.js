@@ -16,7 +16,7 @@ import pjWebsite from "../assets/pj-website.webp";
 import thomasRWebsite from "../assets/thomasr-website.webp";
 import toTheStars from "../assets/to-the-stars-website.webp";
 import astroReminder from "../assets/astro.webp";
-import chicanaImage from "../assets/chicana2.webp";
+import chicanaImage from "../assets/chicana-hummingbird.webp";
 import tacoGarage from "../assets/taco-garage.webp";
 import aspire1 from "../assets/aspire-1.webp";
 import aspire2 from "../assets/aspire-2.webp";
@@ -33,7 +33,6 @@ import goldEvents from "../assets/gold-events.webp";
 import neuroplasticityLab from "../assets/neuroplasticity-lab.webp";
 import axeThroCo from "../assets/axe-throco.webp";
 
-// Updated: Local Artist Website now uses chicana2.png
 export const projects = [
   // Frontend Projects
   {
@@ -150,11 +149,22 @@ export const projects = [
   },
   {
     id: 5,
-    title: "Local Artist Website",
+    title: "Chicana Hummingbird",
     category: "built",
-    description: "Chicana-inspired artist portfolio and cultural storytelling",
-    about: "Collaborated with a local artist to bring her Chicana-inspired work to life online. The site blends earthy visuals, cultural storytelling, and a nature-forward aesthetic. I used React, Tailwind, and Node.js to build a fast, flexible platform that showcases her portfolio while staying true to her creative voice.",
-    technologies: ["HTML", "Tailwind CSS", "React.js", "JavaScript", "Vite", "Node.js"],
+    description:
+      "Artist site rebuild with print shop, a dedicated admin she can use to update inventory, Neon content, and Stripe checkout.",
+    about:
+      "Rebuilt chicanahummingbird.com into an editorial artist site for a San Diego muralist and print seller. The public site covers latest work, gallery, contact, and a print/sticker shop with cart flow. She has a dedicated Clerk-protected studio admin she can use to update her inventory and gallery content stored in Neon, and Stripe handles checkout for matte poster prints. Built with React, Vite, and Tailwind, deployed on Vercel.",
+    technologies: [
+      "React 18",
+      "Vite",
+      "Tailwind CSS",
+      "React Router",
+      "Clerk",
+      "Neon",
+      "Stripe",
+      "Vercel",
+    ],
     image: chicanaImage,
     website: "https://chicanahummingbird.com/",
   },

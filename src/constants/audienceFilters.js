@@ -16,7 +16,7 @@ export const WEB_AUDIENCE_PROJECT_TITLES = new Set([
   "Neuroplasticity Lab",
   "Nonprofit Tree Planting Community",
   "Astro Reminder Website",
-  "Local Artist Website",
+  "Chicana Hummingbird",
 ]);
 
 /** `tech.name` values in Technologies.jsx */

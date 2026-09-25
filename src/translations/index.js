@@ -17,7 +17,7 @@ export const translations = {
       line1:
         "I've broken more staging environments than I can count. That's the job. 10 years finding what engineers miss before 750K+ users find it first. Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile.",
       line1Web:
-        "The Taco Garage is a headless Shopify build: React on the Storefront API, Tailwind, Node on Vercel, checkout still on Shopify. Other shipped work includes Geodesic Brasil (React, Vite, TypeScript), Astro Reminder (React, Tailwind, Framer Motion), Neuroplasticity Lab, Nonprofit Tree Planting Community, and Local Artist Website on React and Vite.",
+        "The Taco Garage is a headless Shopify build: React on the Storefront API, Tailwind, Node on Vercel, checkout still on Shopify. Other shipped work includes Geodesic Brasil (React, Vite, TypeScript), Astro Reminder (React, Tailwind, Framer Motion), Neuroplasticity Lab, Nonprofit Tree Planting Community, and Chicana Hummingbird (React, Vite, Clerk, Neon, Stripe).",
       line2: "I also build client websites when that is what the project needs.",
       line2Web:
         "Use the QA toggle for testing and accessibility; this view is the client sites I built in the browser.",
@@ -167,7 +167,7 @@ export const translations = {
       line1:
         "He roto más entornos de staging de los que puedo contar. Ese es el trabajo. 10 años encontrando lo que a los ingenieros se les escapa antes de que más de 750K usuarios lo encuentren primero. Pearl Jam, Eric Church, Thomas Rhett, Brandi Carlile.",
       line1Web:
-        "The Taco Garage: tienda headless con React sobre la Storefront API de Shopify, Tailwind, Node en Vercel y checkout en Shopify. También Geodesic Brasil (React, Vite, TypeScript), Astro Reminder (React, Tailwind, Framer Motion), Neuroplasticity Lab, la web del proyecto de árboles sin fines de lucro y un sitio para artista local con React y Vite.",
+        "The Taco Garage: tienda headless con React sobre la Storefront API de Shopify, Tailwind, Node en Vercel y checkout en Shopify. También Geodesic Brasil (React, Vite, TypeScript), Astro Reminder (React, Tailwind, Framer Motion), Neuroplasticity Lab, la web del proyecto de árboles sin fines de lucro y Chicana Hummingbird (React, Vite, Clerk, Neon, Stripe).",
       line2: "También desarrollo sitios para clientes cuando el proyecto lo pide.",
       line2Web:
         "En el modo QA está el enfoque de pruebas y accesibilidad; aquí solo los sitios que construí en el front-end.",

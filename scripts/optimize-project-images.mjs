@@ -30,6 +30,7 @@ const FILES = [
   "to-the-stars-website.png",
   "astro.png",
   "chicana2.png",
+  "chicana-hummingbird.png",
   "taco-garage.png",
   "aspire-1.png",
   "aspire-2.png",

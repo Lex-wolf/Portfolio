@@ -115,7 +115,7 @@ test.describe('Portfolio Components Tests', () => {
       'Neuroplasticity Lab',
       'Nonprofit Tree Planting Community',
       'Astro Reminder Website',
-      'Local Artist Website',
+      'Chicana Hummingbird',
     ];
 
     for (const title of webProjectTitles) {
