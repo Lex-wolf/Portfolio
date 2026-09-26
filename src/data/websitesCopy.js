@@ -144,7 +144,7 @@ const copy = {
       "Axe Thro Co": "Venue",
       "GOLD Events": "Events",
       "Neuroplasticity Lab": "Experiment",
-      "The Taco Garage": "Restaurant",
+      "The Taco Garage": "Auto repair",
       "Astro Reminder Website": "Coaching",
       "Rose Auto Service": "Auto repair",
       "Axe Thro Co's Pizza Bar": "Restaurant",
@@ -157,7 +157,7 @@ const copy = {
     clientsEyebrow: "Clients",
     clientsHeading: "Before they have to ask.",
     clientsIntro:
-      "A Philadelphia shop and a taco spot. Both live. Both put the useful stuff on the first screen — hours, menu, how to reach them.",
+      "A Philadelphia shop and a Chula Vista truck shop. Both live. Both put the useful stuff on the first screen — what they fix, and how to reach them.",
     clients: [
       {
         text: "Seventy years fixing BMWs, Audis, Mercedes, and Volkswagens. The site says what they do, when they’re open, and how to pull in — before anyone has to ask in a comment.",
@@ -167,9 +167,9 @@ const copy = {
         href: "https://www.roseautoservice.com",
       },
       {
-        text: "They kept Shopify for checkout. The page in front of it is custom: the menu, the merch, and a storefront that looks like the restaurant.",
+        text: "Toyota truck parts, and a Chula Vista shop that installs them. Checkout stays on Shopify. The page in front of it shows the parts, a way to book an install, and the address.",
         name: "The Taco Garage",
-        business: "Restaurant",
+        business: "Auto repair",
         mark: "TG",
         href: "https://www.thetacogarage.com",
       },
@@ -355,7 +355,7 @@ const copy = {
       "Axe Thro Co": "Local",
       "GOLD Events": "Eventos",
       "Neuroplasticity Lab": "Experimento",
-      "The Taco Garage": "Restaurante",
+      "The Taco Garage": "Taller",
       "Astro Reminder Website": "Coaching",
       "Rose Auto Service": "Taller",
       "Axe Thro Co's Pizza Bar": "Restaurante",
@@ -368,7 +368,7 @@ const copy = {
     clientsEyebrow: "Clientes",
     clientsHeading: "Antes de que tengan que preguntar.",
     clientsIntro:
-      "Un taller en Filadelfia y una taquería. Los dos en línea. Los dos ponen lo útil en la primera pantalla — horarios, menú, cómo llegar.",
+      "Un taller en Filadelfia y otro en Chula Vista. Los dos en línea. Los dos ponen lo útil en la primera pantalla — qué arreglan y cómo llegar.",
     clients: [
       {
         text: "Setenta años reparando BMW, Audi, Mercedes y Volkswagen. El sitio dice qué hacen, cuándo están abiertos y cómo llegar — antes de que alguien tenga que preguntar en un comentario.",
@@ -378,9 +378,9 @@ const copy = {
         href: "https://www.roseautoservice.com",
       },
       {
-        text: "El cobro se quedó en Shopify. La página de enfrente es suya: el menú, los productos y una tienda que se ve como el restaurante.",
+        text: "Refacciones para camionetas Toyota, y un taller en Chula Vista que las instala. El cobro se quedó en Shopify. La página de enfrente muestra las piezas, cómo reservar la instalación y la dirección.",
         name: "The Taco Garage",
-        business: "Restaurante",
+        business: "Taller",
         mark: "TG",
         href: "https://www.thetacogarage.com",
       },
@@ -566,7 +566,7 @@ const copy = {
       "Axe Thro Co": "Casa",
       "GOLD Events": "Eventos",
       "Neuroplasticity Lab": "Experimento",
-      "The Taco Garage": "Restaurante",
+      "The Taco Garage": "Oficina",
       "Astro Reminder Website": "Coaching",
       "Rose Auto Service": "Oficina",
       "Axe Thro Co's Pizza Bar": "Restaurante",
@@ -579,7 +579,7 @@ const copy = {
     clientsEyebrow: "Clientes",
     clientsHeading: "Antes de precisarem perguntar.",
     clientsIntro:
-      "Uma oficina na Filadélfia e uma taquería. Os dois no ar. Os dois colocam o útil na primeira tela — horários, cardápio, como chegar.",
+      "Uma oficina na Filadélfia e outra em Chula Vista. Os dois no ar. Os dois colocam o útil na primeira tela — o que consertam e como chegar.",
     clients: [
       {
         text: "Setenta anos consertando BMW, Audi, Mercedes e Volkswagen. O site diz o que fazem, quando estão abertos e como chegar — antes de alguém precisar perguntar num comentário.",
@@ -589,9 +589,9 @@ const copy = {
         href: "https://www.roseautoservice.com",
       },
       {
-        text: "O pagamento ficou no Shopify. A página na frente é deles: o cardápio, os produtos e uma loja que parece o restaurante.",
+        text: "Peças para caminhonetes Toyota, e uma oficina em Chula Vista que instala. O pagamento ficou no Shopify. A página na frente mostra as peças, como agendar a instalação e o endereço.",
         name: "The Taco Garage",
-        business: "Restaurante",
+        business: "Oficina",
         mark: "TG",
         href: "https://www.thetacogarage.com",
       },
