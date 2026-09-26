@@ -48,8 +48,6 @@ const heroShots = [
   },
 ];
 
-const { testimonials, testimonialsIntro } = websitesPlaceholders;
-
 function prefersReducedMotion() {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
@@ -712,36 +710,24 @@ const Websites = () => {
                 {copy.clientsHeading}
               </h2>
             </div>
-            <p>{testimonialsIntro}</p>
+            <p>{copy.clientsIntro}</p>
           </div>
           <ul className="ws-testimonials">
-            {testimonials.map((item) => (
-              <li key={`${item.name}-${item.business}`}>
-                <figure className="ws-testimonial">
-                  <blockquote>
-                    <p>{item.quote}</p>
-                  </blockquote>
-                  <figcaption>
-                    {item.photoSrc ? (
-                      <span className="ws-testimonial-photo">
-                        <img
-                          src={item.photoSrc}
-                          alt={item.photoAlt}
-                          width={48}
-                          height={48}
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </span>
-                    ) : (
-                      <span className="ws-testimonial-photo-empty" role="img" aria-label={item.photoAlt} />
-                    )}
+            {copy.clients.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} target="_blank" rel="noreferrer" className="ws-testimonial reveal">
+                  <p>{item.text}</p>
+                  <span className="ws-testimonial-foot">
+                    <span className="ws-testimonial-mark" aria-hidden="true">
+                      {item.mark}
+                    </span>
                     <span className="ws-testimonial-meta">
-                      <cite className="ws-testimonial-name">{item.name}</cite>
+                      <span className="ws-testimonial-name">{item.name}</span>
                       <span className="ws-testimonial-biz">{item.business}</span>
                     </span>
-                  </figcaption>
-                </figure>
+                    <span className="ws-testimonial-open">{copy.visit}</span>
+                  </span>
+                </a>
               </li>
             ))}
           </ul>

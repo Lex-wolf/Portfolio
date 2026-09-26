@@ -27,7 +27,7 @@ export const websitesSeo = {
 
 /**
  * Editable slots for /websites. Timelines and care note match the handoff.
- * Testimonials stay as TODOs until real quotes exist — do not invent them.
+ * Client notes live in websitesCopy.js so they can be translated.
  */
 export const websitesPlaceholders = {
   timelines: {
@@ -38,23 +38,6 @@ export const websitesPlaceholders = {
   },
   careOptionalNote: "Optional — not required to own your site. Cancel any time.",
   portraitAlt: "Alejandro Curiel",
-  testimonialsIntro: "TODO: Short intro once real quotes are in place.",
-  testimonials: [
-    {
-      quote:
-        "TODO: Client quote — two or three sentences about working together and what changed for their business.",
-      name: "TODO: Client name",
-      business: "TODO: Business name",
-      photoAlt: "TODO: Optional photo of client",
-    },
-    {
-      quote:
-        "TODO: Second client quote — keep it short and specific. Replace or remove this card if you only have one.",
-      name: "TODO: Client name 2",
-      business: "TODO: Business name 2",
-      photoAlt: "TODO: Optional photo of client",
-    },
-  ],
   beforeAfter: {
     heading: "Same business. Two first impressions.",
     lede: "Drag the handle. On the left, a customer scrolls posts hoping to find your hours. On the right, they already know how to reach you.",

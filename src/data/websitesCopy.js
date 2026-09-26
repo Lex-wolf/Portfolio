@@ -155,7 +155,25 @@ const copy = {
       "To Do App": "App",
     },
     clientsEyebrow: "Clients",
-    clientsHeading: "What clients say.",
+    clientsHeading: "Before they have to ask.",
+    clientsIntro:
+      "A Philadelphia shop and a taco spot. Both live. Both put the useful stuff on the first screen — hours, menu, how to reach them.",
+    clients: [
+      {
+        text: "Seventy years fixing BMWs, Audis, Mercedes, and Volkswagens. The site says what they do, when they’re open, and how to pull in — before anyone has to ask in a comment.",
+        name: "Rose Auto Service",
+        business: "Auto repair",
+        mark: "RA",
+        href: "https://www.roseautoservice.com",
+      },
+      {
+        text: "They kept Shopify for checkout. The page in front of it is custom: the menu, the merch, and a storefront that looks like the restaurant.",
+        name: "The Taco Garage",
+        business: "Restaurant",
+        mark: "TG",
+        href: "https://www.thetacogarage.com",
+      },
+    ],
     faqEyebrow: "07 / FAQ",
     faqHeading: "Quick answers.",
     faqs: [
@@ -348,7 +366,25 @@ const copy = {
       "To Do App": "App",
     },
     clientsEyebrow: "Clientes",
-    clientsHeading: "Lo que dicen los clientes.",
+    clientsHeading: "Antes de que tengan que preguntar.",
+    clientsIntro:
+      "Un taller en Filadelfia y una taquería. Los dos en línea. Los dos ponen lo útil en la primera pantalla — horarios, menú, cómo llegar.",
+    clients: [
+      {
+        text: "Setenta años reparando BMW, Audi, Mercedes y Volkswagen. El sitio dice qué hacen, cuándo están abiertos y cómo llegar — antes de que alguien tenga que preguntar en un comentario.",
+        name: "Rose Auto Service",
+        business: "Taller",
+        mark: "RA",
+        href: "https://www.roseautoservice.com",
+      },
+      {
+        text: "El cobro se quedó en Shopify. La página de enfrente es suya: el menú, los productos y una tienda que se ve como el restaurante.",
+        name: "The Taco Garage",
+        business: "Restaurante",
+        mark: "TG",
+        href: "https://www.thetacogarage.com",
+      },
+    ],
     faqEyebrow: "07 / Preguntas",
     faqHeading: "Respuestas rápidas.",
     faqs: [
@@ -541,7 +577,25 @@ const copy = {
       "To Do App": "App",
     },
     clientsEyebrow: "Clientes",
-    clientsHeading: "O que os clientes dizem.",
+    clientsHeading: "Antes de precisarem perguntar.",
+    clientsIntro:
+      "Uma oficina na Filadélfia e uma taquería. Os dois no ar. Os dois colocam o útil na primeira tela — horários, cardápio, como chegar.",
+    clients: [
+      {
+        text: "Setenta anos consertando BMW, Audi, Mercedes e Volkswagen. O site diz o que fazem, quando estão abertos e como chegar — antes de alguém precisar perguntar num comentário.",
+        name: "Rose Auto Service",
+        business: "Oficina",
+        mark: "RA",
+        href: "https://www.roseautoservice.com",
+      },
+      {
+        text: "O pagamento ficou no Shopify. A página na frente é deles: o cardápio, os produtos e uma loja que parece o restaurante.",
+        name: "The Taco Garage",
+        business: "Restaurante",
+        mark: "TG",
+        href: "https://www.thetacogarage.com",
+      },
+    ],
     faqEyebrow: "07 / Perguntas",
     faqHeading: "Respostas rápidas.",
     faqs: [
