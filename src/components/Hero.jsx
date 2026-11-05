@@ -3,6 +3,7 @@ import headshot from "../assets/headshot-2026.png";
 import { useLanguage } from "../context/LanguageContext";
 import { useAudienceView } from "../context/AudienceViewContext";
 import AudienceToggle from "./AudienceToggle";
+import ToptalBadge from "./ToptalBadge";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -52,12 +53,15 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="portrait">
-            <img src={headshot} alt="Alejandro Curiel" className="portrait-img" />
-            <div className="portrait-meta">
-              <span><span className="blink" />AVAILABLE</span>
-              <span>MX · REMOTE</span>
+          <div className="hero-aside">
+            <div className="portrait">
+              <img src={headshot} alt="Alejandro Curiel" className="portrait-img" />
+              <div className="portrait-meta">
+                <span><span className="blink" />AVAILABLE</span>
+                <span>MX · REMOTE</span>
+              </div>
             </div>
+            <ToptalBadge />
           </div>
         </div>
 
