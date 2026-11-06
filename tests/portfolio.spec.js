@@ -299,7 +299,7 @@ test.describe('Footer', () => {
 
   test('LinkedIn link is present in footer', async ({ page }) => {
     await page.goto(BASE_URL);
-    const link = page.locator('footer a[href*="linkedin"], a[href="https://linkedin.com"]').first();
+    const link = page.locator('footer a[href*="linkedin.com/in/lxcrl"]').first();
     await expect(link).toBeVisible();
   });
 
